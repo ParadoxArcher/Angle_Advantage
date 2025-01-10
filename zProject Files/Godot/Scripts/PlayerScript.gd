@@ -7,7 +7,7 @@ var RotaSpeed : float = 0
 @export var RotaAccel = [10.0, -.2, 10.0, 0.05] # {0: RotaAccel, 1: AccelEaseCurve, 2: RotaDecel, 3: DecelEaseCurve}
 
 ## Brake Variables
-@export var BrakeDecel = [2.5, 30, 0.05] # {0: SpeedDecel, 1: RotaDecel[2], 2: DecelEaseCurve}
+@export var BrakeDecel = [2.5, 1000, 1] # {0: SpeedDecel, 1: RotaDecel[2], 2: DecelEaseCurve}
 
 ##Dodge Variables
 @export var DodgeMaxSpeed = [1.5, 100, -4] # {0: MaxSpeedMultiplier, 1: MaxSpeedDecel, 2: EaseCurve}
@@ -29,7 +29,7 @@ func _physics_process(delta):
 	var MoveInput = Vector2(Input.get_action_strength("RotateRight") - Input.get_action_strength("RotateLeft"), Input.get_action_strength("Boost") - Input.get_action_strength("Brake"))
 	var AccelRate
 	var RotaRate
-	
+
 	#region Brake
 	var isBraking = false
 	if MoveInput.y <= -.75:
@@ -37,6 +37,7 @@ func _physics_process(delta):
 	#endregion
 	
 	#region Rotation Rate
+	
 	if MoveInput.x != 0:
 		RotaRate = [RotaAccel[0], RotaAccel[1]] #RotaAccel
 	elif not isBraking:
