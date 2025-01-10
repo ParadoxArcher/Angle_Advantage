@@ -8,18 +8,61 @@
         "type": "tabs",
         "children": [
           {
-            "id": "423fcc3f763e1ff2",
+            "id": "ccb67a022bf0fc28",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DevNotes/Player/Player.md",
+                "file": "Devlogs/2025-01-10.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Player"
+              "title": "2025-01-10"
+            }
+          },
+          {
+            "id": "423fcc3f763e1ff2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "DevNotes/Brakes.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Brakes"
+            }
+          },
+          {
+            "id": "2b906768df75cac8",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "kanban",
+              "state": {
+                "file": "DevNotes/ToDoList.md",
+                "kanbanViewState": {
+                  "kanban-plugin": "board",
+                  "list-collapse": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              },
+              "pinned": true,
+              "icon": "lucide-trello",
+              "title": "ToDoList"
             }
           }
         ]
@@ -178,10 +221,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DevNotes/Player/Player.md"
+                "file": "Devlogs/2025-01-10.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of Player"
+              "title": "Outline of 2025-01-10"
             }
           }
         ],
@@ -205,19 +248,27 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "423fcc3f763e1ff2",
+  "active": "ccb67a022bf0fc28",
   "lastOpenFiles": [
+    "DevNotes/Brakes.md",
     "DevNotes/ToDoList.md",
+    "Devlogs/2025-01-10.md",
+    "DevNotes/Player/Player.md",
+    "Reference Images/Excalidraw/MissionStatementSketch.md",
+    "DevNotes/Mission Statement.md",
+    "Reference Images/Excalidraw/Drawing 2025-01-10 09.06.25.excalidraw.md",
+    "DevNotes/Player/Movement/Boost.md",
+    "zProject Files/Godot/icon.svg",
+    "zProject Files/Godot/Scenes/Player.tscn~RF1bee1275.TMP",
+    "zProject Files/Godot/Scenes/Pla1289.tmp",
+    "zProject Files/Godot/Scenes/GameScene.tscn~RF1bee118a.TMP",
+    "zProject Files/Godot/Scenes/Gam1189.tmp",
+    "zProject Files/Godot/project.godot~RF1bedfe12.TMP",
+    "zProject Files/Godot/proFE16.tmp",
     "zProject Files/Godot/Scenes/Pla6D22.tmp",
     "zProject Files/Godot/Scenes/GameScene.tscn~RF19f86c27.TMP",
     "zProject Files/Godot/Scenes/Gam6C42.tmp",
     "zProject Files/Godot/project.godot~RF19f860dd.TMP",
-    "zProject Files/Godot/pro60E1.tmp",
-    "zProject Files/Godot/Scenes/Player.tscn",
-    "zProject Files/Godot/Scenes/GameScene.tscn",
-    "zProject Files/Godot/Scripts/PlayerScript.gd",
-    "zProject Files/Godot/Assets/Yellow Arrow.png~",
-    "zProject Files/Godot/Assets/Yellow Arrow.png.import",
     "zProject Files/Godot/Assets/Yellow Arrow.png",
     "zProject Files/Godot/Assets/Red Arrow.png",
     "zProject Files/Godot/Assets/Green Arrow.png",
@@ -225,18 +276,13 @@
     "zProject Files/Godot/Assets/download.jpg",
     "zProject Files/Godot/Assets/CMYKCheckerboard1.png",
     "zProject Files/Godot/Assets/Avatar.png",
-    "zProject Files/Godot/icon.svg",
     "Project Files/Godot/Assets/Yellow Arrow.png",
     "Project Files/Godot/Assets/Red Arrow.png",
-    "DevNotes/Player/Player.md",
-    "DevNotes/Player/Movement/Boost.md",
     "DevNotes/Idea splurges/Ability ideas.md",
     "DevNotes/Idea splurges/Movement Ideas.md",
     "Dodging.md",
     "DevNotes/Idea splurges/Dodge Charges.md",
-    "DevNotes/Mission Statement.md",
     "DevNotes/Untitled.md",
-    "Reference Images/Excalidraw/MissionStatementSketch.md",
     "DevNotes/Player Controller.md",
     "DevNotes/Player Avatar.md",
     "Devlogs/2024-W18.md",
