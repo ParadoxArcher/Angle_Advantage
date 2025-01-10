@@ -7,7 +7,7 @@ var RotaSpeed : float = 0
 @export var RotaAccel = [10.0, -.2, 10.0, 0.05] # {0: RotaAccel, 1: AccelEaseCurve, 2: RotaDecel, 3: DecelEaseCurve}
 
 ## Brake Variables
-@export var BrakeDecel = [2.5, 10, 0.05] # {0: SpeedDecel, 1: RotaDecel[2], 2: DecelEaseCurve}
+@export var BrakeDecel = [2.5, 30, 0.05] # {0: SpeedDecel, 1: RotaDecel[2], 2: DecelEaseCurve}
 
 ##Dodge Variables
 @export var DodgeMaxSpeed = [1.5, 100, -4] # {0: MaxSpeedMultiplier, 1: MaxSpeedDecel, 2: EaseCurve}
@@ -30,11 +30,13 @@ func _physics_process(delta):
 	var AccelRate
 	var RotaRate
 	
+	#region Brake
 	var isBraking = false
 	if MoveInput.y <= -.75:
 		isBraking = true
+	#endregion
 	
-	#region Rotation 
+	#region Rotation Rate
 	if MoveInput.x != 0:
 		RotaRate = [RotaAccel[0], RotaAccel[1]] #RotaAccel
 	elif not isBraking:
@@ -45,7 +47,7 @@ func _physics_process(delta):
 
 	#region Boost
 	var BoostDir = Vector2(0, 0)
-	if MoveInput.y: 
+	if MoveInput.y > 0: 
 		BoostDir = Vector2(cos(rotation), sin(rotation))
 		AccelRate = SpeedAccel[0] #SpeedAccel
 	elif not isBraking:
@@ -68,19 +70,20 @@ func _physics_process(delta):
 		print(MaxSpeed)
 		MaxRota[0] = lerpf(MaxRota[0], MaxRota[1], ease(DodgeMaxRota[1], DodgeMaxRota[2]) * delta) 
 		print(MaxRota)
-		
 	#endregion
 
 	#region WallBoost...
 	
 	#endregion
 	
+	#region Transform
 	RotaSpeed = lerpf(RotaSpeed, MoveInput.x * MaxRota[0], ease(RotaRate[0], RotaRate[1]) * delta) # Rotation Acceleration
 	rotate(RotaSpeed * delta)
 	
 	var TargetVel = BoostDir * MaxSpeed[0]
 	velocity = lerp(velocity, TargetVel, AccelRate * delta)
 	move_and_slide()
+	#endregion
 	
 	#region Markers
 	if Markers[0]:
