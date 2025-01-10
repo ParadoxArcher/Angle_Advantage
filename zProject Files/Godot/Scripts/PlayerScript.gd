@@ -4,10 +4,10 @@ extends CharacterBody2D
 ## Rotation Variables
 var RotaSpeed : float = 0
 @export var MaxRota = [TAU, TAU] # {0: Fluctuating, 1: BaseMaxRota}
-@export var RotaAccel = [10.0, -.2, 10.0, 0.05] # {0: RotaAccel, 1: AccelEaseCurve, 2: RotaDecel, 3: DecelEaseCurve}
+@export var RotaAccel = [PI/2,  PI/4] # {0: RotaAccel, 1: RotaDecel}
 
 ## Brake Variables
-@export var BrakeDecel = [2.5, 1000, 1] # {0: SpeedDecel, 1: RotaDecel[2], 2: DecelEaseCurve}
+@export var BrakeDecel = [2.5, PI] # {0: SpeedDecel, 1: RotaDecel}
 
 ##Dodge Variables
 @export var DodgeMaxSpeed = [1.5, 100, -4] # {0: MaxSpeedMultiplier, 1: MaxSpeedDecel, 2: EaseCurve}
@@ -37,13 +37,12 @@ func _physics_process(delta):
 	#endregion
 	
 	#region Rotation Rate
-	
 	if MoveInput.x != 0:
-		RotaRate = [RotaAccel[0], RotaAccel[1]] #RotaAccel
+		RotaRate = RotaAccel[0] #RotaAccel
 	elif not isBraking:
-		RotaRate = [RotaAccel[2], RotaAccel[3]] #BaseRotaDecel
+		RotaRate = RotaAccel[1] #BaseRotaDecel
 	else:
-		RotaRate = [BrakeDecel[1], BrakeDecel[2]] #BrakeRotaDecel
+		RotaRate = BrakeDecel[1] #BrakeRotaDecel
 	#endregion
 
 	#region Boost
@@ -78,7 +77,7 @@ func _physics_process(delta):
 	#endregion
 	
 	#region Transform
-	RotaSpeed = lerpf(RotaSpeed, MoveInput.x * MaxRota[0], ease(RotaRate[0], RotaRate[1]) * delta) # Rotation Acceleration
+	RotaSpeed = lerpf(RotaSpeed, MoveInput.x * MaxRota[0], RotaRate * delta) # Rotation Acceleration
 	rotate(RotaSpeed * delta)
 	
 	var TargetVel = BoostDir * MaxSpeed[0]
