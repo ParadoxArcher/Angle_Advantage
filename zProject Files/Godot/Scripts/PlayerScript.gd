@@ -7,7 +7,7 @@ var RotaSpeed : float = 0
 @export var RotaAccel = [PI/2,  PI/4] # {0: RotaAccel, 1: RotaDecel}
 
 ## Brake Variables
-@export var BrakeDecel = [2.5, PI] # {0: SpeedDecel, 1: RotaDecel}
+@export var BrakeDecel = [2.5, PI] # {0: SpeedAccel, 1: SpeedDecel, 2: RotaAccel, 3: RotaDecel}
 
 ##Dodge Variables
 @export var DodgeMaxSpeed = [1.5, 100, -4] # {0: MaxSpeedMultiplier, 1: MaxSpeedDecel, 2: EaseCurve}
@@ -39,10 +39,15 @@ func _physics_process(delta):
 	#region Rotation Rate
 	if MoveInput.x != 0:
 		RotaRate = RotaAccel[0] #RotaAccel
+		# BrakeRotaAccel
+		if isBraking && RotaSpeed * MoveInput.x > 0: 
+			RotaRate += BrakeDecel[1] 
+		else:
+			RotaRate / BrakeDecel[1]
 	elif not isBraking:
 		RotaRate = RotaAccel[1] #BaseRotaDecel
 	else:
-		RotaRate = BrakeDecel[1] #BrakeRotaDecel
+		RotaRate = BrakeDecel[4] #BrakeRotaDecel
 	#endregion
 
 	#region Boost
@@ -53,7 +58,7 @@ func _physics_process(delta):
 	elif not isBraking:
 		AccelRate = SpeedAccel[1] #BaseSpeedDecel
 	else:
-		AccelRate = BrakeDecel[0] #BrakeSpeedDecel
+		AccelRate = BrakeDecel[1] #BrakeSpeedDecel
 	#endregion
 
 	#region Dodge
