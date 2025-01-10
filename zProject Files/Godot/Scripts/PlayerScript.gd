@@ -4,10 +4,10 @@ extends CharacterBody2D
 ## Rotation Variables
 var RotaSpeed : float = 0
 @export var MaxRota = [TAU, TAU] # {0: Fluctuating, 1: BaseMaxRota}
-@export var RotaAccel = [PI/2,  PI/4] # {0: RotaAccel, 1: RotaDecel}
+@export var RotaAccel = [PI/2,  PI/6] # {0: RotaAccel, 1: RotaDecel}
 
 ## Brake Variables
-@export var BrakeDecel = [2.5, PI] # {0: SpeedAccel, 1: SpeedDecel, 2: RotaAccel, 3: RotaDecel}
+@export var BrakeDecel = [2.5, PI/2] # {0: SpeedAccel, 1: SpeedDecel, 2: RotaAccel, 3: RotaDecel}
 
 ##Dodge Variables
 @export var DodgeMaxSpeed = [1.5, 100, -4] # {0: MaxSpeedMultiplier, 1: MaxSpeedDecel, 2: EaseCurve}
@@ -40,14 +40,14 @@ func _physics_process(delta):
 	if MoveInput.x != 0:
 		RotaRate = RotaAccel[0] #RotaAccel
 		# BrakeRotaAccel
-		if isBraking && RotaSpeed * MoveInput.x > 0: 
-			RotaRate += BrakeDecel[1] 
-		else:
-			RotaRate / BrakeDecel[1]
+		if isBraking && RotaSpeed * MoveInput.x < 0: 
+			RotaRate += BrakeDecel[1]
+		elif isBraking:
+			RotaRate = 0
 	elif not isBraking:
 		RotaRate = RotaAccel[1] #BaseRotaDecel
 	else:
-		RotaRate = BrakeDecel[4] #BrakeRotaDecel
+		RotaRate = BrakeDecel[1] #BrakeRotaDecel
 	#endregion
 
 	#region Boost
@@ -55,10 +55,11 @@ func _physics_process(delta):
 	if MoveInput.y > 0: 
 		BoostDir = Vector2(cos(rotation), sin(rotation))
 		AccelRate = SpeedAccel[0] #SpeedAccel
+		var BrakeMomentum = velocity.normalized() - BoostDir
 	elif not isBraking:
 		AccelRate = SpeedAccel[1] #BaseSpeedDecel
 	else:
-		AccelRate = BrakeDecel[1] #BrakeSpeedDecel
+		AccelRate = BrakeDecel[0] #BrakeSpeedDecel
 	#endregion
 
 	#region Dodge
