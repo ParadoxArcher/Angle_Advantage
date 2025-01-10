@@ -4,7 +4,7 @@ extends CharacterBody2D
 ## Rotation Variables
 var RotaSpeed : float = 0
 @export var MaxRota = [TAU, TAU] # {0: Fluctuating, 1: BaseMaxRota}
-@export var RotaAccel = [PI/2,  PI/6] # {0: RotaAccel, 1: RotaDecel}
+@export var RotaAccel = [PI/2,  PI/6] # {0: RotaAccel, 1: BaseRotaDecel}
 
 ## Brake Variables
 @export var BrakeDecel = [2.5, PI/2] # {0: SpeedAccel, 1: SpeedDecel, 2: RotaAccel, 3: RotaDecel}
@@ -37,17 +37,17 @@ func _physics_process(delta):
 	#endregion
 	
 	#region Rotation Rate
-	var RotaMomentum = RotaSpeed * MoveInput.x
+	var RotaMomentum = (RotaSpeed / MaxRota[0]) + MoveInput.x
 	if MoveInput.x != 0:
-		
 		if not isBraking:
-			RotaRate = RotaAccel[0]  #RotaAccel 
+			RotaRate = RotaAccel[0] + (RotaMomentum * RotaAccel[1] ) * -MoveInput.x # RotaAccel + directional realease friction 
 		else:
-			RotaRate = RotaAccel[0] 
+			RotaRate = RotaAccel[0] + (RotaMomentum * BrakeDecel[1] ) * -MoveInput.x # RotaAccel + directional brake friction 
 	elif not isBraking:
-		RotaRate = RotaAccel[1] #BaseRotaDecel
+		RotaRate = RotaAccel[1] # Release friction
 	else:
-		RotaRate = BrakeDecel[1] #BrakeRotaDecel
+		RotaRate = BrakeDecel[1] # Brake friction
+	print(RotaRate)
 	#endregion
 
 	#region Boost
@@ -63,7 +63,7 @@ func _physics_process(delta):
 	#endregion
 
 	#region Dodge
-	var DodgeDir = Vector2(Input.get_action_strength("RotateRight") - Input.get_action_strength("RotateLeft"), Input.get_action_strength("Brake") - Input.get_action_strength("Boost"))
+	var DodgeDir = Vector2(Input.get_action_strength("RotateRight") - Input.get_action_strength("RotateLeft"), Input.get_action_strength("Back") - Input.get_action_strength("Boost"))
 	if Input.is_action_just_pressed("Dodge"):
 		if DodgeDir.normalized().is_zero_approx():
 			DodgeDir = Vector2(0,-1)
