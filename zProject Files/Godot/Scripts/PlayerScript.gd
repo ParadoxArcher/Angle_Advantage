@@ -7,7 +7,7 @@ var RotaSpeed : float = 0
 @export var RotaAccel = [10.0, -.2, 10.0, 0.05] # {0: RotaAccel, 1: AccelEaseCurve, 2: RotaDecel, 3: DecelEaseCurve}
 
 ## Brake Variables
-@export var BrakeSpeedDecel = 2.5
+@export var BrakeDecel = [2.5, 10, 0.05] # {0: SpeedDecel, 1: RotaDecel[2], 2: DecelEaseCurve}
 
 ##Dodge Variables
 @export var DodgeMaxSpeed = [1.5, 100, -4] # {0: MaxSpeedMultiplier, 1: MaxSpeedDecel, 2: EaseCurve}
@@ -28,34 +28,30 @@ var RotaSpeed : float = 0
 func _physics_process(delta):
 	var MoveInput = Vector2(Input.get_action_strength("RotateRight") - Input.get_action_strength("RotateLeft"), Input.get_action_strength("Boost") - Input.get_action_strength("Brake"))
 	var AccelRate
+	var RotaRate
+	
+	var isBraking = false
+	if MoveInput.y <= -.75:
+		isBraking = true
 	
 	#region Rotation 
-	var RotaRate = [RotaAccel[2], RotaAccel[3]]
 	if MoveInput.x != 0:
-		RotaRate = [RotaAccel[0], RotaAccel[1]]
-	
-	RotaSpeed = lerpf(RotaSpeed, MoveInput.x * MaxRota[0], ease(RotaRate[0], RotaRate[1]) * delta) # Rotation Acceleration
-	rotate(RotaSpeed * delta)
+		RotaRate = [RotaAccel[0], RotaAccel[1]] #RotaAccel
+	elif not isBraking:
+		RotaRate = [RotaAccel[2], RotaAccel[3]] #BaseRotaDecel
+	else:
+		RotaRate = [BrakeDecel[1], BrakeDecel[2]] #BrakeRotaDecel
 	#endregion
 
 	#region Boost
 	var BoostDir = Vector2(0, 0)
-	if MoveInput.y >= .75: 
+	if MoveInput.y: 
 		BoostDir = Vector2(cos(rotation), sin(rotation))
-		AccelRate = SpeedAccel[0]
-	elif absf(MoveInput.y) < .75 :
-		AccelRate = SpeedAccel[1]
-	var TargetVel = BoostDir * MaxSpeed[0]
-	#endregion
-
-	#region Brake
-	print(MoveInput.y)
-	if MoveInput.y <= -.75:
-		AccelRate = BrakeSpeedDecel
-		
-		
-	
-	
+		AccelRate = SpeedAccel[0] #SpeedAccel
+	elif not isBraking:
+		AccelRate = SpeedAccel[1] #BaseSpeedDecel
+	else:
+		AccelRate = BrakeDecel[0] #BrakeSpeedDecel
 	#endregion
 
 	#region Dodge
@@ -78,6 +74,10 @@ func _physics_process(delta):
 	
 	#endregion
 	
+	RotaSpeed = lerpf(RotaSpeed, MoveInput.x * MaxRota[0], ease(RotaRate[0], RotaRate[1]) * delta) # Rotation Acceleration
+	rotate(RotaSpeed * delta)
+	
+	var TargetVel = BoostDir * MaxSpeed[0]
 	velocity = lerp(velocity, TargetVel, AccelRate * delta)
 	move_and_slide()
 	
