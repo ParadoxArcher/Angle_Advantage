@@ -11,26 +11,15 @@
             "id": "423fcc3f763e1ff2",
             "type": "leaf",
             "state": {
-              "type": "kanban",
+              "type": "markdown",
               "state": {
-                "file": "DevNotes/ToDoList.md",
-                "kanbanViewState": {
-                  "kanban-plugin": "board",
-                  "list-collapse": [
-                    false,
-                    false,
-                    false,
-                    false,
-                    false,
-                    false,
-                    false,
-                    false,
-                    false
-                  ]
-                }
+                "file": "DevNotes/Player/Player.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
               },
-              "icon": "lucide-trello",
-              "title": "ToDoList"
+              "icon": "lucide-file",
+              "title": "Player"
             }
           }
         ]
@@ -118,7 +107,7 @@
       {
         "id": "e265132f6ffea949",
         "type": "tabs",
-        "dimension": 31.974637681159418,
+        "dimension": 31.97463768115942,
         "children": [
           {
             "id": "401021f5dd152def",
@@ -143,7 +132,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "DevNotes/ToDoList.md",
+                "file": "DevNotes/Player/Player.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -153,7 +142,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for ToDoList"
+              "title": "Backlinks for Player"
             }
           },
           {
@@ -162,12 +151,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "DevNotes/ToDoList.md",
+                "file": "DevNotes/Player/Player.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from ToDoList"
+              "title": "Outgoing links from Player"
             }
           },
           {
@@ -189,10 +178,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DevNotes/ToDoList.md"
+                "file": "DevNotes/Player/Player.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of ToDoList"
+              "title": "Outline of Player"
             }
           }
         ],
@@ -216,23 +205,23 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "e2f3a134853237bd",
+  "active": "423fcc3f763e1ff2",
   "lastOpenFiles": [
+    "DevNotes/ToDoList.md",
+    "zProject Files/Godot/Scenes/Pla6D22.tmp",
+    "zProject Files/Godot/Scenes/GameScene.tscn~RF19f86c27.TMP",
+    "zProject Files/Godot/Scenes/Gam6C42.tmp",
+    "zProject Files/Godot/project.godot~RF19f860dd.TMP",
+    "zProject Files/Godot/pro60E1.tmp",
     "zProject Files/Godot/Scenes/Player.tscn",
     "zProject Files/Godot/Scenes/GameScene.tscn",
     "zProject Files/Godot/Scripts/PlayerScript.gd",
     "zProject Files/Godot/Assets/Yellow Arrow.png~",
     "zProject Files/Godot/Assets/Yellow Arrow.png.import",
     "zProject Files/Godot/Assets/Yellow Arrow.png",
-    "zProject Files/Godot/Assets/Red Arrow.png~",
-    "zProject Files/Godot/Assets/Red Arrow.png.import",
     "zProject Files/Godot/Assets/Red Arrow.png",
-    "zProject Files/Godot/Assets/Green Arrow.png~",
-    "zProject Files/Godot/Assets/Green Arrow.png.import",
     "zProject Files/Godot/Assets/Green Arrow.png",
-    "zProject Files/Godot/Assets/Fire.png.import",
     "zProject Files/Godot/Assets/Fire.png",
-    "zProject Files/Godot/Assets/CMYKCheckerboard1.png.import",
     "zProject Files/Godot/Assets/download.jpg",
     "zProject Files/Godot/Assets/CMYKCheckerboard1.png",
     "zProject Files/Godot/Assets/Avatar.png",
@@ -240,7 +229,6 @@
     "Project Files/Godot/Assets/Yellow Arrow.png",
     "Project Files/Godot/Assets/Red Arrow.png",
     "DevNotes/Player/Player.md",
-    "DevNotes/ToDoList.md",
     "DevNotes/Player/Movement/Boost.md",
     "DevNotes/Idea splurges/Ability ideas.md",
     "DevNotes/Idea splurges/Movement Ideas.md",

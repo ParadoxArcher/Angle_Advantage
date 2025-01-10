@@ -1,4 +1,8 @@
-# The character the user plays as
+### The character the user plays as
+
+#### Goals
+Emulates movement style from [[Data Wing]] but in a combat-focused party game.
+
 #### Steps
 1) Make Character
 	1) new scene "PlayerChar"
