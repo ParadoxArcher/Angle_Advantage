@@ -62,6 +62,7 @@ func _physics_process(delta):
 		MaxSpeed[0] = MaxSpeed[1] * DodgeMaxSpeed[0]
 		MaxRota[0] = MaxRota[1] * DodgeMaxRota[0]
 		velocity = MaxSpeed[0] * DodgeDir.rotated(rotation + PI/2)
+	
 	if MaxSpeed[0] != MaxSpeed[1] || MaxRota[0] != MaxRota[1]:
 		MaxSpeed[0] = lerpf(MaxSpeed[0], MaxSpeed[1], ease(DodgeMaxSpeed[1], DodgeMaxSpeed[2]) * delta) # clamps used end lerps
 		print(MaxSpeed)
