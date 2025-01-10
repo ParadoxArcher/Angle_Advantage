@@ -23,6 +23,18 @@
             }
           },
           {
+            "id": "7d35b1da1d8c9bd0",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "Reference Images/Excalidraw/Drawing 2025-01-10 12.04.56.excalidraw.md"
+              },
+              "icon": "excalidraw-icon",
+              "title": "Drawing 2025-01-10 12.04.56.excalidraw"
+            }
+          },
+          {
             "id": "423fcc3f763e1ff2",
             "type": "leaf",
             "state": {
@@ -65,7 +77,8 @@
               "title": "ToDoList"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -221,10 +234,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Devlogs/2025-01-10.md"
+                "file": "Reference Images/Excalidraw/Drawing 2025-01-10 12.04.56.excalidraw.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of 2025-01-10"
+              "title": "Outline of Drawing 2025-01-10 12.04.56.excalidraw"
             }
           }
         ],
@@ -248,21 +261,22 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "ccb67a022bf0fc28",
+  "active": "7d35b1da1d8c9bd0",
   "lastOpenFiles": [
-    "zProject Files/Godot/Scenes/Player.tscn~RF1c866c97.TMP",
-    "zProject Files/Godot/Scenes/Pla70C0.tmp",
-    "zProject Files/Godot/Scripts/PlayerScript.gd~RF1c866b8e.TMP",
-    "zProject Files/Godot/Scripts/Pla6FAD.tmp",
-    "zProject Files/Godot/Scenes/GameScene.tscn~RF1c866b6f.TMP",
-    "zProject Files/Godot/Scenes/Gam6F8B.tmp",
-    "zProject Files/Godot/Scenes/Player.tscn~RF1c864bd1.TMP",
-    "zProject Files/Godot/Scenes/Pla4FE6.tmp",
-    "zProject Files/Godot/Scripts/PlayerScript.gd~RF1c864ad7.TMP",
-    "zProject Files/Godot/Scripts/Pla4ED2.tmp",
-    "zProject Files/Godot/Scenes/GameScene.tscn~RF1c864aa8.TMP",
-    "DevNotes/Brakes.md",
+    "zProject Files/Godot/Scenes/Player.tscn~RF1c9685fe.TMP",
+    "zProject Files/Godot/Scenes/Pla8A62.tmp",
+    "zProject Files/Godot/Scenes/GameScene.tscn~RF1c968513.TMP",
+    "zProject Files/Godot/Scenes/Gam8971.tmp",
+    "zProject Files/Godot/Scenes/Player.tscn~RF1c95f3ff.TMP",
+    "zProject Files/Godot/Scenes/PlaF856.tmp",
+    "zProject Files/Godot/Scenes/GameScene.tscn~RF1c95f314.TMP",
+    "zProject Files/Godot/Scenes/GamF765.tmp",
+    "zProject Files/Godot/Scenes/Player.tscn~RF1c9571a0.TMP",
+    "zProject Files/Godot/Scenes/Pla75EA.tmp",
+    "zProject Files/Godot/Scenes/GameScene.tscn~RF1c9570b5.TMP",
     "Devlogs/2025-01-10.md",
+    "Reference Images/Excalidraw/Drawing 2025-01-10 12.04.56.excalidraw.md",
+    "DevNotes/Brakes.md",
     "DevNotes/ToDoList.md",
     "DevNotes/Player/Player.md",
     "Reference Images/Excalidraw/MissionStatementSketch.md",

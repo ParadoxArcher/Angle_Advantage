@@ -37,13 +37,13 @@ func _physics_process(delta):
 	#endregion
 	
 	#region Rotation Rate
+	var RotaMomentum = RotaSpeed * MoveInput.x
 	if MoveInput.x != 0:
-		RotaRate = RotaAccel[0] #RotaAccel
 		
-		if isBraking && RotaSpeed * MoveInput.x < 0: 
-			RotaRate += BrakeDecel[1]
-		elif isBraking:
-			RotaRate /= BrakeDecel[1]
+		if not isBraking:
+			RotaRate = RotaAccel[0]  #RotaAccel 
+		else:
+			RotaRate = RotaAccel[0] 
 	elif not isBraking:
 		RotaRate = RotaAccel[1] #BaseRotaDecel
 	else:
