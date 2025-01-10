@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://u7p1uxpg5mr5"]
+
+[ext_resource type="Script" path="res://Scripts/PlayerScript.gd" id="1_g1qce"]
+[ext_resource type="Texture2D" uid="uid://d0iqunuwncvfd" path="res://Assets/Avatar.png" id="2_u7ctg"]
+[ext_resource type="Texture2D" uid="uid://mfqwv60pknjx" path="res://Assets/Green Arrow.png" id="3_2uf6m"]
+[ext_resource type="Texture2D" uid="uid://dvkmtnxqu82d3" path="res://Assets/Red Arrow.png" id="5_a1lun"]
+[ext_resource type="Texture2D" uid="uid://bw0kkepdb55nf" path="res://Assets/Yellow Arrow.png" id="5_o2ksf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_24ua0"]
+radius = 32.0624
+
+[node name="Player" type="CharacterBody2D"]
+rotation = -1.5708
+script = ExtResource("1_g1qce")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_u7ctg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(7, 3.57628e-07)
+shape = SubResource("CircleShape2D_24ua0")
+
+[node name="Sprites" type="Node" parent="."]
+
+[node name="VelDisplay" type="Sprite2D" parent="Sprites"]
+visible = false
+position = Vector2(-8.88178e-14, -52)
+scale = Vector2(0.35, 0.5)
+texture = ExtResource("3_2uf6m")
+
+[node name="NeutralDisplay" type="Sprite2D" parent="Sprites"]
+visible = false
+position = Vector2(-8.88178e-14, -52)
+scale = Vector2(0.35, 0.5)
+texture = ExtResource("5_a1lun")
+
+[node name="RotaSpeedDisplay" type="Sprite2D" parent="Sprites"]
+visible = false
+position = Vector2(-8.88178e-14, -52)
+scale = Vector2(0.35, 0.5)
+texture = ExtResource("5_o2ksf")

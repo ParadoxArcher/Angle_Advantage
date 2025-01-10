@@ -1,0 +1,264 @@
+{
+  "main": {
+    "id": "33fb65e03ada6d1d",
+    "type": "split",
+    "children": [
+      {
+        "id": "026835ff05ee5073",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "423fcc3f763e1ff2",
+            "type": "leaf",
+            "state": {
+              "type": "kanban",
+              "state": {
+                "file": "DevNotes/ToDoList.md",
+                "kanbanViewState": {
+                  "kanban-plugin": "board",
+                  "list-collapse": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              },
+              "icon": "lucide-trello",
+              "title": "ToDoList"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "57bdf5b2e068fd3b",
+    "type": "split",
+    "children": [
+      {
+        "id": "3dfb6b5786eb38e2",
+        "type": "tabs",
+        "dimension": 30.41431261770245,
+        "children": [
+          {
+            "id": "4688c3cbab7702aa",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "graph",
+              "state": {},
+              "pinned": true,
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          }
+        ]
+      },
+      {
+        "id": "42052676a70b0533",
+        "type": "tabs",
+        "dimension": 69.58568738229755,
+        "children": [
+          {
+            "id": "e2f3a134853237bd",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "d470cc9b7f6eaae3",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "d286b876b2d44f07",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "bda899cf6f4015e6",
+    "type": "split",
+    "children": [
+      {
+        "id": "e265132f6ffea949",
+        "type": "tabs",
+        "dimension": 31.974637681159418,
+        "children": [
+          {
+            "id": "401021f5dd152def",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {},
+              "icon": "calendar-with-checkmark",
+              "title": "Calendar"
+            }
+          }
+        ]
+      },
+      {
+        "id": "d4235cc910efd88c",
+        "type": "tabs",
+        "dimension": 68.02536231884058,
+        "children": [
+          {
+            "id": "b38e9a14887f74d6",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "DevNotes/ToDoList.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for ToDoList"
+            }
+          },
+          {
+            "id": "d01c4f66316bd587",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "DevNotes/ToDoList.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from ToDoList"
+            }
+          },
+          {
+            "id": "6223de80022aad14",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "27465f005eb89bb4",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "DevNotes/ToDoList.md"
+              },
+              "icon": "lucide-list",
+              "title": "Outline of ToDoList"
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "workspaces:Manage workspace layouts": false,
+      "obsidian-excalidraw-plugin:Create new drawing": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "obsidian-git:Open Git source control": false,
+      "obsidian-kanban:Create new board": false
+    }
+  },
+  "active": "423fcc3f763e1ff2",
+  "lastOpenFiles": [
+    "Godot Files/Assets/Krita Files/BlankAvatar.kra~",
+    "Godot Files/Assets/Krita Files/Fire.kra",
+    "Godot Files/Assets/Krita Files/BlankAvatar.kra",
+    "Godot Files/Assets/Krita Files/Arrows.kra",
+    "Godot Files/Scripts/PlayerScript.gd",
+    "Godot Files/Scenes/Player.tscn",
+    "Godot Files/Scenes/GameScene.tscn",
+    "Godot Files/Assets/Yellow Arrow.png~",
+    "Godot Files/Assets/Yellow Arrow.png.import",
+    "Godot Files/Assets/Yellow Arrow.png",
+    "Godot Files/Assets/Red Arrow.png~",
+    "Godot Files/Assets/Red Arrow.png.import",
+    "Godot Files/Assets/Red Arrow.png",
+    "Godot Files/Assets/Green Arrow.png",
+    "Godot Files/Assets/download.jpg",
+    "Godot Files/Assets/Fire.png",
+    "Godot Files/Assets/CMYKCheckerboard1.png",
+    "Godot Files/Assets/Avatar.png",
+    "Godot Files/icon.svg",
+    "DevNotes/Player/Player.md",
+    "DevNotes/ToDoList.md",
+    "DevNotes/Player/Movement/Boost.md",
+    "DevNotes/Idea splurges/Ability ideas.md",
+    "DevNotes/Idea splurges/Movement Ideas.md",
+    "Dodging.md",
+    "DevNotes/Idea splurges/Dodge Charges.md",
+    "DevNotes/Mission Statement.md",
+    "Reference Images/Images/Data Wing.jpg",
+    "DevNotes/Untitled.md",
+    "Reference Images/Excalidraw/MissionStatementSketch.md",
+    "DevNotes/Player Controller.md",
+    "DevNotes/Player Avatar.md",
+    "Devlogs/2024-W18.md",
+    "Devlogs/2024-W17.md",
+    "Game Files/Godot/Player Avatar Charge_2.png",
+    "Placeholder-Name-main/DevNotes/Mission Statement.md",
+    "Placeholder-Name-main/DevNotes/Idea splurges/Movement Ideas.md",
+    "Placeholder-Name-main/DevNotes/Idea splurges/Charges.md",
+    "Placeholder-Name-main/DevNotes/Idea splurges/Ability ideas.md",
+    "Placeholder-Name-main/DevNotes/Excalidraw/MissionStatementSketch.md",
+    "Placeholder-Name-main/Devlogs/2024-W18.md",
+    "Placeholder-Name-main/Devlogs/2024-W17.md"
+  ]
+}
