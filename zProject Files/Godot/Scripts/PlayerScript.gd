@@ -7,7 +7,7 @@ var RotaSpeed : float = 0
 @export var RotaAccel = [PI/2,  PI/6] # {0: RotaAccel, 1: BaseRotaDecel}
 
 ## Brake Variables
-@export var BrakeDecel = [2.5, PI/2] # {0: SpeedAccel, 1: SpeedDecel, 2: RotaAccel, 3: RotaDecel}
+@export var BrakeDecel = [2.5, PI] # {0: SpeedDecel, 1: RotaDecel}
 
 ##Dodge Variables
 @export var DodgeMaxSpeed = [1.5, 100, -4] # {0: MaxSpeedMultiplier, 1: MaxSpeedDecel, 2: EaseCurve}
