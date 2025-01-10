@@ -6,13 +6,16 @@ var RotaSpeed : float = 0
 @export var MaxRota = [TAU, TAU] # {0: Fluctuating, 1: BaseMaxRota}
 @export var RotaAccel = [10.0, -.2, 10.0, 0.05] # {0: RotaAccel, 1: AccelEaseCurve, 2: RotaDecel, 3: DecelEaseCurve}
 
-## Boost Variables
-@export var MaxSpeed = [1000, 1000] # {0: Fluctuating, 1: BaseMaxSpeed}
-@export var SpeedAccel = [1, 1.5] # {0: Accel,  1: Decel}
+## Brake Variables
+@export var BrakeSpeedDecel = 3
 
 ##Dodge Variables
 @export var DodgeMaxSpeed = [1.5, 100, -4] # {0: MaxSpeedMultiplier, 1: MaxSpeedDecel, 2: EaseCurve}
 @export var DodgeMaxRota = [2, PI/2, -4] # {0: MaxRotaMultiplier, 1: MaxRotaDecel, 2: EaseCurve}
+
+## Boost Variables
+@export var MaxSpeed = [1000, 1000] # {0: Fluctuating, 1: BaseMaxSpeed}
+@export var SpeedAccel = [1, .5] # {0: Accel,  1: Decel}
 
 ## Display Variables
 @export var MarkerSize = {"CenterGap": 50, "RotaSpeedGap": 75, "VelLength": .5, "NeutralLength": .35, "RotaSpeedLength": .5} #RotaSpeedGap left unimplemented, intended to slide rota_speed_display along neutral_display
@@ -23,27 +26,36 @@ var RotaSpeed : float = 0
 #endregion
 
 func _physics_process(delta):
+	var MoveInput = Vector2(Input.get_action_strength("RotateRight") - Input.get_action_strength("RotateLeft"), Input.get_action_strength("Boost") - Input.get_action_strength("Braking"))
+	var AccelRate
+	
 	#region Rotation 
-	var MoveInput = Input.get_action_strength("RotateRight") - Input.get_action_strength("RotateLeft")
 	var RotaRate = [RotaAccel[2], RotaAccel[3]]
-	if MoveInput != 0:
+	if MoveInput.x != 0:
 		RotaRate = [RotaAccel[0], RotaAccel[1]]
 	
-	RotaSpeed = lerpf(RotaSpeed, MoveInput * MaxRota[0], ease(RotaRate[0], RotaRate[1]) * delta) # Rotation Acceleration
+	RotaSpeed = lerpf(RotaSpeed, MoveInput.x * MaxRota[0], ease(RotaRate[0], RotaRate[1]) * delta) # Rotation Acceleration
 	rotate(RotaSpeed * delta)
 	#endregion
 
 	#region Boost
 	var BoostDir = Vector2(0, 0)
-	var AccelRate
-	if Input.is_action_pressed("Boost"):
+	if MoveInput.y >= .75: 
 		BoostDir = Vector2(cos(rotation), sin(rotation))
 		AccelRate = SpeedAccel[0]
-	else:
+	elif absf(MoveInput.y) < .75 :
 		AccelRate = SpeedAccel[1]
-	
 	var TargetVel = BoostDir * MaxSpeed[0]
-	velocity = lerp(velocity, TargetVel, AccelRate * delta) # Velocity Acceleration
+	#endregion
+
+	#region Brake
+	
+	if MoveInput.y <= .75:
+		AccelRate = BrakeSpeedDecel
+		
+		
+	
+	
 	#endregion
 
 	#region Dodge
@@ -62,14 +74,11 @@ func _physics_process(delta):
 		
 	#endregion
 
-	#region Braking...
-	
-	#endregion
-
 	#region WallBoost...
 	
 	#endregion
-
+	
+	velocity = lerp(velocity, TargetVel, AccelRate * delta)
 	move_and_slide()
 	
 	#region Markers
