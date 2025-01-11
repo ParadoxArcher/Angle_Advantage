@@ -39,10 +39,7 @@ func _physics_process(delta):
 	#region Rotation Rate
 	var RotaMomentum = (RotaSpeed / MaxRota[0]) + MoveInput.x
 	if MoveInput.x != 0:
-		if not isBraking:
-			RotaRate = RotaAccel[0] + (RotaMomentum * RotaAccel[1] ) * -MoveInput.x # RotaAccel + directional realease friction 
-		else:
-			RotaRate = RotaAccel[0] + (RotaMomentum * BrakeDecel[1] ) * -MoveInput.x # RotaAccel + directional brake friction 
+		RotaRate = RotaAccel[0] + (RotaMomentum * RotaAccel[1] ) * -MoveInput.x # RotaAccel + directional realease friction  
 	elif not isBraking:
 		RotaRate = RotaAccel[1] # Release friction
 	else:
