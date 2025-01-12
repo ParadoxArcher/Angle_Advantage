@@ -48,8 +48,8 @@ func _physics_process(delta):
 	var AccelRate
 	if MoveInput.y > 0: 
 		BoostDir = Vector2(cos(rotation), sin(rotation))
-		AccelRate = SpeedDecel[0] #SpeedAccel
-		print(BoostDir.dot(velocity.normalized()))
+		AccelRate = SpeedAccel - SpeedDecel[0] * (BoostDir.dot(velocity.normalized()) / 2 )
+		print(AccelRate)
 	else:
 		BoostDir = Vector2(0, 0)
 		AccelRate = SpeedDecel[0] #BaseSpeedDecel
