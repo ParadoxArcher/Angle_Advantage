@@ -1,21 +1,24 @@
 extends CharacterBody2D
 
 #region Variables
+## Boost Variables
+var BoostDir = Vector2(0, 0)
+@export var MaxSpeed = [1000, 1000] # {0: Fluctuating, 1: BaseMaxSpeed}
+@export var SpeedAccel = 1 
+@export var SpeedDecel = [0, .5] # {0: Fluctuating,  1: Decel}
+
 ## Rotation Variables
 var RotaSpeed : float = 0
 @export var MaxRota = [TAU, TAU] # {0: Fluctuating, 1: BaseMaxRota}
-@export var RotaAccel = [PI/2,  PI/8] # {0: RotaAccel, 1: BaseRotaDecel}
+@export var RotaAccel = PI/2
+@export var RotaDecel = [0, PI/8] # {0: Fluctuating, 1: BaseRotaDecel}
 
 ## Brake Variables
-@export var BrakeDecel = [2.5, 2] # {0: SpeedDecelMultiplier, 1: RotaDecelMultiplier}
+@export var BrakeDecelMult = [2.5, 2] # {0: SpeedDecelMult, 1: RotaDecelMult}
 
 ##Dodge Variables
 @export var DodgeMaxSpeed = [1.5, 100, -4] # {0: MaxSpeedMultiplier, 1: MaxSpeedDecel, 2: EaseCurve}
 @export var DodgeMaxRota = [2, PI/2, -4] # {0: MaxRotaMultiplier, 1: MaxRotaDecel, 2: EaseCurve}
-
-## Boost Variables
-@export var MaxSpeed = [1000, 1000] # {0: Fluctuating, 1: BaseMaxSpeed}
-@export var SpeedAccel = [1, .5] # {0: Accel,  1: Decel}
 
 ## Display Variables
 @export var MarkerSize = {"CenterGap": 50, "RotaSpeedGap": 75, "VelLength": .5, "NeutralLength": .35, "RotaSpeedLength": .5} #RotaSpeedGap left unimplemented, intended to slide rota_speed_display along neutral_display
@@ -27,38 +30,43 @@ var RotaSpeed : float = 0
 
 func _physics_process(delta):
 	var MoveInput = Vector2(Input.get_action_strength("RotateRight") - Input.get_action_strength("RotateLeft"), Input.get_action_strength("Boost") - Input.get_action_strength("Brake"))
-	var AccelRate
-	var RotaRate
+	
+	
 
-	#region Brake
+	#region isBraking
 	var isBraking = false
 	if MoveInput.y <= -.75:
 		isBraking = true
 	#endregion
 	
-	#region Rotation Rate
-	var RotaDecel = RotaAccel[1]
-	if isBraking:
-		RotaDecel = RotaAccel[1] * BrakeDecel[1]
-		
-	var CounterSteer = absf((RotaSpeed / MaxRota[0] ) - MoveInput.x)
-	if MoveInput.x != 0:
-		RotaRate = RotaAccel[0] + RotaDecel * CounterSteer # RotaAccel + directional realease friction  
-	else:
-		RotaRate = RotaDecel # Release friction
-	
-	print(RotaRate)
-	#endregion
-
 	#region Boost
-	var BoostDir = Vector2(0, 0)
+	if not isBraking:
+		SpeedDecel[0] = SpeedDecel[1]
+	else:
+		SpeedDecel[0] = SpeedDecel[1] * BrakeDecelMult[0]
+	
+	var AccelRate
 	if MoveInput.y > 0: 
 		BoostDir = Vector2(cos(rotation), sin(rotation))
-		AccelRate = SpeedAccel[0] #SpeedAccel
-	elif not isBraking:
-		AccelRate = SpeedAccel[1] #BaseSpeedDecel
+		AccelRate = SpeedDecel[0] #SpeedAccel
+		print(BoostDir.dot(velocity))
 	else:
-		AccelRate = BrakeDecel[0] #BrakeSpeedDecel
+		BoostDir = Vector2(0, 0)
+		AccelRate = SpeedDecel[0] #BaseSpeedDecel
+	#endregion
+	
+	#region Rotation Rate
+	if not isBraking:
+		RotaDecel[0] = RotaDecel[1]
+	else:
+		RotaDecel[0] = RotaDecel[1] * BrakeDecelMult[1]
+	
+	var RotaRate
+	var CounterSteer = absf((RotaSpeed / MaxRota[0] ) - MoveInput.x)
+	if MoveInput.x != 0:
+		RotaRate = RotaAccel + RotaDecel[0] * CounterSteer
+	else:
+		RotaRate = RotaDecel[0]
 	#endregion
 
 	#region Dodge
