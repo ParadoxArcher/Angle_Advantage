@@ -1,4 +1,4 @@
-### When key is pressed, move forward relative to rotation
+### When key is pressed, accelerate relative to rotation
 #### Steps
 1)  Define Input
 	1) Project Settings --> Input Map --> "Boost" = W
@@ -27,3 +27,6 @@
 	3) Apply MaxSpeed to BoostDir and use the full Vector2 of velocity
 		1) ![[Pasted image 20250112003537.png]]
 5) Counter Acceleration
+	1) Find difference between current velocity and Boost direction
+		1) ![[Pasted image 20250112074603.png]]
+	2) Apply to Acceleration

@@ -2,10 +2,10 @@ extends CharacterBody2D
 
 #region Variables
 ## Boost Variables
-var BoostDir = Vector2(0, 0)
 @export var MaxSpeed = [1000, 1000] # {0: Fluctuating, 1: BaseMaxSpeed} ## Beware DodgeMaxSpeed
 @export var SpeedAccel = 1.3
 @export var SpeedDecel = [.3, .3] # {0: Fluctuating,  1: Decel} ## Beware BrakeDecelMult
+var BoostDir = Vector2(0, 0)
 var AccelRate = 0
 
 ## Rotation Variables
@@ -122,3 +122,4 @@ func _physics_process(delta):
 		rota_speed_display.visible = false
 		Markers[1] = false
 	#endregion
+	
