@@ -7,7 +7,7 @@ var RotaSpeed : float = 0
 @export var RotaAccel = [PI/2,  PI/6] # {0: RotaAccel, 1: BaseRotaDecel}
 
 ## Brake Variables
-@export var BrakeDecel = [2.5, PI] # {0: SpeedDecel, 1: RotaDecel}
+@export var BrakeDecel = [2.5, 6] # {0: SpeedDecelMultiplier, 1: RotaDecelMultiplier}
 
 ##Dodge Variables
 @export var DodgeMaxSpeed = [1.5, 100, -4] # {0: MaxSpeedMultiplier, 1: MaxSpeedDecel, 2: EaseCurve}
@@ -37,13 +37,16 @@ func _physics_process(delta):
 	#endregion
 	
 	#region Rotation Rate
-	var RotaMomentum = (RotaSpeed / MaxRota[0]) + MoveInput.x
+	var RotaDecel = RotaAccel[1]
+	if isBraking:
+		RotaDecel = RotaAccel[1] * BrakeDecel[1]
+		
+	var CounterSteer = -((RotaSpeed / MaxRota[0]) + MoveInput.x )
 	if MoveInput.x != 0:
-		RotaRate = RotaAccel[0] + (RotaMomentum * RotaAccel[1] ) * -MoveInput.x # RotaAccel + directional realease friction  
-	elif not isBraking:
-		RotaRate = RotaAccel[1] # Release friction
+		RotaRate = RotaAccel[0] + RotaDecel * CounterSteer # RotaAccel + directional realease friction  
 	else:
-		RotaRate = BrakeDecel[1] # Brake friction
+		RotaRate = RotaDecel # Release friction
+	
 	print(RotaRate)
 	#endregion
 
@@ -52,7 +55,6 @@ func _physics_process(delta):
 	if MoveInput.y > 0: 
 		BoostDir = Vector2(cos(rotation), sin(rotation))
 		AccelRate = SpeedAccel[0] #SpeedAccel
-		var BrakeMomentum = velocity.normalized() - BoostDir
 	elif not isBraking:
 		AccelRate = SpeedAccel[1] #BaseSpeedDecel
 	else:
