@@ -77,7 +77,8 @@
               "title": "ToDoList"
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -233,10 +234,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Devlogs/2025-01-10.md"
+                "file": "DevNotes/ToDoList.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of 2025-01-10"
+              "title": "Outline of ToDoList"
             }
           }
         ],
@@ -260,10 +261,12 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "ccb67a022bf0fc28",
+  "active": "2b906768df75cac8",
   "lastOpenFiles": [
-    "Reference Images/Excalidraw/Drawing 2025-01-10 12.04.56.excalidraw.md",
+    "DevNotes/Brakes.md",
     "Devlogs/2025-01-10.md",
+    "Reference Images/Excalidraw/Drawing 2025-01-10 12.04.56.excalidraw.md",
+    "DevNotes/ToDoList.md",
     "DevNotes/Player/Movement/Boost.md",
     "DevNotes/Player/Player.md",
     "Reference Images/Images/Pasted image 20250112003332.png",
@@ -286,8 +289,6 @@
     "zProject Files/Godot/Scripts/Pla3ED3.tmp",
     "zProject Files/Godot/Scripts/PlaBEB3.tmp",
     "zProject Files/Godot/Scripts/PlaE338.tmp",
-    "DevNotes/Brakes.md",
-    "DevNotes/ToDoList.md",
     "Reference Images/Excalidraw/MissionStatementSketch.md",
     "DevNotes/Mission Statement.md",
     "Reference Images/Excalidraw/Drawing 2025-01-10 09.06.25.excalidraw.md",

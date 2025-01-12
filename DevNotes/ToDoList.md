@@ -6,7 +6,6 @@ kanban-plugin: board
 
 ## Current
 
-- [ ] [[Brakes]]
 
 
 ## Soon
@@ -25,8 +24,9 @@ kanban-plugin: board
 
 - [x] [[Boost]]
 - [x] [[Rotation]]
-- [x] [[Dodge]]
 - [x] [[Movement Visualizer]]
+- [x] [[Brakes]]
+- [x] [[Dodge]]
 
 
 ## Enemies
