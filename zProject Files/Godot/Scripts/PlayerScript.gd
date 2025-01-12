@@ -6,12 +6,14 @@ var BoostDir = Vector2(0, 0)
 @export var MaxSpeed = [1000, 1000] # {0: Fluctuating, 1: BaseMaxSpeed} ## Beware DodgeMaxSpeed
 @export var SpeedAccel = 1.3
 @export var SpeedDecel = [.3, .3] # {0: Fluctuating,  1: Decel} ## Beware BrakeDecelMult
+var AccelRate = 0
 
 ## Rotation Variables
 var RotaSpeed : float = 0
 @export var MaxRota = [TAU, TAU] # {0: Fluctuating, 1: BaseMaxRota} ## Beware DodgeMaxRota
 @export var RotaAccel = PI/2
 @export var RotaDecel = [PI/8, PI/8] # {0: Fluctuating, 1: BaseRotaDecel} ## Beware BrakeDecelMult
+var RotaRate = 0
 
 ## Brake Variables
 @export var BrakeDecelMult = [5, 2] # {0: SpeedDecelMult, 1: RotaDecelMult}
@@ -42,8 +44,7 @@ func _physics_process(delta):
 		SpeedDecel[0] = SpeedDecel[1] 
 	else:
 		SpeedDecel[0] = SpeedDecel[1] * BrakeDecelMult[0]
-	
-	var AccelRate = 0
+		
 	if MoveInput.y > 0:
 		BoostDir = Vector2(cos(rotation), sin(rotation))
 		var CounterAccel = BoostDir.dot(velocity.normalized()) # Needs to have it's sign preserved after +1 then /2, but to optimize it is left alone here
@@ -51,7 +52,6 @@ func _physics_process(delta):
 	else:
 		BoostDir = Vector2(0, 0)
 		AccelRate = SpeedDecel[0] #BaseSpeedDecel
-	print(AccelRate)
 	#endregion
 	
 	#region Rotation
@@ -60,7 +60,6 @@ func _physics_process(delta):
 	else:
 		RotaDecel[0] = RotaDecel[1] * BrakeDecelMult[1]
 	
-	var RotaRate = 0
 	if MoveInput.x != 0:
 		var CounterSteer = absf((RotaSpeed / MaxRota[0] ) - MoveInput.x)
 		RotaRate = RotaAccel + RotaDecel[0] * CounterSteer
@@ -123,4 +122,3 @@ func _physics_process(delta):
 		rota_speed_display.visible = false
 		Markers[1] = false
 	#endregion
-	

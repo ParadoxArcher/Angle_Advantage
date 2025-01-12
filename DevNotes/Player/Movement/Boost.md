@@ -12,11 +12,14 @@
 		1)  ![[Pasted image 20250111235849.png]]
 3) Accelerate Speed
 	1) Accelerate velocity
-		1) ![[Pasted image 20250112000931.png]]
+		1) ![[Pasted image 20250112002928.png]]
 	2) Create a rate of change and apply it
 		1) ![[Pasted image 20250112001504.png]]
-		2) ![[Pasted image 20250112001632.png]]
+		2) ![[Pasted image 20250112002903.png]]
 	3) Vary Acceleration based on acceleration or Deceleration
-		1) 
-4) Determine Direction
+		1) ![[Pasted image 20250112002430.png]]
+		2) ![[Pasted image 20250112002646.png]]
+4) Determine direction of boost based on Rotation
+	1) Create variable outside process
+	2) ![[Pasted image 20250112003124.png]]
 5) Apply Counter Acceleration
