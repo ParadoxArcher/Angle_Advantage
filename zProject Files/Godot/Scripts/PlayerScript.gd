@@ -17,6 +17,7 @@ var RotaRate = 0
 
 ## Brake Variables
 @export var BrakeDecelMult = [5, 2] # {0: SpeedDecelMult, 1: RotaDecelMult}
+var isBraking
 
 ##Dodge Variables
 @export var DodgeMaxSpeed = [1.25, 100, -4] # {0: MaxSpeedMultiplier, 1: MaxSpeedDecel, 2: EaseCurve}
@@ -34,9 +35,11 @@ func _physics_process(delta):
 	var MoveInput = Vector2(Input.get_action_strength("RotateRight") - Input.get_action_strength("RotateLeft"), Input.get_action_strength("Boost") - Input.get_action_strength("Back"))
 	
 	#region isBraking
-	var isBraking = false
+	
 	if Input.is_action_pressed("Brake"):
 		isBraking = true
+	else:
+		isBraking = false
 	#endregion
 	
 	#region Boost

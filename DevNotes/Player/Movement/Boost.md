@@ -27,6 +27,6 @@
 	3) Apply MaxSpeed to BoostDir and use the full Vector2 of velocity
 		1) ![[Pasted image 20250112003537.png]]
 5) Counter Acceleration
-	1) Find difference between current velocity and Boost direction
+	1) Find difference between current velocity and Boost direction & multiply it by deceleration rate before adding to acceleration
 		1) ![[Pasted image 20250112074603.png]]
-	2) Apply to Acceleration
+
