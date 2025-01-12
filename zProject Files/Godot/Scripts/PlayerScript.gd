@@ -4,8 +4,8 @@ extends CharacterBody2D
 ## Boost Variables
 var BoostDir = Vector2(0, 0)
 @export var MaxSpeed = [1000, 1000] # {0: Fluctuating, 1: BaseMaxSpeed}
-@export var SpeedAccel = 1 
-@export var SpeedDecel = [0, .5] # {0: Fluctuating,  1: Decel}
+@export var SpeedAccel = 1.3
+@export var SpeedDecel = [0, .3] # {0: Fluctuating,  1: Decel}
 
 ## Rotation Variables
 var RotaSpeed : float = 0
@@ -14,7 +14,7 @@ var RotaSpeed : float = 0
 @export var RotaDecel = [0, PI/8] # {0: Fluctuating, 1: BaseRotaDecel}
 
 ## Brake Variables
-@export var BrakeDecelMult = [2.5, 2] # {0: SpeedDecelMult, 1: RotaDecelMult}
+@export var BrakeDecelMult = [5, 2] # {0: SpeedDecelMult, 1: RotaDecelMult}
 
 ##Dodge Variables
 @export var DodgeMaxSpeed = [1.5, 100, -4] # {0: MaxSpeedMultiplier, 1: MaxSpeedDecel, 2: EaseCurve}
@@ -29,10 +29,8 @@ var RotaSpeed : float = 0
 #endregion
 
 func _physics_process(delta):
-	var MoveInput = Vector2(Input.get_action_strength("RotateRight") - Input.get_action_strength("RotateLeft"), Input.get_action_strength("Boost") - Input.get_action_strength("Brake"))
+	var MoveInput = Vector2(Input.get_action_strength("RotateRight") - Input.get_action_strength("RotateLeft"), Input.get_action_strength("Boost") - Input.get_action_strength("Back"))
 	
-	
-
 	#region isBraking
 	var isBraking = false
 	if MoveInput.y <= -.75:
@@ -41,29 +39,30 @@ func _physics_process(delta):
 	
 	#region Boost
 	if not isBraking:
-		SpeedDecel[0] = SpeedDecel[1]
+		SpeedDecel[0] = SpeedDecel[1] 
 	else:
 		SpeedDecel[0] = SpeedDecel[1] * BrakeDecelMult[0]
 	
-	var AccelRate
-	if MoveInput.y > 0: 
+	var AccelRate = 0
+	if MoveInput.y > 0:
 		BoostDir = Vector2(cos(rotation), sin(rotation))
-		AccelRate = SpeedAccel - SpeedDecel[0] * (BoostDir.dot(velocity.normalized()) / 2 )
+		var CounterAccel = BoostDir.dot(velocity.normalized()) # Needs to have it's sign preserved after +1 then /2, but to optimize it is left alone here
+		AccelRate = SpeedAccel - SpeedDecel[0] * ((CounterAccel + 1 ) / 2 * sign(CounterAccel) )
 		print(AccelRate)
 	else:
 		BoostDir = Vector2(0, 0)
 		AccelRate = SpeedDecel[0] #BaseSpeedDecel
 	#endregion
 	
-	#region Rotation Rate
+	#region Rotation
 	if not isBraking:
 		RotaDecel[0] = RotaDecel[1]
 	else:
 		RotaDecel[0] = RotaDecel[1] * BrakeDecelMult[1]
 	
-	var RotaRate
-	var CounterSteer = absf((RotaSpeed / MaxRota[0] ) - MoveInput.x)
+	var RotaRate = 0
 	if MoveInput.x != 0:
+		var CounterSteer = absf((RotaSpeed / MaxRota[0] ) - MoveInput.x)
 		RotaRate = RotaAccel + RotaDecel[0] * CounterSteer
 	else:
 		RotaRate = RotaDecel[0]
