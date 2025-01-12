@@ -7,7 +7,7 @@ var RotaSpeed : float = 0
 @export var RotaAccel = [PI/2,  PI/6] # {0: RotaAccel, 1: BaseRotaDecel}
 
 ## Brake Variables
-@export var BrakeDecel = [2.5, 6] # {0: SpeedDecelMultiplier, 1: RotaDecelMultiplier}
+@export var BrakeDecel = [2.5, 2] # {0: SpeedDecelMultiplier, 1: RotaDecelMultiplier}
 
 ##Dodge Variables
 @export var DodgeMaxSpeed = [1.5, 100, -4] # {0: MaxSpeedMultiplier, 1: MaxSpeedDecel, 2: EaseCurve}
@@ -41,7 +41,7 @@ func _physics_process(delta):
 	if isBraking:
 		RotaDecel = RotaAccel[1] * BrakeDecel[1]
 		
-	var CounterSteer = -((RotaSpeed / MaxRota[0]) + MoveInput.x )
+	var CounterSteer = absf((RotaSpeed / MaxRota[0] ) - MoveInput.x)
 	if MoveInput.x != 0:
 		RotaRate = RotaAccel[0] + RotaDecel * CounterSteer # RotaAccel + directional realease friction  
 	else:
