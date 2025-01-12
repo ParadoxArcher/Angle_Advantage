@@ -4,7 +4,7 @@ extends CharacterBody2D
 ## Rotation Variables
 var RotaSpeed : float = 0
 @export var MaxRota = [TAU, TAU] # {0: Fluctuating, 1: BaseMaxRota}
-@export var RotaAccel = [PI/2,  PI/6] # {0: RotaAccel, 1: BaseRotaDecel}
+@export var RotaAccel = [PI/2,  PI/8] # {0: RotaAccel, 1: BaseRotaDecel}
 
 ## Brake Variables
 @export var BrakeDecel = [2.5, 2] # {0: SpeedDecelMultiplier, 1: RotaDecelMultiplier}
