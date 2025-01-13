@@ -12,7 +12,7 @@ var isBraking = false
 @export var MaxSpeed = [1000, 1000] # {0: Fluctuating, 1: BaseMaxSpeed} ## Beware DodgeMaxSpeed
 @export var SpeedAccel = 1.3
 @export var SpeedDecel = [.3, .3] # {0: Fluctuating,  1: Decel} ## Beware BrakeDecelMult
-@export var BoostDecay = .8
+@export var BoostDecay = [0, .75, .4] # {0: Fluctuating,  1:BoostRelease, 2: DecayRate}
 var BoostDir = Vector2(0, 0)
 var AccelRate = 0
 
@@ -55,8 +55,10 @@ func _physics_process(delta):
 		BoostDir = Vector2(cos(rotation), sin(rotation))
 		var CounterAccel = BoostDir.dot(velocity.normalized()) # Needs to have it's sign preserved after +1 then /2, this scales it between 0 and 1, optimization leaves it as is
 		AccelRate = SpeedAccel - SpeedDecel[0] * ((CounterAccel + 1 ) / 2 * sign(CounterAccel) ) * CounterScaler[0]
+		BoostDecay[0] = BoostDecay[1]
 	else:
-		BoostDir = lerp(BoostDir, Vector2(0, 0), BoostDecay * delta)
+		BoostDecay[0] = lerpf(BoostDecay[0], 0, BoostDecay[2] * delta)
+		BoostDir = Vector2(cos(rotation), sin(rotation)) * BoostDecay[0]
 		AccelRate = SpeedDecel[0]
 		
 		print(BoostDir)
