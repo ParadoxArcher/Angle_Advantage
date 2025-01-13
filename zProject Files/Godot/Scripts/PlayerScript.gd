@@ -57,7 +57,7 @@ func _physics_process(delta):
 		AccelRate = SpeedAccel - SpeedDecel[0] * ((CounterAccel + 1 ) / 2 * sign(CounterAccel) ) * CounterScaler[0]
 		BoostDecay[0] = BoostDecay[1]
 	else:
-		BoostDecay[0] = lerpf(BoostDecay[0], 0, BoostDecay[2] * delta)
+		BoostDecay[0] = lerpf(BoostDecay[0], 0, clampf(BoostDecay[2] * delta, 0, 1))
 		BoostDir = Vector2(cos(rotation), sin(rotation)) * BoostDecay[0]
 		AccelRate = SpeedDecel[0]
 		
@@ -87,9 +87,9 @@ func _physics_process(delta):
 		velocity = MaxSpeed[0] * DodgeDir.rotated(rotation + PI/2)
 	
 	if MaxSpeed[0] != MaxSpeed[1] || MaxRota[0] != MaxRota[1]:
-		MaxSpeed[0] = lerpf(MaxSpeed[0], MaxSpeed[1], ease(DodgeMaxSpeed[1], DodgeMaxSpeed[2]) * delta) # clamps used end lerps
+		MaxSpeed[0] = lerpf(MaxSpeed[0], MaxSpeed[1], clampf(ease(DodgeMaxSpeed[1], DodgeMaxSpeed[2]) * delta, 0, 1)) # clamps used end lerps
 		print(MaxSpeed)
-		MaxRota[0] = lerpf(MaxRota[0], MaxRota[1], ease(DodgeMaxRota[1], DodgeMaxRota[2]) * delta) 
+		MaxRota[0] = lerpf(MaxRota[0], MaxRota[1], clampf(ease(DodgeMaxRota[1], DodgeMaxRota[2]) * delta, 0, 1))
 		print(MaxRota)
 	#endregion
 
@@ -98,11 +98,11 @@ func _physics_process(delta):
 	#endregion
 	
 	#region Transform
-	RotaSpeed = lerpf(RotaSpeed, MoveInput.x * MaxRota[0], RotaRate * delta) # Rotation Acceleration
+	RotaSpeed = lerpf(RotaSpeed, MoveInput.x * MaxRota[0], clampf(RotaRate * delta, 0, 1)) # Rotation Acceleration
 	rotate(RotaSpeed * delta)
 	
 	var TargetVel = BoostDir * MaxSpeed[0]
-	velocity = lerp(velocity, TargetVel, AccelRate * delta)
+	velocity = lerp(velocity, TargetVel, clampf(AccelRate * delta, 0, 1))
 	move_and_slide()
 	#endregion
 	
