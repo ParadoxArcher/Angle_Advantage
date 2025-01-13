@@ -24,8 +24,8 @@ var RotaSpeed : float = 0
 var RotaRate = 0
 
 ##Dodge Variables
-@export var DodgeMaxSpeed = [1.25, 50] # {0: MaxSpeedMultiplier, 1: MaxSpeedDecel}
-@export var DodgeMaxRota = [2, PI/4] # {0: MaxRotaMultiplier, 1: MaxRotaDecel}
+@export var DodgeMaxSpeed = [1.25, 25] # {0: MaxSpeedMultiplier, 1: MaxSpeedDecel}
+@export var DodgeMaxRota = [2, PI/8] # {0: MaxRotaMultiplier, 1: MaxRotaDecel}
 
 ## Markers Variables
 @export var MarkerSize = {"CenterGap": 50, "RotaSpeedGap": 75, "VelLength": .5, "NeutralLength": .35, "RotaSpeedLength": .5} #RotaSpeedGap left unimplemented, intended to slide rota_speed_display along neutral_display
@@ -53,16 +53,13 @@ func _physics_process(delta):
 		
 	if MoveInput.y > 0:
 		BoostDir = Vector2(cos(rotation), sin(rotation))
-		var CounterAccel = BoostDir.dot(velocity.normalized()) # Needs to have it's sign preserved after +1 then /2, this scales it between 0 and 1, optimization leaves it as is
-		AccelRate = SpeedAccel - SpeedDecel[0] * ((CounterAccel + 1 ) / 2 * sign(CounterAccel) ) * CounterScaler[0]
+		var CounterAccel = BoostDir.dot(velocity.normalized()) * CounterScaler[0]
+		AccelRate = SpeedAccel - SpeedDecel[0] * CounterAccel
 		BoostDecay[0] = BoostDecay[1]
 	else:
 		BoostDecay[0] -= clampf(BoostDecay[2] * delta, 0, BoostDecay[0])
 		BoostDir = Vector2(cos(rotation), sin(rotation)) * BoostDecay[0]
 		AccelRate = SpeedDecel[0]
-		
-		print(BoostDecay)
-		print(BoostDir)
 	#endregion
 
 	#region Rotation
@@ -88,10 +85,10 @@ func _physics_process(delta):
 		velocity = MaxSpeed[0] * DodgeDir.rotated(rotation + PI/2)
 	
 	if MaxSpeed[0] != MaxSpeed[1] || MaxRota[0] != MaxRota[1]:
-		MaxSpeed[0] -= clampf((MaxSpeed[0] - MaxSpeed[1]) * DodgeMaxSpeed[1] * delta, 0, MaxSpeed[0] - MaxSpeed[1])
-		print(MaxSpeed)
-		MaxRota[0] -= clampf((MaxRota[0] - MaxRota[1]) * DodgeMaxRota[1] * delta, 0, MaxRota[0] - MaxRota[1])
-		print(MaxRota)
+		MaxSpeed[0] -= clampf((MaxSpeed[0] - MaxSpeed[1]) * DodgeMaxSpeed[1], 0, MaxSpeed[0] - MaxSpeed[1])
+		MaxRota[0] -= clampf((MaxRota[0] - MaxRota[1]) * DodgeMaxRota[1], 0, MaxRota[0] - MaxRota[1])
+	print(MaxRota[0])
+	print(MaxSpeed[0])
 	#endregion
 
 	#region WallBoost...
