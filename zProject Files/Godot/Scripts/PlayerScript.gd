@@ -106,7 +106,8 @@ func _physics_process(delta):
 	move_and_slide()
 	#endregion
 	
-	#region Markers
+func _process(delta):
+		#region Markers
 	if Markers[0]:
 		if not Markers[1]:
 			vel_display.visible = true
