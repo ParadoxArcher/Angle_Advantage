@@ -18,13 +18,13 @@ var AccelRate = 0
 
 ## Rotation Variables
 var RotaSpeed : float = 0
-@export var MaxRota = [TAU, TAU] # {0: Fluctuating, 1: BaseMaxRota} ## Beware DodgeMaxRota
-@export var RotaAccel = PI/2
-@export var RotaDecel = [PI/8, PI/8] # {0: Fluctuating, 1: BaseRotaDecel} ## Beware BrakeDecelMult
+@export var MaxRota = [PI/24, PI/24] # {0: Fluctuating, 1: BaseMaxRota} ## Beware DodgeMaxRota
+@export var RotaAccel = .02
+@export var RotaDecel = [.0075, .0075] # {0: Fluctuating, 1: BaseRotaDecel} ## Beware BrakeDecelMult
 var RotaRate = 0
 
 ##Dodge Variables
-@export var DodgeMaxSpeed = [1.25, .15] # {0: MaxSpeedMultiplier, 1: MaxSpeedDecel}
+@export var DodgeMaxSpeed = [1.3, .15] # {0: MaxSpeedMultiplier, 1: MaxSpeedDecel}
 @export var DodgeMaxRota = [3, .25] # {0: MaxRotaMultiplier, 1: MaxRotaDecel}
 
 ## Markers Variables
@@ -58,7 +58,7 @@ func _physics_process(delta):
 		BoostDecay[0] = 1
 	else:
 		BoostDir = Vector2(cos(rotation), sin(rotation)) * (BoostDecay[1] * BoostDecay[0])
-		BoostDecay[0] -= clampf(1/BoostDecay[0] * BoostDecay[2], 0, BoostDecay[0])
+		BoostDecay[0] -= clampf(BoostDecay[2], 0, BoostDecay[0])
 		AccelRate = SpeedDecel[0]
 		print(BoostDecay)
 	#endregion
@@ -99,8 +99,8 @@ func _physics_process(delta):
 	#endregion
 	
 	#region Transform
-	RotaSpeed = lerpf(RotaSpeed, MoveInput.x * MaxRota[0], clampf(RotaRate * delta, 0, 1)) # Rotation Acceleration
-	rotate(RotaSpeed * delta)
+	RotaSpeed = lerpf(RotaSpeed, MoveInput.x * MaxRota[0], clampf(RotaRate, 0, 1)) # Rotation Acceleration
+	rotate(RotaSpeed)
 	
 	var TargetVel = BoostDir * MaxSpeed[0]
 	velocity = lerp(velocity, TargetVel, clampf(AccelRate * delta, 0, 1))
