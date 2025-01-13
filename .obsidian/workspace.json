@@ -235,11 +235,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "Devlogs/2025-01-13.md"
-              },
+              "state": {},
               "icon": "lucide-list",
-              "title": "Outline of 2025-01-13"
+              "title": "Outline"
             }
           }
         ],
@@ -263,21 +261,21 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "ccb67a022bf0fc28",
+  "active": "4688c3cbab7702aa",
   "lastOpenFiles": [
+    "zProject Files/Godot/Scripts/PlaED45.tmp",
+    "Devlogs/2025-01-13.md",
+    "zProject Files/Godot/Scripts/Pla7D7.tmp",
+    "zProject Files/Godot/Scenes/Gam32F8.tmp",
+    "zProject Files/Godot/Scripts/PlaC6B0.tmp",
+    "zProject Files/Godot/Scripts/Pla4028.tmp",
+    "zProject Files/Godot/Scripts/PlaC13.tmp",
+    "zProject Files/Godot/Scripts/PlaD484.tmp",
+    "zProject Files/Godot/Scripts/Pla3458.tmp",
     "zProject Files/Godot/Scripts/PlaB1BF.tmp",
     "zProject Files/Godot/Scripts/PlaCF54.tmp",
     "zProject Files/Godot/Scripts/Pla8192.tmp",
-    "zProject Files/Godot/Scripts/PlaA6DD.tmp",
-    "zProject Files/Godot/Scripts/Pla70F4.tmp",
-    "zProject Files/Godot/Scenes/Pla951A.tmp",
-    "zProject Files/Godot/Scripts/Pla9435.tmp",
-    "zProject Files/Godot/Scenes/Gam9422.tmp",
-    "zProject Files/Godot/Scripts/Pla5FD7.tmp",
-    "zProject Files/Godot/Scripts/PlaCAD6.tmp",
-    "zProject Files/Godot/Scenes/Pla35A1.tmp",
     "Devlogs/2025-01-10.md",
-    "Devlogs/2025-01-13.md",
     "DevNotes/Player/Player.md",
     "DevNotes/Player/Movement/Rotation.md",
     "DevNotes/Player/Movement/Boost.md",

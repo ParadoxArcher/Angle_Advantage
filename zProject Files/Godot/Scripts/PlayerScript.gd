@@ -12,7 +12,7 @@ var isBraking = false
 @export var MaxSpeed = [1000, 1000] # {0: Fluctuating, 1: BaseMaxSpeed} ## Beware DodgeMaxSpeed
 @export var SpeedAccel = 1.3
 @export var SpeedDecel = [.3, .3] # {0: Fluctuating,  1: Decel} ## Beware BrakeDecelMult
-@export var BoostDecay = [0, .75, .4] # {0: Fluctuating,  1:BoostRelease, 2: DecayRate}
+@export var BoostDecay = [0, .75, .3] # {0: Fluctuating,  1:BoostRelease, 2: DecayRate}
 var BoostDir = Vector2(0, 0)
 var AccelRate = 0
 
@@ -24,8 +24,8 @@ var RotaSpeed : float = 0
 var RotaRate = 0
 
 ##Dodge Variables
-@export var DodgeMaxSpeed = [1.25, 100, -4] # {0: MaxSpeedMultiplier, 1: MaxSpeedDecel, 2: EaseCurve}
-@export var DodgeMaxRota = [2, PI/2, -4] # {0: MaxRotaMultiplier, 1: MaxRotaDecel, 2: EaseCurve}
+@export var DodgeMaxSpeed = [1.25, 50] # {0: MaxSpeedMultiplier, 1: MaxSpeedDecel}
+@export var DodgeMaxRota = [2, PI/4] # {0: MaxRotaMultiplier, 1: MaxRotaDecel}
 
 ## Markers Variables
 @export var MarkerSize = {"CenterGap": 50, "RotaSpeedGap": 75, "VelLength": .5, "NeutralLength": .35, "RotaSpeedLength": .5} #RotaSpeedGap left unimplemented, intended to slide rota_speed_display along neutral_display
@@ -57,10 +57,11 @@ func _physics_process(delta):
 		AccelRate = SpeedAccel - SpeedDecel[0] * ((CounterAccel + 1 ) / 2 * sign(CounterAccel) ) * CounterScaler[0]
 		BoostDecay[0] = BoostDecay[1]
 	else:
-		BoostDecay[0] = lerpf(BoostDecay[0], 0, clampf(BoostDecay[2] * delta, 0, 1))
+		BoostDecay[0] -= clampf(BoostDecay[2] * delta, 0, BoostDecay[0])
 		BoostDir = Vector2(cos(rotation), sin(rotation)) * BoostDecay[0]
 		AccelRate = SpeedDecel[0]
 		
+		print(BoostDecay)
 		print(BoostDir)
 	#endregion
 
@@ -87,9 +88,9 @@ func _physics_process(delta):
 		velocity = MaxSpeed[0] * DodgeDir.rotated(rotation + PI/2)
 	
 	if MaxSpeed[0] != MaxSpeed[1] || MaxRota[0] != MaxRota[1]:
-		MaxSpeed[0] = lerpf(MaxSpeed[0], MaxSpeed[1], clampf(ease(DodgeMaxSpeed[1], DodgeMaxSpeed[2]) * delta, 0, 1)) # clamps used end lerps
+		MaxSpeed[0] -= clampf((MaxSpeed[0] - MaxSpeed[1]) * DodgeMaxSpeed[1] * delta, 0, MaxSpeed[0] - MaxSpeed[1])
 		print(MaxSpeed)
-		MaxRota[0] = lerpf(MaxRota[0], MaxRota[1], clampf(ease(DodgeMaxRota[1], DodgeMaxRota[2]) * delta, 0, 1))
+		MaxRota[0] -= clampf((MaxRota[0] - MaxRota[1]) * DodgeMaxRota[1] * delta, 0, MaxRota[0] - MaxRota[1])
 		print(MaxRota)
 	#endregion
 
