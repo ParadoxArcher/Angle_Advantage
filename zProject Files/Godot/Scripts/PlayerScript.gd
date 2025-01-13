@@ -10,9 +10,9 @@ var isBraking = false
 
 ## Boost Variables
 @export var MaxSpeed = [1000, 1000] # {0: Fluctuating, 1: BaseMaxSpeed} ## Beware DodgeMaxSpeed
-@export var SpeedAccel = 1.3
-@export var SpeedDecel = [.3, .3] # {0: Fluctuating,  1: Decel} ## Beware BrakeDecelMult
-@export var BoostDecay = [0, 1, .01] # {0: Fluctuating,  1:BoostRelease, 2: DecayRate}
+@export var SpeedAccel = .025
+@export var SpeedDecel = [.01, .01] # {0: Fluctuating,  1: Decel} ## Beware BrakeDecelMult
+@export var BoostDecay = [0, .3, .005] # {0: Fluctuating,  1:BoostRelease, 2: DecayRate}
 var BoostDir = Vector2(0, 0)
 var AccelRate = 0
 
@@ -51,16 +51,18 @@ func _physics_process(delta):
 	else:
 		SpeedDecel[0] = SpeedDecel[1] * BrakeDecelMult[0]
 		
-	if MoveInput.y > 0:
+	if MoveInput.y > 0  or BoostDecay[0] > 0:
 		BoostDir = Vector2(cos(rotation), sin(rotation))
 		var CounterAccel = BoostDir.dot(velocity.normalized()) * CounterScaler[0]
 		AccelRate = SpeedAccel - SpeedDecel[0] * CounterAccel
-		BoostDecay[0] = 1
+		if MoveInput.y == 0:
+			BoostDir *= (BoostDecay[1] * BoostDecay[0])
+			BoostDecay[0] -= clampf(BoostDecay[2], 0, BoostDecay[0])
+		else:
+			BoostDecay[0] = 1
 	else:
-		BoostDir = Vector2(cos(rotation), sin(rotation)) * (BoostDecay[1] * BoostDecay[0])
-		BoostDecay[0] -= clampf(BoostDecay[2], 0, BoostDecay[0])
+		BoostDir = Vector2(0, 0)
 		AccelRate = SpeedDecel[0]
-		print(BoostDecay)
 	#endregion
 
 	#region Rotation
@@ -103,7 +105,7 @@ func _physics_process(delta):
 	rotate(RotaSpeed)
 	
 	var TargetVel = BoostDir * MaxSpeed[0]
-	velocity = lerp(velocity, TargetVel, clampf(AccelRate * delta, 0, 1))
+	velocity = lerp(velocity, TargetVel, clampf(AccelRate, 0, 1))
 	move_and_slide()
 	#endregion
 	

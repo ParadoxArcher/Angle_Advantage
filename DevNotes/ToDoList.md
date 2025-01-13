@@ -6,6 +6,7 @@ kanban-plugin: board
 
 ## Current
 
+- [ ] Fix [[Boost]] Decay to use AccelRate
 
 
 ## Soon
