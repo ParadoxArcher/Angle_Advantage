@@ -83,13 +83,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DevNotes/Player/Movement/Rotation.md",
+                "file": "DevNotes/Player/Player.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Rotation"
+              "title": "Player"
             }
           }
         ],
@@ -249,10 +249,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DevNotes/Player/Movement/Rotation.md"
+                "file": "DevNotes/Player/Player.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of Rotation"
+              "title": "Outline of Player"
             }
           }
         ],
@@ -278,11 +278,13 @@
   },
   "active": "6fe034b4f3c043e8",
   "lastOpenFiles": [
+    "DevNotes/Player/Movement/Rotation.md",
+    "zProject Files/Godot/Scripts/Pla6D96.tmp",
+    "DevNotes/Player/Movement/Boost.md",
+    "Reference Images/Pasted image 20250112081857.png",
     "Reference Images/Pasted image 20250112081555.png",
     "Reference Images/Pasted image 20250112081433.png",
     "Reference Images/Pasted image 20250112081249.png",
-    "DevNotes/Player/Movement/Boost.md",
-    "DevNotes/Player/Movement/Rotation.md",
     "Reference Images/Pasted image 20250112081118.png",
     "Reference Images/Pasted image 20250112081003.png",
     "DevNotes/Player/Player.md",
@@ -290,11 +292,9 @@
     "Reference Images/Pasted image 20250112080548.png",
     "Reference Images/Images/Pasted image 20250112080017.png",
     "Reference Images/Images/Pasted image 20250112075724.png",
-    "Reference Images/Images/Pasted image 20250112075332.png",
     "zProject Files/Godot/Scripts/Pla7D88.tmp",
     "zProject Files/Godot/Scripts/Pla520E.tmp",
     "DevNotes/ToDoList.md",
-    "Reference Images/Images/Pasted image 20250112074603.png",
     "zProject Files/Godot/Scenes/PlaA2B0.tmp",
     "zProject Files/Godot/Scripts/PlaA1DB.tmp",
     "zProject Files/Godot/Scenes/GamA1B9.tmp",
@@ -305,7 +305,6 @@
     "zProject Files/Godot/Scripts/Pla9185.tmp",
     "zProject Files/Godot/Scenes/Gam45FD.tmp",
     "zProject Files/Godot/Scripts/PlaFE35.tmp",
-    "zProject Files/Godot/Scripts/PlaDD11.tmp",
     "Reference Images/Excalidraw/MissionStatementSketch.md",
     "DevNotes/Mission Statement.md",
     "Reference Images/Excalidraw/Drawing 2025-01-10 09.06.25.excalidraw.md",

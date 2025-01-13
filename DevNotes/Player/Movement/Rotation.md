@@ -21,3 +21,5 @@
 		1) ![[Pasted image 20250112081555.png]]
 		2) ![[Pasted image 20250112081433.png]]
 4) CounterSteer
+	1) Find difference between current rotation Input direction & multiply it by deceleration rate before adding to acceleration
+		1) ![[Pasted image 20250112081857.png]]

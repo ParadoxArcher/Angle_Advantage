@@ -1,10 +1,18 @@
 extends CharacterBody2D
 
 #region Variables
+## Brake Variables
+@export var BrakeDecelMult = [5, 3] # {0: SpeedDecelMult, 1: RotaDecelMult}
+var isBraking = false
+
+## CounterSteering
+@export var CounterScaler = [1, .5] # {0: CounterAccel, 1: CounterSteer}
+
 ## Boost Variables
 @export var MaxSpeed = [1000, 1000] # {0: Fluctuating, 1: BaseMaxSpeed} ## Beware DodgeMaxSpeed
 @export var SpeedAccel = 1.3
 @export var SpeedDecel = [.3, .3] # {0: Fluctuating,  1: Decel} ## Beware BrakeDecelMult
+@export var BoostDecay = .8
 var BoostDir = Vector2(0, 0)
 var AccelRate = 0
 
@@ -15,15 +23,11 @@ var RotaSpeed : float = 0
 @export var RotaDecel = [PI/8, PI/8] # {0: Fluctuating, 1: BaseRotaDecel} ## Beware BrakeDecelMult
 var RotaRate = 0
 
-## Brake Variables
-@export var BrakeDecelMult = [5, 2] # {0: SpeedDecelMult, 1: RotaDecelMult}
-var isBraking
-
 ##Dodge Variables
 @export var DodgeMaxSpeed = [1.25, 100, -4] # {0: MaxSpeedMultiplier, 1: MaxSpeedDecel, 2: EaseCurve}
 @export var DodgeMaxRota = [2, PI/2, -4] # {0: MaxRotaMultiplier, 1: MaxRotaDecel, 2: EaseCurve}
 
-## Display Variables
+## Markers Variables
 @export var MarkerSize = {"CenterGap": 50, "RotaSpeedGap": 75, "VelLength": .5, "NeutralLength": .35, "RotaSpeedLength": .5} #RotaSpeedGap left unimplemented, intended to slide rota_speed_display along neutral_display
 @export var Markers = [true, false]
 @onready var vel_display = $Sprites/VelDisplay
@@ -35,7 +39,6 @@ func _physics_process(delta):
 	var MoveInput = Vector2(Input.get_action_strength("RotateRight") - Input.get_action_strength("RotateLeft"), Input.get_action_strength("Boost") - Input.get_action_strength("Back"))
 	
 	#region isBraking
-	
 	if Input.is_action_pressed("Brake"):
 		isBraking = true
 	else:
@@ -50,13 +53,15 @@ func _physics_process(delta):
 		
 	if MoveInput.y > 0:
 		BoostDir = Vector2(cos(rotation), sin(rotation))
-		var CounterAccel = BoostDir.dot(velocity.normalized()) # Needs to have it's sign preserved after +1 then /2, but to optimize it is left alone here
-		AccelRate = SpeedAccel - SpeedDecel[0] * ((CounterAccel + 1 ) / 2 * sign(CounterAccel) )
+		var CounterAccel = BoostDir.dot(velocity.normalized()) # Needs to have it's sign preserved after +1 then /2, this scales it between 0 and 1, optimization leaves it as is
+		AccelRate = SpeedAccel - SpeedDecel[0] * ((CounterAccel + 1 ) / 2 * sign(CounterAccel) ) * CounterScaler[0]
 	else:
-		BoostDir = Vector2(0, 0)
-		AccelRate = SpeedDecel[0] #BaseSpeedDecel
+		BoostDir = lerp(BoostDir, Vector2(0, 0), BoostDecay * delta)
+		AccelRate = SpeedDecel[0]
+		
+		print(BoostDir)
 	#endregion
-	
+
 	#region Rotation
 	if not isBraking:
 		RotaDecel[0] = RotaDecel[1]
@@ -64,7 +69,7 @@ func _physics_process(delta):
 		RotaDecel[0] = RotaDecel[1] * BrakeDecelMult[1]
 	
 	if MoveInput.x != 0:
-		var CounterSteer = absf((RotaSpeed / MaxRota[0] ) - MoveInput.x)
+		var CounterSteer = absf((RotaSpeed / MaxRota[0] ) - MoveInput.x) * CounterScaler[1]
 		RotaRate = RotaAccel + RotaDecel[0] * CounterSteer
 	else:
 		RotaRate = RotaDecel[0]
@@ -125,4 +130,3 @@ func _physics_process(delta):
 		rota_speed_display.visible = false
 		Markers[1] = false
 	#endregion
-	
