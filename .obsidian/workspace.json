@@ -11,26 +11,15 @@
             "id": "ccb67a022bf0fc28",
             "type": "leaf",
             "state": {
-              "type": "kanban",
+              "type": "markdown",
               "state": {
-                "file": "DevNotes/ToDoList.md",
-                "kanbanViewState": {
-                  "kanban-plugin": "board",
-                  "list-collapse": [
-                    false,
-                    false,
-                    false,
-                    false,
-                    false,
-                    false,
-                    false,
-                    false,
-                    false
-                  ]
-                }
+                "file": "Devlogs/2025-01-13.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
               },
-              "icon": "lucide-trello",
-              "title": "ToDoList"
+              "icon": "lucide-file",
+              "title": "2025-01-13"
             }
           },
           {
@@ -39,13 +28,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DevNotes/Brakes.md",
+                "file": "DevNotes/Player/Movement/Boost.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Brakes"
+              "title": "Boost"
             }
           },
           {
@@ -247,10 +236,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DevNotes/ToDoList.md"
+                "file": "Devlogs/2025-01-13.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of ToDoList"
+              "title": "Outline of 2025-01-13"
             }
           }
         ],
@@ -276,6 +265,10 @@
   },
   "active": "ccb67a022bf0fc28",
   "lastOpenFiles": [
+    "DevNotes/Player/Movement/Boost.md",
+    "DevNotes/Brakes.md",
+    "Devlogs/2025-01-13.md",
+    "DevNotes/ToDoList.md",
     "zProject Files/Godot/Scripts/Pla3586.tmp",
     "zProject Files/Godot/Scripts/PlaBD15.tmp",
     "zProject Files/Godot/Scripts/Pla778C.tmp",
@@ -284,14 +277,11 @@
     "zProject Files/Godot/Scripts/PlaB930.tmp",
     "zProject Files/Godot/Scripts/Pla30AB.tmp",
     "zProject Files/Godot/Scripts/Pla7F1.tmp",
-    "Devlogs/2025-01-13.md",
     "zProject Files/Godot/Scripts/PlaD60A.tmp",
     "zProject Files/Godot/Scripts/Pla31E6.tmp",
-    "zProject Files/Godot/Scripts/Pla67BC.tmp",
     "Devlogs/2025-01-10.md",
     "DevNotes/Player/Player.md",
     "DevNotes/Player/Movement/Rotation.md",
-    "DevNotes/Player/Movement/Boost.md",
     "Reference Images/Pasted image 20250112081857.png",
     "Reference Images/Pasted image 20250112081555.png",
     "Reference Images/Pasted image 20250112081433.png",
@@ -302,8 +292,6 @@
     "Reference Images/Pasted image 20250112080548.png",
     "Reference Images/Images/Pasted image 20250112080017.png",
     "Reference Images/Images/Pasted image 20250112075724.png",
-    "DevNotes/ToDoList.md",
-    "DevNotes/Brakes.md",
     "Reference Images/Excalidraw/Drawing 2025-01-10 12.04.56.excalidraw.md",
     "Reference Images/Excalidraw/MissionStatementSketch.md",
     "DevNotes/Mission Statement.md",

@@ -29,4 +29,6 @@
 5) Counter Acceleration
 	1) Find difference between current velocity and Boost direction & multiply it by deceleration rate before adding to acceleration
 		1) ![[Pasted image 20250112074603.png]]
+6) Boost Decay
+	1) 
 
