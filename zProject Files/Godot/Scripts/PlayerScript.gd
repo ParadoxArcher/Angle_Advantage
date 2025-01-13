@@ -12,7 +12,7 @@ var isBraking = false
 @export var MaxSpeed = [1000, 1000] # {0: Fluctuating, 1: BaseMaxSpeed} ## Beware DodgeMaxSpeed
 @export var SpeedAccel = 1.3
 @export var SpeedDecel = [.3, .3] # {0: Fluctuating,  1: Decel} ## Beware BrakeDecelMult
-@export var BoostDecay = [0, .75, .3] # {0: Fluctuating,  1:BoostRelease, 2: DecayRate}
+@export var BoostDecay = [0, 1, .01] # {0: Fluctuating,  1:BoostRelease, 2: DecayRate}
 var BoostDir = Vector2(0, 0)
 var AccelRate = 0
 
@@ -24,8 +24,8 @@ var RotaSpeed : float = 0
 var RotaRate = 0
 
 ##Dodge Variables
-@export var DodgeMaxSpeed = [1.25, 25] # {0: MaxSpeedMultiplier, 1: MaxSpeedDecel}
-@export var DodgeMaxRota = [2, PI/8] # {0: MaxRotaMultiplier, 1: MaxRotaDecel}
+@export var DodgeMaxSpeed = [1.25, .15] # {0: MaxSpeedMultiplier, 1: MaxSpeedDecel}
+@export var DodgeMaxRota = [3, .25] # {0: MaxRotaMultiplier, 1: MaxRotaDecel}
 
 ## Markers Variables
 @export var MarkerSize = {"CenterGap": 50, "RotaSpeedGap": 75, "VelLength": .5, "NeutralLength": .35, "RotaSpeedLength": .5} #RotaSpeedGap left unimplemented, intended to slide rota_speed_display along neutral_display
@@ -55,11 +55,12 @@ func _physics_process(delta):
 		BoostDir = Vector2(cos(rotation), sin(rotation))
 		var CounterAccel = BoostDir.dot(velocity.normalized()) * CounterScaler[0]
 		AccelRate = SpeedAccel - SpeedDecel[0] * CounterAccel
-		BoostDecay[0] = BoostDecay[1]
+		BoostDecay[0] = 1
 	else:
-		BoostDecay[0] -= clampf(BoostDecay[2] * delta, 0, BoostDecay[0])
-		BoostDir = Vector2(cos(rotation), sin(rotation)) * BoostDecay[0]
+		BoostDir = Vector2(cos(rotation), sin(rotation)) * (BoostDecay[1] * BoostDecay[0])
+		BoostDecay[0] -= clampf(1/BoostDecay[0] * BoostDecay[2], 0, BoostDecay[0])
 		AccelRate = SpeedDecel[0]
+		print(BoostDecay)
 	#endregion
 
 	#region Rotation
@@ -77,6 +78,11 @@ func _physics_process(delta):
 
 	#region Dodge
 	var DodgeDir = Vector2(Input.get_action_strength("RotateRight") - Input.get_action_strength("RotateLeft"), Input.get_action_strength("Back") - Input.get_action_strength("Boost"))
+	
+	if MaxSpeed[0] != MaxSpeed[1] || MaxRota[0] != MaxRota[1]:
+		MaxSpeed[0] -= clampf((MaxSpeed[0] - MaxSpeed[1]) * DodgeMaxSpeed[1], 0, MaxSpeed[0] - MaxSpeed[1])
+		MaxRota[0] -= clampf((MaxRota[0] - MaxRota[1]) * DodgeMaxRota[1], 0, MaxRota[0] - MaxRota[1])
+	
 	if Input.is_action_just_pressed("Dodge"):
 		if DodgeDir.normalized().is_zero_approx():
 			DodgeDir = Vector2(0,-1)
@@ -84,9 +90,6 @@ func _physics_process(delta):
 		MaxRota[0] = MaxRota[1] * DodgeMaxRota[0]
 		velocity = MaxSpeed[0] * DodgeDir.rotated(rotation + PI/2)
 	
-	if MaxSpeed[0] != MaxSpeed[1] || MaxRota[0] != MaxRota[1]:
-		MaxSpeed[0] -= clampf((MaxSpeed[0] - MaxSpeed[1]) * DodgeMaxSpeed[1], 0, MaxSpeed[0] - MaxSpeed[1])
-		MaxRota[0] -= clampf((MaxRota[0] - MaxRota[1]) * DodgeMaxRota[1], 0, MaxRota[0] - MaxRota[1])
 	print(MaxRota[0])
 	print(MaxSpeed[0])
 	#endregion
