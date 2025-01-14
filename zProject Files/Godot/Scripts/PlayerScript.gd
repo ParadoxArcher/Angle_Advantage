@@ -92,9 +92,10 @@ func _physics_process(_delta):
 	RotaSpeed = lerpf(RotaSpeed, MoveInput.x * MaxRota[0], clampf(RotaRate, 0, 1)) # Rotation Acceleration
 	rotate(RotaSpeed)
 	
-	var VelMomentum = velocity.normalized()
-	var TargetVel = BoostDir * MaxSpeed[0]
+	var VelMomentum = velocity.normalized() # Momentum
 	velocity = lerp(velocity, VelMomentum, SpeedDecel[0])
+	
+	var TargetVel = BoostDir * MaxSpeed[0] # Add Speed
 	velocity = lerp(velocity, TargetVel, SpeedAccel)
 	move_and_slide()
 	#endregion
