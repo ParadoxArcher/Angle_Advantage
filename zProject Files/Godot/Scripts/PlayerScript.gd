@@ -12,7 +12,7 @@ var isBraking = false
 @export var MaxSpeed = [1000, 1000] # {0: Fluctuating, 1: BaseMaxSpeed} ## Beware DodgeMaxSpeed
 @export var SpeedAccel = .025
 @export var SpeedDecel = [.01, .01] # {0: Fluctuating,  1: Decel} ## Beware BrakeDecelMult
-@export var BoostDecay = [0, .8, .02, false] # {0: Fluctuating,  1:BoostRelease, 2:DecayRate, 3:isDecayActive}
+@export var BoostDecay = [0, .015, .8] # {0: Fluctuating,  1:DecayRate, 2:BoostRelease}
 var BoostDir = Vector2(0, 0)
 var AccelRate = 0
 
@@ -52,13 +52,14 @@ func _physics_process(_delta):
 		SpeedDecel[0] = SpeedDecel[1] * BrakeDecelMult[0]
 		
 	if MoveInput.y > 0 or BoostDecay[0] >= 0:
-		if MoveInput.y > BoostDecay[0]:
+		if MoveInput.y >= BoostDecay[0]:
 			BoostDir = Vector2(cos(rotation), sin(rotation)) * MoveInput.y
 			if BoostDecay[0] < 1:
-				BoostDecay[0] += BoostDecay[2]
+				BoostDecay[0] += clampf(BoostDecay[1], 0, 1 - BoostDecay[0])
 		else:
-			BoostDir = Vector2(cos(rotation), sin(rotation)) * (BoostDecay[0] * BoostDecay[1] )
-			BoostDecay[0] -= BoostDecay[2]
+			BoostDir = Vector2(cos(rotation), sin(rotation)) * (BoostDecay[0] * BoostDecay[2] )
+			BoostDecay[0] -= clampf(BoostDecay[1], BoostDecay[0], BoostDecay[1])
+		
 		var CounterAccel = -BoostDir.dot(velocity / MaxSpeed[1]) * CounterScaler[0]
 		AccelRate = SpeedAccel + (SpeedDecel[0] * CounterAccel )
 	else:
@@ -121,8 +122,8 @@ func _process(_delta):
 		vel_display.rotation = velocity.angle()
 		
 		neutral_display.scale.x = MarkerSize["NeutralLength"]
-		neutral_display.position = position + ((150 * neutral_display.scale.x ) + MarkerSize["CenterGap"] ) * BoostDir
-		neutral_display.rotation = BoostDir.angle()
+		neutral_display.position = position + ((150 * neutral_display.scale.x ) + MarkerSize["CenterGap"] ) * Vector2(cos(rotation), sin(rotation))
+		neutral_display.rotation = rotation
 		
 		rota_speed_display.scale.x = RotaSpeed * MarkerSize["RotaSpeedLength"] / MaxRota[1]
 		rota_speed_display.position = neutral_display.position + ((150 * rota_speed_display.scale.x ) * Vector2(cos(neutral_display.rotation + PI/2), sin(neutral_display.rotation + PI/2)) )
