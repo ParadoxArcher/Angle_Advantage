@@ -12,7 +12,7 @@ var isBraking = false
 @export var MaxSpeed = [1000, 1000] # {0: Fluctuating, 1: BaseMaxSpeed} ## Beware DodgeMaxSpeed
 @export var SpeedAccel = .025
 @export var SpeedDecel = [.01, .01] # {0: Fluctuating,  1: Decel} ## Beware BrakeDecelMult
-@export var BoostDecay = [0, .3, .01] # {0: Fluctuating,  1:BoostRelease, 2: DecayRate}
+@export var BoostDecay = [0, .8, .02, false] # {0: Fluctuating,  1:BoostRelease, 2:DecayRate, 3:isDecayActive}
 var BoostDir = Vector2(0, 0)
 var AccelRate = 0
 
@@ -51,28 +51,19 @@ func _physics_process(_delta):
 	else:
 		SpeedDecel[0] = SpeedDecel[1] * BrakeDecelMult[0]
 		
-	if MoveInput.y > 0:
-		BoostDir = Vector2(cos(rotation), sin(rotation)) 
+	if MoveInput.y > 0 or BoostDecay[0] >= 0:
+		if MoveInput.y > BoostDecay[0]:
+			BoostDir = Vector2(cos(rotation), sin(rotation)) * MoveInput.y
+			if BoostDecay[0] < 1:
+				BoostDecay[0] += BoostDecay[2]
+		else:
+			BoostDir = Vector2(cos(rotation), sin(rotation)) * (BoostDecay[0] * BoostDecay[1] )
+			BoostDecay[0] -= BoostDecay[2]
 		var CounterAccel = -BoostDir.dot(velocity / MaxSpeed[1]) * CounterScaler[0]
 		AccelRate = SpeedAccel + (SpeedDecel[0] * CounterAccel )
-		BoostDecay[0] = BoostDecay[1]
-		
-		#if SpeedDecel[0] >= SpeedAccel: # Debugging for AccelRate bandaid fix
-		#	push_warning("AccelRate is Clamped: " + str(AccelRate))
-			
-		#if MoveInput.y == 0: # Boost Decay
-		#	BoostDir *= (BoostDecay[1] * BoostDecay[0])
-		#	BoostDecay[0] -= clampf(BoostDecay[2], 0, BoostDecay[0])
-		#else:
-		#	BoostDecay[0] = 1
 	else:
-		if BoostDecay[0] >= 0:
-			BoostDir = Vector2(cos(rotation), sin(rotation)) * BoostDecay[0]
-			BoostDecay[0] -= BoostDecay[2]
-		
-		print(BoostDecay)
+		BoostDir = Vector2(0, 0)
 		AccelRate = SpeedDecel[0]
-	print(AccelRate)
 	#endregion
 
 	#region Rotation
