@@ -2,11 +2,11 @@ extends CharacterBody2D
 
 #region Variables
 ## Brake Variables
-@export var BrakeDecelMult = [10, 3] # {0: SpeedDecelMult, 1: RotaDecelMult}
+@export var BrakeDecelMult = [4, 3] # {0: SpeedDecelMult, 1: RotaDecelMult}
 var isBraking = false
 
 ## CounterSteering
-@export var CounterScaler = [1, .5] # {0: CounterAccel, 1: CounterSteer}
+@export var CounterScaler = [.5, .5] # {0: CounterAccel, 1: CounterSteer}
 
 ## Boost Variables
 @export var MaxSpeed = [1000, 1000] # {0: Fluctuating, 1: BaseMaxSpeed} ## Beware DodgeMaxSpeed
@@ -53,8 +53,10 @@ func _physics_process(_delta):
 			BoostDir = Vector2(cos(rotation), sin(rotation)) * (BoostDecay[0] * BoostDecay[2] )
 			BoostDecay[0] -= clampf(BoostDecay[1], 0, BoostDecay[0])
 		
-		var CounterAccel = -BoostDir.dot(velocity / MaxSpeed[1]) * CounterScaler[0]
-		AccelRate = SpeedAccel + (SpeedDecel[0] * CounterAccel )
+		var CounterAccel = (-BoostDir.dot(velocity / MaxSpeed[1]) + 1 ) * CounterScaler[0]
+		AccelRate = SpeedAccel + (SpeedDecel[1] * CounterAccel )
+		
+		
 		print(AccelRate)
 	else:
 		BoostDir = Vector2(0, 0)
