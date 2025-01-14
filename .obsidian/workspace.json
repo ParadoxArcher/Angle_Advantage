@@ -80,7 +80,8 @@
               "title": "Player"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -236,10 +237,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Devlogs/2025-01-13.md"
+                "file": "DevNotes/ToDoList.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of 2025-01-13"
+              "title": "Outline of ToDoList"
             }
           }
         ],
@@ -263,12 +264,13 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "ccb67a022bf0fc28",
+  "active": "2b906768df75cac8",
   "lastOpenFiles": [
-    "DevNotes/Player/Movement/Boost.md",
-    "DevNotes/Brakes.md",
-    "Devlogs/2025-01-13.md",
+    "DevNotes/Player/Player.md",
     "DevNotes/ToDoList.md",
+    "DevNotes/Player/Movement/Boost.md",
+    "Devlogs/2025-01-13.md",
+    "DevNotes/Brakes.md",
     "zProject Files/Godot/Scripts/Pla3586.tmp",
     "zProject Files/Godot/Scripts/PlaBD15.tmp",
     "zProject Files/Godot/Scripts/Pla778C.tmp",
@@ -280,7 +282,6 @@
     "zProject Files/Godot/Scripts/PlaD60A.tmp",
     "zProject Files/Godot/Scripts/Pla31E6.tmp",
     "Devlogs/2025-01-10.md",
-    "DevNotes/Player/Player.md",
     "DevNotes/Player/Movement/Rotation.md",
     "Reference Images/Pasted image 20250112081857.png",
     "Reference Images/Pasted image 20250112081555.png",
