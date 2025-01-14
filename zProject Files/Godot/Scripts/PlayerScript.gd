@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 #region Variables
 ## Brake Variables
-@export var BrakeDecelMult = [4, 3] # {0: SpeedDecelMult, 1: RotaDecelMult}
+@export var BrakeDecelMult = [10, 3] # {0: SpeedDecelMult, 1: RotaDecelMult}
 var isBraking = false
 
 ## CounterSteering
@@ -26,13 +26,6 @@ var RotaRate = 0
 ##Dodge Variables
 @export var DodgeMaxSpeed = [1.3, .15] # {0: MaxSpeedMultiplier, 1: MaxSpeedDecel}
 @export var DodgeMaxRota = [3, .25] # {0: MaxRotaMultiplier, 1: MaxRotaDecel}
-
-## Markers Variables
-@export var MarkerSize = {"CenterGap": 50, "RotaSpeedGap": 75, "VelLength": .5, "NeutralLength": .35, "RotaSpeedLength": .5} #RotaSpeedGap left unimplemented, intended to slide rota_speed_display along neutral_display
-@export var Markers = [true, false]
-@onready var vel_display = $Sprites/VelDisplay
-@onready var neutral_display = $Sprites/NeutralDisplay
-@onready var rota_speed_display = $Sprites/RotaSpeedDisplay
 #endregion
 
 func _physics_process(_delta):
@@ -62,6 +55,7 @@ func _physics_process(_delta):
 		
 		var CounterAccel = -BoostDir.dot(velocity / MaxSpeed[1]) * CounterScaler[0]
 		AccelRate = SpeedAccel + (SpeedDecel[0] * CounterAccel )
+		print(AccelRate)
 	else:
 		BoostDir = Vector2(0, 0)
 		AccelRate = SpeedDecel[0]
@@ -108,6 +102,17 @@ func _physics_process(_delta):
 	move_and_slide()
 	#endregion
 	
+
+
+
+#region Markers
+@export var MarkerSize = {"CenterGap": 50, "RotaSpeedGap": 75, "VelLength": .5, "NeutralLength": .35, "RotaSpeedLength": .5} #RotaSpeedGap left unimplemented, intended to slide rota_speed_display along neutral_display
+@export var Markers = [true, false]
+@onready var vel_display = $Sprites/VelDisplay
+@onready var neutral_display = $Sprites/NeutralDisplay
+@onready var rota_speed_display = $Sprites/RotaSpeedDisplay
+#endregion
+
 func _process(_delta):
 		#region Markers
 	if Markers[0]:
