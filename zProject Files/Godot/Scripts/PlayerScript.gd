@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 #region Variables
 ## Brake Variables
-@export var BrakeDecelMult = [2, 3] # {0: SpeedDecelMult, 1: RotaDecelMult}
+@export var BrakeDecelMult = [4, 3] # {0: SpeedDecelMult, 1: RotaDecelMult}
 var isBraking = false
 
 ## CounterSteering
@@ -54,8 +54,13 @@ func _physics_process(delta):
 	if MoveInput.y > 0  or BoostDecay[0] > 0:
 		BoostDir = Vector2(cos(rotation), sin(rotation))
 		var CounterAccel = BoostDir.dot(velocity.normalized()) * CounterScaler[0]
-		AccelRate = SpeedAccel - SpeedDecel[0] * CounterAccel
-		if MoveInput.y == 0:
+		AccelRate = SpeedAccel - clampf(SpeedDecel[0], 0, SpeedAccel - SpeedDecel[1]) * CounterAccel
+		print(AccelRate)
+		
+		if absf(AccelRate) == SpeedDecel[1]: # Debugging for AccelRate bandaid fix
+			print("AccelRate is clamped")
+			
+		if MoveInput.y == 0: # Boost Decay
 			BoostDir *= (BoostDecay[1] * BoostDecay[0])
 			BoostDecay[0] -= clampf(BoostDecay[2], 0, BoostDecay[0])
 		else:
@@ -63,10 +68,6 @@ func _physics_process(delta):
 	else:
 		BoostDir = Vector2(0, 0)
 		AccelRate = SpeedDecel[0]
-		
-	# Debugging
-	if AccelRate < 0:
-		print(AccelRate)
 	#endregion
 
 	#region Rotation
