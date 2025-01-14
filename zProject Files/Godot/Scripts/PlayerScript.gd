@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 #region Variables
 ## Brake Variables
-@export var BrakeDecelMult = [5, 3] # {0: SpeedDecelMult, 1: RotaDecelMult}
+@export var BrakeDecelMult = [2, 1.5] # {0: SpeedDecelMult, 1: RotaDecelMult}
 var isBraking = false
 
 ## CounterSteering
@@ -64,7 +64,9 @@ func _physics_process(delta):
 		BoostDir = Vector2(0, 0)
 		AccelRate = SpeedDecel[0]
 		
-	print(AccelRate)
+	# Debugging
+	if AccelRate < 0:
+		print(AccelRate)
 	#endregion
 
 	#region Rotation
@@ -78,6 +80,12 @@ func _physics_process(delta):
 		RotaRate = RotaAccel + RotaDecel[0] * CounterSteer
 	else:
 		RotaRate = RotaDecel[0]
+		
+		print(RotaRate)
+		
+	# Debugging
+	if RotaRate < 0:
+		print(RotaRate)
 	#endregion
 
 	#region Dodge

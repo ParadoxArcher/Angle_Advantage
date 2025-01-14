@@ -10,23 +10,24 @@ kanban-plugin: board
 
 ## Soon
 
-- [ ] [[Crash]]
-- [ ] [[Wall Boost]]
-- [ ] [[Wall Bounce]]
-
-
-## General
-
-- [ ] Online Preparation/Implementation
+- [ ] [[2025-01-14]]
 
 
 ## [[Player]]
 
+- [ ] [[Crash]]
+- [ ] [[Wall Boost]]
+- [ ] [[Wall Bounce]]
 - [x] [[Boost]]
 - [x] [[Rotation]]
 - [x] [[Movement Visualizer]]
 - [x] [[Brakes]]
 - [x] [[Dodge]]
+
+
+## General
+
+- [ ] Online Preparation/Implementation
 
 
 ## Enemies
