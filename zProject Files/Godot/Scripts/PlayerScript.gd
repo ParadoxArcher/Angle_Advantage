@@ -63,6 +63,8 @@ func _physics_process(delta):
 	else:
 		BoostDir = Vector2(0, 0)
 		AccelRate = SpeedDecel[0]
+		
+	print(AccelRate)
 	#endregion
 
 	#region Rotation
@@ -91,9 +93,6 @@ func _physics_process(delta):
 		MaxSpeed[0] = MaxSpeed[1] * DodgeMaxSpeed[0]
 		MaxRota[0] = MaxRota[1] * DodgeMaxRota[0]
 		velocity = MaxSpeed[0] * DodgeDir.rotated(rotation + PI/2)
-	
-	print(MaxRota[0])
-	print(MaxSpeed[0])
 	#endregion
 
 	#region WallBoost...
