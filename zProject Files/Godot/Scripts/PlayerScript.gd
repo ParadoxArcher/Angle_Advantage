@@ -55,8 +55,6 @@ func _physics_process(_delta):
 		
 		var CounterAccel = (-BoostDir.dot(velocity / MaxSpeed[1]) + 1 ) * CounterScaler[0]
 		AccelRate = SpeedAccel + (SpeedDecel[1] * CounterAccel )
-		
-		
 		print(AccelRate)
 	else:
 		BoostDir = Vector2(0, 0)
@@ -91,7 +89,7 @@ func _physics_process(_delta):
 		velocity = MaxSpeed[0] * DodgeDir.rotated(rotation + PI/2)
 	#endregion
 
-	#region WallBoost...
+	#region WallBoost...w
 	
 	#endregion
 	
