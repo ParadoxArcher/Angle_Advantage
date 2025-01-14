@@ -44,7 +44,7 @@ func _physics_process(_delta):
 	else:
 		SpeedDecel[0] = SpeedDecel[1] * BrakeDecelMult[0]
 		
-	if MoveInput.y > 0 or BoostDecay[0] >= 0:
+	if MoveInput.y > 0 or BoostDecay[0] > 0:
 		if MoveInput.y >= BoostDecay[0]:
 			BoostDir = Vector2(cos(rotation), sin(rotation)) * MoveInput.y
 			if BoostDecay[0] < 1:
@@ -55,10 +55,10 @@ func _physics_process(_delta):
 		
 		var CounterAccel = (-BoostDir.dot(velocity / MaxSpeed[1]) + 1 ) * CounterScaler[0]
 		AccelRate = SpeedAccel + (SpeedDecel[1] * CounterAccel )
-		print(AccelRate)
 	else:
 		BoostDir = Vector2(0, 0)
 		AccelRate = SpeedDecel[0]
+	print(AccelRate)
 	#endregion
 
 	#region Rotation
