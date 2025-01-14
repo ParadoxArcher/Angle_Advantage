@@ -10,7 +10,6 @@ kanban-plugin: board
 
 ## Soon
 
-- [ ] [[2025-01-14]]
 
 
 ## [[Player]]
@@ -60,6 +59,11 @@ kanban-plugin: board
 - [ ] [[Player]] [[Dodge]] indicator sprites
 
 
+## Band-aids
+
+- [ ] [[2025-01-14#SpeedAccel Problem]]
+
+
 ***
 
 ## Archive
@@ -71,6 +75,6 @@ kanban-plugin: board
 
 %% kanban:settings
 ```
-{"kanban-plugin":"board","list-collapse":[false,false,false,false,false,false,false,false,false],"full-list-lane-width":false,"show-checkboxes":true}
+{"kanban-plugin":"board","list-collapse":[false,false,false,false,false,false,false,false,false,false],"full-list-lane-width":false,"show-checkboxes":true}
 ```
 %%

@@ -56,6 +56,7 @@
                     false,
                     false,
                     false,
+                    false,
                     false
                   ]
                 }
@@ -131,7 +132,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#SpeedAccel",
+                "query": "tag:#SpeedDecel",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -266,6 +267,12 @@
   },
   "active": "0a1a121e2df08224",
   "lastOpenFiles": [
+    "DevNotes/Player/Movement/Boost.md",
+    "DevNotes/Player/Player.md",
+    "Devlogs/2025-01-14.md",
+    "DevNotes/ToDoList.md",
+    "zProject Files/Godot/Scripts/Pla1A60.tmp",
+    "zProject Files/Godot/Scripts/PlaAFFA.tmp",
     "zProject Files/Godot/Scripts/PlaEE5D.tmp",
     "zProject Files/Godot/Scripts/Pla6FDC.tmp",
     "zProject Files/Godot/Scripts/Pla1B10.tmp",
@@ -274,15 +281,8 @@
     "zProject Files/Godot/Scripts/Pla1F5C.tmp",
     "zProject Files/Godot/Scripts/PlaFC82.tmp",
     "zProject Files/Godot/Scripts/PlaCBDE.tmp",
-    "zProject Files/Godot/Scripts/Pla8D3A.tmp",
-    "zProject Files/Godot/Scripts/Pla9BBB.tmp",
-    "zProject Files/Godot/Scripts/PlaCFBC.tmp",
     "Devlogs/2025-01-10.md",
-    "Devlogs/2025-01-14.md",
     "Devlogs/2025-01-13.md",
-    "DevNotes/ToDoList.md",
-    "DevNotes/Player/Player.md",
-    "DevNotes/Player/Movement/Boost.md",
     "DevNotes/Brakes.md",
     "DevNotes/Player/Movement/Rotation.md",
     "Reference Images/Pasted image 20250112081857.png",

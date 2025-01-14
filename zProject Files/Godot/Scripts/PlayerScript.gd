@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 #region Variables
 ## Brake Variables
-@export var BrakeDecelMult = [4, 3] # {0: SpeedDecelMult, 1: RotaDecelMult}
+@export var BrakeDecelMult = [2, 3] # {0: SpeedDecelMult, 1: RotaDecelMult}
 var isBraking = false
 
 ## CounterSteering
@@ -57,7 +57,7 @@ func _physics_process(_delta):
 		AccelRate = SpeedAccel + (clampf(SpeedDecel[0], 0, SpeedAccel) * CounterAccel )
 		print(AccelRate)
 		if SpeedDecel[0] >= SpeedAccel: # Debugging for AccelRate bandaid fix
-			push_warning("AccelRate is Clamped, " + str(AccelRate))
+			push_warning("AccelRate is Clamped: " + str(AccelRate))
 			
 		if MoveInput.y == 0: # Boost Decay
 			BoostDir *= (BoostDecay[1] * BoostDecay[0])
