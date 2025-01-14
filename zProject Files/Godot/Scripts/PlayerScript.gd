@@ -58,7 +58,7 @@ func _physics_process(_delta):
 				BoostDecay[0] += clampf(BoostDecay[1], 0, 1 - BoostDecay[0])
 		else:
 			BoostDir = Vector2(cos(rotation), sin(rotation)) * (BoostDecay[0] * BoostDecay[2] )
-			BoostDecay[0] -= clampf(BoostDecay[1], BoostDecay[0], BoostDecay[1])
+			BoostDecay[0] -= clampf(BoostDecay[1], 0, BoostDecay[0])
 		
 		var CounterAccel = -BoostDir.dot(velocity / MaxSpeed[1]) * CounterScaler[0]
 		AccelRate = SpeedAccel + (SpeedDecel[0] * CounterAccel )
@@ -121,7 +121,7 @@ func _process(_delta):
 		vel_display.position = position + (((150 * vel_display.scale.x ) + MarkerSize["CenterGap"] ) * velocity.normalized() ) # 150 is the size of vel_display's sprite's X.length/2
 		vel_display.rotation = velocity.angle()
 		
-		neutral_display.scale.x = MarkerSize["NeutralLength"]
+		neutral_display.scale.x = BoostDecay[0] * MarkerSize["NeutralLength"]
 		neutral_display.position = position + ((150 * neutral_display.scale.x ) + MarkerSize["CenterGap"] ) * Vector2(cos(rotation), sin(rotation))
 		neutral_display.rotation = rotation
 		
