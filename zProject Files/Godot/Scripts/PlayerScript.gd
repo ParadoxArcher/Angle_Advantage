@@ -52,13 +52,6 @@ func _physics_process(_delta):
 		else:
 			BoostDir = Vector2(cos(rotation), sin(rotation)) * (BoostDecay[0] * BoostDecay[2] )
 			BoostDecay[0] -= clampf(BoostDecay[1], 0, BoostDecay[0])
-		
-		var CounterAccel = (-BoostDir.dot(velocity / MaxSpeed[1]) + 1 ) * CounterScaler[0]
-		AccelRate = (SpeedAccel * CounterAccel ) + (SpeedDecel[1] * CounterAccel )
-	else:
-		BoostDir = Vector2(0, 0)
-		AccelRate = SpeedDecel[0]
-	print(AccelRate)
 	#endregion
 
 	#region Rotation
@@ -99,8 +92,10 @@ func _physics_process(_delta):
 	RotaSpeed = lerpf(RotaSpeed, MoveInput.x * MaxRota[0], clampf(RotaRate, 0, 1)) # Rotation Acceleration
 	rotate(RotaSpeed)
 	
+	var VelMomentum = velocity.normalized()
 	var TargetVel = BoostDir * MaxSpeed[0]
-	velocity = lerp(velocity, TargetVel, clampf(AccelRate, 0, 1))
+	velocity = lerp(velocity, VelMomentum, SpeedDecel[0])
+	velocity = lerp(velocity, TargetVel, SpeedAccel)
 	move_and_slide()
 	#endregion
 	
