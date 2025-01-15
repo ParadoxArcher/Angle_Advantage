@@ -61,7 +61,6 @@ kanban-plugin: board
 
 ## Band-aids
 
-- [ ] [[2025-01-14#SpeedAccel Problem]]
 
 
 ***
