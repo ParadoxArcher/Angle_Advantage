@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Devlogs/2025-01-13.md",
+                "file": "Devlogs/2025-01-14.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2025-01-13"
+              "title": "2025-01-14"
             }
           },
           {
@@ -268,15 +268,17 @@
   },
   "active": "423fcc3f763e1ff2",
   "lastOpenFiles": [
+    "Devlogs/2025-01-14.md",
+    "Devlogs/2025-01-13.md",
+    "Devlogs/2025-01-10.md",
+    "DevNotes/Player/Movement/Boost.md",
+    "zProject Files/Godot/Scenes/Gam2CB.tmp",
     "zProject Files/Godot/Scenes/PlaD04F.tmp",
     "zProject Files/Godot/Scripts/PlaCF59.tmp",
     "zProject Files/Godot/Scenes/GamCF46.tmp",
     "zProject Files/Godot/pro1BA3.tmp",
-    "Devlogs/2025-01-13.md",
     "zProject Files/Godot/Scripts/Pla807A.tmp",
     "zProject Files/Godot/Scenes/Gam8067.tmp",
-    "Devlogs/2025-01-14.md",
-    "DevNotes/Player/Movement/Boost.md",
     "DevNotes/ToDoList.md",
     "DevNotes/Player/Player.md",
     "DevNotes/Brakes.md",
@@ -284,9 +286,6 @@
     "zProject Files/Godot/Scripts/PlaEC35.tmp",
     "zProject Files/Godot/Scripts/PlaADDC.tmp",
     "zProject Files/Godot/Scripts/PlaE814.tmp",
-    "zProject Files/Godot/Scripts/PlaB881.tmp",
-    "zProject Files/Godot/Scripts/PlaD1D1.tmp",
-    "Devlogs/2025-01-10.md",
     "DevNotes/Player/Movement/Rotation.md",
     "Reference Images/Pasted image 20250112081857.png",
     "Reference Images/Pasted image 20250112081555.png",
