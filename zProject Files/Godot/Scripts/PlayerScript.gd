@@ -31,45 +31,46 @@ var RotaRate = 0
 func _physics_process(_delta):
 	var MoveInput = Vector2(Input.get_action_strength("RotateRight") - Input.get_action_strength("RotateLeft"), Input.get_action_strength("Boost") - Input.get_action_strength("Back"))
 	
+	#region Basic Movement
 	#region Brakes
-	if Input.is_action_pressed("Brake"):
+	if Input.is_action_pressed("Brake"): # Amplifies Decelerations
 		SpeedDecel[0] = SpeedDecel[1] * BrakeDecelMult[0]
 		RotaDecel[0] = RotaDecel[1] * BrakeDecelMult[1]
 	else:
 		SpeedDecel[0] = SpeedDecel[1]
 		RotaDecel[0] = RotaDecel[1]
 	#endregion
-	
+		
 	#region Boost
-	if MoveInput.y > 0 or BoostDecay[0] > 0:
+	if MoveInput.y > 0 or BoostDecay[0] > 0: # Determines movement application and delays it's deactivation
+		var BoostDirAmp
 		if MoveInput.y >= BoostDecay[0]:
-			BoostDir = Vector2(cos(rotation), sin(rotation)) * MoveInput.y
+			BoostDirAmp = MoveInput.y
 			if BoostDecay[0] < 1:
 				BoostDecay[0] += clampf(BoostDecay[1], 0, 1 - BoostDecay[0])
 		else:
-			BoostDir = Vector2(cos(rotation), sin(rotation)) * (BoostDecay[0] * BoostDecay[2] )
+			BoostDirAmp = BoostDecay[0] * BoostDecay[2]
 			BoostDecay[0] -= clampf(BoostDecay[1], 0, BoostDecay[0])
+			
+		BoostDir = Vector2(cos(rotation), sin(rotation)) * BoostDirAmp
 	#endregion
-
-	#region Rotation
 	
-	if MoveInput.x != 0:
+	#region Rotation
+	if MoveInput.x != 0: # Defines rotation acceleration and it's momentum
 		var CounterSteer = absf((RotaSpeed / MaxRota[0] ) - MoveInput.x) * CounterScaler[1]
 		RotaRate = RotaAccel[0] + RotaDecel[0] * CounterSteer
 	else:
 		RotaRate = RotaDecel[0]
 	#endregion
-
-	#region Dodge	
+	#endregion
+	
+	#region Advanced Movement
+	if Input.is_action_just_pressed("Dodge"):
+		Dodge(Vector2(MoveInput.x, -MoveInput.y).normalized())
+	
 	if MaxSpeed[0] != MaxSpeed[1] || RotaAccel[0] != RotaAccel[1]:
 		MaxSpeed[0] -= clampf((MaxSpeed[0] - MaxSpeed[1] ) * DodgeMaxSpeed[1], 0, MaxSpeed[0] - MaxSpeed[1])
 		RotaAccel[0] -= clampf((RotaAccel[0] - RotaAccel[1] ) * DodgeRotaAccel[1], 0, RotaAccel[0] - RotaAccel[1])
-	
-	if Input.is_action_just_pressed("Dodge"):
-		Dodge(Vector2(MoveInput.x, -MoveInput.y).normalized())
-	#endregion
-	
-	#region WallBoost...w
 	
 	#endregion
 	

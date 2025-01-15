@@ -1,4 +1,4 @@
-### When key is pressed, accelerate relative to rotation
+### 
 #### Steps
 1)  Define Input
 	1) Project Settings --> Input Map --> "Boost" = W
@@ -30,5 +30,6 @@
 	1) Find difference between current velocity and Boost direction & multiply it by deceleration rate before adding to acceleration
 		1) ![[Pasted image 20250112074603.png]]
 6) Boost Decay
-	1) 
+
+### Adjustments
 
