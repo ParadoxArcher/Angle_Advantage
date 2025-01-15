@@ -133,7 +133,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#BoostDir",
+                "query": "tag:#BoostDecay",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -266,7 +266,7 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "423fcc3f763e1ff2",
+  "active": "d470cc9b7f6eaae3",
   "lastOpenFiles": [
     "zProject Files/Godot/Scripts/PlaA51.tmp",
     "Devlogs/2025-01-14.md",
