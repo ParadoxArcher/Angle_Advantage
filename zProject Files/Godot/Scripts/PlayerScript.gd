@@ -19,31 +19,28 @@ var AccelRate = 0
 ## Rotation Variables
 var RotaSpeed : float = 0
 @export var MaxRota = [PI/24, PI/24] # {0: Fluctuating, 1: BaseMaxRota} ## Beware DodgeMaxRota
-@export var RotaAccel = .02
+@export var RotaAccel = [0.02, .02]
 @export var RotaDecel = [.0075, .0075] # {0: Fluctuating, 1: BaseRotaDecel} ## Beware BrakeDecelMult
 var RotaRate = 0
 
 ##Dodge Variables
-@export var DodgeMaxSpeed = [1.5, .15] # {0: MaxSpeedMultiplier, 1: MaxSpeedDecel}
-@export var DodgeMaxRota = [3, .25] # {0: MaxRotaMultiplier, 1: MaxRotaDecel}
+@export var DodgeMaxSpeed = [2, .15] # {0: MaxSpeedMultiplier, 1: MaxSpeedDecel}
+@export var DodgeRotaAccel = [5, .1] # {0: RotaAccelMult, 1: RotaAccelDecel}
 #endregion
 
 func _physics_process(_delta):
 	var MoveInput = Vector2(Input.get_action_strength("RotateRight") - Input.get_action_strength("RotateLeft"), Input.get_action_strength("Boost") - Input.get_action_strength("Back"))
 	
-	#region isBraking
+	#region Brakes
 	if Input.is_action_pressed("Brake"):
-		isBraking = true
+		SpeedDecel[0] = SpeedDecel[1] * BrakeDecelMult[0]
+		RotaDecel[0] = RotaDecel[1] * BrakeDecelMult[1]
 	else:
-		isBraking = false
+		SpeedDecel[0] = SpeedDecel[1]
+		RotaDecel[0] = RotaDecel[1]
 	#endregion
 	
 	#region Boost
-	if not isBraking:
-		SpeedDecel[0] = SpeedDecel[1] 
-	else:
-		SpeedDecel[0] = SpeedDecel[1] * BrakeDecelMult[0]
-		
 	if MoveInput.y > 0 or BoostDecay[0] > 0:
 		if MoveInput.y >= BoostDecay[0]:
 			BoostDir = Vector2(cos(rotation), sin(rotation)) * MoveInput.y
@@ -55,27 +52,23 @@ func _physics_process(_delta):
 	#endregion
 
 	#region Rotation
-	if not isBraking:
-		RotaDecel[0] = RotaDecel[1]
-	else:
-		RotaDecel[0] = RotaDecel[1] * BrakeDecelMult[1]
 	
 	if MoveInput.x != 0:
 		var CounterSteer = absf((RotaSpeed / MaxRota[0] ) - MoveInput.x) * CounterScaler[1]
-		RotaRate = RotaAccel + RotaDecel[0] * CounterSteer
+		RotaRate = RotaAccel[0] + RotaDecel[0] * CounterSteer
 	else:
 		RotaRate = RotaDecel[0]
 	#endregion
 
 	#region Dodge	
-	if MaxSpeed[0] != MaxSpeed[1] || MaxRota[0] != MaxRota[1]:
-		MaxSpeed[0] -= clampf((MaxSpeed[0] - MaxSpeed[1]) * DodgeMaxSpeed[1], 0, MaxSpeed[0] - MaxSpeed[1])
-		MaxRota[0] -= clampf((MaxRota[0] - MaxRota[1]) * DodgeMaxRota[1], 0, MaxRota[0] - MaxRota[1])
+	if MaxSpeed[0] != MaxSpeed[1] || RotaAccel[0] != RotaAccel[1]:
+		MaxSpeed[0] -= clampf((MaxSpeed[0] - MaxSpeed[1] ) * DodgeMaxSpeed[1], 0, MaxSpeed[0] - MaxSpeed[1])
+		RotaAccel[0] -= clampf((RotaAccel[0] - RotaAccel[1] ) * DodgeRotaAccel[1], 0, RotaAccel[0] - RotaAccel[1])
 	
 	if Input.is_action_just_pressed("Dodge"):
-		Dodge(Vector2(MoveInput.x, -MoveInput.y))
+		Dodge(Vector2(MoveInput.x, -MoveInput.y).normalized())
 	#endregion
-
+	
 	#region WallBoost...w
 	
 	#endregion
@@ -132,12 +125,14 @@ func _process(_delta):
 	#endregion
 
 func Dodge(DodgeDir):
+	BoostDir = Vector2(0,0)
+	BoostDecay[0] = 0
+	
+	MaxSpeed[0] = MaxSpeed[1] * DodgeMaxSpeed[0]
+	RotaAccel[0] = RotaAccel[1] * DodgeRotaAccel[0]
 	
 	if DodgeDir.normalized().is_zero_approx():
 		DodgeDir = Vector2(0,-1)
-	MaxSpeed[0] = MaxSpeed[1] * DodgeMaxSpeed[0]
-	MaxRota[0] = MaxRota[1] * DodgeMaxRota[0]
 	velocity = MaxSpeed[0] * DodgeDir.rotated(rotation + PI/2)
 	
-	BoostDir = Vector2(0,0)
-	BoostDecay[0] = 0
+
