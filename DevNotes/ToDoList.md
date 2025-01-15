@@ -55,7 +55,6 @@ kanban-plugin: board
 
 ## [[Artstyle]]
 
-- [ ] Movement Visualizer
 - [ ] [[Player]] [[Dodge]] indicator sprites
 
 
