@@ -24,7 +24,7 @@
 4) #BoostDir based on #rotation
 	1) Define #BoostDir  before `func _physics_process(_delta):`
 		1) `var BoostDir = Vector2(0, 0)`
-	2) Inside `func _physics_process:` and before `move_and_slide()`
+	2) Inside `func _physics_process:` and before `velocity.y` math
 		1) Define #BoostDir when trying to move and reset when not
 			1) `if MoveInput > 0:
 				1) `BoostDir = Vector2(cos(rotation), sin(rotation)) * MoveInput.y
@@ -35,7 +35,7 @@
 5) Preserve Momentum
 	1) Define #SpeedDecel 
 		1) `@export var SpeedDecel = .005`
-	2) Inside `func _physics_process(_delta):` and before `move_and_slide()`
+	2) Inside `func _physics_process(_delta):` and before `velocity` math
 		1) create another #velocity adjustment and lerp it to it's `normalized()` value by #SpeedDecel
 			1) `velocity = lerp(velocity, velocity.normalized(), SpeedDecel)`
 6) #BoostDecay

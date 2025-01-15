@@ -23,6 +23,30 @@
             }
           },
           {
+            "id": "ef4ea3e66fa40af7",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "Reference Images/Excalidraw/Drawing 2025-01-10 12.04.56.excalidraw.md"
+              },
+              "icon": "excalidraw-icon",
+              "title": "Drawing 2025-01-10 12.04.56.excalidraw"
+            }
+          },
+          {
+            "id": "7493c21f266b72a7",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "Reference Images/Excalidraw/Drawing 2025-01-10 12.04.56.excalidraw.md"
+              },
+              "icon": "excalidraw-icon",
+              "title": "Drawing 2025-01-10 12.04.56.excalidraw"
+            }
+          },
+          {
             "id": "2b906768df75cac8",
             "type": "leaf",
             "pinned": true,
@@ -82,7 +106,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -238,10 +262,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DevNotes/Player/Movement/Boost.md"
+                "file": "Reference Images/Excalidraw/Drawing 2025-01-10 12.04.56.excalidraw.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of Boost"
+              "title": "Outline of Drawing 2025-01-10 12.04.56.excalidraw"
             }
           }
         ],
@@ -265,14 +289,15 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "1d7cdb0aa890c458",
+  "active": "ef4ea3e66fa40af7",
   "lastOpenFiles": [
     "DevNotes/Player/Movement/Rotation.md",
-    "Reference Images/Excalidraw/Drawing 2025-01-10 09.06.25.excalidraw.md",
     "Reference Images/Excalidraw/Drawing 2025-01-10 12.04.56.excalidraw.md",
+    "Reference Images/Images/Data Wing.jpg",
+    "Reference Images/Excalidraw/Drawing 2025-01-10 09.06.25.excalidraw.md",
+    "DevNotes/Player/Movement/Boost.md",
     "Reference Images/Excalidraw/MissionStatementSketch.md",
     "DevNotes/ToDoList.md",
-    "Reference Images/Images/Data Wing.jpg",
     "Devlogs/2025-01-14.md",
     "Reference Images/Images/Pasted image 20250112075332.png",
     "Reference Images/Images/Pasted image 20250112074603.png",
@@ -283,7 +308,6 @@
     "Reference Images/Images/Pasted image 20250112002903.png",
     "Reference Images/Images/Pasted image 20250112002646.png",
     "Reference Images/Images/Pasted image 20250112002430.png",
-    "DevNotes/Player/Movement/Boost.md",
     "zProject Files/Godot/Scripts/PlaCC49.tmp",
     "zProject Files/Godot/Scripts/Pla47E9.tmp",
     "DevNotes/Player/Player.md",
