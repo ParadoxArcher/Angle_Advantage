@@ -51,7 +51,7 @@ func _physics_process(_delta):
 		else:
 			BoostDirAmp = BoostDecay[0] * BoostDecay[2]
 			BoostDecay[0] -= clampf(BoostDecay[1], 0, BoostDecay[0])
-			
+		
 		BoostDir = Vector2(cos(rotation), sin(rotation)) * BoostDirAmp
 	#endregion
 	
@@ -78,15 +78,10 @@ func _physics_process(_delta):
 	rotate(RotaSpeed)
 	
 	
-	var VelMomentum = velocity.normalized() # Momentum
-	velocity = lerp(velocity, VelMomentum, SpeedDecel[0])
-	
-	var TargetVel = BoostDir * MaxSpeed[0] # Acceleration
-	velocity = lerp(velocity, TargetVel, SpeedAccel)
+	  # Momentum
+	velocity = lerp(velocity, BoostDir * MaxSpeed[0], SpeedAccel) # Acceleration
 	move_and_slide()
 	#endregion
-	
-
 
 
 #region Markers Variables

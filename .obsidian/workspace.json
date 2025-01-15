@@ -133,7 +133,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#SpeedDecel",
+                "query": "tag:#BoostDir",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -270,8 +270,9 @@
   "lastOpenFiles": [
     "Devlogs/2025-01-14.md",
     "DevNotes/Player/Movement/Boost.md",
-    "DevNotes/Player/Player.md",
+    "zProject Files/Godot/Scripts/PlaD5D6.tmp",
     "DevNotes/ToDoList.md",
+    "DevNotes/Player/Player.md",
     "Reference Images/Pasted image 20250115101008.png",
     "Devlogs/2025-01-13.md",
     "Devlogs/2025-01-10.md",
@@ -286,7 +287,6 @@
     "Reference Images/Pasted image 20250114213019.png",
     "zProject Files/Godot/Scripts/PlaEC35.tmp",
     "zProject Files/Godot/Scripts/PlaADDC.tmp",
-    "zProject Files/Godot/Scripts/PlaE814.tmp",
     "DevNotes/Player/Movement/Rotation.md",
     "Reference Images/Pasted image 20250112081857.png",
     "Reference Images/Pasted image 20250112081555.png",
