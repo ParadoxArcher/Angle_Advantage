@@ -117,7 +117,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#velocity",
+                "query": "tag:#BoostDecay",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
