@@ -4,21 +4,24 @@
 #### Steps
 1)  Define Input
 	1) Project Settings --> Input Map --> "Boost" = W
-	2) ![[Pasted image 20250111234514.png]]
+	2) `var MoveInput = Input.get_action_strength("Boost)`
 2) Movement
 	1) Define Speed
-		1) ![[Pasted image 20250111235317.png]]
-	2) Apply Speed to velocity when Input is Pressed 
-		1) ![[Pasted image 20250112000602.png]]
-	3) Activate CharacterBody2D velocity & physics
-		1)  ![[Pasted image 20250111235849.png]]
+		1) `@export var Speed = 1500`
+	3) Inside `func _physics_process`
+		1) Apply Speed to velocity when Input is Pressed 
+			2) `if MoveInput > 0:
+				1) `velocity.y = Speed
+		2) Activate CharacterBody2D velocity & physics
+			1)  `move_and_slide()`
 3) Acceleration
 	1) Accelerate velocity
-		1) ![[Pasted image 20250112002928.png]]
-	2) Create a rate of change and apply it
+		1) `Speed` -> `MaxSpeed`
+		2) `velocity = lerp(velocity, MaxSpeed`
+	3) Create a rate of change and apply it
 		1) ![[Pasted image 20250112001504.png]]
 		2) ![[Pasted image 20250112002903.png]]
-	3) Vary Acceleration based on acceleration or Deceleration
+	4) Vary Acceleration based on acceleration or Deceleration
 		1) ![[Pasted image 20250112002430.png]]
 		2) ![[Pasted image 20250112002646.png]]
 4) Boost direction based on Rotation
