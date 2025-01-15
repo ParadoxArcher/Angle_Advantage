@@ -75,13 +75,7 @@ func _physics_process(_delta):
 		MaxRota[0] -= clampf((MaxRota[0] - MaxRota[1]) * DodgeMaxRota[1], 0, MaxRota[0] - MaxRota[1])
 	
 	if Input.is_action_just_pressed("Dodge"):
-		if DodgeDir.normalized().is_zero_approx():
-			DodgeDir = Vector2(0,-1)
-		MaxSpeed[0] = MaxSpeed[1] * DodgeMaxSpeed[0]
-		MaxRota[0] = MaxRota[1] * DodgeMaxRota[0]
-		velocity = MaxSpeed[0] * DodgeDir.rotated(rotation + PI/2)
-		
-		BoostDecay[0] = 0
+		Dodge(DodgeDir)
 	#endregion
 
 	#region WallBoost...w
@@ -138,3 +132,14 @@ func _process(_delta):
 		rota_speed_display.visible = false
 		Markers[1] = false
 	#endregion
+
+func Dodge(DodgeDir):
+	
+	if DodgeDir.normalized().is_zero_approx():
+		DodgeDir = Vector2(0,-1)
+	MaxSpeed[0] = MaxSpeed[1] * DodgeMaxSpeed[0]
+	MaxRota[0] = MaxRota[1] * DodgeMaxRota[0]
+	velocity = MaxSpeed[0] * DodgeDir.rotated(rotation + PI/2)
+	
+	BoostDir = Vector2(0,0)
+	BoostDecay[0] = 0
