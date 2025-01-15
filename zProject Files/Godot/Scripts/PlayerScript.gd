@@ -47,7 +47,7 @@ func _physics_process(_delta):
 		if MoveInput.y >= BoostDecay[0]:
 			BoostDirAmp = MoveInput.y
 			if BoostDecay[0] < 1:
-				BoostDecay[0] += clampf(BoostDecay[1], 0, 1 - BoostDecay[0])
+				BoostDecay[0] += clampf(BoostDecay[1], 0, MoveInput.y)
 		else:
 			BoostDirAmp = BoostDecay[0] * BoostDecay[2]
 			BoostDecay[0] -= clampf(BoostDecay[1], 0, BoostDecay[0])

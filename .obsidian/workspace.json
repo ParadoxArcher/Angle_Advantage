@@ -81,7 +81,8 @@
               "title": "Player"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -238,10 +239,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Devlogs/2025-01-13.md"
+                "file": "DevNotes/Player/Movement/Boost.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of 2025-01-13"
+              "title": "Outline of Boost"
             }
           }
         ],
@@ -265,8 +266,13 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "0a1a121e2df08224",
+  "active": "423fcc3f763e1ff2",
   "lastOpenFiles": [
+    "zProject Files/Godot/Scenes/PlaD04F.tmp",
+    "zProject Files/Godot/Scripts/PlaCF59.tmp",
+    "zProject Files/Godot/Scenes/GamCF46.tmp",
+    "zProject Files/Godot/pro1BA3.tmp",
+    "Devlogs/2025-01-13.md",
     "zProject Files/Godot/Scripts/Pla807A.tmp",
     "zProject Files/Godot/Scenes/Gam8067.tmp",
     "Devlogs/2025-01-14.md",
@@ -280,12 +286,7 @@
     "zProject Files/Godot/Scripts/PlaE814.tmp",
     "zProject Files/Godot/Scripts/PlaB881.tmp",
     "zProject Files/Godot/Scripts/PlaD1D1.tmp",
-    "zProject Files/Godot/Scripts/Pla11BD.tmp",
-    "zProject Files/Godot/Scripts/PlaAB38.tmp",
-    "zProject Files/Godot/Scenes/PlaAB35.tmp",
-    "zProject Files/Godot/Scripts/PlaA8B9.tmp",
     "Devlogs/2025-01-10.md",
-    "Devlogs/2025-01-13.md",
     "DevNotes/Player/Movement/Rotation.md",
     "Reference Images/Pasted image 20250112081857.png",
     "Reference Images/Pasted image 20250112081555.png",
