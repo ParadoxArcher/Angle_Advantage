@@ -1,6 +1,6 @@
 
 ### Final Work
-###### 
+###### Move forward in relation to rotation
 #### Steps
 1)  Define Input
 	1) Project Settings --> Input Map --> "Boost" = W
@@ -34,4 +34,5 @@
 6) Boost Decay
 
 ### Adjustments
-
+- [[2025-01-14]]
+	- Utilizes two separate velocity adjustments to calculate momentum with #Speed
