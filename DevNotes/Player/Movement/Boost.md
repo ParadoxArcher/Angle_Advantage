@@ -4,11 +4,12 @@
 #### Steps
 1)  Define Input
 	1) Project Settings --> Input Map --> "Boost" = W
-	2) `var MoveInput = Input.get_action_strength("Boost)`
+	2) Inside `func _physics_process(_delta):`
+		1) `var MoveInput = Input.get_action_strength("Boost)`
 2) Movement
 	1) Define Speed
 		1) `@export var Speed = 1500`
-	3) Inside `func _physics_process(_delta):`
+	3) After `MoveInput`
 		1) Apply Speed to #velocity when Input is Pressed 
 			2) `if MoveInput > 0:
 				1) `velocity.y = Speed
@@ -24,7 +25,7 @@
 4) #BoostDir based on #rotation
 	1) Define #BoostDir  before `func _physics_process(_delta):`
 		1) `var BoostDir = Vector2(0, 0)`
-	2) Inside `func _physics_process:` and before `velocity.y` math
+	2) After `MoveInput` and before `velocity.y` math
 		1) Define #BoostDir when trying to move and reset when not
 			1) `if MoveInput > 0:
 				1) `BoostDir = Vector2(cos(rotation), sin(rotation)) * MoveInput.y
@@ -35,19 +36,20 @@
 5) Preserve Momentum
 	1) Define #SpeedDecel 
 		1) `@export var SpeedDecel = .005`
-	2) Inside `func _physics_process(_delta):` and before `velocity` math
+	2) After `if MoveInput > 0:` and before `velocity` math
 		1) create another #velocity adjustment and lerp it to it's `normalized()` value by #SpeedDecel
 			1) `velocity = lerp(velocity, velocity.normalized(), SpeedDecel)`
 6) #BoostDecay
 	1) Define a #BoostDecay array with 3 variables; a settable, an application ratio, and an initial value
 		1) `@export var BoostDecay = [0, .015, .8]`
-	2) Set up BoostDecay to activate
-		1) Inside #BoostDir if statement increase #BoostDecay [0] by #BoostDecay[1] and apply clampf to prevent exceeding #MoveInputY
-			1) `BoostDecay[0] += clampf(BoostDecay[1], 0, MoveInput.y)`
-		2) Allow #BoostDecay to pass through #BoostDir if statement
+	2) Set up #BoostDecay to activate
+		1) Inside `if MoveInput.y > 0:` 
+			1) Increase #BoostDecay [0] by #BoostDecay[1] and apply clampf to prevent exceeding #MoveInputY
+				1) `BoostDecay[0] += clampf(BoostDecay[1], 0, MoveInput.y)`
+		2) Allow #BoostDecay to pass through `if MoveInput.y > 0`
 			1) `if MoveInput.y > 0 or BoostDecay[0] > 0:`
 	3) Adjust value of #BoostDir by #BoostDecay when not moving
-		1) Take original portion and set if statement to only activate when #MoveInputY is greater than #BoostDecay[0]. Divide #MoveInputY by #BoostDecay[2] to prevent controllers from toggling between base #BoostDir and the weaker #BoostDecay #BoostDir
+		1) set contents of `if MoveInput.y > 0 or BoostDecay[0] > 0:` to only activate when #MoveInputY is greater than #BoostDecay[0]. Divide #MoveInputY by #BoostDecay[2] to prevent controllers from toggling between base #BoostDir and the weaker #BoostDecay #BoostDir
 			1) `if MoveInput.y > 0 or BoostDecay[0] > 0:
 				1) `if MoveInput.y / BoostDecay [2] >= BoostDecay[0]:
 		2) In the else portion, set a weaker #BoostDir proportional to #BoostDecay[1] & [2] before subtracting from #BoostDecay[0] by #BoostDecay [1]

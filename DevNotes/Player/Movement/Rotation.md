@@ -3,7 +3,8 @@
 #### Steps
 1) Define Input
 	1) Project Settings --> Input Map --> "RotateLeft" = A || "RotateRight" = D
-	2) `var MoveInput = Vector2(Input.get_action_strength("RotateRight") - Input.get_action_strength("RotateLeft"), Input.get_action_strength("Boost"))
+	2) Reformat #MoveInput
+		1) `var MoveInput = Vector2(Input.get_action_strength("RotateRight") - Input.get_action_strength("RotateLeft"), Input.get_action_strength("Boost"))
 2) Rotate
 	1) Define #RotaSpeed
 		1) `@export var RotaSpeed = PI/24`
@@ -27,5 +28,10 @@
 		2) `else:
 			1) `RotaRate = RotaDecel[0]
 5) #CounterSteer
-	1) Add #RotaDecel when rotating opposite of momentum
-		1) Take #RotaSpeed / #MaxRota then subtract #MoveInputX, afterwards take that value's absf in order to get a result varying between 0 -> 2 for how strong the countersteer is. [[Drawing 2025-01-10 12.04.56.excalidraw]]
+	1) Before `func _physics_process:` define #CounterSteerRate
+		1) `@export var CounterSteerRate = .35`
+	2) Inside `if MoveInput.x != 0:`
+		1) Take #RotaSpeed / #MaxRota then subtract #MoveInputX, afterwards take that value's absf in order to get a result varying between 0 -> 2 for how strong the countersteer is. [[Drawing 2025-01-10 12.04.56.excalidraw]]. Mulitply by #CounterSteerRate
+			1) `var CounterSteer = absf((RotaSpeed / MaxRota ) - MoveInput.x) * CounterSteerRate
+		2) Multiply #CounterSteer to #RotaDecel when added to #RotaAccel
+			1) `RotaRate = RotaAccel[0] + RotaDecel[0] * CounterSteer`
