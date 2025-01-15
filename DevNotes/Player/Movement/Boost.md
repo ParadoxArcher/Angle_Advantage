@@ -38,7 +38,7 @@
 		1) `@export var SpeedDecel = .005`
 	2) Inside `func _physics_process(_delta):` and before `move_and_slide()`
 		1) create another #velocity adjustment and lerp it to it's `normalized()` value by #SpeedDecel
-			1) `velocity = lerp(velocity, velocity.normalized(), SpeedDecel[0])`
+			1) `velocity = lerp(velocity, velocity.normalized(), SpeedDecel)`
 6) #BoostDecay
 	1) Define a #BoostDecay array with 3 variables; a settable, an application ratio, and an initial value
 		1) `@export var BoostDecay = [0, .015, .8]`
@@ -55,10 +55,19 @@
 			1) `else:
 				1) `Vector2(cos(rotation), sin(rotation)) * BoostDecay[0] * BoostDecay[2]
 				2) `BoostDecay[0] -= clampf(BoostDecay[1], 0, BoostDecay[0])`
-		3) Separate the main #BoostDir math and set the adjustments into
-		
+		3) Separate #BoostDir adjustments into new variable for if statement, then combine with main portion of #BoostDir math at end
+			1) `if MoveInput.y > 0 or BoostDecay[0] > 0:
+				1) `var BoostDirAmp
+				2) `if MoveInput.y / BoostDecay[2] >= BoostDecay[0]:
+					1) `BoostDirAmp = MoveInput.y
+					2) `BoostDecay[0] += clampf(BoostDecay[1], 0, MoveInput.y)
+				3) `else:
+					1) `BoostDirAmp = BoostDecay[0] * BoostDecay[2]
+					2) `BoostDecay[0] -= clampf(BoostDecay[1], 0, BoostDecay[0])
+				4) `BoostDir = Vector2(cos(rotation), sin(rotation)) * BoostDirAmp
 ### Adjustment log
+- [[2025-01-13]]
+	- Added #BoostDecay
 - [[2025-01-14]]
 	- Utilizes two separate #velocity adjustments to calculate momentum with #SpeedDecel and acceleration with #SpeedAccel 
-	- When [[Boost|BoostDecay]] isn't active, [[Boost|BoostDirection]] is amplified by #MoveInputY value 
-- 
+	- When [[Boost|BoostDecay]] isn't active, #BoostDir is amplified by #MoveInputY value 

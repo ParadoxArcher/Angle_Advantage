@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 #region Variables
 ## Brake Variables
-@export var BrakeDecelMult = [3, 3] # {0: SpeedDecelMult, 1: RotaDecelMult}
+@export var BrakeDecelMult = [5, 3] # {0: SpeedDecelMult, 1: RotaDecelMult}
 var isBraking = false
 
 ## CounterSteering
@@ -46,8 +46,7 @@ func _physics_process(_delta):
 		var BoostDirAmp
 		if MoveInput.y / BoostDecay[2] >= BoostDecay[0]:
 			BoostDirAmp = MoveInput.y
-			if BoostDecay[0] < 1:
-				BoostDecay[0] += clampf(BoostDecay[1], 0, MoveInput.y)
+			BoostDecay[0] += clampf(BoostDecay[1], 0, MoveInput.y)
 		else:
 			BoostDirAmp = BoostDecay[0] * BoostDecay[2]
 			BoostDecay[0] -= clampf(BoostDecay[1], 0, BoostDecay[0])
@@ -78,7 +77,7 @@ func _physics_process(_delta):
 	rotate(RotaSpeed)
 	
 	
-	  # Momentum
+	velocity = lerp(velocity, velocity.normalized(), SpeedDecel[0]) # Momentum
 	velocity = lerp(velocity, BoostDir * MaxSpeed[0], SpeedAccel) # Acceleration
 	move_and_slide()
 	#endregion
