@@ -12,7 +12,7 @@ var isBraking = false
 @export var MaxSpeed = [2000, 2000] # {0: Fluctuating, 1: BaseMaxSpeed} ## Beware DodgeMaxSpeed
 @export var SpeedAccel = .01
 @export var SpeedDecel = [.005, .005] # {0: Fluctuating,  1: Decel} ## Beware BrakeDecelMult
-@export var BoostDecay = [0, .015, .8] # {0: Fluctuating,  1:DecayRate, 2:BoostRelease}
+@export var BoostDecay = [0, .015, .8] # {0: Fluctuating,  1:DecayRate, 2:BoostRelease(cannot be 0)}
 var BoostDir = Vector2(0, 0)
 var AccelRate = 0
 
@@ -44,7 +44,7 @@ func _physics_process(_delta):
 	#region Boost --- Determines movement application and delays it's deactivation
 	if MoveInput.y > 0 or BoostDecay[0] > 0:
 		var BoostDirAmp
-		if MoveInput.y >= BoostDecay[0]:
+		if MoveInput.y / BoostDecay[2] >= BoostDecay[0]:
 			BoostDirAmp = MoveInput.y
 			if BoostDecay[0] < 1:
 				BoostDecay[0] += clampf(BoostDecay[1], 0, MoveInput.y)
