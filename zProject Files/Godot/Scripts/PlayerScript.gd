@@ -91,36 +91,34 @@ func _physics_process(_delta):
 #region Markers Variables
 @export var MarkerSize = {"CenterGap": 50, "RotaSpeedGap": 75, "VelLength": .5, "NeutralLength": .35, "RotaSpeedLength": .5} #RotaSpeedGap left unimplemented, intended to slide rota_speed_display along neutral_display
 @export var Markers = [true, false]
-@onready var vel_display = Sprite2D
-@onready var boost_dir_display = Sprite2D
-@onready var rota_speed_display = Sprite2D
+@onready var Displays = {"velocity": $Sprites/VelDisplay, "boost_dir": $Sprites/BoostDirDisplay, "rota_speed": $Sprites/RotaSpeedDisplay}
 #endregion
 
 func _process(_delta):
 		#region Markers
 	if Markers[0]:
 		if not Markers[1]:
-			vel_display.visible = true
-			boost_dir_display.visible = true
-			rota_speed_display.visible = true
+			Displays["velocity"].visible = true
+			Displays["boost_dir"].visible = true
+			Displays["rota_speed"].visible = true
 			Markers[1] = true
 		
-		vel_display.scale.x = velocity.length() * MarkerSize["VelLength"] / MaxSpeed[1]
-		vel_display.position = position + (((150 * vel_display.scale.x ) + MarkerSize["CenterGap"] ) * velocity.normalized() ) # 150 is the size of vel_display's sprite's X.length/2
-		vel_display.rotation = velocity.angle()
+		Displays["velocity"].scale.x = velocity.length() * MarkerSize["VelLength"] / MaxSpeed[1]
+		Displays["velocity"].position = position + (((150 * Displays["velocity"].scale.x ) + MarkerSize["CenterGap"] ) * velocity.normalized() ) # 150 is the size of vel_display's sprite's X.length/2
+		Displays["velocity"].rotation = velocity.angle()
 		
-		boost_dir_display.scale.x = BoostDecay[0] * MarkerSize["NeutralLength"]
-		boost_dir_display.position = position + ((150 * boost_dir_display.scale.x ) + MarkerSize["CenterGap"] ) * Vector2(cos(rotation), sin(rotation))
-		boost_dir_display.rotation = rotation
+		Displays["boost_dir"].scale.x = BoostDecay[0] * MarkerSize["NeutralLength"]
+		Displays["boost_dir"].position = position + ((150 * Displays["boost_dir"].scale.x ) + MarkerSize["CenterGap"] ) * Vector2(cos(rotation), sin(rotation))
+		Displays["boost_dir"].rotation = rotation
 		
-		rota_speed_display.scale.x = RotaSpeed * MarkerSize["RotaSpeedLength"] / MaxRota[1]
-		rota_speed_display.position = boost_dir_display.position + ((150 * rota_speed_display.scale.x ) * Vector2(cos(boost_dir_display.rotation + PI/2), sin(boost_dir_display.rotation + PI/2)) )
-		rota_speed_display.rotation = boost_dir_display.rotation + PI/2
+		Displays["rota_speed"].scale.x = RotaSpeed * MarkerSize["RotaSpeedLength"] / MaxRota[1]
+		Displays["rota_speed"].position = Displays["boost_dir"].position + ((150 * Displays["rota_speed"].scale.x ) * Vector2(cos(Displays["boost_dir"].rotation + PI/2), sin(Displays["boost_dir"].rotation + PI/2)) )
+		Displays["rota_speed"].rotation = Displays["boost_dir"].rotation + PI/2
 	
 	elif Markers [1]:
-		vel_display.visible = false
-		boost_dir_display.visible = false
-		rota_speed_display.visible = false
+		Displays["velocity"].visible = false
+		Displays["boost_dir"].visible = false
+		Displays["rota_speed"].visible = false
 		Markers[1] = false
 	#endregion
 
