@@ -9,8 +9,8 @@ var isBraking = false
 @export var CounterScaler = [.5, .35] # {0: CounterAccel, 1: CounterSteer}
 
 ## Boost Variables
-@export var MaxSpeed = [1000, 1000] # {0: Fluctuating, 1: BaseMaxSpeed} ## Beware DodgeMaxSpeed
-@export var SpeedAccel = .025
+@export var MaxSpeed = [2000, 2000] # {0: Fluctuating, 1: BaseMaxSpeed} ## Beware DodgeMaxSpeed
+@export var SpeedAccel = .01
 @export var SpeedDecel = [.005, .005] # {0: Fluctuating,  1: Decel} ## Beware BrakeDecelMult
 @export var BoostDecay = [0, .015, .8] # {0: Fluctuating,  1:DecayRate, 2:BoostRelease}
 var BoostDir = Vector2(0, 0)
@@ -24,7 +24,7 @@ var RotaSpeed : float = 0
 var RotaRate = 0
 
 ##Dodge Variables
-@export var DodgeMaxSpeed = [2, .15] # {0: MaxSpeedMultiplier, 1: MaxSpeedDecel}
+@export var DodgeMaxSpeed = [1, .15] # {0: MaxSpeedMultiplier, 1: MaxSpeedDecel}
 @export var DodgeRotaAccel = [5, .1] # {0: RotaAccelMult, 1: RotaAccelDecel}
 #endregion
 
@@ -94,7 +94,7 @@ func _physics_process(_delta):
 @onready var Displays = {"velocity": $Sprites/VelDisplay, "boost_dir": $Sprites/BoostDirDisplay, "rota_speed": $Sprites/RotaSpeedDisplay}
 #endregion
 
-func _process(_delta):
+func _process(_delta): 
 		#region Markers
 	if Markers[0]:
 		if not Markers[1]:
