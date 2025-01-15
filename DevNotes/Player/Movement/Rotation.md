@@ -11,12 +11,21 @@
 		1) Apply Rotation Speed
 			1) `rotate(RotaSpeed)`
 3) Acceleration[[ToDoList]]
-	1) Declare #RotaSpeed
+	1) Before `func _physics_process:` Declare  #MaxRota, #RotaAccel, and #RotaSpeed
+		1) `@export var MaxRota = PI/24`
+		2) `@export var RotaAccel = .02`
+		3) `var RotaSpeed = 0
 	2) Accelerate rotation
-		1) `RotaSpeed = lerp(RotaSpeed, MoveInput.x * MaxRota`
+		1) `RotaSpeed = lerp(RotaSpeed, MoveInput.x * MaxRota, RotaAccel) 
+		2) `rotate(RotaSpeed)`
 	3) Create a rate of change and apply it
-		1) 
-		2) 
+		1) Before `func _physics_process:` Declare #RotaRate
+			1) `var RotaRate = 0`
+		2) Inside `func _physics_process:` and before `RotaSpeed`
+			1) `if MoveInput.x != 0:
+				1) `RotaRate = RotaAccel[0]
+			2) `else:
+				1) `RotaRate = RotaDecel[0]
 	4) Vary Acceleration based on acceleration or Deceleration
 		1) 
 		2) 

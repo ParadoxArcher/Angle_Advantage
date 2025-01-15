@@ -19,9 +19,8 @@
 		1) before `func _physics_process(_delta):` Define #MaxSpeed and #SpeedAccel `
 			1) ~~Speed~~ -> `MaxSpeed`
 			2) `@export var SpeedAccel = .01`
-		2) Inside `func _physics_process(_delta):` and before `move_and_slide()`
-			1) Apply them to #velocity 
-				1) `velocity.y = lerp(velocity, MaxSpeed, SpeedAccel)`
+		2) Apply them to #velocity math
+			1) `velocity.y = lerp(velocity, MaxSpeed, SpeedAccel)`
 4) #BoostDir based on #rotation
 	1) Define #BoostDir  before `func _physics_process(_delta):`
 		1) `var BoostDir = Vector2(0, 0)`
