@@ -5,9 +5,6 @@ extends CharacterBody2D
 @export var BrakeDecelMult = [5, 3] # {0: SpeedDecelMult, 1: RotaDecelMult}
 var isBraking = false
 
-## CounterSteering
-@export var CounterScaler = [.5, .35] # {0: CounterAccel, 1: CounterSteer}
-
 ## Boost Variables
 @export var MaxSpeed = [2000, 2000] # {0: Fluctuating, 1: BaseMaxSpeed} ## Beware DodgeMaxSpeed
 @export var SpeedAccel = .01
@@ -17,11 +14,12 @@ var BoostDir = Vector2(0, 0)
 var AccelRate = 0
 
 ## Rotation Variables
-var RotaSpeed : float = 0
 @export var MaxRota = [PI/24, PI/24] # {0: Fluctuating, 1: BaseMaxRota} ## Beware DodgeMaxRota
 @export var RotaAccel = [0.02, .02]
 @export var RotaDecel = [.0075, .0075] # {0: Fluctuating, 1: BaseRotaDecel} ## Beware BrakeDecelMult
-var RotaRate = 0
+@export var CounterSteerRate = .35
+var RotaSpeed : float = 0
+var RotaRate : float = 0
 
 ##Dodge Variables
 @export var DodgeMaxSpeed = [1, .15] # {0: MaxSpeedMultiplier, 1: MaxSpeedDecel}
@@ -32,7 +30,7 @@ func _physics_process(_delta):
 	var MoveInput = Vector2(Input.get_action_strength("RotateRight") - Input.get_action_strength("RotateLeft"), Input.get_action_strength("Boost") - Input.get_action_strength("Back"))
 	
 	#region Basic Movement
-	#region Brakes --- Amplifies Deceleration
+	#region Brakes --- Amplifies Deceleration	
 	if Input.is_action_pressed("Brake"):
 		SpeedDecel[0] = SpeedDecel[1] * BrakeDecelMult[0]
 		RotaDecel[0] = RotaDecel[1] * BrakeDecelMult[1]
@@ -56,7 +54,7 @@ func _physics_process(_delta):
 	
 	#region Rotation --- Defines rotation acceleration and it's momentum
 	if MoveInput.x != 0: 
-		var CounterSteer = absf((RotaSpeed / MaxRota[0] ) - MoveInput.x) * CounterScaler[1]
+		var CounterSteer = absf((RotaSpeed / MaxRota[0] ) - MoveInput.x) * CounterSteerRate
 		RotaRate = RotaAccel[0] + RotaDecel[0] * CounterSteer
 	else:
 		RotaRate = RotaDecel[0]

@@ -23,18 +23,18 @@
             }
           },
           {
-            "id": "350f9bde0ff71c6e",
+            "id": "d2f02e6f318ae4cf",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DevNotes/Player/Movement/Rotation.md",
+                "file": "Devlogs/2025-01-14.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Rotation"
+              "title": "2025-01-14"
             }
           },
           {
@@ -154,8 +154,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -239,10 +238,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DevNotes/Player/Movement/Rotation.md"
+                "file": "Devlogs/2025-01-14.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of Rotation"
+              "title": "Outline of 2025-01-14"
             }
           }
         ],
@@ -266,36 +265,36 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "350f9bde0ff71c6e",
+  "active": "d2f02e6f318ae4cf",
   "lastOpenFiles": [
-    "DevNotes/Player/Movement/Boost.md",
-    "zProject Files/Godot/Scripts/PlaCC1B.tmp",
-    "zProject Files/Godot/Scripts/Pla5713.tmp",
-    "DevNotes/Player/Movement/Rotation.md",
     "DevNotes/ToDoList.md",
     "Devlogs/2025-01-14.md",
-    "zProject Files/Godot/Scenes/PlaB6E7.tmp",
-    "zProject Files/Godot/Scripts/PlaB5F1.tmp",
-    "zProject Files/Godot/Scenes/GamB5DE.tmp",
-    "zProject Files/Godot/Scripts/PlaA51.tmp",
-    "zProject Files/Godot/Scripts/PlaD5D6.tmp",
+    "DevNotes/Player/Movement/Boost.md",
+    "zProject Files/Godot/Scripts/PlaCC49.tmp",
+    "zProject Files/Godot/Scripts/Pla47E9.tmp",
+    "DevNotes/Player/Movement/Rotation.md",
     "DevNotes/Player/Player.md",
-    "Reference Images/Pasted image 20250115101008.png",
-    "Devlogs/2025-01-13.md",
-    "Devlogs/2025-01-10.md",
-    "zProject Files/Godot/Scenes/Gam2CB.tmp",
-    "zProject Files/Godot/Scenes/PlaD04F.tmp",
-    "zProject Files/Godot/Scripts/PlaCF59.tmp",
-    "DevNotes/Brakes.md",
     "Reference Images/Pasted image 20250114213019.png",
+    "Reference Images/Pasted image 20250115101008.png",
     "Reference Images/Pasted image 20250112081857.png",
     "Reference Images/Pasted image 20250112081555.png",
     "Reference Images/Pasted image 20250112081433.png",
     "Reference Images/Pasted image 20250112081249.png",
     "Reference Images/Pasted image 20250112081118.png",
-    "Reference Images/Pasted image 20250112081003.png",
     "Reference Images/Pasted image 20250112080726.png",
     "Reference Images/Pasted image 20250112080548.png",
+    "zProject Files/Godot/Scripts/PlaCC1B.tmp",
+    "zProject Files/Godot/Scripts/Pla5713.tmp",
+    "zProject Files/Godot/Scenes/PlaB6E7.tmp",
+    "zProject Files/Godot/Scripts/PlaB5F1.tmp",
+    "zProject Files/Godot/Scenes/GamB5DE.tmp",
+    "zProject Files/Godot/Scripts/PlaA51.tmp",
+    "zProject Files/Godot/Scripts/PlaD5D6.tmp",
+    "Devlogs/2025-01-13.md",
+    "Devlogs/2025-01-10.md",
+    "zProject Files/Godot/Scenes/Gam2CB.tmp",
+    "DevNotes/Brakes.md",
+    "Reference Images/Pasted image 20250112081003.png",
     "Reference Images/Excalidraw/Drawing 2025-01-10 12.04.56.excalidraw.md",
     "Reference Images/Excalidraw/MissionStatementSketch.md",
     "DevNotes/Mission Statement.md",
