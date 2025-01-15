@@ -33,6 +33,7 @@
 		1) ![[Pasted image 20250112074603.png]]
 6) Boost Decay
 
-### Adjustments
+### Adjustment log
 - [[2025-01-14]]
-	- Utilizes two separate velocity adjustments to calculate momentum with #Speed
+	- Utilizes two separate #velocity adjustments to calculate momentum with #SpeedDecel and acceleration with #SpeedAccel 
+- 
