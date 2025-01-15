@@ -24,7 +24,7 @@ var RotaSpeed : float = 0
 var RotaRate = 0
 
 ##Dodge Variables
-@export var DodgeMaxSpeed = [1.3, .15] # {0: MaxSpeedMultiplier, 1: MaxSpeedDecel}
+@export var DodgeMaxSpeed = [1.5, .15] # {0: MaxSpeedMultiplier, 1: MaxSpeedDecel}
 @export var DodgeMaxRota = [3, .25] # {0: MaxRotaMultiplier, 1: MaxRotaDecel}
 #endregion
 
@@ -67,15 +67,13 @@ func _physics_process(_delta):
 		RotaRate = RotaDecel[0]
 	#endregion
 
-	#region Dodge
-	var DodgeDir = Vector2(Input.get_action_strength("RotateRight") - Input.get_action_strength("RotateLeft"), Input.get_action_strength("Back") - Input.get_action_strength("Boost"))
-	
+	#region Dodge	
 	if MaxSpeed[0] != MaxSpeed[1] || MaxRota[0] != MaxRota[1]:
 		MaxSpeed[0] -= clampf((MaxSpeed[0] - MaxSpeed[1]) * DodgeMaxSpeed[1], 0, MaxSpeed[0] - MaxSpeed[1])
 		MaxRota[0] -= clampf((MaxRota[0] - MaxRota[1]) * DodgeMaxRota[1], 0, MaxRota[0] - MaxRota[1])
 	
 	if Input.is_action_just_pressed("Dodge"):
-		Dodge(DodgeDir)
+		Dodge(Vector2(MoveInput.x, -MoveInput.y))
 	#endregion
 
 	#region WallBoost...w
