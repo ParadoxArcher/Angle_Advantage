@@ -50,20 +50,19 @@
 			2) `...
 	3) Inside `if DisplaysActive[0]:
 		1) if #Displays[0] is false, set all #Displays .visible to true and set #DisplaysActive[1] to true
-			1) 
-	4) in `elif`
+			1) `if not DisplaysActive[1]:
+				1) `Displays["velocity"].visible = true`
+				2) `Displays["boost_dir"].visible = true`
+				3) `Displays["rota_speed"].visible = true
+				4) `DisplaysActive[1] = true
+	4) in `elif` of `if DisplaysActive[0]:
 		1) if #DisplaysActive[1] is true, set all #Displays .visible to false and set #DisplaysActive[1] to false
 			1) `elif DisplaysActive [1]:
 				1) `Displays["velocity"].visible = false`
 				2) `Displays["boost_dir"].visible = false`
 				3) `Displays["rota_speed"].visible = false`
 				4) `DisplaysActive[1] = false```
-		
-		
-		
-		
 
 ### Adjustment Log
 - 
 	- 
-	 

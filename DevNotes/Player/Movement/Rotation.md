@@ -31,7 +31,7 @@
 	1) Before `func _physics_process:` define #CounterSteerRate
 		1) `@export var CounterSteerRate = .35`
 	2) Inside `if MoveInput.x != 0:`
-		1) Take #RotaSpeed / #MaxRota then subtract #MoveInputX, afterwards take that value's absf in order to get a result varying between 0 -> 2 for how strong the countersteer is. [[Drawing 2025-01-10 12.04.56.excalidraw]]. Mulitply by #CounterSteerRate
+		1) Take #RotaSpeed / #MaxRota then subtract #MoveInputX, afterwards take that value's absf in order to get a result varying between 0 -> 2 for how strong the countersteer is. [[CounterSteering Scribble]]. Mulitply by #CounterSteerRate
 			1) `var CounterSteer = absf((RotaSpeed / MaxRota ) - MoveInput.x) * CounterSteerRate
 		2) Multiply #CounterSteer to #RotaDecel when added to #RotaAccel
 			1) `RotaRate = RotaAccel[0] + RotaDecel[0] * CounterSteer`

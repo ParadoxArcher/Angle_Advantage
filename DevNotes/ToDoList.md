@@ -56,6 +56,7 @@ kanban-plugin: board
 ## [[Artstyle]]
 
 - [ ] [[Player]] [[Dodge]] indicator sprites
+- [ ] [[Movement Visualizer]]
 
 
 ## Band-aids

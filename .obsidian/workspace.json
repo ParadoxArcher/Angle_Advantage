@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DevNotes/Movement Visualizer.md",
+                "file": "DevNotes/Player/Movement/Brakes.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Movement Visualizer"
+              "title": "Brakes"
             }
           },
           {
@@ -65,8 +65,39 @@
               "icon": "lucide-file",
               "title": "Player"
             }
+          },
+          {
+            "id": "c5db390f253924e3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "DevNotes/Player/Movement/Movement Visualizer.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Movement Visualizer"
+            }
+          },
+          {
+            "id": "4b3e126c4f06f422",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "DevNotes/Player/Movement/Brakes.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Brakes"
+            }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -138,8 +169,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -223,10 +253,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DevNotes/Movement Visualizer.md"
+                "file": "DevNotes/Player/Player.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of Movement Visualizer"
+              "title": "Outline of Player"
             }
           }
         ],
@@ -250,22 +280,27 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "d470cc9b7f6eaae3",
+  "active": "6fe034b4f3c043e8",
   "lastOpenFiles": [
-    "DevNotes/Player/Movement/Rotation.md",
+    "DevNotes/Player/Movement/Movement Visualizer.md",
+    "DevNotes/Player/Movement/Brakes.md",
     "DevNotes/ToDoList.md",
-    "DevNotes/Movement Visualizer.md",
+    "DevNotes/Player/Player.md",
+    "Pasted image 20250114213019.png.md",
+    "Devlogs/2025-01-10.md",
+    "zReferences/Excalidraw/CounterSteering Scribble.md",
+    "zProject Files/Godot/Scripts/Pla4E5E.tmp",
+    "zProject Files/Godot/Scenes/Gam4E4B.tmp",
+    "DevNotes/Player/Movement/Rotation.md",
     "zProject Files/Godot/Scripts/PlaE6.tmp",
     "zProject Files/Godot/Scenes/Pla284F.tmp",
     "zProject Files/Godot/Scripts/Pla2758.tmp",
-    "Templates/DevNote Template.md",
+    "zTemplates/DevNote Template.md",
     "DevNotes/Player/Movement/Boost.md",
-    "DevNotes/Player/Player.md",
-    "Templates",
-    "Reference Images/Excalidraw/Drawing 2025-01-10 12.04.56.excalidraw.md",
-    "Reference Images/Images/Data Wing.jpg",
+    "zTemplates",
+    "zReferences/Images/Data Wing.jpg",
     "Reference Images/Excalidraw/Drawing 2025-01-10 09.06.25.excalidraw.md",
-    "Reference Images/Excalidraw/MissionStatementSketch.md",
+    "zReferences/Excalidraw/MissionStatementSketch.md",
     "Devlogs/2025-01-14.md",
     "Reference Images/Images/Pasted image 20250112075332.png",
     "Reference Images/Images/Pasted image 20250112074603.png",
@@ -280,11 +315,7 @@
     "zProject Files/Godot/Scripts/Pla47E9.tmp",
     "zProject Files/Godot/Scripts/PlaCC1B.tmp",
     "zProject Files/Godot/Scripts/Pla5713.tmp",
-    "zProject Files/Godot/Scenes/PlaB6E7.tmp",
-    "zProject Files/Godot/Scripts/PlaB5F1.tmp",
     "Devlogs/2025-01-13.md",
-    "Devlogs/2025-01-10.md",
-    "DevNotes/Brakes.md",
     "DevNotes/Mission Statement.md",
     "DevNotes/Idea splurges/Ability ideas.md",
     "DevNotes/Idea splurges/Movement Ideas.md",
