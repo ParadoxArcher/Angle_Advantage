@@ -32,8 +32,8 @@ func _physics_process(_delta):
 	var MoveInput = Vector2(Input.get_action_strength("RotateRight") - Input.get_action_strength("RotateLeft"), Input.get_action_strength("Boost") - Input.get_action_strength("Back"))
 	
 	#region Basic Movement
-	#region Brakes
-	if Input.is_action_pressed("Brake"): # Amplifies Decelerations
+	#region Brakes --- Amplifies Deceleration
+	if Input.is_action_pressed("Brake"):
 		SpeedDecel[0] = SpeedDecel[1] * BrakeDecelMult[0]
 		RotaDecel[0] = RotaDecel[1] * BrakeDecelMult[1]
 	else:
@@ -41,8 +41,8 @@ func _physics_process(_delta):
 		RotaDecel[0] = RotaDecel[1]
 	#endregion
 		
-	#region Boost
-	if MoveInput.y > 0 or BoostDecay[0] > 0: # Determines movement application and delays it's deactivation
+	#region Boost --- Determines movement application and delays it's deactivation
+	if MoveInput.y > 0 or BoostDecay[0] > 0:
 		var BoostDirAmp
 		if MoveInput.y >= BoostDecay[0]:
 			BoostDirAmp = MoveInput.y
@@ -55,8 +55,8 @@ func _physics_process(_delta):
 		BoostDir = Vector2(cos(rotation), sin(rotation)) * BoostDirAmp
 	#endregion
 	
-	#region Rotation
-	if MoveInput.x != 0: # Defines rotation acceleration and it's momentum
+	#region Rotation --- Defines rotation acceleration and it's momentum
+	if MoveInput.x != 0: 
 		var CounterSteer = absf((RotaSpeed / MaxRota[0] ) - MoveInput.x) * CounterScaler[1]
 		RotaRate = RotaAccel[0] + RotaDecel[0] * CounterSteer
 	else:
@@ -65,23 +65,23 @@ func _physics_process(_delta):
 	#endregion
 	
 	#region Advanced Movement
-	if Input.is_action_just_pressed("Dodge"):
+	if Input.is_action_just_pressed("Dodge"): # Calls Dodge() to instantanteously set movement in direction relative to rotation
 		Dodge(Vector2(MoveInput.x, -MoveInput.y).normalized())
 	
-	if MaxSpeed[0] != MaxSpeed[1] || RotaAccel[0] != RotaAccel[1]:
+	if MaxSpeed[0] != MaxSpeed[1] or RotaAccel[0] != RotaAccel[1]: # Undoes value changes for Dodge
 		MaxSpeed[0] -= clampf((MaxSpeed[0] - MaxSpeed[1] ) * DodgeMaxSpeed[1], 0, MaxSpeed[0] - MaxSpeed[1])
 		RotaAccel[0] -= clampf((RotaAccel[0] - RotaAccel[1] ) * DodgeRotaAccel[1], 0, RotaAccel[0] - RotaAccel[1])
-	
 	#endregion
 	
 	#region Transform
 	RotaSpeed = lerpf(RotaSpeed, MoveInput.x * MaxRota[0], clampf(RotaRate, 0, 1)) # Rotation Acceleration
 	rotate(RotaSpeed)
 	
+	
 	var VelMomentum = velocity.normalized() # Momentum
 	velocity = lerp(velocity, VelMomentum, SpeedDecel[0])
 	
-	var TargetVel = BoostDir * MaxSpeed[0] # Add Speed
+	var TargetVel = BoostDir * MaxSpeed[0] # Acceleration
 	velocity = lerp(velocity, TargetVel, SpeedAccel)
 	move_and_slide()
 	#endregion
