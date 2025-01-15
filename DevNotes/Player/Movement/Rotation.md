@@ -1,5 +1,5 @@
-### When keys are pressed, rotate at an accelerated rate
-
+### Final Work
+###### Rotate at an accelerated rate
 #### Steps
 1) Define Input
 	1) Project Settings --> Input Map --> "RotateLeft" = A || "RotateRight" = D
@@ -8,16 +8,16 @@
 2) Rotate
 	1) Define #RotaSpeed
 		1) `@export var RotaSpeed = PI/24`
-	2) Inside `func _physics_process:` and before `move_and_slide()`
+	2) After `MoveInput` and before `move_and_slide()`
 		1) Apply Rotation Speed
-			1) `rotate(RotaSpeed)`
+			1) `rotate(RotaSpeed * MoveInput.x)`
 3) Acceleration
 	1) Before `func _physics_process:` Declare  #MaxRota, #RotaAccel, and #RotaSpeed
 		1) `@export var MaxRota = PI/24`
 		2) `@export var RotaAccel = .02`
 		3) `var RotaSpeed = 0
 	2) Accelerate rotation
-		1) `RotaSpeed = lerp(RotaSpeed, MoveInput.x * MaxRota, RotaAccel) 
+		1) `RotaSpeed = lerp(RotaSpeed, MaxRota * MoveInput.x, RotaAccel) 
 		2) `rotate(RotaSpeed)`
 4) Separate acceleration and deceleration speeds
 	1) Before `func _physics_process:` Declare #RotaRate
@@ -35,3 +35,5 @@
 			1) `var CounterSteer = absf((RotaSpeed / MaxRota ) - MoveInput.x) * CounterSteerRate
 		2) Multiply #CounterSteer to #RotaDecel when added to #RotaAccel
 			1) `RotaRate = RotaAccel[0] + RotaDecel[0] * CounterSteer`
+
+### Adjustment Log

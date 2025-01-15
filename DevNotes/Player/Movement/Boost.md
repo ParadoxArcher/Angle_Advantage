@@ -1,6 +1,5 @@
-
 ### Final Work
-###### Move forward in relation to rotation
+###### Move forward in relation to rotation, preserving momentum and smoothing deactivation
 #### Steps
 1)  Define Input
 	1) Project Settings --> Input Map --> "Boost" = W
@@ -52,7 +51,7 @@
 		1) set contents of `if MoveInput.y > 0 or BoostDecay[0] > 0:` to only activate when #MoveInputY is greater than #BoostDecay[0]. Divide #MoveInputY by #BoostDecay[2] to prevent controllers from toggling between base #BoostDir and the weaker #BoostDecay #BoostDir
 			1) `if MoveInput.y > 0 or BoostDecay[0] > 0:
 				1) `if MoveInput.y / BoostDecay [2] >= BoostDecay[0]:
-		2) In the else portion, set a weaker #BoostDir proportional to #BoostDecay[1] & [2] before subtracting from #BoostDecay[0] by #BoostDecay [1]
+		2) In `else:`, set a weaker #BoostDir proportional to #BoostDecay[1] & [2] before subtracting from #BoostDecay[0] by #BoostDecay [1]
 			1) `else:
 				1) `Vector2(cos(rotation), sin(rotation)) * BoostDecay[0] * BoostDecay[2]
 				2) `BoostDecay[0] -= clampf(BoostDecay[1], 0, BoostDecay[0])`
@@ -66,7 +65,7 @@
 					1) `BoostDirAmp = BoostDecay[0] * BoostDecay[2]
 					2) `BoostDecay[0] -= clampf(BoostDecay[1], 0, BoostDecay[0])
 				4) `BoostDir = Vector2(cos(rotation), sin(rotation)) * BoostDirAmp
-### Adjustment log
+### Adjustment Log
 - [[2025-01-13]]
 	- Added #BoostDecay
 - [[2025-01-14]]

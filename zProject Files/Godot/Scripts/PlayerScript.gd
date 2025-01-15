@@ -3,7 +3,6 @@ extends CharacterBody2D
 #region Variables
 ## Brake Variables
 @export var BrakeDecelMult = [5, 3] # {0: SpeedDecelMult, 1: RotaDecelMult}
-var isBraking = false
 
 ## Boost Variables
 @export var MaxSpeed = [2000, 2000] # {0: Fluctuating, 1: BaseMaxSpeed} ## Beware DodgeMaxSpeed
@@ -14,12 +13,12 @@ var BoostDir = Vector2(0, 0)
 var AccelRate = 0
 
 ## Rotation Variables
-@export var MaxRota = [PI/24, PI/24] # {0: Fluctuating, 1: BaseMaxRota} ## Beware DodgeMaxRota
-@export var RotaAccel = [0.02, .02]
+@export var MaxRota = PI/24
+@export var RotaAccel = [.02, .02]
 @export var RotaDecel = [.0075, .0075] # {0: Fluctuating, 1: BaseRotaDecel} ## Beware BrakeDecelMult
 @export var CounterSteerRate = .35
-var RotaSpeed : float = 0
-var RotaRate : float = 0
+var RotaSpeed = 0
+var RotaRate = 0
 
 ##Dodge Variables
 @export var DodgeMaxSpeed = [1, .15] # {0: MaxSpeedMultiplier, 1: MaxSpeedDecel}
@@ -54,7 +53,7 @@ func _physics_process(_delta):
 	
 	#region Rotation --- Defines rotation acceleration and it's momentum
 	if MoveInput.x != 0: 
-		var CounterSteer = absf((RotaSpeed / MaxRota[0] ) - MoveInput.x) * CounterSteerRate
+		var CounterSteer = absf((RotaSpeed / MaxRota ) - MoveInput.x) * CounterSteerRate
 		RotaRate = RotaAccel[0] + RotaDecel[0] * CounterSteer
 	else:
 		RotaRate = RotaDecel[0]
@@ -71,7 +70,7 @@ func _physics_process(_delta):
 	#endregion
 	
 	#region Transform
-	RotaSpeed = lerpf(RotaSpeed, MoveInput.x * MaxRota[0], clampf(RotaRate, 0, 1)) # Rotation Acceleration
+	RotaSpeed = lerpf(RotaSpeed, MoveInput.x * MaxRota, clampf(RotaRate, 0, 1)) # Rotation Acceleration
 	rotate(RotaSpeed)
 	
 	
@@ -104,7 +103,7 @@ func _process(_delta):
 		Displays["boost_dir"].position = position + ((150 * Displays["boost_dir"].scale.x ) + MarkerSize["CenterGap"] ) * Vector2(cos(rotation), sin(rotation))
 		Displays["boost_dir"].rotation = rotation
 		
-		Displays["rota_speed"].scale.x = RotaSpeed * MarkerSize["RotaSpeedLength"] / MaxRota[1]
+		Displays["rota_speed"].scale.x = RotaSpeed * MarkerSize["RotaSpeedLength"] / MaxRota
 		Displays["rota_speed"].position = Displays["boost_dir"].position + ((150 * Displays["rota_speed"].scale.x ) * Vector2(cos(Displays["boost_dir"].rotation + PI/2), sin(Displays["boost_dir"].rotation + PI/2)) )
 		Displays["rota_speed"].rotation = Displays["boost_dir"].rotation + PI/2
 	
