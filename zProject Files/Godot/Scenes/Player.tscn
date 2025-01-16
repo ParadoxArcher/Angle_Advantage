@@ -10,12 +10,12 @@
 rotation = -1.5708
 script = ExtResource("1_g1qce")
 
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(55, 0.000199099, -30.0001, 36.9999, -29.9999, -36.0001)
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("2_u7ctg")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(60, 0, -50, 45, -30, 0, -50, -45)
 
 [node name="Sprites" type="Node" parent="."]
 
