@@ -14,9 +14,9 @@ kanban-plugin: board
 
 ## [[Player]]
 
+- [ ] [[Wall Bounce]]
 - [ ] [[Crash]]
 - [ ] [[Wall Boost]]
-- [ ] [[Wall Bounce]]
 - [x] [[Boost]]
 - [x] [[Rotation]]
 - [x] [[Movement Visualizer]]

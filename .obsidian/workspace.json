@@ -8,18 +8,33 @@
         "type": "tabs",
         "children": [
           {
-            "id": "093b35cc661485dd",
+            "id": "f21830c2c6ae8004",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DevNotes/Player/Movement/Boost.md",
+                "file": "Devlogs/2025-01-16.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Boost"
+              "title": "2025-01-16"
+            }
+          },
+          {
+            "id": "76645dae94e03b1c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "DevNotes/Wall Bounce.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Wall Bounce"
             }
           },
           {
@@ -52,21 +67,6 @@
             }
           },
           {
-            "id": "c5db390f253924e3",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "DevNotes/Player/Movement/Movement Visualizer.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Movement Visualizer"
-            }
-          },
-          {
             "id": "4b3e126c4f06f422",
             "type": "leaf",
             "state": {
@@ -79,21 +79,6 @@
               },
               "icon": "lucide-file",
               "title": "Brakes"
-            }
-          },
-          {
-            "id": "f21830c2c6ae8004",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Devlogs/2025-01-16.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "2025-01-16"
             }
           }
         ]
@@ -252,10 +237,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DevNotes/Player/Movement/Boost.md"
+                "file": "Devlogs/2025-01-16.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of Boost"
+              "title": "Outline of 2025-01-16"
             }
           }
         ],
@@ -279,8 +264,16 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "093b35cc661485dd",
+  "active": "f21830c2c6ae8004",
   "lastOpenFiles": [
+    "DevNotes/Player/Movement/Brakes.md",
+    "DevNotes/ToDoList.md",
+    "DevNotes/Player/Movement/Movement Visualizer.md",
+    "DevNotes/Wall Bounce.md",
+    "DevNotes/Player/Movement/Boost.md",
+    "Devlogs/2025-01-16.md",
+    "zProject Files/Godot/Scripts/Pla428B.tmp",
+    "zProject Files/Godot/Scripts/PlaBD5.tmp",
     "zProject Files/Godot/pro6C97.tmp",
     "zProject Files/Godot/Scripts/PlaB542.tmp",
     "zProject Files/Godot/Scripts/Pla8523.tmp",
@@ -289,14 +282,6 @@
     "zProject Files/Godot/Scripts/PlaD2B4.tmp",
     "zProject Files/Godot/Scripts/Pla58EC.tmp",
     "zProject Files/Godot/Scripts/PlaB1DC.tmp",
-    "zProject Files/Godot/Scenes/PlaCE2E.tmp",
-    "zProject Files/Godot/Scenes/Pla87CE.tmp",
-    "Devlogs/2025-01-16.md",
-    "DevNotes/Player/Movement/Boost.md",
-    "DevNotes/ToDoList.md",
-    "DevNotes/Player/Movement/Brakes.md",
-    "DevNotes/Player/Movement/Movement Visualizer.md",
-    "zProject Files/Godot/Scenes/Pla8AD4.tmp",
     "DevNotes/Crash.md",
     "DevNotes/Player/Player.md",
     "Pasted image 20250114213019.png.md",
