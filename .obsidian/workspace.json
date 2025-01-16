@@ -28,7 +28,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DevNotes/Wall Bounce.md",
+                "file": "DevNotes/Player/Movement/Wall Bounce.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -81,7 +81,8 @@
               "title": "Brakes"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -237,10 +238,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Devlogs/2025-01-16.md"
+                "file": "DevNotes/ToDoList.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of 2025-01-16"
+              "title": "Outline of ToDoList"
             }
           }
         ],
@@ -264,26 +265,26 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "f21830c2c6ae8004",
+  "active": "2b906768df75cac8",
   "lastOpenFiles": [
-    "DevNotes/Wall Bounce.md",
+    "DevNotes/Player/Movement/Wall Bounce.md",
+    "DevNotes/ToDoList.md",
+    "DevNotes/Player/Movement/Brakes.md",
+    "Devlogs/2025-01-16.md",
     "zProject Files/Godot/Scenes/Pla6D89.tmp",
     "zProject Files/Godot/Scripts/Pla6C6F.tmp",
     "zProject Files/Godot/Scenes/Gam6C5C.tmp",
     "zProject Files/Godot/Scripts/Pla4581.tmp",
-    "Devlogs/2025-01-16.md",
     "DevNotes/Player/Player.md",
-    "DevNotes/ToDoList.md",
     "zProject Files/Godot/Scripts/PlaB202.tmp",
     "zProject Files/Godot/Scenes/GamB1EF.tmp",
-    "DevNotes/Player/Movement/Brakes.md",
     "DevNotes/Player/Movement/Movement Visualizer.md",
     "DevNotes/Player/Movement/Boost.md",
     "zProject Files/Godot/Scripts/Pla428B.tmp",
     "zProject Files/Godot/Scripts/PlaBD5.tmp",
     "zProject Files/Godot/pro6C97.tmp",
     "zProject Files/Godot/Scripts/PlaB542.tmp",
-    "DevNotes/Crash.md",
+    "DevNotes/Player/Movement/Crash.md",
     "Pasted image 20250114213019.png.md",
     "Devlogs/2025-01-10.md",
     "zReferences/Excalidraw/CounterSteering Scribble.md",
