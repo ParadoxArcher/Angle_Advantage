@@ -76,7 +76,11 @@ func _physics_process(_delta):
 	
 	velocity = lerp(velocity, velocity.normalized(), SpeedDecel[0]) # Momentum
 	velocity = lerp(velocity, BoostDir * MaxSpeed[0], SpeedAccel) # Acceleration
-	move_and_collide(velocity * _delta)
+	
+	move_and_slide()
+	var collision = move_and_collide(velocity * _delta)
+	if collision:
+		velocity = velocity.bounce(collision.get_normal()) 
 	#endregion\
 
 #region Markers Variables
