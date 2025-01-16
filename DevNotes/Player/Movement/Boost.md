@@ -13,7 +13,7 @@
 			2) `if MoveInput > 0:
 				1) `velocity.y = Speed
 		2) Activate #CharacterBody2D #velocity & physics
-			1)  `move_and_slide()`
+			1)  `move_and_collide()`
 3) Acceleration
 	1) Accelerate #velocity
 		1) before `func _physics_process(_delta):` Define #MaxSpeed and #SpeedAccel `
@@ -70,4 +70,6 @@
 	- Added #BoostDecay
 - [[2025-01-14]]
 	- Utilizes two separate #velocity adjustments to calculate momentum with #SpeedDecel and acceleration with #SpeedAccel 
-	- When [[Boost|BoostDecay]] isn't active, #BoostDir is amplified by #MoveInputY value 
+	- When [[Boost|BoostDecay]] isn't active, #BoostDir is amplified by #MoveInputY value
+- [[2025-01-16]]
+	- `move_and_slide` replace with `move_and_collide` to be able to program other features such as the rebound in [[Crash]], requiring recreation of collision logic
