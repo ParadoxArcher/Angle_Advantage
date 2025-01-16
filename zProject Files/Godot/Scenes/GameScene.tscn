@@ -27,6 +27,7 @@ texture = ExtResource("2_3lpfc")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(448, -46)
+rotation = 0.71733
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-0.5, -0.5)
