@@ -57,13 +57,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DevNotes/Player/Player.md",
+                "file": "DevNotes/Player/Movement/Brakes.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Player"
+              "title": "Brakes"
             }
           },
           {
@@ -253,10 +253,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DevNotes/Player/Player.md"
+                "file": "DevNotes/Player/Movement/Brakes.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of Player"
+              "title": "Outline of Brakes"
             }
           }
         ],
@@ -282,11 +282,16 @@
   },
   "active": "6fe034b4f3c043e8",
   "lastOpenFiles": [
+    "zProject Files/Godot/Scripts/PlaEDE4.tmp",
+    "zProject Files/Godot/Scripts/PlaCC7A.tmp",
+    "zProject Files/Godot/Scripts/Pla8007.tmp",
+    "zProject Files/Godot/Scenes/Pla93D4.tmp",
+    "zProject Files/Godot/pro7A69.tmp",
+    "DevNotes/Player/Player.md",
     "zProject Files/Godot/proA949.tmp",
     "DevNotes/Player/Movement/Movement Visualizer.md",
     "DevNotes/Player/Movement/Brakes.md",
     "DevNotes/ToDoList.md",
-    "DevNotes/Player/Player.md",
     "Pasted image 20250114213019.png.md",
     "Devlogs/2025-01-10.md",
     "zReferences/Excalidraw/CounterSteering Scribble.md",
@@ -298,7 +303,6 @@
     "zProject Files/Godot/Scripts/Pla2758.tmp",
     "zTemplates/DevNote Template.md",
     "DevNotes/Player/Movement/Boost.md",
-    "zTemplates",
     "zReferences/Images/Data Wing.jpg",
     "Reference Images/Excalidraw/Drawing 2025-01-10 09.06.25.excalidraw.md",
     "zReferences/Excalidraw/MissionStatementSketch.md",
@@ -312,10 +316,6 @@
     "Reference Images/Images/Pasted image 20250112002903.png",
     "Reference Images/Images/Pasted image 20250112002646.png",
     "Reference Images/Images/Pasted image 20250112002430.png",
-    "zProject Files/Godot/Scripts/PlaCC49.tmp",
-    "zProject Files/Godot/Scripts/Pla47E9.tmp",
-    "zProject Files/Godot/Scripts/PlaCC1B.tmp",
-    "zProject Files/Godot/Scripts/Pla5713.tmp",
     "Devlogs/2025-01-13.md",
     "DevNotes/Mission Statement.md",
     "DevNotes/Idea splurges/Ability ideas.md",

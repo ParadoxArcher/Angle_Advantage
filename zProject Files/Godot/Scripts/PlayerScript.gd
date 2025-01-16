@@ -7,7 +7,7 @@ extends CharacterBody2D
 ## Boost Variables
 @export var MaxSpeed = [2000, 2000] # {0: Fluctuating, 1: BaseMaxSpeed} ## Beware DodgeMaxSpeed
 @export var SpeedAccel = .01
-@export var SpeedDecel = [.005, .005] # {0: Fluctuating,  1: Decel} ## Beware BrakeDecelMult
+@export var SpeedDecel = [.0025, .0025] # {0: Fluctuating,  1: Decel} ## Beware BrakeDecelMult
 @export var BoostDecay = [0, .015, .8] # {0: Fluctuating,  1:DecayRate, 2:BoostRelease(cannot be 0)}
 var BoostDir = Vector2(0, 0)
 var AccelRate = 0
@@ -15,7 +15,7 @@ var AccelRate = 0
 ## Rotation Variables
 @export var MaxRota = PI/24
 @export var RotaAccel = [.02, .02]
-@export var RotaDecel = [.0075, .0075] # {0: Fluctuating, 1: BaseRotaDecel} ## Beware BrakeDecelMult
+@export var RotaDecel = [.01, .01] # {0: Fluctuating, 1: BaseRotaDecel} ## Beware BrakeDecelMult
 @export var CounterSteerRate = .35
 var RotaSpeed = 0
 var RotaRate = 0
