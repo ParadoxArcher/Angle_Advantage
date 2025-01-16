@@ -76,9 +76,8 @@ func _physics_process(_delta):
 	
 	velocity = lerp(velocity, velocity.normalized(), SpeedDecel[0]) # Momentum
 	velocity = lerp(velocity, BoostDir * MaxSpeed[0], SpeedAccel) # Acceleration
-	move_and_slide()
-	#endregion
-
+	move_and_collide(velocity * _delta)
+	#endregion\
 
 #region Markers Variables
 @export var DisplaySize = {"CenterGap": 30, "velLength": .5, "boost_dirLength": .35, "rota_speedLength": .5}
@@ -125,4 +124,9 @@ func Dodge(DodgeDir):
 		DodgeDir = Vector2(0,-1)
 	velocity = MaxSpeed[0] * DodgeDir.rotated(rotation + PI/2)
 	
-
+func Crash():
+	# bounce
+	# SpeedAccel and RotaAccel disabled for X time
+	
+	# take damage
+	pass
