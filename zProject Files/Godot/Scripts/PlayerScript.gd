@@ -23,7 +23,8 @@ var RotaSpeed = 0
 var RotaRate = 0
 
 ##Crash Variables
-@export var CollisionRebound = .5
+@export var BounceAmp = .9
+@export var CrashAngle = .3
 @export var CrashSpeed = .4
 @export var CrashTime = 1.5
 var Crashed = false
@@ -102,12 +103,13 @@ func _physics_process(_delta):
 	var Collision = move_and_collide(velocity * _delta, false, .7, false)
 	if Collision:
 		var CollisionDot = velocity.normalized().dot(Collision.get_normal())
-		if CollisionDot * (velocity.length() / MaxSpeed[0] ) < -CrashSpeed:
+		var WallBounce = (Vector2(-cos(rotation), sin(rotation)).dot(Collision.get_normal()) + 1 ) / 2
+		print(WallBounce)
+		if CollisionDot * (velocity.length() / MaxSpeed[0] ) < -CrashSpeed and WallBounce > CrashAngle:
 			crash()
-		print(cos(rotation), sin(rotation))
-		velocity = velocity.bounce(Collision.get_normal()) * CollisionRebound
-		
-	#endregion\
+
+		velocity = velocity.bounce(Collision.get_normal()) * BounceAmp
+	#endregion
 
 #region Markers Variables
 @export var DisplaySize = {"CenterGap": 30, "velLength": .5, "boost_dirLength": .35, "rota_speedLength": .5}
