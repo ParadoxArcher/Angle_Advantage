@@ -3,20 +3,20 @@
 
 #### Steps
 1) Convert to KinematicBody2D physics
-	1) Before `_physics_process(_delta):`
-		1) Define #CollisionRebound
-			1) `@export var CollisionRebound = .3`
 	2) Replace `move_and_slide` with `move_and_collide(velocity)`
 2) Make [[Player]] bounce off walls
-	1) Call `move_and_collide` as a variable instead, with a `safe_margin` of .7
+	1) Before `_physics_process(_delta):`
+		1) Define #Bounce
+			1) `@export var CollisionRebound = .3`
+	2) Call `move_and_collide` as a variable instead, with a `safe_margin` of .7
 		1) `var Collision = move_and_collide(velocity * _delta, false, .7, false)`
-	2) When #Collision, invert velocity by #Collision normal
+	3) When #Collision, invert #velocity by #Collision normal times #Bounce
 		1) `if Collision:
-			1) `velocity = velocity.bounce(Collision.get_normal())
+			1) `velocity = velocity.bounce(Collision.get_normal()) * Bounce
 3) Disable Movement
 	1) Define variables #CrashTime and #Crashed
-		1) `var Crashed = false
-		2) `@export var CrashTime = 1.5
+		2) `var Crashed = false
+		3) `@export var CrashTime = 1.5
 	2) Create and use `func crash():`
 		1) `func crash():
 		2) Inside `if Collision:` 
@@ -49,6 +49,7 @@
 			1) `crash()`
 	4) Multiply #CollisionDot  by #velocity length over #MaxSpeed1
 		1) `if CollisionDot * (velocity.length() / MaxSpeed[0] ) < -CrashSpeed:`
+5) Modify #velocity after collision by difference in player direction to wall
 
 ### Adjustment Log
 - [[2025-01-16]]

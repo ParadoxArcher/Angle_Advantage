@@ -111,7 +111,7 @@ func _physics_process(_delta):
 		if CollisionDot * (velocity.length() / MaxSpeed[0] ) < -CrashSpeed and WallBounce > CrashAngle:
 			crash(WallBounce * (velocity.length() / MaxSpeed[0] ))
 			
-		print(cos(CollisionDot))
+
 		velocity = velocity.bounce(Collision.get_normal()) * lerp(BounceAmp[1], BounceAmp[0], WallBounce)
 	#endregion
 
