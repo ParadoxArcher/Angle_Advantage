@@ -82,7 +82,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -133,7 +133,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#BoostDecay2",
+                "query": "tag:#CrashSpeed",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -154,7 +154,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -238,10 +239,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DevNotes/Idea splurges/Level Ideas.md"
+                "file": "DevNotes/Player/Movement/Crash & Wall Bounce.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of Level Ideas"
+              "title": "Outline of Crash & Wall Bounce"
             }
           }
         ],
@@ -265,18 +266,22 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "05b018dcb50e2606",
+  "active": "0cb856c319357cd6",
   "lastOpenFiles": [
-    "DevNotes/Idea splurges/Ability ideas.md",
+    "zProject Files/Godot/Scripts/PlaB136.tmp",
+    "zProject Files/Godot/Scripts/PlaAEC3.tmp",
+    "zProject Files/Godot/Scripts/PlaA90A.tmp",
+    "DevNotes/ToDoList.md",
     "DevNotes/Idea splurges/Level Ideas.md",
+    "Devlogs/2025-01-17.md",
+    "DevNotes/Player/Movement/Crash & Wall Bounce.md",
+    "DevNotes/Idea splurges/Ability ideas.md",
     "DevNotes/Player/Player.md",
     "DevNotes/Player/Movement/Rotation.md",
     "DevNotes/Player/Movement/Movement Visualizer.md",
-    "DevNotes/Player/Movement/Crash & Wall Bounce.md",
     "DevNotes/Player/Movement/Brakes.md",
     "DevNotes/Player/Movement/Boost.md",
     "Devlogs/2025-01-14.md",
-    "DevNotes/ToDoList.md",
     "zProject Files/Godot/Scripts/Pla9939.tmp",
     "zProject Files/Godot/Scenes/PlaBB14.tmp",
     "zProject Files/Godot/Scripts/PlaBA2D.tmp",
@@ -285,9 +290,6 @@
     "zProject Files/Godot/Scripts/PlaFC.tmp",
     "zProject Files/Godot/Scripts/Pla6AA1.tmp",
     "zProject Files/Godot/Scripts/PlaAAE9.tmp",
-    "zProject Files/Godot/Scripts/Pla22B7.tmp",
-    "zProject Files/Godot/Scripts/PlaE1FE.tmp",
-    "Devlogs/2025-01-17.md",
     "Devlogs/2025-01-16.md",
     "zProject Files/Godot/Assets/Rocket.png",
     "Pasted image 20250114213019.png.md",
@@ -311,7 +313,6 @@
     "Dodging.md",
     "DevNotes/Idea splurges/Dodge Charges.md",
     "DevNotes/Untitled.md",
-    "DevNotes/Player Controller.md",
-    "DevNotes/Player Avatar.md"
+    "DevNotes/Player Controller.md"
   ]
 }

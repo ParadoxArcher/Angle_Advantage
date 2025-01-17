@@ -39,13 +39,20 @@
 		3) [[Dodge]]
 			1) `if Input.is_action_just_pressed("Dodge") and not Crashed:
 4) Limit `crash` by #Collision direction and #velocity
-	1) Get angle difference from #velocity and #Collision normal
+	1) Before `func _physics_process(delta):`
+		1) Define #CrashSpeed
+			1) `@export var CrashSpeed = .4
+	2) Get angle difference from #velocity and #Collision normal
 		1) `var CollisionDot = velocity.normalized().dot(Collision.get_normal())
-	2) Mulitply by #velocity length over #MaxSpeed1
+	3) #crash `if` #CollisionDot is <  - #CrashSpeed
+		1) `if CollisionDot < -CrashSpeed:`
+			1) `crash()`
+	4) Multiply #CollisionDot  by #velocity length over #MaxSpeed1
+		1) `if CollisionDot * (velocity.length() / MaxSpeed[0] ) < -CrashSpeed:`
 
 ### Adjustment Log
 - [[2025-01-16]]
 	- `move_and_slide` replaced with `move_and_collide` to be able to program other features such as the [[Crash & Wall Bounce]] or [[Crash & Wall Bounce]], requiring recreation of collision logic
 	- Implemented basic `move_and_collide` functionality with velocity.bounce
 - [[2025-01-17]]
-	- Implemented movement disable for [[Crash & Wall Bounce]]
+	- Implemented movement disable and it's limitations

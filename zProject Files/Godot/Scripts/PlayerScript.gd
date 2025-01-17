@@ -104,7 +104,7 @@ func _physics_process(_delta):
 		var CollisionDot = velocity.normalized().dot(Collision.get_normal())
 		if CollisionDot * (velocity.length() / MaxSpeed[0] ) < -CrashSpeed:
 			crash()
-			
+		print(cos(rotation), sin(rotation))
 		velocity = velocity.bounce(Collision.get_normal()) * CollisionRebound
 		
 	#endregion\

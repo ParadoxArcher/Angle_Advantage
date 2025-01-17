@@ -6,17 +6,17 @@ kanban-plugin: board
 
 ## Current
 
-- [ ] [[Wall Boost]]
+- [ ] [[Crash & Wall Bounce]]
 
 
 ## Soon
 
 - [ ] Boost VFX
+- [ ] [[Wall Boost]]
 
 
 ## [[Player]]
 
-- [ ] [[Crash & Wall Bounce]]
 - [ ] [[Rotation Collision]]
 - [x] [[Boost]]
 - [x] [[Rotation]]
