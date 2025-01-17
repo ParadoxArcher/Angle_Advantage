@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
 #region Basic Movement Variables
+var MoveInput = Vector2(0, 0)
+
 ## Brake Variables
 @export var BrakeDecelMult = [5, 3] # {0: SpeedDecelMult, 1: RotaDecelMult}
 
@@ -22,8 +24,8 @@ var RotaRate = 0
 
 ##Crash Variables
 @export var CollisionRebound = .3
+@export var CrashTime = 5
 var DisableMovement = false
-@export var CrashDisableTimer = Timer
 #endregion
 
 #region Advanced Movement Variables
@@ -34,14 +36,17 @@ var DisableMovement = false
 
 #endregion
 
-
+func crash():
+	DisableMovement = true
+	await get_tree().create_timer(CrashTime).timeout
+	DisableMovement = false
 
 func _physics_process(_delta):
-	var MoveInput
 	if not DisableMovement:
 		MoveInput = Vector2(Input.get_action_strength("RotateRight") - Input.get_action_strength("RotateLeft"), Input.get_action_strength("Boost") - Input.get_action_strength("Back"))
 	else:
-		
+		MoveInput = Vector2(0, 0)
+	
 	
 	#region Basic Movement
 	#region Brakes --- Amplifies Deceleration	
@@ -95,8 +100,7 @@ func _physics_process(_delta):
 	var Collision = move_and_collide(velocity * _delta, false, .7, false)
 	if Collision:
 		velocity = velocity.bounce(Collision.get_normal()) * CollisionRebound
-		DisableMovement = true
-
+		crash()
 	#endregion\
 
 #region Markers Variables
@@ -150,3 +154,7 @@ func Crash():
 	
 	# take damage
 	pass
+
+
+func _on_timer_timeout():
+	pass # Replace with function body.
