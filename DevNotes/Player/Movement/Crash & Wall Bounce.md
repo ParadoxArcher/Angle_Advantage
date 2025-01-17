@@ -73,6 +73,18 @@
 				2) `await get_tree().create_timer(CrashTimer).timeout`
 		3) Insert #WallBounce * #velocity length / #MaxSpeed into #crash as #CrashTimeScaler
 			1) `crash(WallBounce * (velocity.length() / MaxSpeed[0] )) `
+6) #CrashImmunity
+	1) Before `crash(CrashTimeScaler):` Define #CrashImmunity as an array of a `false` `bool` and `float
+		1) `@export var CrashImmunity = [false, .6]
+	2) Inside `crash(CrashTimeScaler):` pass the entire `func` `if` #CrashImmunity1 is true
+		1) `if not CrashImmunity[0]:
+			1) `...`
+		2) `else:
+			1) `pass`
+	3) Inside `if not CrashImmunity[0]:` and before `await(CrashTimer)` set #CrashImmunity0 to true
+		1) 
+	4) After `Crashed = false` `Await` by #CrashImmunity1
+		1) 
 
 ### Adjustment Log
 - [[2025-01-16]]

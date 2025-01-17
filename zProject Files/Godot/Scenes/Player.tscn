@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bw0kkepdb55nf" path="res://Assets/Yellow Arrow.png" id="5_o2ksf"]
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 10
 rotation = -1.5708
 script = ExtResource("1_g1qce")
 

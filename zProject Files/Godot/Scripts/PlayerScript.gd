@@ -27,7 +27,7 @@ var RotaRate = 0
 @export var CrashAngle = .3
 @export var CrashSpeed = .35
 @export var CrashTime = [.6, 1.8] # {0: Minimum, 1: Maximum}
-@export var CrashImmunity = 10
+@export var CrashImmunity = [false, .6]
 var Crashed = false
 #endregion
 
@@ -38,11 +38,16 @@ var Crashed = false
 #endregion
 
 func crash(CrashTimeScaler):
-	Crashed = true
-	var CrashTimer = lerpf(CrashTime[0], CrashTime[1], CrashTimeScaler)
-	await get_tree().create_timer(CrashTimer,true ,true).timeout
-	Crashed = false
-	await get_tree().create_timer(CrashImmunity).timeout
+	if not CrashImmunity[0]:
+		CrashImmunity[0] = true
+		Crashed = true
+		var CrashTimer = lerpf(CrashTime[0], CrashTime[1], CrashTimeScaler)
+		await get_tree().create_timer(CrashTimer,true ,true).timeout
+		Crashed = false
+		await get_tree().create_timer(CrashImmunity[1] * CrashTimer,true ,true).timeout
+		CrashImmunity[0] = false
+	else:
+		pass
 
 func _physics_process(_delta):
 	#region Basic Movement
