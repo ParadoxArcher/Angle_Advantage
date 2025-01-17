@@ -4,7 +4,7 @@ extends CharacterBody2D
 var MoveInput = Vector2(0, 0)
 
 ## Brake Variables
-@export var BrakeDecelMult = [5, 3] # {0: SpeedDecelMult, 1: RotaDecelMult}
+@export var BrakeDecelMult = [5.0, 3.0] # {0: SpeedDecelMult, 1: RotaDecelMult}
 
 ## Boost Variables
 @export var MaxSpeed = [1800, 1800] # {0: Fluctuating, 1: BaseMaxSpeed} ## Beware DodgeMaxSpeed
@@ -23,24 +23,26 @@ var RotaSpeed = 0
 var RotaRate = 0
 
 ##Crash Variables
-@export var BounceAmp = .9
+@export var BounceAmp = [.3, 1.0]
 @export var CrashAngle = .3
 @export var CrashSpeed = .4
-@export var CrashTime = 1.5
+@export var CrashTime = [.75, 1.5]
 var Crashed = false
 #endregion
 
 #region Advanced Movement Variables
 ##Dodge Variables
-@export var DodgeMaxSpeed = [1, .15] # {0: MaxSpeedMultiplier, 1: MaxSpeedDecel}
-@export var DodgeRotaAccel = [5, .1] # {0: RotaAccelMult, 1: RotaAccelDecel}
+@export var DodgeMaxSpeed = [1.0, .15] # {0: MaxSpeedMultiplier, 1: MaxSpeedDecel}
+@export var DodgeRotaAccel = [5.0, .1] # {0: RotaAccelMult, 1: RotaAccelDecel}
 
 
 #endregion
 
-func crash():
+func crash(CrashTimeScaler):
 	Crashed = true
-	await get_tree().create_timer(CrashTime).timeout
+	var CrashTimer = lerp(CrashTime[0], CrashTime[1], CrashTimeScaler)
+	print(CrashTimer)
+	await get_tree().create_timer(CrashTimer).timeout
 	Crashed = false
 
 func _physics_process(_delta):
@@ -103,12 +105,12 @@ func _physics_process(_delta):
 	var Collision = move_and_collide(velocity * _delta, false, .7, false)
 	if Collision:
 		var CollisionDot = velocity.normalized().dot(Collision.get_normal())
-		var WallBounce = (Vector2(-cos(rotation), sin(rotation)).dot(Collision.get_normal()) + 1 ) / 2
-		print(WallBounce)
+		var WallBounce = (Vector2(-cos(rotation), -sin(rotation)).dot(Collision.get_normal()) + 1 ) / 2
+		print(WallBounce * (velocity.length() / MaxSpeed[0] ))
 		if CollisionDot * (velocity.length() / MaxSpeed[0] ) < -CrashSpeed and WallBounce > CrashAngle:
-			crash()
+			crash(WallBounce * (velocity.length() / MaxSpeed[0] ))
 
-		velocity = velocity.bounce(Collision.get_normal()) * BounceAmp
+		velocity = velocity.bounce(Collision.get_normal()) * lerp(BounceAmp[0], BounceAmp[1], WallBounce)
 	#endregion
 
 #region Markers Variables
