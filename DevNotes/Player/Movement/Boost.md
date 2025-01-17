@@ -43,8 +43,8 @@
 		1) `@export var BoostDecay = [0, .015, .8]`
 	2) Set up #BoostDecay to activate
 		1) Inside `if MoveInput.y > 0:` 
-			1) Increase #BoostDecay0 by #BoostDecay1 and apply clampf to prevent exceeding #MoveInputY
-				1) `BoostDecay[0] += clampf(BoostDecay[1], 0, MoveInput.y)`
+			1) Increase #BoostDecay0 by #BoostDecay1 * #MoveInputY and apply clampf to prevent exceeding #MoveInputY
+				1) `BoostDecay[0] += clampf(BoostDecay[1] * MoveInput.y, 0, MoveInput.y)`
 		2) Allow #BoostDecay to pass through `if MoveInput.y > 0`
 			1) `if MoveInput.y > 0 or BoostDecay[0] > 0:`
 	3) Adjust value of #BoostDir by #BoostDecay when not moving
@@ -71,3 +71,5 @@
 - [[2025-01-14]]
 	- Utilizes two separate #velocity adjustments to calculate momentum with #SpeedDecel and acceleration with #SpeedAccel 
 	- When [[Boost|BoostDecay]] isn't active, #BoostDir is amplified by #MoveInputY value
+- [[2025-01-17]]
+	- Scales #BoostDecay0 by #MoveInputY

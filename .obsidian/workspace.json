@@ -8,7 +8,7 @@
         "type": "tabs",
         "children": [
           {
-            "id": "76645dae94e03b1c",
+            "id": "05b018dcb50e2606",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -20,6 +20,21 @@
               },
               "icon": "lucide-file",
               "title": "2025-01-17"
+            }
+          },
+          {
+            "id": "76645dae94e03b1c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "DevNotes/Player/Movement/Boost.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Boost"
             }
           },
           {
@@ -65,23 +80,9 @@
               "icon": "lucide-trello",
               "title": "ToDoList"
             }
-          },
-          {
-            "id": "05b018dcb50e2606",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "DevNotes/Idea splurges/Level Ideas.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Level Ideas"
-            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -236,9 +237,11 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {},
+              "state": {
+                "file": "DevNotes/Player/Movement/Boost.md"
+              },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Outline of Boost"
             }
           }
         ],
@@ -262,12 +265,13 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "4688c3cbab7702aa",
+  "active": "76645dae94e03b1c",
   "lastOpenFiles": [
     "Devlogs/2025-01-17.md",
+    "DevNotes/Player/Movement/Boost.md",
+    "DevNotes/Idea splurges/Level Ideas.md",
     "DevNotes/Player/Movement/Crash & Wall Bounce.md",
     "DevNotes/ToDoList.md",
-    "DevNotes/Idea splurges/Level Ideas.md",
     "zProject Files/Godot/Scripts/PlaF5B5.tmp",
     "zProject Files/Godot/Scripts/PlaD2A.tmp",
     "zProject Files/Godot/Scenes/GamD18.tmp",
@@ -278,7 +282,6 @@
     "zProject Files/Godot/Scripts/Pla7D76.tmp",
     "zProject Files/Godot/Scripts/Pla7CE8.tmp",
     "zProject Files/Godot/Scripts/Pla7DE7.tmp",
-    "DevNotes/Player/Movement/Boost.md",
     "DevNotes/Idea splurges/Ability ideas.md",
     "DevNotes/Player/Player.md",
     "DevNotes/Player/Movement/Rotation.md",
