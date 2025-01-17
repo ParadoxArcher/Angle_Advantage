@@ -66,7 +66,8 @@
               "title": "ToDoList"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -222,10 +223,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Devlogs/2025-01-17.md"
+                "file": "DevNotes/Player/Movement/Crash.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of 2025-01-17"
+              "title": "Outline of Crash"
             }
           }
         ],
@@ -249,22 +250,23 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "76645dae94e03b1c",
+  "active": "0cb856c319357cd6",
   "lastOpenFiles": [
-    "DevNotes/Player/Movement/Crash.md",
+    "zProject Files/Godot/Scripts/Pla6AA1.tmp",
+    "zProject Files/Godot/Scripts/PlaAAE9.tmp",
+    "zProject Files/Godot/Scripts/Pla22B7.tmp",
+    "zProject Files/Godot/Scripts/PlaE1FE.tmp",
+    "zProject Files/Godot/Scripts/PlaB2B8.tmp",
+    "zProject Files/Godot/Scripts/PlaFBE9.tmp",
+    "zProject Files/Godot/Scripts/Pla496B.tmp",
     "Devlogs/2025-01-17.md",
+    "DevNotes/Player/Movement/Crash.md",
     "DevNotes/ToDoList.md",
     "DevNotes/Player/Movement/Brakes.md",
     "zProject Files/Godot/Scripts/PlaBDEC.tmp",
     "zProject Files/Godot/Scripts/PlaB0FA.tmp",
     "zProject Files/Godot/Scripts/Pla913A.tmp",
     "zProject Files/Godot/Scripts/Pla2AEE.tmp",
-    "zProject Files/Godot/Scripts/PlaD42.tmp",
-    "zProject Files/Godot/Scripts/Pla33A5.tmp",
-    "zProject Files/Godot/Scripts/PlaA74D.tmp",
-    "zProject Files/Godot/Scripts/Pla59EC.tmp",
-    "zProject Files/Godot/Scenes/Pla59DA.tmp",
-    "zProject Files/Godot/Scripts/Pla4F90.tmp",
     "Devlogs/2025-01-16.md",
     "zProject Files/Godot/Assets/Rocket.png",
     "DevNotes/Player/Player.md",

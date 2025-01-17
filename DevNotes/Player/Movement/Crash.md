@@ -38,11 +38,11 @@
 			1) `if Input.is_action_pressed("Brake") and not Crashed:`
 		3) [[Dodge]]
 			1) `if Input.is_action_just_pressed("Dodge") and not Crashed:
-5) 
+4) 
 
 ### Adjustment Log
 - [[2025-01-16]]
 	- `move_and_slide` replaced with `move_and_collide` to be able to program other features such as the [[Crash]] or [[Crash]], requiring recreation of collision logic
 	- Implemented basic `move_and_collide` functionality with velocity.bounce
 - [[2025-01-17]]
-	- 
+	- Implemented movement disable for [[Crash]]
