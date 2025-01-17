@@ -23,9 +23,9 @@ var RotaSpeed = 0
 var RotaRate = 0
 
 ##Crash && WallBounce Variables
-@export var BounceAmp = [.4, 1.0]
+@export var Bounce = [.4, 1.0]
 @export var CrashAngle = .3
-@export var CrashSpeed = .3
+@export var CrashSpeed = .35
 @export var CrashTime = [.6, 1.8]
 var Crashed = false
 #endregion
@@ -39,19 +39,18 @@ var Crashed = false
 func crash(CrashTimeScaler):
 	Crashed = true
 	var CrashTimer = lerp(CrashTime[0], CrashTime[1], CrashTimeScaler)
-	print(CrashTimeScaler)
-	print(CrashTimer)
 	await get_tree().create_timer(CrashTimer).timeout
 	Crashed = false
 
 func _physics_process(_delta):
+	#region Basic Movement
+	#region Input
 	if not Crashed:
 		MoveInput = Vector2(Input.get_action_strength("RotateRight") - Input.get_action_strength("RotateLeft"), Input.get_action_strength("Boost") - Input.get_action_strength("Back"))
 	else:
 		MoveInput = Vector2(0, 0)
+	#endregion
 	
-	
-	#region Basic Movement
 	#region Brakes --- Amplifies Deceleration	
 	if Input.is_action_pressed("Brake") and not Crashed:
 		SpeedDecel[0] = SpeedDecel[1] * BrakeDecelMult[0]
@@ -112,7 +111,7 @@ func _physics_process(_delta):
 			crash(WallBounce * (velocity.length() / MaxSpeed[0] ))
 			
 
-		velocity = velocity.bounce(Collision.get_normal()) * lerp(BounceAmp[1], BounceAmp[0], WallBounce)
+		velocity = velocity.bounce(Collision.get_normal()) * lerp(Bounce[1], Bounce[0], WallBounce)
 	#endregion
 
 #region Markers Variables

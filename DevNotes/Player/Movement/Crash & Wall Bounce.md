@@ -42,14 +42,31 @@
 	1) Before `func _physics_process(delta):`
 		1) Define #CrashSpeed
 			1) `@export var CrashSpeed = .4
-	2) Get angle difference from #velocity and #Collision normal
+	2) Inside `if Collision:` Get angle difference from #velocity and #Collision normal
 		1) `var CollisionDot = velocity.normalized().dot(Collision.get_normal())
 	3) #crash `if` #CollisionDot is <  - #CrashSpeed
 		1) `if CollisionDot < -CrashSpeed:`
 			1) `crash()`
 	4) Multiply #CollisionDot  by #velocity length over #MaxSpeed1
 		1) `if CollisionDot * (velocity.length() / MaxSpeed[0] ) < -CrashSpeed:`
-5) Modify #velocity after collision by difference in player direction to wall
+5) Modify #Collision results by difference in #rotation to #Collision normal
+	1) Prevent #crash from going off while looking away from wall
+		1) Before `func _physics_process(_delta):` define #CrashAngle & #CrashSpeed
+			1) `@export var CrashAngle = .3
+			2) `@export var CrashSpeed = .35`
+		2) Inside `if: collision` determine difference in #rotation to #Collision normal
+			1) `var WallBounce = (Vector2(-cos(rotation), -sin(rotation)).dot(Collision.get_normal()) + 1 ) / 2
+		3) Set #crash `if` #WallBounce > #CrashAngle
+			2) `if CollisionDot * (velocity.length() / MaxSpeed[0] ) < -CrashSpeed and WallBounce > CrashAngle:`
+				1) `crash()
+	2) Reduce #velocity when looking away from wall
+		1) Define #Bounce as an array with a Minimum & Maximum
+			1) `@export var Bounce = [.4, 1.0]
+		2) Apply to #velocity when #Collision, according to #WallBounce 
+			1) `velocity = velocity.bounce(Collision.get_normal()) * lerp(Bounce[1], Bounce[0], WallBounce)
+	3) Scale #CrashTime by #WallBounce & #rotation
+		1) Before `crash()Define #CrashTime as an array with a Minimum & Maximum
+			1) @export var CrashTime = [.6, 1.8]
 
 ### Adjustment Log
 - [[2025-01-16]]
