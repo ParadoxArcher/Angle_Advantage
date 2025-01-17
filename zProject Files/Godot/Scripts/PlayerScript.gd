@@ -16,17 +16,17 @@ var AccelRate = 0
 
 ## Rotation Variables
 @export var MaxRota = PI/24
-@export var RotaAccel = [.02, .02]
+@export var RotaAccel = [.02, .02] # {0: Fluctuating, 1: BaseRotaAccel} ## Beware DodgeRotaAccel
 @export var RotaDecel = [.01, .01] # {0: Fluctuating, 1: BaseRotaDecel} ## Beware BrakeDecelMult
 @export var CounterSteerRate = .35
 var RotaSpeed = 0
 var RotaRate = 0
 
-##Crash Variables
-@export var BounceAmp = [.3, 1.0]
+##Crash && WallBounce Variables
+@export var BounceAmp = [.4, 1.0]
 @export var CrashAngle = .3
-@export var CrashSpeed = .4
-@export var CrashTime = [.75, 1.5]
+@export var CrashSpeed = .3
+@export var CrashTime = [.6, 1.8]
 var Crashed = false
 #endregion
 
@@ -34,13 +34,12 @@ var Crashed = false
 ##Dodge Variables
 @export var DodgeMaxSpeed = [1.0, .15] # {0: MaxSpeedMultiplier, 1: MaxSpeedDecel}
 @export var DodgeRotaAccel = [5.0, .1] # {0: RotaAccelMult, 1: RotaAccelDecel}
-
-
 #endregion
 
 func crash(CrashTimeScaler):
 	Crashed = true
 	var CrashTimer = lerp(CrashTime[0], CrashTime[1], CrashTimeScaler)
+	print(CrashTimeScaler)
 	print(CrashTimer)
 	await get_tree().create_timer(CrashTimer).timeout
 	Crashed = false
@@ -101,16 +100,18 @@ func _physics_process(_delta):
 	
 	velocity = lerp(velocity, velocity.normalized(), SpeedDecel[0]) # Momentum
 	velocity = lerp(velocity, BoostDir * MaxSpeed[0], SpeedAccel) # Acceleration
+	#endregion
+	
+	#region Collision --- Crash && WallBounce
 	
 	var Collision = move_and_collide(velocity * _delta, false, .7, false)
 	if Collision:
 		var CollisionDot = velocity.normalized().dot(Collision.get_normal())
 		var WallBounce = (Vector2(-cos(rotation), -sin(rotation)).dot(Collision.get_normal()) + 1 ) / 2
-		print(WallBounce * (velocity.length() / MaxSpeed[0] ))
 		if CollisionDot * (velocity.length() / MaxSpeed[0] ) < -CrashSpeed and WallBounce > CrashAngle:
 			crash(WallBounce * (velocity.length() / MaxSpeed[0] ))
 
-		velocity = velocity.bounce(Collision.get_normal()) * lerp(BounceAmp[0], BounceAmp[1], WallBounce)
+		velocity = velocity.bounce(Collision.get_normal()) * lerp(BounceAmp[1], BounceAmp[0], WallBounce)
 	#endregion
 
 #region Markers Variables
