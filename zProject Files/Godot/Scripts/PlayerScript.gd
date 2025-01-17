@@ -23,10 +23,11 @@ var RotaSpeed = 0
 var RotaRate = 0
 
 ##Crash && WallBounce Variables
-@export var Bounce = [.4, 1.0]
+@export var Bounce = [.4, 1.0] # {0: Minimum, 1: Maximum}
 @export var CrashAngle = .3
 @export var CrashSpeed = .35
-@export var CrashTime = [.6, 1.8]
+@export var CrashTime = [.6, 1.8] # {0: Minimum, 1: Maximum}
+@export var CrashImmunity = 10
 var Crashed = false
 #endregion
 
@@ -39,8 +40,9 @@ var Crashed = false
 func crash(CrashTimeScaler):
 	Crashed = true
 	var CrashTimer = lerpf(CrashTime[0], CrashTime[1], CrashTimeScaler)
-	await get_tree().create_timer(CrashTimer).timeout
+	await get_tree().create_timer(CrashTimer,true ,true).timeout
 	Crashed = false
+	await get_tree().create_timer(CrashImmunity).timeout
 
 func _physics_process(_delta):
 	#region Basic Movement
