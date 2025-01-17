@@ -36,12 +36,3 @@ visible = false
 position = Vector2(-8.88178e-14, -52)
 scale = Vector2(0.35, 0.5)
 texture = ExtResource("5_o2ksf")
-
-[node name="Node" type="Node" parent="."]
-
-[node name="Timer" type="Timer" parent="Node"]
-process_callback = 0
-wait_time = 0.5
-one_shot = true
-
-[connection signal="timeout" from="Node/Timer" to="." method="_on_timer_timeout"]

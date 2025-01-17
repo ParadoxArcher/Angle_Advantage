@@ -23,9 +23,9 @@ var RotaSpeed = 0
 var RotaRate = 0
 
 ##Crash Variables
-@export var CollisionRebound = .3
-@export var CrashTime = 5
-var DisableMovement = false
+@export var CollisionRebound = .5
+@export var CrashTime = 1.5
+var Crashed = false
 #endregion
 
 #region Advanced Movement Variables
@@ -37,12 +37,12 @@ var DisableMovement = false
 #endregion
 
 func crash():
-	DisableMovement = true
+	Crashed = true
 	await get_tree().create_timer(CrashTime).timeout
-	DisableMovement = false
+	Crashed = false
 
 func _physics_process(_delta):
-	if not DisableMovement:
+	if not Crashed:
 		MoveInput = Vector2(Input.get_action_strength("RotateRight") - Input.get_action_strength("RotateLeft"), Input.get_action_strength("Boost") - Input.get_action_strength("Back"))
 	else:
 		MoveInput = Vector2(0, 0)
@@ -50,7 +50,7 @@ func _physics_process(_delta):
 	
 	#region Basic Movement
 	#region Brakes --- Amplifies Deceleration	
-	if Input.is_action_pressed("Brake"):
+	if Input.is_action_pressed("Brake") and not Crashed:
 		SpeedDecel[0] = SpeedDecel[1] * BrakeDecelMult[0]
 		RotaDecel[0] = RotaDecel[1] * BrakeDecelMult[1]
 	else:
@@ -81,7 +81,8 @@ func _physics_process(_delta):
 	#endregion
 	
 	#region Advanced Movement
-	if Input.is_action_just_pressed("Dodge"): # Calls Dodge() to instantanteously set movement in direction relative to rotation
+	
+	if Input.is_action_just_pressed("Dodge") and not Crashed: # Calls Dodge() to instantanteously set movement in direction relative to rotation
 		Dodge(Vector2(MoveInput.x, -MoveInput.y).normalized())
 	
 	if MaxSpeed[0] != MaxSpeed[1] or RotaAccel[0] != RotaAccel[1]: # Undoes value changes for Dodge
