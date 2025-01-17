@@ -33,7 +33,7 @@ var RotaRate = 0
 @export var CrashAngle = .3
 @export var CrashSpeed = .35
 @export var CrashTime = [.6, 1.8] # {0: Minimum, 1: Maximum}
-@export var CrashImmunity = [false, .6]
+@export var CrashImmunity = [false, .6] # {0: isActive, 1: CrashTimerMult}
 var Crashed = false
 #endregion
 
