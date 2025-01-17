@@ -17,12 +17,12 @@ kanban-plugin: board
 ## [[Player]]
 
 - [ ] [[Rotation Collision]]
-- [x] [[Crash & Wall Bounce]]
 - [x] [[Boost]]
 - [x] [[Rotation]]
 - [x] [[Movement Visualizer]]
 - [x] [[Brakes]]
 - [x] [[Dodge]]
+- [x] [[Crash & Wall Bounce]]
 
 
 ## [[Level Creation]]

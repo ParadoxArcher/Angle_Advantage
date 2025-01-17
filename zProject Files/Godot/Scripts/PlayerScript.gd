@@ -21,6 +21,12 @@ var AccelRate = 0
 @export var CounterSteerRate = .35
 var RotaSpeed = 0
 var RotaRate = 0
+#endregion
+
+#region Advanced Movement Variables
+##Dodge Variables
+@export var DodgeMaxSpeed = [1.0, .15] # {0: MaxSpeedMultiplier, 1: MaxSpeedDecel}
+@export var DodgeRotaAccel = [5.0, .1] # {0: RotaAccelMult, 1: RotaAccelDecel}
 
 ##Crash && WallBounce Variables
 @export var Bounce = [.4, 1.0] # {0: Minimum, 1: Maximum}
@@ -30,24 +36,6 @@ var RotaRate = 0
 @export var CrashImmunity = [false, .6]
 var Crashed = false
 #endregion
-
-#region Advanced Movement Variables
-##Dodge Variables
-@export var DodgeMaxSpeed = [1.0, .15] # {0: MaxSpeedMultiplier, 1: MaxSpeedDecel}
-@export var DodgeRotaAccel = [5.0, .1] # {0: RotaAccelMult, 1: RotaAccelDecel}
-#endregion
-
-func crash(CrashTimeScaler):
-	if not CrashImmunity[0]:
-		CrashImmunity[0] = true
-		Crashed = true
-		var CrashTimer = lerpf(CrashTime[0], CrashTime[1], CrashTimeScaler)
-		await get_tree().create_timer(CrashTimer,true ,true).timeout
-		Crashed = false
-		await get_tree().create_timer(CrashImmunity[1] * CrashTimer,true ,true).timeout
-		CrashImmunity[0] = false
-	else:
-		pass
 
 func _physics_process(_delta):
 	#region Basic Movement
@@ -92,7 +80,7 @@ func _physics_process(_delta):
 	#region Advanced Movement
 	
 	if Input.is_action_just_pressed("Dodge") and not Crashed: # Calls Dodge() to instantanteously set movement in direction relative to rotation
-		Dodge(Vector2(MoveInput.x, -MoveInput.y).normalized())
+		dodge(Vector2(MoveInput.x, -MoveInput.y).normalized())
 	
 	if MaxSpeed[0] != MaxSpeed[1] or RotaAccel[0] != RotaAccel[1]: # Undoes value changes for Dodge
 		MaxSpeed[0] -= clampf((MaxSpeed[0] - MaxSpeed[1] ) * DodgeMaxSpeed[1], 0, MaxSpeed[0] - MaxSpeed[1])
@@ -119,6 +107,7 @@ func _physics_process(_delta):
 
 		velocity = velocity.bounce(Collision.get_normal()) * lerpf(Bounce[1], Bounce[0], WallBounce)
 	#endregion
+
 
 #region Markers Variables
 @export var DisplaySize = {"CenterGap": 30, "velLength": .5, "boost_dirLength": .35, "rota_speedLength": .5}
@@ -154,7 +143,20 @@ func _process(_delta):
 		DisplaysActive[1] = false
 	#endregion
 
-func Dodge(DodgeDir):
+
+func crash(CrashTimeScaler):
+	if not CrashImmunity[0]:
+		CrashImmunity[0] = true
+		Crashed = true
+		var CrashTimer = lerpf(CrashTime[0], CrashTime[1], CrashTimeScaler)
+		await get_tree().create_timer(CrashTimer, true, true).timeout
+		Crashed = false
+		await get_tree().create_timer(CrashImmunity[1] * CrashTimer, true, true).timeout
+		CrashImmunity[0] = false
+	else:
+		pass
+
+func dodge(DodgeDir):
 	BoostDir = Vector2(0,0)
 	BoostDecay[0] = 0
 	
@@ -164,14 +166,7 @@ func Dodge(DodgeDir):
 	if DodgeDir.normalized().is_zero_approx():
 		DodgeDir = Vector2(0,-1)
 	velocity = MaxSpeed[0] * DodgeDir.rotated(rotation + PI/2)
-	
-func Crash():
-	# bounce
-	# SpeedAccel and RotaAccel disabled for X time
-	
-	# take damage
-	pass
 
 
-func _on_timer_timeout():
-	pass # Replace with function body.
+
+

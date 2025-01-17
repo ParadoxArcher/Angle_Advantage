@@ -21,9 +21,9 @@
 		1) `func crash():
 		2) Inside `if Collision:` 
 			1) `crash()
-	3) Set #Crashed to true, `await` a created timer, and set #Crashed to false
+	3) Set #Crashed to true, `await` with `proccess_in_physics` set to `true`, and set #Crashed to `false`
 		1) `Crashed = true
-		2) `await get_tree().create_timer(CrashTime).timeout
+		2) `await get_tree().create_timer(CrashTime, true, true).timeout
 		3) `Crashed = false`
 	4) Apply to `if:` statements around #MoveInput, [[Brakes]], and [[Dodge]]
 		1) #MoveInput 
@@ -70,24 +70,25 @@
 		2) Call #CrashTimeScaler input for `crash()` and `lerpf` #CrashTime by #CrashTimeScaler
 			1) `func crash(CrashTimeScaler):
 				1) `var CrashTimer = lerpf(CrashTime[0], CrashTime[1], CrashTimeScaler)
-				2) `await get_tree().create_timer(CrashTimer).timeout`
+				2) `await get_tree().create_timer(CrashTimer, true,true).timeout`
 		3) Insert #WallBounce * #velocity length / #MaxSpeed into #crash as #CrashTimeScaler
 			1) `crash(WallBounce * (velocity.length() / MaxSpeed[0] )) `
 6) #CrashImmunity
 	1) Before `crash(CrashTimeScaler):` Define #CrashImmunity as an array of a `false` `bool` and `float
 		1) `@export var CrashImmunity = [false, .6]
-	2) Inside `crash(CrashTimeScaler):` pass the entire `func` `if` #CrashImmunity1 is true
+	2) Inside `crash(CrashTimeScaler):` pass the entire `func` `if` #CrashImmunity0 is `true`
 		1) `if not CrashImmunity[0]:
 			1) `...`
 		2) `else:
 			1) `pass`
-	3) Inside `if not CrashImmunity[0]:` and before `await(CrashTimer)` set #CrashImmunity0 to true
-		1) 
-	4) After `Crashed = false` `Await` by #CrashImmunity1
-		1) 
+	3) Inside `if not CrashImmunity[0]:` and before `await(CrashTimer)` set #CrashImmunity0 to `true`
+		1) `CrashImmunity[0] = true
+	4) After `Crashed = false` `Await` by #CrashImmunity1 * #CrashTimer with `process_in_physics` set to `true` before setting #CrashImmunity0 to `false`
+		1) `await get_tree().create_timer(CrashImmunity[1] * CrashTimer, true, true).timeout
+		2) `CrashImmunity[0] = false
 
 ### Adjustment Log
 - [[2025-01-16]]
 	- Implemented basic `move_and_collide` functionality with velocity.bounce (1-2)
 - [[2025-01-17]]
-	- Implemented movement disable and it's limitations (3-5)
+	- Implemented movement disable and it's limitations (3-6)
