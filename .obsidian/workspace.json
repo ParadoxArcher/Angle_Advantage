@@ -28,13 +28,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DevNotes/Player/Movement/Boost.md",
+                "file": "Devlogs/2025-01-17.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Boost"
+              "title": "2025-01-17"
             }
           },
           {
@@ -238,10 +238,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DevNotes/Player/Movement/Boost.md"
+                "file": "Devlogs/2025-01-17.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of Boost"
+              "title": "Outline of 2025-01-17"
             }
           }
         ],
@@ -267,8 +267,8 @@
   },
   "active": "76645dae94e03b1c",
   "lastOpenFiles": [
-    "Devlogs/2025-01-17.md",
     "DevNotes/Player/Movement/Boost.md",
+    "Devlogs/2025-01-17.md",
     "DevNotes/Idea splurges/Level Ideas.md",
     "DevNotes/Player/Movement/Crash & Wall Bounce.md",
     "DevNotes/ToDoList.md",
