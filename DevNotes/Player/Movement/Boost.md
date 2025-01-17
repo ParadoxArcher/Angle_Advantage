@@ -43,15 +43,15 @@
 		1) `@export var BoostDecay = [0, .015, .8]`
 	2) Set up #BoostDecay to activate
 		1) Inside `if MoveInput.y > 0:` 
-			1) Increase #BoostDecay [0] by #BoostDecay[1] and apply clampf to prevent exceeding #MoveInputY
+			1) Increase #BoostDecay0 by #BoostDecay1 and apply clampf to prevent exceeding #MoveInputY
 				1) `BoostDecay[0] += clampf(BoostDecay[1], 0, MoveInput.y)`
 		2) Allow #BoostDecay to pass through `if MoveInput.y > 0`
 			1) `if MoveInput.y > 0 or BoostDecay[0] > 0:`
 	3) Adjust value of #BoostDir by #BoostDecay when not moving
-		1) set contents of `if MoveInput.y > 0 or BoostDecay[0] > 0:` to only activate when #MoveInputY is greater than #BoostDecay[0]. Divide #MoveInputY by #BoostDecay[2] to prevent controllers from toggling between base #BoostDir and the weaker #BoostDecay #BoostDir
+		1) set contents of `if MoveInput.y > 0 or BoostDecay[0] > 0:` to only activate when #MoveInputY is greater than #BoostDecay0. Divide #MoveInputY by #BoostDecay2 to prevent controllers from toggling between base #BoostDir and the weaker #BoostDecay #BoostDir
 			1) `if MoveInput.y > 0 or BoostDecay[0] > 0:
 				1) `if MoveInput.y / BoostDecay [2] >= BoostDecay[0]:
-		2) In `else:`, set a weaker #BoostDir proportional to #BoostDecay[1] & [2] before subtracting from #BoostDecay[0] by #BoostDecay [1]
+		2) In `else:`, set a weaker #BoostDir proportional to #BoostDecay before subtracting from #BoostDecay0 by #BoostDecay1
 			1) `else:
 				1) `Vector2(cos(rotation), sin(rotation)) * BoostDecay[0] * BoostDecay[2]
 				2) `BoostDecay[0] -= clampf(BoostDecay[1], 0, BoostDecay[0])`

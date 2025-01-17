@@ -6,16 +6,17 @@ kanban-plugin: board
 
 ## Current
 
+- [ ] [[Wall Boost]]
 
 
 ## Soon
 
+- [ ] Boost VFX
 
 
 ## [[Player]]
 
-- [ ] [[Crash]]
-- [ ] [[Wall Boost]]
+- [ ] [[Crash & Wall Bounce]]
 - [ ] [[Rotation Collision]]
 - [x] [[Boost]]
 - [x] [[Rotation]]
@@ -57,6 +58,7 @@ kanban-plugin: board
 
 - [ ] [[Player]] [[Dodge]] indicator sprites
 - [ ] [[Movement Visualizer]]
+- [ ] [[PlayerTrails]]
 
 
 ## Band-aids

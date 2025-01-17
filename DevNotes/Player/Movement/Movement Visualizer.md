@@ -44,19 +44,19 @@
 4) Toggleable visibility
 	1) Before `func _process(_delta):` Define #DisplaysActive array as 2 bools
 		1) `@export var DisplaysActive = [false, false]`
-	2) Put contents of `func _process(_delta):` into if statement, requiring #DisplaysActive [0] to be true
+	2) Put contents of `func _process(_delta):` into if statement, requiring #DisplaysActive0 to be true
 		1) `if DisplaysActive[0]:
 			1) `Displays["velocity"].scale.x = velocity.length() * DisplaySize["velLength"] / MaxSpeed[1]`
 			2) `...
 	3) Inside `if DisplaysActive[0]:
-		1) if #Displays[0] is false, set all #Displays .visible to true and set #DisplaysActive[1] to true
+		1) if #Displays0 is false, set all #Displays .visible to true and set #DisplaysActive1 to true
 			1) `if not DisplaysActive[1]:
 				1) `Displays["velocity"].visible = true`
 				2) `Displays["boost_dir"].visible = true`
 				3) `Displays["rota_speed"].visible = true
 				4) `DisplaysActive[1] = true
 	4) in `elif` of `if DisplaysActive[0]:
-		1) if #DisplaysActive[1] is true, set all #Displays .visible to false and set #DisplaysActive[1] to false
+		1) if #DisplaysActive1 is true, set all #Displays .visible to false and set #DisplaysActive1 to false
 			1) `elif DisplaysActive [1]:
 				1) `Displays["velocity"].visible = false`
 				2) `Displays["boost_dir"].visible = false`

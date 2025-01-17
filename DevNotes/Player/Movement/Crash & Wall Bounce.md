@@ -38,11 +38,14 @@
 			1) `if Input.is_action_pressed("Brake") and not Crashed:`
 		3) [[Dodge]]
 			1) `if Input.is_action_just_pressed("Dodge") and not Crashed:
-4) 
+4) Limit `crash` by #Collision direction and #velocity
+	1) Get angle difference from #velocity and #Collision normal
+		1) `var CollisionDot = velocity.normalized().dot(Collision.get_normal())
+	2) Mulitply by #velocity length over #MaxSpeed1
 
 ### Adjustment Log
 - [[2025-01-16]]
-	- `move_and_slide` replaced with `move_and_collide` to be able to program other features such as the [[Crash]] or [[Crash]], requiring recreation of collision logic
+	- `move_and_slide` replaced with `move_and_collide` to be able to program other features such as the [[Crash & Wall Bounce]] or [[Crash & Wall Bounce]], requiring recreation of collision logic
 	- Implemented basic `move_and_collide` functionality with velocity.bounce
 - [[2025-01-17]]
-	- Implemented movement disable for [[Crash]]
+	- Implemented movement disable for [[Crash & Wall Bounce]]

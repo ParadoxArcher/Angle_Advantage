@@ -15,7 +15,6 @@ Emulates movement style from [[Data Wing]] but in a combat-focused party game.
 	4) [[Movement Visualizer]]
 	5) [[Brakes]]
 	6) [[Dodge]]
-	7) [[Crash]]
-	8) [[Crash]]
+	7) [[Crash & Wall Bounce]]
 	9) [[Wall Boost]]
 	10) [[Rotation Collision]] 
