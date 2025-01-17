@@ -21,7 +21,9 @@ var RotaSpeed = 0
 var RotaRate = 0
 
 ##Crash Variables
-@export var CrashScaler = .3
+@export var CollisionRebound = .3
+var DisableMovement = false
+@export var CrashDisableTimer = Timer
 #endregion
 
 #region Advanced Movement Variables
@@ -35,7 +37,11 @@ var RotaRate = 0
 
 
 func _physics_process(_delta):
-	var MoveInput = Vector2(Input.get_action_strength("RotateRight") - Input.get_action_strength("RotateLeft"), Input.get_action_strength("Boost") - Input.get_action_strength("Back"))
+	var MoveInput
+	if not DisableMovement:
+		MoveInput = Vector2(Input.get_action_strength("RotateRight") - Input.get_action_strength("RotateLeft"), Input.get_action_strength("Boost") - Input.get_action_strength("Back"))
+	else:
+		
 	
 	#region Basic Movement
 	#region Brakes --- Amplifies Deceleration	
@@ -88,7 +94,8 @@ func _physics_process(_delta):
 	
 	var Collision = move_and_collide(velocity * _delta, false, .7, false)
 	if Collision:
-		velocity = velocity.bounce(Collision.get_normal()) * CrashScaler
+		velocity = velocity.bounce(Collision.get_normal()) * CollisionRebound
+		DisableMovement = true
 
 	#endregion\
 
