@@ -28,13 +28,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DevNotes/Player/Movement/Wall Bounce.md",
+                "file": "DevNotes/Player/Movement/Crash.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Wall Bounce"
+              "title": "Crash"
             }
           },
           {
@@ -238,10 +238,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DevNotes/Player/Movement/Wall Bounce.md"
+                "file": "DevNotes/Player/Movement/Crash.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of Wall Bounce"
+              "title": "Outline of Crash"
             }
           }
         ],
@@ -267,6 +267,12 @@
   },
   "active": "76645dae94e03b1c",
   "lastOpenFiles": [
+    "DevNotes/Player/Movement/Brakes.md",
+    "DevNotes/Player/Movement/Crash.md",
+    "DevNotes/Player/Movement/Crash.md",
+    "zProject Files/Godot/Scripts/Pla184E.tmp",
+    "zProject Files/Godot/Scripts/Pla708F.tmp",
+    "zProject Files/Godot/Scripts/Pla2FC6.tmp",
     "zProject Files/Godot/Scripts/Pla8046.tmp",
     "zProject Files/Godot/Scripts/PlaE192.tmp",
     "zProject Files/Godot/Scripts/Pla5430.tmp",
@@ -276,17 +282,10 @@
     "DevNotes/ToDoList.md",
     "zProject Files/Godot/Scenes/PlaBB64.tmp",
     "zProject Files/Godot/Scenes/GamBB30.tmp",
-    "zProject Files/Godot/Assets/Rocket.png.import",
-    "zProject Files/Godot/proA6B7.tmp",
     "zProject Files/Godot/Assets/Rocket.png",
-    "zProject Files/Krita/Rocket.kra",
-    "DevNotes/Player/Movement/Wall Bounce.md",
-    "DevNotes/Player/Movement/Brakes.md",
-    "zProject Files/Godot/Scenes/Pla6D89.tmp",
     "DevNotes/Player/Player.md",
     "DevNotes/Player/Movement/Movement Visualizer.md",
     "DevNotes/Player/Movement/Boost.md",
-    "DevNotes/Player/Movement/Crash.md",
     "Pasted image 20250114213019.png.md",
     "Devlogs/2025-01-10.md",
     "zReferences/Excalidraw/CounterSteering Scribble.md",

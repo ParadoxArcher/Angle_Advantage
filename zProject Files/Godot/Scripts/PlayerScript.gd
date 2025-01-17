@@ -20,8 +20,8 @@ var AccelRate = 0
 var RotaSpeed = 0
 var RotaRate = 0
 
-##Collision Variables
-@export var BounceScaler = .5
+##Crash Variables
+@export var CrashScaler = .3
 #endregion
 
 #region Advanced Movement Variables
@@ -88,7 +88,7 @@ func _physics_process(_delta):
 	
 	var Collision = move_and_collide(velocity * _delta, false, .7, false)
 	if Collision:
-		velocity = velocity.bounce(Collision.get_normal() * BounceScaler)
+		velocity = velocity.bounce(Collision.get_normal()) * CrashScaler
 
 	#endregion\
 
