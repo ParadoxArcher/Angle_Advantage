@@ -4,8 +4,8 @@
 #### Steps
 1) Swap `move_and_slide` with `move_and_collide`
 	1) Delete `move_and_slide`
-	2) Call `move_and_collide` by defining it as a variable, with a `safe_margin` of 1
-		1) `var Collision = move_and_collide(velocity * _delta, false, 1, false)`
+	2) Call `move_and_collide` by defining it as a variable, with a `safe_margin` of .7
+		1) `var Collision = move_and_collide(velocity * _delta, false, .7, false)`
 	3) When #Collision, invert velocity by #Collision normal
 		1) `if Collision:
 			1) `velocity = velocity.bounce(Collision.get_normal())

@@ -82,7 +82,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -238,10 +238,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DevNotes/ToDoList.md"
+                "file": "DevNotes/Player/Movement/Wall Bounce.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of ToDoList"
+              "title": "Outline of Wall Bounce"
             }
           }
         ],
@@ -265,26 +265,27 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "2b906768df75cac8",
+  "active": "76645dae94e03b1c",
   "lastOpenFiles": [
+    "zProject Files/Godot/Scripts/Pla8046.tmp",
+    "zProject Files/Godot/Scripts/PlaE192.tmp",
+    "zProject Files/Godot/Scripts/Pla5430.tmp",
+    "zProject Files/Godot/Scenes/Gam83C8.tmp",
+    "zProject Files/Godot/Scripts/PlaA3AE.tmp",
+    "Devlogs/2025-01-16.md",
+    "DevNotes/ToDoList.md",
+    "zProject Files/Godot/Scenes/PlaBB64.tmp",
+    "zProject Files/Godot/Scenes/GamBB30.tmp",
+    "zProject Files/Godot/Assets/Rocket.png.import",
+    "zProject Files/Godot/proA6B7.tmp",
     "zProject Files/Godot/Assets/Rocket.png",
     "zProject Files/Krita/Rocket.kra",
     "DevNotes/Player/Movement/Wall Bounce.md",
-    "DevNotes/ToDoList.md",
     "DevNotes/Player/Movement/Brakes.md",
-    "Devlogs/2025-01-16.md",
     "zProject Files/Godot/Scenes/Pla6D89.tmp",
-    "zProject Files/Godot/Scripts/Pla6C6F.tmp",
-    "zProject Files/Godot/Scenes/Gam6C5C.tmp",
-    "zProject Files/Godot/Scripts/Pla4581.tmp",
     "DevNotes/Player/Player.md",
-    "zProject Files/Godot/Scripts/PlaB202.tmp",
-    "zProject Files/Godot/Scenes/GamB1EF.tmp",
     "DevNotes/Player/Movement/Movement Visualizer.md",
     "DevNotes/Player/Movement/Boost.md",
-    "zProject Files/Godot/Scripts/Pla428B.tmp",
-    "zProject Files/Godot/Scripts/PlaBD5.tmp",
-    "zProject Files/Godot/pro6C97.tmp",
     "DevNotes/Player/Movement/Crash.md",
     "Pasted image 20250114213019.png.md",
     "Devlogs/2025-01-10.md",
@@ -303,7 +304,6 @@
     "Reference Images/Images/Pasted image 20250112002928.png",
     "Reference Images/Images/Pasted image 20250112002903.png",
     "Reference Images/Images/Pasted image 20250112002646.png",
-    "Reference Images/Images/Pasted image 20250112002430.png",
     "Devlogs/2025-01-13.md",
     "DevNotes/Mission Statement.md",
     "DevNotes/Idea splurges/Ability ideas.md",

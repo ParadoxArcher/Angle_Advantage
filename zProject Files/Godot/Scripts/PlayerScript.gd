@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-#region Variables
+#region Basic Movement Variables
 ## Brake Variables
 @export var BrakeDecelMult = [5, 3] # {0: SpeedDecelMult, 1: RotaDecelMult}
 
@@ -20,10 +20,19 @@ var AccelRate = 0
 var RotaSpeed = 0
 var RotaRate = 0
 
+##Collision Variables
+@export var BounceScaler = .5
+#endregion
+
+#region Advanced Movement Variables
 ##Dodge Variables
 @export var DodgeMaxSpeed = [1, .15] # {0: MaxSpeedMultiplier, 1: MaxSpeedDecel}
 @export var DodgeRotaAccel = [5, .1] # {0: RotaAccelMult, 1: RotaAccelDecel}
+
+
 #endregion
+
+
 
 func _physics_process(_delta):
 	var MoveInput = Vector2(Input.get_action_strength("RotateRight") - Input.get_action_strength("RotateLeft"), Input.get_action_strength("Boost") - Input.get_action_strength("Back"))
@@ -77,10 +86,9 @@ func _physics_process(_delta):
 	velocity = lerp(velocity, velocity.normalized(), SpeedDecel[0]) # Momentum
 	velocity = lerp(velocity, BoostDir * MaxSpeed[0], SpeedAccel) # Acceleration
 	
-	var Collision = move_and_collide(velocity * _delta, false, 1, false)
+	var Collision = move_and_collide(velocity * _delta, false, .7, false)
 	if Collision:
-		velocity = velocity.bounce(Collision.get_normal())
-		print(Collision.get_normal())
+		velocity = velocity.bounce(Collision.get_normal() * BounceScaler)
 
 	#endregion\
 
