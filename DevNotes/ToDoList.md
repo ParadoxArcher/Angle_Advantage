@@ -15,7 +15,6 @@ kanban-plugin: board
 ## [[Player]]
 
 - [ ] [[Crash]]
-- [ ] [[Crash]]
 - [ ] [[Wall Boost]]
 - [ ] [[Rotation Collision]]
 - [x] [[Boost]]
