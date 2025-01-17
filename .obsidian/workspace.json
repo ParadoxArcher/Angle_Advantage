@@ -82,7 +82,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -239,10 +239,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DevNotes/Player/Movement/Crash & Wall Bounce.md"
+                "file": "DevNotes/ToDoList.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of Crash & Wall Bounce"
+              "title": "Outline of ToDoList"
             }
           }
         ],
@@ -266,8 +266,13 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "0cb856c319357cd6",
+  "active": "2b906768df75cac8",
   "lastOpenFiles": [
+    "DevNotes/Player/Movement/Crash & Wall Bounce.md",
+    "Devlogs/2025-01-17.md",
+    "zProject Files/Godot/Scenes/PlaD53C.tmp",
+    "zProject Files/Godot/Scripts/PlaD436.tmp",
+    "DevNotes/Player/Movement/Boost.md",
     "zProject Files/Godot/Scripts/Pla6C70.tmp",
     "zProject Files/Godot/Scripts/Pla6F80.tmp",
     "zProject Files/Godot/Scripts/Pla8569.tmp",
@@ -276,19 +281,13 @@
     "zProject Files/Godot/Scripts/Pla91D5.tmp",
     "zProject Files/Godot/Scripts/PlaC15F.tmp",
     "zProject Files/Godot/Scripts/PlaDF74.tmp",
-    "zProject Files/Godot/Scripts/PlaBB0D.tmp",
-    "zProject Files/Godot/Scripts/Pla563C.tmp",
-    "zProject Files/Godot/Scripts/PlaAA56.tmp",
     "DevNotes/ToDoList.md",
     "DevNotes/Idea splurges/Level Ideas.md",
-    "Devlogs/2025-01-17.md",
-    "DevNotes/Player/Movement/Crash & Wall Bounce.md",
     "DevNotes/Idea splurges/Ability ideas.md",
     "DevNotes/Player/Player.md",
     "DevNotes/Player/Movement/Rotation.md",
     "DevNotes/Player/Movement/Movement Visualizer.md",
     "DevNotes/Player/Movement/Brakes.md",
-    "DevNotes/Player/Movement/Boost.md",
     "Devlogs/2025-01-14.md",
     "Devlogs/2025-01-16.md",
     "zProject Files/Godot/Assets/Rocket.png",

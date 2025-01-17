@@ -38,7 +38,7 @@ var Crashed = false
 
 func crash(CrashTimeScaler):
 	Crashed = true
-	var CrashTimer = lerp(CrashTime[0], CrashTime[1], CrashTimeScaler)
+	var CrashTimer = lerpf(CrashTime[0], CrashTime[1], CrashTimeScaler)
 	await get_tree().create_timer(CrashTimer).timeout
 	Crashed = false
 
@@ -109,9 +109,8 @@ func _physics_process(_delta):
 		var WallBounce = (Vector2(-cos(rotation), -sin(rotation)).dot(Collision.get_normal()) + 1 ) / 2
 		if CollisionDot * (velocity.length() / MaxSpeed[0] ) < -CrashSpeed and WallBounce > CrashAngle:
 			crash(WallBounce * (velocity.length() / MaxSpeed[0] ))
-			
 
-		velocity = velocity.bounce(Collision.get_normal()) * lerp(Bounce[1], Bounce[0], WallBounce)
+		velocity = velocity.bounce(Collision.get_normal()) * lerpf(Bounce[1], Bounce[0], WallBounce)
 	#endregion
 
 #region Markers Variables

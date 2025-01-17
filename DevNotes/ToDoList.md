@@ -6,33 +6,23 @@ kanban-plugin: board
 
 ## Current
 
-- [ ] [[Crash & Wall Bounce]]
 
 
 ## Soon
 
-- [ ] Boost VFX
-- [ ] [[Wall Boost]]
+- [ ] [[Boost|Boost VFX]]
+- [ ] [[Boost|Wall Boost]]
 
 
 ## [[Player]]
 
 - [ ] [[Rotation Collision]]
+- [x] [[Crash & Wall Bounce]]
 - [x] [[Boost]]
 - [x] [[Rotation]]
 - [x] [[Movement Visualizer]]
 - [x] [[Brakes]]
 - [x] [[Dodge]]
-
-
-## General
-
-- [ ] Online Preparation/Implementation
-
-
-## Enemies
-
-- [ ] Simple PlayerChar mimic
 
 
 ## [[Level Creation]]
@@ -44,6 +34,18 @@ kanban-plugin: board
 - [ ] Movement Tracking for Level Creation
 
 
+## Enemies
+
+- [ ] Simple PlayerChar mimic
+
+
+## Gameplay
+
+- [ ] Online Preparation/Implementation
+- [ ] Basic round system
+- [ ] [[Rhythm Lock]]
+
+
 ## Attacks & Abilities
 
 - [ ] Basic Fire
@@ -51,14 +53,14 @@ kanban-plugin: board
 
 ## [[Audio]]
 
-- [ ] [[Rhythm Lock]]
+- [ ] [[Player|Crash Sound]]
 
 
 ## [[Artstyle]]
 
-- [ ] [[Player]] [[Dodge]] indicator sprites
-- [ ] [[Movement Visualizer]]
-- [ ] [[PlayerTrails]]
+- [ ] [[Player]] [[Dodge|DodgeSprites]]
+- [ ] [[Movement Visualizer|Movement Visualizer Art Pass]]
+- [ ] [[Player|PlayerTrails]]
 
 
 ## Band-aids

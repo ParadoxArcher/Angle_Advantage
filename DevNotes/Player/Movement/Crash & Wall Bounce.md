@@ -60,17 +60,22 @@
 			2) `if CollisionDot * (velocity.length() / MaxSpeed[0] ) < -CrashSpeed and WallBounce > CrashAngle:`
 				1) `crash()
 	2) Reduce #velocity when looking away from wall
-		1) Define #Bounce as an array with a Minimum & Maximum
+		1) Before `func _physics_process(_delta):` Define #Bounce as an array with a Minimum & Maximum
 			1) `@export var Bounce = [.4, 1.0]
 		2) Apply to #velocity when #Collision, according to #WallBounce 
-			1) `velocity = velocity.bounce(Collision.get_normal()) * lerp(Bounce[1], Bounce[0], WallBounce)
+			1) `velocity = velocity.bounce(Collision.get_normal()) * lerpf(Bounce[1], Bounce[0], WallBounce)
 	3) Scale #CrashTime by #WallBounce & #rotation
-		1) Before `crash()Define #CrashTime as an array with a Minimum & Maximum
-			1) @export var CrashTime = [.6, 1.8]
+		1) Before `func crash()` Define #CrashTime as an array with a Minimum & Maximum
+			1) `@export var CrashTime = [.6, 1.8]
+		2) Call #CrashTimeScaler input for `crash()` and `lerpf` #CrashTime by #CrashTimeScaler
+			1) `func crash(CrashTimeScaler):
+				1) `var CrashTimer = lerpf(CrashTime[0], CrashTime[1], CrashTimeScaler)
+				2) `await get_tree().create_timer(CrashTimer).timeout`
+		3) Insert #WallBounce * #velocity length / #MaxSpeed into #crash as #CrashTimeScaler
+			1) `crash(WallBounce * (velocity.length() / MaxSpeed[0] )) `
 
 ### Adjustment Log
 - [[2025-01-16]]
-	- `move_and_slide` replaced with `move_and_collide` to be able to program other features such as the [[Crash & Wall Bounce]] or [[Crash & Wall Bounce]], requiring recreation of collision logic
-	- Implemented basic `move_and_collide` functionality with velocity.bounce
+	- Implemented basic `move_and_collide` functionality with velocity.bounce (1-2)
 - [[2025-01-17]]
-	- Implemented movement disable and it's limitations
+	- Implemented movement disable and it's limitations (3-5)
