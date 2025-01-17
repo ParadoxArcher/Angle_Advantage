@@ -24,7 +24,7 @@ var RotaRate = 0
 
 ##Crash Variables
 @export var CollisionRebound = .5
-@export var CrashSpeed = .6
+@export var CrashSpeed = .4
 @export var CrashTime = 1.5
 var Crashed = false
 #endregion
@@ -101,9 +101,10 @@ func _physics_process(_delta):
 	
 	var Collision = move_and_collide(velocity * _delta, false, .7, false)
 	if Collision:
-		print(velocity.normalized().dot(Collision.get_normal()) * (velocity.length() / MaxSpeed[0] ))
-		if velocity.normalized().dot(Collision.get_normal()) * (velocity.length() / MaxSpeed[0] ) > CrashSpeed:
-			crash() 
+		var CollisionDot = velocity.normalized().dot(Collision.get_normal())
+		if CollisionDot * (velocity.length() / MaxSpeed[0] ) < -CrashSpeed:
+			crash()
+			
 		velocity = velocity.bounce(Collision.get_normal()) * CollisionRebound
 		
 	#endregion\
