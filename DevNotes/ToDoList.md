@@ -6,11 +6,11 @@ kanban-plugin: board
 
 ## Current
 
+- [ ] [[Boost|Boost VFX]]
 
 
 ## Soon
 
-- [ ] [[Boost|Boost VFX]]
 - [ ] [[Boost|Wall Boost]]
 
 
