@@ -56,6 +56,7 @@ rotation = -1.5708
 emitting = false
 amount = 30
 one_shot = true
+draw_order = 1
 texture = ExtResource("6_q13sk")
 emission_shape = 1
 emission_sphere_radius = 10.0
