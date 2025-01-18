@@ -20,7 +20,7 @@ position_smoothing_enabled = true
 position_smoothing_speed = 3.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-z_index = -5
+z_index = -10
 position = Vector2(2, 0)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("2_3lpfc")

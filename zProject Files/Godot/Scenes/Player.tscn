@@ -7,9 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://bw0kkepdb55nf" path="res://Assets/Yellow Arrow.png" id="5_o2ksf"]
 [ext_resource type="Texture2D" uid="uid://caa4c2i0dp1bm" path="res://Assets/Boost Particle.png" id="6_q13sk"]
 
-[sub_resource type="Gradient" id="Gradient_dosy6"]
-offsets = PackedFloat32Array(0, 0.0466667, 0.226667, 0.3)
-colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+[sub_resource type="Curve" id="Curve_pdw1p"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.011236, 1), 0.0, 0.0, 0, 0, Vector2(0.0393258, 1), 0.0, 0.0, 0, 0, Vector2(0.0561798, 0), 0.0, 0.0, 0, 0]
+point_count = 4
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 10
@@ -43,13 +43,14 @@ position = Vector2(-8.88178e-14, -52)
 scale = Vector2(0.35, 0.5)
 texture = ExtResource("5_o2ksf")
 
-[node name="VFX" type="Node" parent="."]
-
 [node name="InitBoostVFX" type="CPUParticles2D" parent="."]
+show_behind_parent = true
 z_index = -5
-position = Vector2(-50, -0.000181)
-amount = 2
-explosiveness = 0.15
+z_as_relative = false
+position = Vector2(-40, -1.00014)
+amount = 1
+lifetime = 2.0
+explosiveness = 0.35
 randomness = 1.0
 lifetime_randomness = 0.5
 local_coords = true
@@ -61,13 +62,13 @@ particle_flag_align_y = true
 direction = Vector2(-1, 0)
 spread = 15.0
 gravity = Vector2(0, 0)
-initial_velocity_min = 1250.0
-initial_velocity_max = 2000.0
+initial_velocity_min = 2000.0
+initial_velocity_max = 3000.0
 radial_accel_min = 20.0
 radial_accel_max = 20.0
 scale_amount_min = 0.2
 scale_amount_max = 0.2
+scale_amount_curve = SubResource("Curve_pdw1p")
 color = Color(0.677487, 0, 1, 1)
-color_ramp = SubResource("Gradient_dosy6")
 hue_variation_min = -0.5
 hue_variation_max = 0.5
