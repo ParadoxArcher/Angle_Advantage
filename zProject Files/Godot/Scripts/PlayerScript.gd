@@ -37,6 +37,13 @@ var RotaRate = 0
 var Crashed = false
 #endregion
 
+#region
+## VFX
+@onready var init_boost_vfx = $VFX/InitBoostVFX
+@export var init_boostParticles = 30
+
+#endregion
+
 func _physics_process(_delta):
 	#region Basic Movement
 	#region Input
@@ -66,6 +73,9 @@ func _physics_process(_delta):
 			BoostDecay[0] -= clampf(BoostDecay[1], 0, BoostDecay[0])
 		
 		BoostDir = Vector2(cos(rotation), sin(rotation)) * BoostDirAmp
+		
+		
+	#init_boost_vfx.amount = (1 - BoostDecay[0]) * init_boostParticles # VFX
 	#endregion
 	
 	#region Rotation --- Defines rotation acceleration and it's momentum
@@ -115,11 +125,6 @@ func _physics_process(_delta):
 @export var DisplaysActive = [false, false]
 @onready var Displays = {"velocity": $Sprites/VelDisplay, "boost_dir": $Sprites/BoostDirDisplay, "rota_speed": $Sprites/RotaSpeedDisplay}
 
-## VFX
-@onready var init_boost_part = $VFX/InitBoostPart
-
-#endregion
-
 func _process(_delta): 
 	#region Markers
 	if DisplaysActive[0]:
@@ -149,8 +154,13 @@ func _process(_delta):
 	#endregion
 
 	#region VFX
-	init_boost_part.position = position + Vector2(cos(rotation), sin(rotation)) * -20
-	init_boost_part.rotation = rotation
+	if Input.is_action_just_pressed("Boost"):
+		init_boost_vfx.emitting = true
+	elif Input.is_action_just_released("Boost"):
+		init_boost_vfx.emitting = false
+	
+	init_boost_vfx.position = position + Vector2(cos(rotation), sin(rotation)) * -20
+	init_boost_vfx.rotation = rotation
 
 func crash(CrashTimeScaler):
 	if not CrashImmunity[0]:

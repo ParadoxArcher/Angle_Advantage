@@ -49,12 +49,13 @@ texture = ExtResource("5_o2ksf")
 
 [node name="VFX" type="Node" parent="."]
 
-[node name="InitBoostPart" type="CPUParticles2D" parent="VFX"]
+[node name="InitBoostVFX" type="CPUParticles2D" parent="VFX"]
 z_index = -5
 position = Vector2(0, 20)
 rotation = -1.5708
+emitting = false
 amount = 30
-explosiveness = 0.3
+one_shot = true
 texture = ExtResource("6_q13sk")
 emission_shape = 1
 emission_sphere_radius = 10.0
