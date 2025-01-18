@@ -8,8 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://caa4c2i0dp1bm" path="res://Assets/Boost Particle.png" id="6_q13sk"]
 
 [sub_resource type="Gradient" id="Gradient_dosy6"]
-interpolation_mode = 2
-colors = PackedColorArray(0.729412, 0.207843, 0, 1, 1, 1, 1, 1)
+interpolation_color_space = 1
+offsets = PackedFloat32Array(0, 0.0466667, 0.226667, 0.3)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 10
@@ -49,7 +50,9 @@ texture = ExtResource("5_o2ksf")
 z_index = -5
 position = Vector2(-50, -0.000181)
 amount = 2
-lifetime = 0.25
+explosiveness = 0.15
+randomness = 1.0
+lifetime_randomness = 0.5
 local_coords = true
 draw_order = 1
 texture = ExtResource("6_q13sk")
@@ -59,11 +62,11 @@ particle_flag_align_y = true
 direction = Vector2(-1, 0)
 spread = 15.0
 gravity = Vector2(0, 0)
-initial_velocity_min = 700.0
-initial_velocity_max = 1000.0
+initial_velocity_min = 750.0
+initial_velocity_max = 1500.0
 radial_accel_min = 20.0
 radial_accel_max = 20.0
 scale_amount_min = 0.2
 scale_amount_max = 0.2
-color = Color(1, 0.286275, 0, 1)
+color = Color(0.677487, 0, 1, 1)
 color_ramp = SubResource("Gradient_dosy6")
