@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://u7p1uxpg5mr5"]
+[gd_scene load_steps=8 format=3 uid="uid://u7p1uxpg5mr5"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerScript.gd" id="1_g1qce"]
 [ext_resource type="Texture2D" uid="uid://d0iqunuwncvfd" path="res://Assets/Avatar.png" id="2_u7ctg"]
@@ -7,13 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://bw0kkepdb55nf" path="res://Assets/Yellow Arrow.png" id="5_o2ksf"]
 [ext_resource type="Texture2D" uid="uid://caa4c2i0dp1bm" path="res://Assets/Boost Particle.png" id="6_q13sk"]
 
-[sub_resource type="Curve" id="Curve_hh1wr"]
-_data = [Vector2(0.101124, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="Gradient" id="Gradient_4jwcp"]
-offsets = PackedFloat32Array(0.313333, 0.74)
-colors = PackedColorArray(1, 0.12549, 0, 1, 0.466321, 0.0343717, 0, 0.478431)
+[sub_resource type="Gradient" id="Gradient_dosy6"]
+interpolation_mode = 2
+colors = PackedColorArray(0.729412, 0.207843, 0, 1, 1, 1, 1, 1)
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 10
@@ -49,24 +45,25 @@ texture = ExtResource("5_o2ksf")
 
 [node name="VFX" type="Node" parent="."]
 
-[node name="InitBoostVFX" type="CPUParticles2D" parent="VFX"]
+[node name="InitBoostVFX" type="CPUParticles2D" parent="."]
 z_index = -5
-position = Vector2(0, 20)
-rotation = -1.5708
-emitting = false
-amount = 30
-one_shot = true
+position = Vector2(-50, -0.000181)
+amount = 2
+lifetime = 0.25
+local_coords = true
 draw_order = 1
 texture = ExtResource("6_q13sk")
 emission_shape = 1
-emission_sphere_radius = 10.0
+emission_sphere_radius = 30.0
 particle_flag_align_y = true
 direction = Vector2(-1, 0)
+spread = 15.0
 gravity = Vector2(0, 0)
-initial_velocity_min = 150.0
-initial_velocity_max = 300.0
-scale_amount_min = 0.15
-scale_amount_max = 0.15
-scale_amount_curve = SubResource("Curve_hh1wr")
-color = Color(1, 0.123857, 0, 1)
-color_ramp = SubResource("Gradient_4jwcp")
+initial_velocity_min = 700.0
+initial_velocity_max = 1000.0
+radial_accel_min = 20.0
+radial_accel_max = 20.0
+scale_amount_min = 0.2
+scale_amount_max = 0.2
+color = Color(1, 0.286275, 0, 1)
+color_ramp = SubResource("Gradient_dosy6")
