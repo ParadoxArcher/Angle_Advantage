@@ -109,14 +109,19 @@ func _physics_process(_delta):
 	#endregion
 
 
-#region Markers Variables
+#region Graphics Variables
+##Markers Variables
 @export var DisplaySize = {"CenterGap": 30, "velLength": .5, "boost_dirLength": .35, "rota_speedLength": .5}
 @export var DisplaysActive = [false, false]
 @onready var Displays = {"velocity": $Sprites/VelDisplay, "boost_dir": $Sprites/BoostDirDisplay, "rota_speed": $Sprites/RotaSpeedDisplay}
+
+## VFX
+@onready var init_boost_part = $VFX/InitBoostPart
+
 #endregion
 
 func _process(_delta): 
-		#region Markers
+	#region Markers
 	if DisplaysActive[0]:
 		if not DisplaysActive[1]:
 			Displays["velocity"].visible = true
@@ -143,6 +148,9 @@ func _process(_delta):
 		DisplaysActive[1] = false
 	#endregion
 
+	#region VFX
+	init_boost_part.position = position + Vector2(cos(rotation), sin(rotation)) * -20
+	init_boost_part.rotation = rotation
 
 func crash(CrashTimeScaler):
 	if not CrashImmunity[0]:
