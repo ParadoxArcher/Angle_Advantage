@@ -63,7 +63,7 @@ position = Vector2(-92, 0.999664)
 rotation = 1.5708
 texture = ExtResource("8_2u4cg")
 
-[node name="InitBoostVFX" type="CPUParticles2D" parent="."]
+[node name="BoostSparkVFX" type="CPUParticles2D" parent="."]
 show_behind_parent = true
 z_index = -5
 z_as_relative = false
@@ -92,3 +92,5 @@ scale_amount_curve = SubResource("Curve_pdw1p")
 color = Color(1, 0, 1, 0.72549)
 hue_variation_min = -0.5
 hue_variation_max = 0.5
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]

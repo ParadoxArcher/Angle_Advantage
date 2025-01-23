@@ -80,9 +80,21 @@
               "icon": "lucide-file",
               "title": "Boost"
             }
+          },
+          {
+            "id": "b835238b66cf7147",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "zReferences/Excalidraw/Drawing 2025-01-23 13.45.49.excalidraw.md"
+              },
+              "icon": "excalidraw-icon",
+              "title": "Drawing 2025-01-23 13.45.49.excalidraw"
+            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -238,10 +250,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DevNotes/Player/Movement/Boost.md"
+                "file": "zReferences/Excalidraw/Drawing 2025-01-23 13.45.49.excalidraw.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of Boost"
+              "title": "Outline of Drawing 2025-01-23 13.45.49.excalidraw"
             }
           }
         ],
@@ -265,8 +277,13 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "a997af145517e2c0",
+  "active": "b835238b66cf7147",
   "lastOpenFiles": [
+    "zProject Files/Godot/Scripts/Pla3BF2.tmp",
+    "zProject Files/Godot/Scenes/Pla3BDF.tmp",
+    "zProject Files/Godot/Scripts/Pla4AC5.tmp",
+    "DevNotes/Player/Movement/Boost.md",
+    "zReferences/Excalidraw/Drawing 2025-01-23 13.45.49.excalidraw.md",
     "zProject Files/Godot/Scenes/Pla3D02.tmp",
     "zProject Files/Godot/pro4B2.tmp",
     "zProject Files/Godot/Scenes/PlaF472.tmp",
@@ -275,15 +292,11 @@
     "zProject Files/Godot/proE9C8.tmp",
     "zProject Files/Godot/Scenes/Boo640D.tmp",
     "zProject Files/Godot/Scenes/Gam16DF.tmp",
-    "zProject Files/Godot/Scenes/Boo52F.tmp",
-    "zProject Files/Godot/Scenes/Pla51D.tmp",
     "DevNotes/ToDoList.md",
-    "zProject Files/Godot/Scenes/BoostColorVFX.gdshader",
     "zProject Files/Godot/Assets/Boost Color.png",
     "zProject Files/Godot/Assets/Boost Particle.png",
     "Devlogs/2025-01-17.md",
     "DevNotes/Player/Movement/Crash & Wall Bounce.md",
-    "DevNotes/Player/Movement/Boost.md",
     "DevNotes/Idea splurges/Level Ideas.md",
     "DevNotes/Idea splurges/Ability ideas.md",
     "DevNotes/Player/Player.md",
@@ -311,7 +324,6 @@
     "DevNotes/Idea splurges/Movement Ideas.md",
     "Dodging.md",
     "DevNotes/Idea splurges/Dodge Charges.md",
-    "DevNotes/Untitled.md",
-    "DevNotes/Player Controller.md"
+    "DevNotes/Untitled.md"
   ]
 }

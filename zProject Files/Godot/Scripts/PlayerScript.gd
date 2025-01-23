@@ -39,7 +39,7 @@ var Crashed = false
 
 #region VFX
 @onready var boost_sprite = $BoostSprite
-@onready var init_boost_vfx = $InitBoostVFX
+@onready var boost_spark_vfx = $BoostSparkVFX
 @export var init_boostParticles = 30
 var BoostAmp = 1 #ready and waiting for wallboost to implement
 @export var BounceVFX = [0, .05] # {0: fluctuating, 1: DecayRate}
@@ -68,21 +68,21 @@ func _physics_process(_delta):
 		var BoostDirAmp
 		if MoveInput.y / BoostDecay[2] >= BoostDecay[0]:
 			BoostDirAmp = MoveInput.y
-			BoostDecay[0] += clampf(BoostDecay[1] * MoveInput.y, 0, MoveInput.y)
+			BoostDecay[0] += clampf(BoostDecay[1] * MoveInput.y, 0, MoveInput.y - BoostDecay[0])
 			
 			boost_sprite.material.set_shader_parameter("RedScale", clampf(1 - (.5 * BoostAmp ), 0, 1)) # VFX, Enable Boost Visual
-			init_boost_vfx.emitting = true
+			boost_spark_vfx.emitting = true
 		else:
 			BoostDirAmp = BoostDecay[0] * BoostDecay[2]
 			BoostDecay[0] -= clampf(BoostDecay[1], 0, BoostDecay[0])
 			
 			boost_sprite.material.set_shader_parameter("RedScale", clampf(1 - (.5 * BoostDecay[0] * BoostAmp ), 0, 1)) # VFX, Decay Boost Visual
-			init_boost_vfx.emitting = false
+			boost_spark_vfx.emitting = false
 		
 		BoostDir = Vector2(cos(rotation), sin(rotation)) * BoostDirAmp
 	else:
 		boost_sprite.material.set_shader_parameter("RedScale", 1) # VFX, Disable Boost Visual
-		init_boost_vfx.emitting = false
+		boost_spark_vfx.emitting = false
 	#endregion
 	
 	#region Rotation --- Defines rotation acceleration and it's momentum
