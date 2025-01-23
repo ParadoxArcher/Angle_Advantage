@@ -37,11 +37,12 @@ var RotaRate = 0
 var Crashed = false
 #endregion
 
-#region
-## VFX
+#region VFX
+@onready var boost_sprite = $BoostSprite
 @onready var init_boost_vfx = $InitBoostVFX
 @export var init_boostParticles = 30
-
+var BoostAmp = 1 #ready and waiting for wallboost to implement
+@export var BounceVFX = [0, .05] # {0: fluctuating, 1: DecayRate}
 #endregion
 
 func _physics_process(_delta):
@@ -69,16 +70,19 @@ func _physics_process(_delta):
 			BoostDirAmp = MoveInput.y
 			BoostDecay[0] += clampf(BoostDecay[1] * MoveInput.y, 0, MoveInput.y)
 			
-			init_boost_vfx.emitting = true # VFX
+			boost_sprite.material.set_shader_parameter("RedScale", clampf(1 - (.5 * BoostAmp ), 0, 1)) # VFX, Enable Boost Visual
+			init_boost_vfx.emitting = true
 		else:
 			BoostDirAmp = BoostDecay[0] * BoostDecay[2]
 			BoostDecay[0] -= clampf(BoostDecay[1], 0, BoostDecay[0])
 			
-			init_boost_vfx.emitting = false # VFX
+			boost_sprite.material.set_shader_parameter("RedScale", clampf(1 - (.5 * BoostDecay[0] * BoostAmp ), 0, 1)) # VFX, Decay Boost Visual
+			init_boost_vfx.emitting = false
 		
 		BoostDir = Vector2(cos(rotation), sin(rotation)) * BoostDirAmp
 	else:
-		init_boost_vfx.emitting = false # VFX
+		boost_sprite.material.set_shader_parameter("RedScale", 1) # VFX, Disable Boost Visual
+		init_boost_vfx.emitting = false
 	#endregion
 	
 	#region Rotation --- Defines rotation acceleration and it's momentum
@@ -107,18 +111,25 @@ func _physics_process(_delta):
 	
 	velocity = lerp(velocity, velocity.normalized(), SpeedDecel[0]) # Momentum
 	velocity = lerp(velocity, BoostDir * MaxSpeed[0], SpeedAccel) # Acceleration
+	
+	boost_sprite.material.set_shader_parameter("BlueScale", .75 - clampf((velocity.length() / MaxSpeed[1] * .5 ), 0, 1)) # VFX, .75 is the baseline value for BlueScale, .5 scaling means we need velocity to be 1.5x MaxSpeed for BlueScale to reach 0
 	#endregion
 	
 	#region Collision --- Crash && WallBounce
-	
 	var Collision = move_and_collide(velocity * _delta, false, .7, false)
 	if Collision:
 		var CollisionDot = velocity.normalized().dot(Collision.get_normal())
 		var WallBounce = (Vector2(-cos(rotation), -sin(rotation)).dot(Collision.get_normal()) + 1 ) / 2
-		if CollisionDot * (velocity.length() / MaxSpeed[0] ) < -CrashSpeed and WallBounce > CrashAngle:
-			crash(WallBounce * (velocity.length() / MaxSpeed[0] ))
-
+		if CollisionDot * velocity.length() / MaxSpeed[0] < -CrashSpeed and WallBounce > CrashAngle:
+			crash(WallBounce * velocity.length() / MaxSpeed[0])
+		else:
+			BounceVFX[0] = 1 - (velocity.length() / MaxSpeed[1] )
+		
 		velocity = velocity.bounce(Collision.get_normal()) * lerpf(Bounce[1], Bounce[0], WallBounce)
+	
+	if BounceVFX[0] > 0: # VFX Bounce effect
+		BounceVFX[0] += clampf(BounceVFX[1], 0, 1 - BounceVFX[0])
+		boost_sprite.material.set_shader_parameter("GreenScale", clampf(BounceVFX[0], 0, 1))
 	#endregion
 
 

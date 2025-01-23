@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjrewvoo1cdri"
-path="res://.godot/imported/Fire.png-3eee30a486a5b3dfbb78abad0137b80d.ctex"
+uid="uid://0ku68cu8b8qv"
+path="res://.godot/imported/flowerNoise.jpg-773e16ba632064c77a7043a3aadf8f0b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Fire.png"
-dest_files=["res://.godot/imported/Fire.png-3eee30a486a5b3dfbb78abad0137b80d.ctex"]
+source_file="res://Noises/flowerNoise.jpg"
+dest_files=["res://.godot/imported/flowerNoise.jpg-773e16ba632064c77a7043a3aadf8f0b.ctex"]
 
 [params]
 

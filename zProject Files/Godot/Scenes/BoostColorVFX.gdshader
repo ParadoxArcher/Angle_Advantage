@@ -1,12 +1,8 @@
 shader_type canvas_item;
 
-uniform vec4 color : source_color;
-uniform float flashState : hint_range(0, 1, .05) = .5;
-
 void fragment() {
-	vec4 pixelColor = texture(TEXTURE, UV);
-	COLOR =  mix(pixelColor, color, flashState);
-	COLOR.a *= pixelColor.a;
+	vec4 textureColor = texture(TEXTURE, UV + (vec2(0.1 + 0.1) * TIME) );
+	COLOR = textureColor;
 }
 
 //void light() {
