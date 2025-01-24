@@ -6,8 +6,10 @@ var MoveInput = Vector2(0, 0)
 ## Brake Variables
 @export var BrakeDecelMult = [5.0, 3.0] # {0: SpeedDecelMult, 1: RotaDecelMult}
 
+
+
 ## Boost Variables
-@export var MaxSpeed = [1800, 1800] # {0: Fluctuating, 1: BaseMaxSpeed} ## Beware DodgeMaxSpeed
+@export var MaxSpeed = [1500, 1500] # {0: Fluctuating, 1: BaseMaxSpeed} ## Beware DodgeMaxSpeed
 @export var BoostDecay = [0, .015, .8] # {0: Fluctuating,  1:DecayRate, 2:BoostRelease(cannot be 0)}
 @export var SpeedAccel = .01
 @export var SpeedDecel = [.0025, .0025] # {0: Fluctuating,  1: Decel} ## Beware BrakeDecelMult
@@ -25,8 +27,8 @@ var RotaRate = 0
 
 #region Advanced Movement Variables
 ##Dodge Variables
-@export var DodgeMaxSpeed = [1.0, .15] # {0: MaxSpeedMultiplier, 1: MaxSpeedDecel}
-@export var DodgeRotaAccel = [5.0, .1] # {0: RotaAccelMult, 1: RotaAccelDecel}
+@export var DodgeMaxSpeed = [0.2, .15] # {0: MaxSpeedMultiplier, 1: MaxSpeedDecel}
+@export var DodgeRotaAccel = [4.0, .1] # {0: RotaAccelMult, 1: RotaAccelDecel}
 
 ##Crash && WallBounce Variables
 @export var Bounce = [.4, 1.0] # {0: Minimum, 1: Maximum}
@@ -38,8 +40,8 @@ var Crashed = false
 #endregion
 
 #region VFX
-@onready var boost_sprite = $BoostSprite
-@onready var boost_spark_vfx = $BoostSparkVFX
+@onready var boost_sprite = $VFX/BoostSprite
+@onready var boost_particle = $VFX/BoostParticle
 @export var init_boostParticles = 30
 var BoostAmp = 1 #ready and waiting for wallboost to implement
 @export var BounceVFX = [0, .05] # {0: fluctuating, 1: DecayRate}
@@ -70,19 +72,19 @@ func _physics_process(_delta):
 			BoostDirAmp = MoveInput.y
 			BoostDecay[0] += clampf(BoostDecay[1] * MoveInput.y, 0, MoveInput.y - BoostDecay[0])
 			
-			boost_sprite.material.set_shader_parameter("RedScale", clampf(1 - (.5 * BoostAmp ), 0, 1)) # VFX, Enable Boost Visual
-			boost_spark_vfx.emitting = true
+			boost_sprite.material.set_shader_parameter("RedFilter", clampf(1 - (.5 * MaxSpeed[0]/MaxSpeed[1] ), 0, 1)) # VFX, Enable Boost Visual
+			boost_particle.emitting = true
 		else:
 			BoostDirAmp = BoostDecay[0] * BoostDecay[2]
 			BoostDecay[0] -= clampf(BoostDecay[1], 0, BoostDecay[0])
 			
-			boost_sprite.material.set_shader_parameter("RedScale", clampf(1 - (.5 * BoostDecay[0] * BoostAmp ), 0, 1)) # VFX, Decay Boost Visual
-			boost_spark_vfx.emitting = false
+			boost_sprite.material.set_shader_parameter("RedFilter", clampf(1 - (.5 * BoostDecay[0] * MaxSpeed[0]/MaxSpeed[1] ), 0, 1)) # VFX, Decay Boost Visual
+			boost_particle.emitting = false
 		
 		BoostDir = Vector2(cos(rotation), sin(rotation)) * BoostDirAmp
 	else:
-		boost_sprite.material.set_shader_parameter("RedScale", 1) # VFX, Disable Boost Visual
-		boost_spark_vfx.emitting = false
+		boost_sprite.material.set_shader_parameter("RedFilter", 1) # VFX, Disable Boost Visual
+		boost_particle.emitting = false
 	#endregion
 	
 	#region Rotation --- Defines rotation acceleration and it's momentum
@@ -95,12 +97,10 @@ func _physics_process(_delta):
 	#endregion
 	
 	#region Advanced Movement
-	
 	if Input.is_action_just_pressed("Dodge") and not Crashed: # Calls Dodge() to instantanteously set movement in direction relative to rotation
 		dodge(Vector2(MoveInput.x, -MoveInput.y).normalized())
 	
 	if MaxSpeed[0] != MaxSpeed[1] or RotaAccel[0] != RotaAccel[1]: # Undoes value changes for Dodge
-		MaxSpeed[0] -= clampf((MaxSpeed[0] - MaxSpeed[1] ) * DodgeMaxSpeed[1], 0, MaxSpeed[0] - MaxSpeed[1])
 		RotaAccel[0] -= clampf((RotaAccel[0] - RotaAccel[1] ) * DodgeRotaAccel[1], 0, RotaAccel[0] - RotaAccel[1])
 	#endregion
 	
@@ -112,7 +112,7 @@ func _physics_process(_delta):
 	velocity = lerp(velocity, velocity.normalized(), SpeedDecel[0]) # Momentum
 	velocity = lerp(velocity, BoostDir * MaxSpeed[0], SpeedAccel) # Acceleration
 	
-	boost_sprite.material.set_shader_parameter("BlueScale", .75 - clampf((velocity.length() / MaxSpeed[1] * .5 ), 0, 1)) # VFX, .75 is the baseline value for BlueScale, .5 scaling means we need velocity to be 1.5x MaxSpeed for BlueScale to reach 0
+	boost_sprite.material.set_shader_parameter("GreenFilter", .6 - clampf((velocity.length() / MaxSpeed[1] * .4 ), 0, 1)) # VFX, .6 is the baseline value for BlueFilter, .4 scaling means we need velocity to be 1.5x MaxSpeed for BlueFilter to reach 0
 	#endregion
 	
 	#region Collision --- Crash && WallBounce
@@ -120,16 +120,23 @@ func _physics_process(_delta):
 	if Collision:
 		var CollisionDot = velocity.normalized().dot(Collision.get_normal())
 		var WallBounce = (Vector2(-cos(rotation), -sin(rotation)).dot(Collision.get_normal()) + 1 ) / 2
-		if CollisionDot * velocity.length() / MaxSpeed[0] < -CrashSpeed and WallBounce > CrashAngle:
-			crash(WallBounce * velocity.length() / MaxSpeed[0])
-		else:
-			BounceVFX[0] = 1 - (velocity.length() / MaxSpeed[1] )
 		
-		velocity = velocity.bounce(Collision.get_normal()) * lerpf(Bounce[1], Bounce[0], WallBounce)
+		if CollisionDot * velocity.length() / MaxSpeed[0] < -CrashSpeed:
+			velocity = velocity.bounce(Collision.get_normal()) * lerpf(Bounce[1], Bounce[0], WallBounce)
+			
+			if WallBounce > CrashAngle:
+				crash(WallBounce * velocity.length() / MaxSpeed[0])
+			else:
+				BounceVFX[0] = 1 - (velocity.length() / MaxSpeed[1] )
+			
+		else:
+			## Slide collision --- CollisionDot then multiply to velocity
+			velocity = velocity * Vector2(cos(CollisionDot), sin(CollisionDot))
+			pass
 	
 	if BounceVFX[0] > 0: # VFX Bounce effect
 		BounceVFX[0] += clampf(BounceVFX[1], 0, 1 - BounceVFX[0])
-		boost_sprite.material.set_shader_parameter("GreenScale", clampf(BounceVFX[0], 0, 1))
+		#boost_sprite.material.set_shader_parameter("GreenFilter", clampf(BounceVFX[0], 0, 1))
 	#endregion
 
 
@@ -184,13 +191,12 @@ func dodge(DodgeDir):
 	BoostDir = Vector2(0,0)
 	BoostDecay[0] = 0
 	
-	MaxSpeed[0] = MaxSpeed[1] * DodgeMaxSpeed[0]
-	RotaAccel[0] = RotaAccel[1] * DodgeRotaAccel[0]
+	RotaAccel[0] += RotaAccel[1] * DodgeRotaAccel[0]
 	
 	if DodgeDir.normalized().is_zero_approx():
 		DodgeDir = Vector2(0,-1)
-	velocity = MaxSpeed[0] * DodgeDir.rotated(rotation + PI/2)
+	velocity = MaxSpeed[1] * DodgeDir.rotated(rotation + PI/2)
 
-
-
-
+func _on_wall_boost_detection_wall_boosting(TotalBoost):
+	MaxSpeed[0] = TotalBoost * MaxSpeed[1]
+	print(TotalBoost)

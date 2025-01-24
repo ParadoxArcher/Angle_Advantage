@@ -1,27 +1,49 @@
-[gd_scene load_steps=11 format=3 uid="uid://u7p1uxpg5mr5"]
+[gd_scene load_steps=15 format=3 uid="uid://u7p1uxpg5mr5"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerScript.gd" id="1_g1qce"]
-[ext_resource type="Texture2D" uid="uid://d0iqunuwncvfd" path="res://Assets/Avatar.png" id="2_u7ctg"]
+[ext_resource type="Texture2D" uid="uid://d0iqunuwncvfd" path="res://Assets/Player/Avatar.png" id="2_u7ctg"]
 [ext_resource type="Texture2D" uid="uid://mfqwv60pknjx" path="res://Assets/Green Arrow.png" id="3_2uf6m"]
 [ext_resource type="Texture2D" uid="uid://dvkmtnxqu82d3" path="res://Assets/Red Arrow.png" id="5_a1lun"]
 [ext_resource type="Texture2D" uid="uid://bw0kkepdb55nf" path="res://Assets/Yellow Arrow.png" id="5_o2ksf"]
-[ext_resource type="Texture2D" uid="uid://caa4c2i0dp1bm" path="res://Assets/Boost Particle.png" id="6_q13sk"]
+[ext_resource type="Script" path="res://Scenes/WallBoostDetection.gd" id="6_1n3q7"]
+[ext_resource type="Texture2D" uid="uid://caa4c2i0dp1bm" path="res://Assets/Player/Boost Particle.png" id="6_q13sk"]
 [ext_resource type="Shader" path="res://Shaders/ColorAnimater.gdshader" id="7_c6xhd"]
-[ext_resource type="Texture2D" uid="uid://sqqd82tdoi6m" path="res://Assets/Boost Color.png" id="8_2u4cg"]
+[ext_resource type="Texture2D" uid="uid://82veagudcihb" path="res://Assets/Player/Boost VFX.png" id="7_cnoma"]
+
+[sub_resource type="Curve" id="Curve_70c1a"]
+min_value = 1.0
+max_value = 2.0
+bake_resolution = 20
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.99999, 1.74725), 0.0, 0.0, 0, 0, Vector2(1, 3), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_88hfk"]
+offsets = PackedFloat32Array(0.186667, 0.346667, 0.453333, 0.7, 0.88)
+colors = PackedColorArray(0.490196, 0, 1, 0, 0.756863, 0.486275, 1, 1, 0.490196, 0, 1, 1, 0.490196, 0, 1, 1, 0.490196, 0, 1, 0)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_lx4no"]
+noise_type = 0
+frequency = 0.0035
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_52dgi"]
+seamless = true
+noise = SubResource("FastNoiseLite_lx4no")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m5b53"]
 shader = ExtResource("7_c6xhd")
-shader_parameter/color = Color(0.490196, 0, 1, 1)
-shader_parameter/RedScale = 1.0
+shader_parameter/ScrollVelocity = Vector2(0.05, -0.3)
+shader_parameter/NoiseAlphaFilterActive = false
+shader_parameter/AlphaFilterStrength = 1.0
+shader_parameter/NoiseDistortionActive = true
+shader_parameter/DistortionColorStrengthX = Vector3(0.04, 0.02, 0)
+shader_parameter/DistortionColorStrengthY = null
+shader_parameter/RedFilter = 0.1
 shader_parameter/RedColor = Color(0.490196, 0, 1, 1)
-shader_parameter/GreenScale = 1.0
-shader_parameter/GreenColor = Color(1, 0, 1, 1)
-shader_parameter/BlueScale = 0.0
-shader_parameter/BlueColor = Color(0.490196, 0, 1, 1)
-
-[sub_resource type="Curve" id="Curve_pdw1p"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.011236, 1), 0.0, 0.0, 0, 0, Vector2(0.0393258, 1), 0.0, 0.0, 0, 0, Vector2(0.0561798, 0), 0.0, 0.0, 0, 0]
-point_count = 4
+shader_parameter/GreenFilter = 0.1
+shader_parameter/GreenColor = Color(0.490196, 0, 1, 1)
+shader_parameter/BlueFilter = 0.1
+shader_parameter/BlueColor = Color(0, 0, 0, 0)
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_52dgi")
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 10
@@ -56,62 +78,55 @@ position = Vector2(-8.88178e-14, -52)
 scale = Vector2(0.35, 0.5)
 texture = ExtResource("5_o2ksf")
 
-[node name="BoostSprite" type="Sprite2D" parent="."]
+[node name="WallBoost Detection" type="Node2D" parent="."]
+script = ExtResource("6_1n3q7")
+
+[node name="RayCastL" type="RayCast2D" parent="WallBoost Detection"]
+target_position = Vector2(-80, -70)
+
+[node name="RayCastML" type="RayCast2D" parent="WallBoost Detection"]
+target_position = Vector2(-110, -40)
+
+[node name="RayCastM" type="RayCast2D" parent="WallBoost Detection"]
+target_position = Vector2(-125, 0)
+
+[node name="RayCastMR" type="RayCast2D" parent="WallBoost Detection"]
+target_position = Vector2(-110, 40)
+
+[node name="RayCastR" type="RayCast2D" parent="WallBoost Detection"]
+target_position = Vector2(-80, 70)
+
+[node name="VFX" type="Node2D" parent="."]
+show_behind_parent = true
+
+[node name="BoostParticle" type="CPUParticles2D" parent="VFX"]
+show_behind_parent = true
+position = Vector2(-24, -8.6844e-05)
+rotation = -3.14159
+amount = 3
+lifetime = 0.4
+explosiveness = 0.2
+randomness = 0.5
+lifetime_randomness = 0.25
+local_coords = true
+texture = ExtResource("6_q13sk")
+particle_flag_align_y = true
+spread = 60.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 400.0
+initial_velocity_max = 400.0
+scale_amount_min = 0.05
+scale_amount_max = 0.1
+split_scale = true
+scale_curve_x = null
+scale_curve_y = SubResource("Curve_70c1a")
+color_ramp = SubResource("Gradient_88hfk")
+
+[node name="BoostSprite" type="Sprite2D" parent="VFX"]
 show_behind_parent = true
 material = SubResource("ShaderMaterial_m5b53")
 position = Vector2(-92, 0.999664)
 rotation = 1.5708
-texture = ExtResource("8_2u4cg")
+texture = ExtResource("7_cnoma")
 
-[node name="BoostSparkVFX" type="CPUParticles2D" parent="."]
-show_behind_parent = true
-z_index = -5
-z_as_relative = false
-position = Vector2(-40, -1.00014)
-amount = 1
-lifetime = 2.0
-explosiveness = 0.35
-randomness = 1.0
-lifetime_randomness = 0.5
-local_coords = true
-draw_order = 1
-texture = ExtResource("6_q13sk")
-emission_shape = 1
-emission_sphere_radius = 30.0
-particle_flag_align_y = true
-direction = Vector2(-1, 0)
-spread = 15.0
-gravity = Vector2(0, 0)
-initial_velocity_min = 2000.0
-initial_velocity_max = 3000.0
-radial_accel_min = 20.0
-radial_accel_max = 20.0
-scale_amount_min = 0.2
-scale_amount_max = 0.2
-scale_amount_curve = SubResource("Curve_pdw1p")
-color = Color(1, 0, 1, 0.72549)
-hue_variation_min = -0.5
-hue_variation_max = 0.5
-
-[node name="BoostParticles" type="CPUParticles2D" parent="."]
-show_behind_parent = true
-position = Vector2(-25, 0)
-rotation = 3.14159
-amount = 15
-lifetime = 0.2
-lifetime_randomness = 0.6
-texture = ExtResource("6_q13sk")
-emission_shape = 1
-emission_sphere_radius = 10.0
-particle_flag_align_y = true
-spread = 55.0
-gravity = Vector2(0, 0)
-initial_velocity_min = 200.0
-initial_velocity_max = 200.0
-angle_min = -720.0
-angle_max = 720.0
-scale_amount_min = 0.05
-scale_amount_max = 0.1
-color = Color(0.490196, 0, 1, 0.784314)
-hue_variation_min = -0.25
-hue_variation_max = 0.27
+[connection signal="WallBoosting" from="WallBoost Detection" to="." method="_on_wall_boost_detection_wall_boosting"]

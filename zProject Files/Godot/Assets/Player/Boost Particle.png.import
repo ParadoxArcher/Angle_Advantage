@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bntiagsuq6b1y"
-path="res://.godot/imported/ShaderTest.png-78845028194f00019f83c8cb381aa46d.ctex"
+uid="uid://caa4c2i0dp1bm"
+path="res://.godot/imported/Boost Particle.png-9fc693068231e458faa9707fc7c9c657.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/ShaderTest.png"
-dest_files=["res://.godot/imported/ShaderTest.png-78845028194f00019f83c8cb381aa46d.ctex"]
+source_file="res://Assets/Player/Boost Particle.png"
+dest_files=["res://.godot/imported/Boost Particle.png-9fc693068231e458faa9707fc7c9c657.ctex"]
 
 [params]
 
