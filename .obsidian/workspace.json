@@ -105,9 +105,21 @@
               "icon": "lucide-file",
               "title": "2025-01-24"
             }
+          },
+          {
+            "id": "16d457666496b4ee",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "zReferences/Excalidraw/Drawing 2025-01-25 09.15.40.excalidraw.md"
+              },
+              "icon": "excalidraw-icon",
+              "title": "Drawing 2025-01-25 09.15.40.excalidraw"
+            }
           }
         ],
-        "currentTab": 5
+        "currentTab": 6
       }
     ],
     "direction": "vertical"
@@ -262,9 +274,11 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {},
+              "state": {
+                "file": "zReferences/Excalidraw/Drawing 2025-01-25 09.15.40.excalidraw.md"
+              },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Outline of Drawing 2025-01-25 09.15.40.excalidraw"
             }
           }
         ],
@@ -288,8 +302,12 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "4688c3cbab7702aa",
+  "active": "16d457666496b4ee",
   "lastOpenFiles": [
+    "Devlogs/2025-01-24.md",
+    "zReferences/Excalidraw/Drawing 2025-01-25 09.15.40.excalidraw.md",
+    "zProject Files/Godot/Scripts/PlaD94F.tmp",
+    "zProject Files/Godot/Scripts/Pla79F2.tmp",
     "zProject Files/Godot/Scripts/Pla2566.tmp",
     "zProject Files/Godot/Scripts/Pla5C4C.tmp",
     "zProject Files/Godot/Scripts/Pla6637.tmp",
@@ -298,17 +316,13 @@
     "zProject Files/Godot/Scenes/GamF6A5.tmp",
     "zProject Files/Godot/pro2A6C.tmp",
     "zProject Files/Godot/Shaders/Col78E3.tmp",
-    "zProject Files/Godot/Scripts/Pla78BF.tmp",
-    "Devlogs/2025-01-24.md",
     "Devlogs/2025-01-23.md",
     "DevNotes/Player/Movement/Crash & Wall Bounce.md",
     "DevNotes/Player/Movement/Boost.md",
     "DevNotes/ToDoList.md",
-    "zProject Files/Godot/Shaders/ColA125.tmp",
     "2025-W04.md",
     "Devlogs/2025-01-17.md",
     "zReferences/Excalidraw/Drawing 2025-01-23 13.45.49.excalidraw.md",
-    "zProject Files/Godot/Scenes/Pla9C15.tmp",
     "zProject Files/Godot/Assets/Boost Color.png",
     "zProject Files/Godot/Assets/Boost Particle.png",
     "DevNotes/Idea splurges/Level Ideas.md",
