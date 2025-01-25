@@ -131,7 +131,7 @@ func _physics_process(_delta):
 			
 		else:
 			## Slide collision --- CollisionDot then multiply to velocity
-			#velocity *= CollisionDot * Collision.get_normal()
+			velocity *= lerp(velocity.normalized(), Collision.get_normal().normalized(), sign(CollisionDot))
 			print(Collision.get_normal())
 	
 	if BounceVFX[0] > 0: # VFX Bounce effect
