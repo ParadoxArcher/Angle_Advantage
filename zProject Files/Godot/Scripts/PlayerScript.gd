@@ -120,7 +120,7 @@ func _physics_process(_delta):
 	if Collision:
 		var CollisionDot = velocity.normalized().dot(Collision.get_normal())
 		var WallBounce = (Vector2(-cos(rotation), -sin(rotation)).dot(Collision.get_normal()) + 1 ) / 2
-		
+		print(CollisionDot * velocity.length() / MaxSpeed[0])
 		if CollisionDot * velocity.length() / MaxSpeed[0] < -CrashSpeed:
 			velocity = velocity.bounce(Collision.get_normal()) * lerpf(Bounce[1], Bounce[0], WallBounce)
 			
@@ -131,8 +131,8 @@ func _physics_process(_delta):
 			
 		else:
 			## Slide collision --- CollisionDot then multiply to velocity
-			#velocity *= lerp(velocity.normalized(), Collision.get_normal().normalized(), sign(CollisionDot))
-			print(Collision.get_normal())
+			velocity *= (Collision.get_normal() - velocity.normalized() )
+			print(Collision.get_normal() - velocity.normalized())
 	
 	if BounceVFX[0] > 0: # VFX Bounce effect
 		BounceVFX[0] += clampf(BounceVFX[1], 0, 1 - BounceVFX[0])
