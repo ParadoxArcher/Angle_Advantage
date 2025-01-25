@@ -132,7 +132,7 @@ func _physics_process(_delta):
 		else:
 			## Slide collision --- CollisionDot then multiply to velocity
 			#velocity = velocity * Vector2(cos(CollisionDot), sin(CollisionDot))
-			pass
+			print(CollisionDot)
 	
 	if BounceVFX[0] > 0: # VFX Bounce effect
 		BounceVFX[0] += clampf(BounceVFX[1], 0, 1 - BounceVFX[0])
@@ -199,4 +199,3 @@ func dodge(DodgeDir):
 
 func _on_wall_boost_detection_wall_boosting(TotalBoost):
 	MaxSpeed[0] = TotalBoost * MaxSpeed[1]
-	print(TotalBoost)
