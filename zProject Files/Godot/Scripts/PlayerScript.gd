@@ -9,10 +9,10 @@ var MoveInput = Vector2(0, 0)
 
 
 ## Boost Variables
-@export var MaxSpeed = [1500, 1500] # {0: Fluctuating, 1: BaseMaxSpeed} ## Beware DodgeMaxSpeed
+@export var MaxSpeed = 2000
 @export var BoostDecay = [0, .015, .8] # {0: Fluctuating,  1:DecayRate, 2:BoostRelease(cannot be 0)}
-@export var SpeedAccel = .01
-@export var SpeedDecel = [.0025, .0025] # {0: Fluctuating,  1: Decel} ## Beware BrakeDecelMult
+@export var SpeedAccel = [.075, .075] # {0: Fluctuating, 1: Accel} ## Beware WallBoostScale
+@export var SpeedDecel = [.001, .001] # {0: Fluctuating,  1: Decel} ## Beware BrakeDecelMult
 var BoostDir = Vector2(0, 0)
 var AccelRate = 0
 
@@ -72,13 +72,13 @@ func _physics_process(_delta):
 			BoostDirAmp = MoveInput.y
 			BoostDecay[0] += clampf(BoostDecay[1] * MoveInput.y, 0, MoveInput.y - BoostDecay[0])
 			
-			boost_sprite.material.set_shader_parameter("RedFilter", clampf(1 - (.5 * MaxSpeed[0]/MaxSpeed[1] ), 0, 1)) # VFX, Enable Boost Visual
+			boost_sprite.material.set_shader_parameter("RedFilter", clampf(1 - (.5 * SpeedAccel[0]/SpeedAccel[1] ), 0, 1)) # VFX, Enable Boost Visual
 			boost_particle.emitting = true
 		else:
 			BoostDirAmp = BoostDecay[0] * BoostDecay[2]
 			BoostDecay[0] -= clampf(BoostDecay[1], 0, BoostDecay[0])
 			
-			boost_sprite.material.set_shader_parameter("RedFilter", clampf(1 - (.5 * BoostDecay[0] * MaxSpeed[0]/MaxSpeed[1] ), 0, 1)) # VFX, Decay Boost Visual
+			boost_sprite.material.set_shader_parameter("RedFilter", clampf(1 - (.5 * BoostDecay[0] * SpeedAccel[0]/SpeedAccel[1] ), 0, 1)) # VFX, Decay Boost Visual
 			boost_particle.emitting = false
 		
 		BoostDir = Vector2(cos(rotation), sin(rotation)) * BoostDirAmp
@@ -100,7 +100,7 @@ func _physics_process(_delta):
 	if Input.is_action_just_pressed("Dodge") and not Crashed: # Calls Dodge() to instantanteously set movement in direction relative to rotation
 		dodge(Vector2(MoveInput.x, -MoveInput.y).normalized())
 	
-	if MaxSpeed[0] != MaxSpeed[1] or RotaAccel[0] != RotaAccel[1]: # Undoes value changes for Dodge
+	if RotaAccel[0] != RotaAccel[1]: # Undoes value changes for Dodge
 		RotaAccel[0] -= clampf((RotaAccel[0] - RotaAccel[1] ) * DodgeRotaAccel[1], 0, RotaAccel[0] - RotaAccel[1])
 	#endregion
 	
@@ -110,9 +110,9 @@ func _physics_process(_delta):
 	
 	
 	velocity = lerp(velocity, velocity.normalized(), SpeedDecel[0]) # Momentum
-	velocity = lerp(velocity, BoostDir * MaxSpeed[0], SpeedAccel) # Acceleration
+	velocity = lerp(velocity, BoostDir * MaxSpeed, SpeedAccel[0]) # Acceleration
 	
-	boost_sprite.material.set_shader_parameter("GreenFilter", .6 - clampf((velocity.length() / MaxSpeed[1] * .4 ), 0, 1)) # VFX, .6 is the baseline value for BlueFilter, .4 scaling means we need velocity to be 1.5x MaxSpeed for BlueFilter to reach 0
+	boost_sprite.material.set_shader_parameter("GreenFilter", .6 - clampf((velocity.length() / MaxSpeed * .6 ), 0, 1)) # VFX
 	#endregion
 	
 	#region Collision --- Crash && WallBounce
@@ -120,20 +120,17 @@ func _physics_process(_delta):
 	if Collision:
 		var CollisionDot = velocity.normalized().dot(Collision.get_normal())
 		var WallBounce = (Vector2(-cos(rotation), -sin(rotation)).dot(Collision.get_normal()) + 1 ) / 2
-		print("collision: " + str(Collision.get_normal()))
-		if CollisionDot * velocity.length() / MaxSpeed[0] < -CrashSpeed:
+		if CollisionDot * velocity.length() / MaxSpeed < -CrashSpeed:
 			velocity = velocity.bounce(Collision.get_normal()) * lerpf(Bounce[1], Bounce[0], WallBounce)
 			
 			if WallBounce > CrashAngle:
-				crash(WallBounce * velocity.length() / MaxSpeed[0])
-				print(crash)
+				crash(WallBounce * velocity.length() / MaxSpeed)
 			else:
-				BounceVFX[0] = 1 - (velocity.length() / MaxSpeed[1] )
+				BounceVFX[0] = 1 - (velocity.length() / MaxSpeed)
 			
 		else:
 			## Slide collision --- CollisionDot then multiply to velocity
 			velocity = velocity.slide(Collision.get_normal())
-			print("velocity: " + str(velocity.normalized()))
 	
 	if BounceVFX[0] > 0: # VFX Bounce effect
 		BounceVFX[0] += clampf(BounceVFX[1], 0, 1 - BounceVFX[0])
@@ -157,7 +154,7 @@ func _process(_delta):
 			Displays["rota_speed"].visible = true
 			DisplaysActive[1] = true
 		
-		Displays["velocity"].scale.x = velocity.length() * DisplaySize["velLength"] / MaxSpeed[1]
+		Displays["velocity"].scale.x = velocity.length() * DisplaySize["velLength"] / MaxSpeed
 		Displays["velocity"].position = position + (((150 * Displays["velocity"].scale.x ) + DisplaySize["CenterGap"] ) * velocity.normalized() ) # 150 is the size of vel_display's sprite's X.length/2
 		Displays["velocity"].rotation = velocity.angle()
 		
@@ -196,7 +193,8 @@ func dodge(DodgeDir):
 	
 	if DodgeDir.normalized().is_zero_approx():
 		DodgeDir = Vector2(0,-1)
-	velocity = MaxSpeed[1] * DodgeDir.rotated(rotation + PI/2)
+	velocity = MaxSpeed * DodgeDir.rotated(rotation + PI/2)
 
 func _on_wall_boost_detection_wall_boosting(TotalBoost):
-	MaxSpeed[0] = TotalBoost * MaxSpeed[1]
+	SpeedAccel[0] = TotalBoost * SpeedAccel[1]
+	print(TotalBoost)

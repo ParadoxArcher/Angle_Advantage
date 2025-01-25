@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var WallBoostScale = .1 # {0: Fluctuating, 1: Multiplier}
+@export var WallBoostScale = .25 # {0: Fluctuating, 1: Multiplier}
 
 @onready var ray_cast_l = $RayCastL
 @onready var ray_cast_ml = $RayCastML
@@ -24,5 +24,5 @@ func _physics_process(delta):
 			TotalBoost += WallBoostScale
 		if ray_cast_r.is_colliding():
 			TotalBoost += WallBoostScale
-		WallBoosting.emit(TotalBoost)
+		WallBoosting.emit(clampf(TotalBoost, 0, 1))
 	
