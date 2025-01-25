@@ -290,6 +290,8 @@
   },
   "active": "4688c3cbab7702aa",
   "lastOpenFiles": [
+    "zProject Files/Godot/Shaders/Col78E3.tmp",
+    "zProject Files/Godot/Scripts/Pla78BF.tmp",
     "Devlogs/2025-01-24.md",
     "Devlogs/2025-01-23.md",
     "DevNotes/Player/Movement/Crash & Wall Bounce.md",
@@ -307,7 +309,6 @@
     "zProject Files/Godot/Scenes/PlaEA83.tmp",
     "zProject Files/Godot/Scenes/PlaE8B4.tmp",
     "zProject Files/Godot/Scripts/Pla3BF2.tmp",
-    "zProject Files/Godot/Scenes/Pla3BDF.tmp",
     "zProject Files/Godot/Assets/Boost Color.png",
     "zProject Files/Godot/Assets/Boost Particle.png",
     "DevNotes/Idea splurges/Level Ideas.md",
@@ -334,7 +335,6 @@
     "Reference Images/Images/Pasted image 20250112002928.png",
     "Devlogs/2025-01-13.md",
     "DevNotes/Mission Statement.md",
-    "DevNotes/Idea splurges/Movement Ideas.md",
-    "Dodging.md"
+    "DevNotes/Idea splurges/Movement Ideas.md"
   ]
 }

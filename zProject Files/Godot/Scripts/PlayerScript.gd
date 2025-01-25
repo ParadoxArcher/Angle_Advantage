@@ -131,7 +131,7 @@ func _physics_process(_delta):
 			
 		else:
 			## Slide collision --- CollisionDot then multiply to velocity
-			velocity = velocity * Vector2(cos(CollisionDot), sin(CollisionDot))
+			#velocity = velocity * Vector2(cos(CollisionDot), sin(CollisionDot))
 			pass
 	
 	if BounceVFX[0] > 0: # VFX Bounce effect
