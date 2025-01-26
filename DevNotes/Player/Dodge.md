@@ -4,7 +4,13 @@
 #### Steps
 1) 
 	1) a
-	2) 
+		1) `if Input.is_action_just_pressed("Dodge") and not Crashed:
+			1) dodge(Vector2(MoveInput.x, -MoveInput.y).normalized())
+
+		1) if SpeedAccel[0] != SpeedAccel[1]:
+			1) SpeedAccel[0] -= clampf((SpeedAccel[0] - SpeedAccel[1] ) * SpeedAccel[2], 0, SpeedAccel[0] - SpeedAccel[1])
+		2) if RotaAccel[0] != RotaAccel[1]:
+			1) RotaAccel[0] -= clampf((RotaAccel[0] - RotaAccel[1] ) * RotaAccel[2], 0, RotaAccel[0] - RotaAccel[1])
 	3) 
 		1) `func dodge(DodgeDir):
 			1) BoostDir = Vector2(0,0)
