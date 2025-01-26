@@ -37,21 +37,13 @@ kanban-plugin: board
 - [ ] Movement Tracking for Level Creation
 
 
-## Enemies
-
-- [ ] Simple PlayerChar mimic
-
-
 ## Gameplay
 
+- [ ] Basic Fire
 - [ ] Online Preparation/Implementation
 - [ ] Basic round system
 - [ ] [[Rhythm Lock]]
-
-
-## Attacks & Abilities
-
-- [ ] Basic Fire
+- [ ] Simple PlayerChar mimic
 
 
 ## [[Audio]]
@@ -64,7 +56,7 @@ kanban-plugin: board
 - [ ] [[Player]] [[Dodge|DodgeSprites]]
 - [ ] [[Movement Visualizer|Movement Visualizer Art Pass]]
 - [ ] [[Player|PlayerTrails]]
-- [x] [[ColorAnimationShader]]
+- [x] [[Color Animation Shader]]
 
 
 ## Band-aids
@@ -82,6 +74,6 @@ kanban-plugin: board
 
 %% kanban:settings
 ```
-{"kanban-plugin":"board","list-collapse":[false,false,false,false,false,false,false,false,false,false],"full-list-lane-width":false,"show-checkboxes":true}
+{"kanban-plugin":"board","list-collapse":[false,false,false,false,false,false,false,false],"full-list-lane-width":false,"show-checkboxes":true}
 ```
 %%
