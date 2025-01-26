@@ -11,7 +11,7 @@ var MoveInput = Vector2(0, 0)
 ## Boost Variables
 @export var MaxSpeed = 2000
 @export var BoostDecay = [0, .015, .8] # {0: Fluctuating,  1:DecayRate, 2:BoostRelease(cannot be 0)}
-@export var SpeedAccel = [.075, .075] # {0: Fluctuating, 1: Accel} ## Beware WallBoostScale
+@export var SpeedAccel = [.01, .01] # {0: Fluctuating, 1: Accel} ## Beware WallBoostScale
 @export var SpeedDecel = [.001, .001] # {0: Fluctuating,  1: Decel} ## Beware BrakeDecelMult
 var BoostDir = Vector2(0, 0)
 var AccelRate = 0
@@ -100,7 +100,9 @@ func _physics_process(_delta):
 	if Input.is_action_just_pressed("Dodge") and not Crashed: # Calls Dodge() to instantanteously set movement in direction relative to rotation
 		dodge(Vector2(MoveInput.x, -MoveInput.y).normalized())
 	
-	if RotaAccel[0] != RotaAccel[1]: # Undoes value changes for Dodge
+	if SpeedAccel[0] != SpeedAccel[1]:
+		SpeedAccel[0] -= clampf((SpeedAccel[0] - SpeedAccel[1] ) * DodgeRotaAccel[1], 0, SpeedAccel[0] - SpeedAccel[1])
+	if RotaAccel[0] != RotaAccel[1]:
 		RotaAccel[0] -= clampf((RotaAccel[0] - RotaAccel[1] ) * DodgeRotaAccel[1], 0, RotaAccel[0] - RotaAccel[1])
 	#endregion
 	
@@ -108,7 +110,8 @@ func _physics_process(_delta):
 	RotaSpeed = lerpf(RotaSpeed, MoveInput.x * MaxRota, clampf(RotaRate, 0, 1)) # Rotation Acceleration
 	rotate(RotaSpeed)
 	
-	
+	print(SpeedAccel[0])
+	print(velocity.length())
 	velocity = lerp(velocity, velocity.normalized(), SpeedDecel[0]) # Momentum
 	velocity = lerp(velocity, BoostDir * MaxSpeed, SpeedAccel[0]) # Acceleration
 	
