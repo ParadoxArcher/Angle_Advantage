@@ -53,7 +53,9 @@
 	1) move `velocity = velocity.bounce(Collision.get_normal()) * Bounce` inside ``if CollisionDot * (velocity.length() / MaxSpeed[0] ) < -CrashSpeed:``
 		1) `if CollisionDot * (velocity.length() / MaxSpeed[0] ) < -CrashSpeed:`
 			1) `velocity = velocity.bounce(Collision.get_normal()) * Bounce` 
-	2) call `else` for `if CollisionDot * (velocity.length() / MaxSpeed[0] ) < -CrashSpeed:` and set #velocity to slide
+	2) call `else` for `if CollisionDot * (velocity.length() / MaxSpeed[0] ) < -CrashSpeed:` and set #velocity to `slide`
+		1) `else:
+			1) `velocity = velocity.slide(Collision.get_normal())`
 6) Modify #Collision results by difference in #rotation to #Collision normal
 	1) Prevent #crash from going off while looking away from wall
 		1) Before `func _physics_process(_delta):` define #CrashAngle & #CrashSpeed
@@ -98,4 +100,4 @@
 - [[2025-01-17]]
 	- Implemented movement disable and it's limitations (3-6)
 - [[2025-01-24]]
-	- restructured collision to slide when moving along the wall
+	- restructured collision to slide when moving alongside the wall

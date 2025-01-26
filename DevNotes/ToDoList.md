@@ -6,12 +6,15 @@ kanban-plugin: board
 
 ## Current
 
-- [ ] [[Boost|Boost VFX]]
+- [ ] [[Boost|Wall Boost]]
 
 
 ## Soon
 
-- [ ] [[Boost|Wall Boost]]
+- [ ] Document Brakes
+- [ ] Document Dodge
+- [ ] Document ColorAnimator
+- [ ] Document Boost VFX
 
 
 ## [[Player]]
@@ -61,6 +64,7 @@ kanban-plugin: board
 - [ ] [[Player]] [[Dodge|DodgeSprites]]
 - [ ] [[Movement Visualizer|Movement Visualizer Art Pass]]
 - [ ] [[Player|PlayerTrails]]
+- [x] [[ColorAnimationShader]]
 
 
 ## Band-aids
