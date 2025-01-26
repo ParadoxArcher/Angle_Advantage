@@ -11,11 +11,15 @@ Emulates movement style from [[Data Wing]] but in a combat-focused party game.
 2) Develop Movement
 	1) Attach script to `Player` named: `PlayerScript
 	2) [[Boost]]
+		1) Set Input `Boost`
 	3) [[Rotation]]
+		1) Set Input `RotateLeft` & `RotateRight`
 	4) [[Movement Visualizer]]
 		1) Under`PlayerChar`, add `Node` with 3 `Sprite2D` under it
 	5) [[Brakes]]
+		1) Set Input `Brake`
 	6) [[Dodge]]
+		1) Set Input `Dodge` & `Back`
 	7) [[Crash & Wall Bounce]]
 	8) [[Wall Boost]]
 		1) Under`PlayerChar`, add `Node2D` with 5 `Raycast2D` under it which spread out well towards [[Boost VFX]]

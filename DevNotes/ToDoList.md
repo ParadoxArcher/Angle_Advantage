@@ -6,12 +6,11 @@ kanban-plugin: board
 
 ## Current
 
-- [ ] Document Brakes
+- [ ] Document Dodge
 
 
 ## Soon
 
-- [ ] Document Dodge
 - [ ] Document ColorAnimator
 - [ ] Document Boost VFX
 

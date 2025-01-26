@@ -9,14 +9,13 @@
 	2) Call and Define #BrakeDecelMult as an array, where #BrakeDecelMult0 is for #SpeedDecel and #BrakeDecelMult1 is for #RotaDecel 
 		1) `@export var BrakeDecelMult = [5.0, 3.0]`
 2) After `MoveInput`
-	1) Set variables when Input `Brake` is definined
-	2) if Input.is_action_pressed("Brake") and not Crashed:
-		SpeedDecel[0] = SpeedDecel[1] * BrakeDecelMult[0]
-		RotaDecel[0] = RotaDecel[1] * BrakeDecelMult[1]
-	else:
-		SpeedDecel[0] = SpeedDecel[1]
-		RotaDecel[0] = RotaDecel[1]
+	1) Set variables while Input `Brake` is pressed
+		1) `if Input.is_action_pressed("Brake"):
+			1) `SpeedDecel[0] = SpeedDecel[1] * BrakeDecelMult[0]
+			2) `RotaDecel[0] = RotaDecel[1] * BrakeDecelMult[1]
+	2) and reset them to normal when not
+		1) `else:
+			1) `SpeedDecel[0] = SpeedDecel[1]
+			2) `RotaDecel[0] = RotaDecel[1]
 ### Adjustment Log
 - 
-	- 
-	 

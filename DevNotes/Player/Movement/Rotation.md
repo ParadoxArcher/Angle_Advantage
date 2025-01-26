@@ -2,7 +2,6 @@
 ###### Rotate at an accelerated rate
 #### Steps
 1) Define Input
-	1) Project Settings --> Input Map --> "RotateLeft" = A || "RotateRight" = D
 	2) Reformat #MoveInput
 		1) `var MoveInput = Vector2(Input.get_action_strength("RotateRight") - Input.get_action_strength("RotateLeft"), Input.get_action_strength("Boost"))
 2) Rotate

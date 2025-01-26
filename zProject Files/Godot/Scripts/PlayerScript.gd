@@ -6,20 +6,18 @@ var MoveInput = Vector2(0, 0)
 ## Brake Variables
 @export var BrakeDecelMult = [5.0, 3.0] # {0: SpeedDecelMult, 1: RotaDecelMult}
 
-
-
 ## Boost Variables
 @export var MaxSpeed = 2000
 @export var BoostDecay = [0, .015, .8] # {0: Fluctuating,  1:DecayRate, 2:BoostRelease(cannot be 0)}
-@export var SpeedAccel = [.01, .01] # {0: Fluctuating, 1: Accel} ## Beware WallBoostScale
+@export var SpeedAccel = [.01, .01, .15] # {0: Fluctuating, 1: Accel, 2: DecayLerp} ## Beware WallBoostScale
 @export var SpeedDecel = [.001, .001] # {0: Fluctuating,  1: Decel} ## Beware BrakeDecelMult
 var BoostDir = Vector2(0, 0)
 var AccelRate = 0
 
 ## Rotation Variables
 @export var MaxRota = PI/24
-@export var RotaAccel = [.02, .02] # {0: Fluctuating, 1: BaseRotaAccel} ## Beware DodgeRotaAccel
-@export var RotaDecel = [.01, .01] # {0: Fluctuating, 1: BaseRotaDecel} ## Beware BrakeDecelMult
+@export var RotaAccel = [.02, .02, .1] # {0: Fluctuating, 1: BaseRotaAccel} ## Beware DodgeRotaAccel
+@export var RotaDecel = [.01, .01] # {0: Fluctuating, 1: BaseRotaDecel, 2: DecayLerp} ## Beware BrakeDecelMult
 @export var CounterSteerRate = .35
 var RotaSpeed = 0
 var RotaRate = 0
@@ -27,8 +25,8 @@ var RotaRate = 0
 
 #region Advanced Movement Variables
 ##Dodge Variables
-@export var DodgeMaxSpeed = [0.2, .15] # {0: MaxSpeedMultiplier, 1: MaxSpeedDecel}
-@export var DodgeRotaAccel = [4.0, .1] # {0: RotaAccelMult, 1: RotaAccelDecel}
+@export var DodgeSpeed = 1.
+@export var DodgeRotaAccel = 4.
 
 ##Crash && WallBounce Variables
 @export var Bounce = [.4, 1.0] # {0: Minimum, 1: Maximum}
@@ -43,7 +41,6 @@ var Crashed = false
 @onready var boost_sprite = $VFX/BoostSprite
 @onready var boost_particle = $VFX/BoostParticle
 @export var init_boostParticles = 30
-var BoostAmp = 1 #ready and waiting for wallboost to implement
 @export var BounceVFX = [0, .05] # {0: fluctuating, 1: DecayRate}
 #endregion
 
@@ -101,17 +98,15 @@ func _physics_process(_delta):
 		dodge(Vector2(MoveInput.x, -MoveInput.y).normalized())
 	
 	if SpeedAccel[0] != SpeedAccel[1]:
-		SpeedAccel[0] -= clampf((SpeedAccel[0] - SpeedAccel[1] ) * DodgeRotaAccel[1], 0, SpeedAccel[0] - SpeedAccel[1])
+		SpeedAccel[0] -= clampf((SpeedAccel[0] - SpeedAccel[1] ) * SpeedAccel[2], 0, SpeedAccel[0] - SpeedAccel[1])
 	if RotaAccel[0] != RotaAccel[1]:
-		RotaAccel[0] -= clampf((RotaAccel[0] - RotaAccel[1] ) * DodgeRotaAccel[1], 0, RotaAccel[0] - RotaAccel[1])
+		RotaAccel[0] -= clampf((RotaAccel[0] - RotaAccel[1] ) * RotaAccel[2], 0, RotaAccel[0] - RotaAccel[1])
 	#endregion
 	
 	#region Transform
 	RotaSpeed = lerpf(RotaSpeed, MoveInput.x * MaxRota, clampf(RotaRate, 0, 1)) # Rotation Acceleration
 	rotate(RotaSpeed)
 	
-	print(SpeedAccel[0])
-	print(velocity.length())
 	velocity = lerp(velocity, velocity.normalized(), SpeedDecel[0]) # Momentum
 	velocity = lerp(velocity, BoostDir * MaxSpeed, SpeedAccel[0]) # Acceleration
 	
@@ -192,12 +187,11 @@ func dodge(DodgeDir):
 	BoostDir = Vector2(0,0)
 	BoostDecay[0] = 0
 	
-	RotaAccel[0] += RotaAccel[1] * DodgeRotaAccel[0]
+	RotaAccel[0] += RotaAccel[1] * DodgeRotaAccel
 	
 	if DodgeDir.normalized().is_zero_approx():
 		DodgeDir = Vector2(0,-1)
-	velocity = MaxSpeed * DodgeDir.rotated(rotation + PI/2)
+	velocity = MaxSpeed * DodgeSpeed * DodgeDir.rotated(rotation + PI/2)
 
 func _on_wall_boost_detection_wall_boosting(TotalBoost):
 	SpeedAccel[0] = TotalBoost * SpeedAccel[1]
-	print(TotalBoost)
