@@ -49,7 +49,12 @@
 			1) `crash()`
 	4) Multiply #CollisionDot  by #velocity length over #MaxSpeed1
 		1) `if CollisionDot * (velocity.length() / MaxSpeed[0] ) < -CrashSpeed:`
-5) Modify #Collision results by difference in #rotation to #Collision normal
+5) `slide` player when velocity is lower than #CrashSpeed 
+	1) move `velocity = velocity.bounce(Collision.get_normal()) * Bounce` inside ``if CollisionDot * (velocity.length() / MaxSpeed[0] ) < -CrashSpeed:``
+		1) `if CollisionDot * (velocity.length() / MaxSpeed[0] ) < -CrashSpeed:`
+			1) `velocity = velocity.bounce(Collision.get_normal()) * Bounce` 
+	2) call `else` for `if CollisionDot * (velocity.length() / MaxSpeed[0] ) < -CrashSpeed:` and set #velocity to slide
+6) Modify #Collision results by difference in #rotation to #Collision normal
 	1) Prevent #crash from going off while looking away from wall
 		1) Before `func _physics_process(_delta):` define #CrashAngle & #CrashSpeed
 			1) `@export var CrashAngle = .3
@@ -73,7 +78,7 @@
 				2) `await get_tree().create_timer(CrashTimer, true,true).timeout`
 		3) Insert #WallBounce * #velocity length / #MaxSpeed into #crash as #CrashTimeScaler
 			1) `crash(WallBounce * (velocity.length() / MaxSpeed[0] )) `
-6) #CrashImmunity
+7) #CrashImmunity
 	1) Before `crash(CrashTimeScaler):` Define #CrashImmunity as an array of a `false` `bool` and `float
 		1) `@export var CrashImmunity = [false, .6]
 	2) Inside `crash(CrashTimeScaler):` pass the entire `func` `if` #CrashImmunity0 is `true`
@@ -92,3 +97,5 @@
 	- Implemented basic `move_and_collide` functionality with velocity.bounce (1-2)
 - [[2025-01-17]]
 	- Implemented movement disable and it's limitations (3-6)
+- [[2025-01-24]]
+	- restructured collision to slide when moving along the wall
