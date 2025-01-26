@@ -63,6 +63,21 @@
               "icon": "lucide-trello",
               "title": "ToDoList"
             }
+          },
+          {
+            "id": "0aa66cf3be57dc77",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "DevNotes/Player/Movement/Brakes.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Brakes"
+            }
           }
         ]
       }
@@ -249,18 +264,18 @@
   },
   "active": "b835238b66cf7147",
   "lastOpenFiles": [
-    "Devlogs/2025-01-24.md",
-    "Devlogs/2025-01-23.md",
-    "DevNotes/Player/Player.md",
-    "DevNotes/Color Animation Shader.md",
+    "DevNotes/Player/Movement/Brakes.md",
     "DevNotes/ToDoList.md",
+    "DevNotes/Player/Movement/Crash & Wall Bounce.md",
+    "DevNotes/Player/Player.md",
+    "Devlogs/2025-01-23.md",
+    "Devlogs/2025-01-24.md",
+    "DevNotes/Color Animation Shader.md",
     "DevNotes/Player/Boost VFX.md",
     "zReferences/Excalidraw/Drawing 2025-01-25 09.15.40.excalidraw.md",
     "DevNotes/Player/Movement/Boost.md",
-    "DevNotes/Player/Movement/Crash & Wall Bounce.md",
     "zProject Files/Krita/Boost VFX.kra",
     "zProject Files/Krita/PlayerAvatar.kra",
-    "DevNotes/Player/Movement/Brakes.md",
     "DevNotes/Boost VFX Shader.md",
     "2025-W04.md",
     "Devlogs/2025-01-25.md",

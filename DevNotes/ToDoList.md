@@ -6,12 +6,11 @@ kanban-plugin: board
 
 ## Current
 
-- [ ] [[Boost|Wall Boost]]
+- [ ] Document Brakes
 
 
 ## Soon
 
-- [ ] Document Brakes
 - [ ] Document Dodge
 - [ ] Document ColorAnimator
 - [ ] Document Boost VFX
@@ -19,13 +18,14 @@ kanban-plugin: board
 
 ## [[Player]]
 
-- [ ] [[Rotation Collision]]
 - [x] [[Boost]]
 - [x] [[Rotation]]
 - [x] [[Movement Visualizer]]
 - [x] [[Brakes]]
 - [x] [[Dodge]]
 - [x] [[Crash & Wall Bounce]]
+- [x] [[Boost|Wall Boost]]
+- [ ] [[Rotation Collision]]
 
 
 ## [[Level Creation]]
