@@ -96,11 +96,6 @@ func _physics_process(_delta):
 	#region Advanced Movement
 	if Input.is_action_just_pressed("Dodge") and not Crashed: # Calls Dodge() to instantanteously set movement in direction relative to rotation
 		dodge(Vector2(MoveInput.x, -MoveInput.y).normalized())
-	
-	if SpeedAccel[0] != SpeedAccel[1]:
-		SpeedAccel[0] -= clampf((SpeedAccel[0] - SpeedAccel[1] ) * SpeedAccel[2], 0, SpeedAccel[0] - SpeedAccel[1])
-	if RotaAccel[0] != RotaAccel[1]:
-		RotaAccel[0] -= clampf((RotaAccel[0] - RotaAccel[1] ) * RotaAccel[2], 0, RotaAccel[0] - RotaAccel[1])
 	#endregion
 	
 	#region Transform
@@ -109,6 +104,11 @@ func _physics_process(_delta):
 	
 	velocity = lerp(velocity, velocity.normalized(), SpeedDecel[0]) # Momentum
 	velocity = lerp(velocity, BoostDir * MaxSpeed, SpeedAccel[0]) # Acceleration
+	
+	if SpeedAccel[0] != SpeedAccel[1]:
+		SpeedAccel[0] -= clampf((SpeedAccel[0] - SpeedAccel[1] ) * SpeedAccel[2], 0, SpeedAccel[0] - SpeedAccel[1])
+	if RotaAccel[0] != RotaAccel[1]:
+		RotaAccel[0] -= clampf((RotaAccel[0] - RotaAccel[1] ) * RotaAccel[2], 0, RotaAccel[0] - RotaAccel[1])
 	
 	boost_sprite.material.set_shader_parameter("GreenFilter", .6 - clampf((velocity.length() / MaxSpeed * .6 ), 0, 1)) # VFX
 	#endregion
