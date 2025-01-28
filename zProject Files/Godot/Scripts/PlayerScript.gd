@@ -69,13 +69,13 @@ func _physics_process(_delta):
 			BoostDirAmp = MoveInput.y
 			BoostDecay[0] += clampf(BoostDecay[1] * MoveInput.y, 0, MoveInput.y - BoostDecay[0])
 			
-			boost_sprite.material.set_shader_parameter("RedFilter", clampf(1 - (.5 * SpeedAccel[0]/SpeedAccel[1] ), 0, 1)) # VFX, Enable Boost Visual
+			boost_sprite.material.set_shader_parameter("RedFilter", 1 - clampf((.5 * SpeedAccel[0]/SpeedAccel[1] ), 0, 1)) # VFX, Enable Boost Visual
 			boost_particle.emitting = true
 		else:
 			BoostDirAmp = BoostDecay[0] * BoostDecay[2]
 			BoostDecay[0] -= clampf(BoostDecay[1], 0, BoostDecay[0])
 			
-			boost_sprite.material.set_shader_parameter("RedFilter", clampf(1 - (.5 * BoostDecay[0] * SpeedAccel[0]/SpeedAccel[1] ), 0, 1)) # VFX, Decay Boost Visual
+			boost_sprite.material.set_shader_parameter("RedFilter", 1 - clampf((.5 * BoostDecay[0] * SpeedAccel[0]/SpeedAccel[1] ), 0, 1)) # VFX, Decay Boost Visual
 			boost_particle.emitting = false
 		
 		BoostDir = Vector2(cos(rotation), sin(rotation)) * BoostDirAmp
@@ -127,11 +127,10 @@ func _physics_process(_delta):
 				BounceVFX[0] = 1 - (velocity.length() / MaxSpeed)
 			
 		else:
-			## Slide collision --- CollisionDot then multiply to velocity
 			velocity = velocity.slide(Collision.get_normal())
 	
-	if BounceVFX[0] > 0: # VFX Bounce effect
-		BounceVFX[0] += clampf(BounceVFX[1], 0, 1 - BounceVFX[0])
+	#if BounceVFX[0] > 0: # VFX Bounce effect
+		#BounceVFX[0] += clampf(BounceVFX[1], 0, 1 - BounceVFX[0])
 		#boost_sprite.material.set_shader_parameter("GreenFilter", clampf(BounceVFX[0], 0, 1))
 	#endregion
 
