@@ -14,14 +14,14 @@
 		1) `if Collision:
 			1) `velocity = velocity.bounce(Collision.get_normal()) * Bounce
 3) Disable Movement
-	1) Define variables #CrashTime and #Crashed
+	1) Define `global variables` #CrashTime and #Crashed
 		2) `var Crashed = false
 		3) `@export var CrashTime = 1.5
 	2) Create and use `func crash():`
 		1) `func crash():
 		2) Inside `if Collision:` 
 			1) `crash()
-	3) Set #Crashed to true, `await` with `proccess_in_physics` set to `true`, and set #Crashed to `false`
+	3) Inside `func crash():`, set #Crashed to true, `await` with `proccess_in_physics` set to `true`, then set #Crashed to `false`
 		1) `Crashed = true
 		2) `await get_tree().create_timer(CrashTime, true, true).timeout
 		3) `Crashed = false`
