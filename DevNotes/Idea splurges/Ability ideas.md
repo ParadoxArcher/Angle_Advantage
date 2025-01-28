@@ -1,10 +1,7 @@
 
 [[Ability Concepts.excalidraw]]
 
-- 3 use Rocket that slowly accelerates forward
-- machine gun
-- channeled DoT laser that pushes back the user significantly
-- Sniper with laser pointer that charges for a second before firing, user is drastically slowed while held
+
 - phase ability that removes any object/player from existence for a few seconds, can be used on one's self by holding. While phased, things preserve momentum but can't accelerate and are afflicted by friction still
 - time stop that halts all objects until recast by user, players are phased for a second
 - black hole/white hole, choose by tapping ability, holding will fire
