@@ -183,7 +183,7 @@ func crash(CrashTimeScaler):
 		pass
 
 func dodge(DodgeDir):
-	BoostDir = Vector2(0,0)
+	#BoostDir = Vector2(0,0)
 	BoostDecay[0] = 0
 	
 	RotaAccel[0] += RotaAccel[1] * DodgeRotaAccel
