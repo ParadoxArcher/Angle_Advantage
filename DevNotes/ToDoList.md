@@ -7,6 +7,7 @@ kanban-plugin: board
 ## Current
 
 - [ ] Document Dodge
+- [ ] Dodge Cooldown
 
 
 ## Soon
@@ -16,6 +17,11 @@ kanban-plugin: board
 - [ ] impleter Avatar actions
 - [ ] [[Boost VFX]] redfilter bug
 - [ ] [[Boost VFX]] green filter
+- [ ] adjust friction to be linear, not exponential
+- [ ] Dodge CD VFX via [[Action VFX]]
+- [ ] [[Rotation Collision]]
+- [ ] [[Wall Boost]] increases #MaxSpeed, not #SpeedAccel
+- [ ] Particle [[Dodge VFX]]
 
 
 ## [[Player]]
@@ -27,7 +33,6 @@ kanban-plugin: board
 - [x] [[Dodge]]
 - [x] [[Crash & Wall Bounce]]
 - [x] [[Boost|Wall Boost]]
-- [ ] [[Rotation Collision]]
 
 
 ## [[Level Creation]]
@@ -55,7 +60,6 @@ kanban-plugin: board
 
 ## [[Artstyle]]
 
-- [ ] [[Player]] [[Dodge|DodgeSprites]]
 - [ ] [[Movement Visualizer|Movement Visualizer Art Pass]]
 - [ ] [[Player|PlayerTrails]]
 - [x] [[Color Animation Shader]]

@@ -220,11 +220,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "DevNotes/ToDoList.md"
-              },
+              "state": {},
               "icon": "lucide-list",
-              "title": "Outline of ToDoList"
+              "title": "Outline"
             }
           }
         ],
@@ -248,8 +246,9 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "2b906768df75cac8",
+  "active": "4688c3cbab7702aa",
   "lastOpenFiles": [
+    "DevNotes/ToDoList.md",
     "zProject Files/Godot/Scenes/Pla6274.tmp",
     "zProject Files/Godot/Shaders/Col6122.tmp",
     "DevNotes/Color Animation Shader.md",
@@ -267,8 +266,6 @@
     "zProject Files/Godot/Scenes/GamF1D2.tmp",
     "DevNotes/Player/Player.md",
     "zProject Files/Godot/Scripts/Pla8472.tmp",
-    "zProject Files/Godot/Scripts/PlaDB3B.tmp",
-    "DevNotes/ToDoList.md",
     "DevNotes/Player/Movement/Brakes.md",
     "DevNotes/Player/Movement/Rotation.md",
     "DevNotes/Player/Movement/Crash & Wall Bounce.md",
