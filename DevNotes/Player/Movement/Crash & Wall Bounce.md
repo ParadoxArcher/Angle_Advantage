@@ -5,8 +5,8 @@
 1) Convert to KinematicBody2D physics
 	2) Replace `move_and_slide` with `move_and_collide(velocity)`
 2) Make [[Player]] bounce off walls
-	1) Before `_physics_process(_delta):`
-		1) Define #Bounce  as `global variable`
+	1)  As `global variable`:
+		1) Define #Bounce 
 			1) `@export var CollisionRebound = .3`
 	2) Call `move_and_collide` as a variable instead, with a `safe_margin` of .7
 		1) `var Collision = move_and_collide(velocity * _delta, false, .7, false)`
@@ -14,7 +14,7 @@
 		1) `if Collision:
 			1) `velocity = velocity.bounce(Collision.get_normal()) * Bounce
 3) Disable Movement
-	1) Define `global variables` #CrashTime and #Crashed
+	1) Define  #CrashTime and #Crashed as `global variables`
 		2) `var Crashed = false
 		3) `@export var CrashTime = 1.5
 	2) Create and use `func crash():`
@@ -37,9 +37,8 @@
 		3) [[Brakes]]
 			1) `if Input.is_action_pressed("Brake") and not Crashed:`
 4) Limit `crash` by #Collision direction and #velocity
-	1) Before `func _physics_process(delta):`
-		1) Define #CrashSpeed as `global variable`
-			1) `@export var CrashSpeed = .4
+	1) Define #CrashSpeed as `global variable`
+		1) `@export var CrashSpeed = .4
 	2) Inside `if Collision:` Get angle difference from #velocity and #Collision normal
 		1) `var CollisionDot = velocity.normalized().dot(Collision.get_normal())
 	3) #crash `if` #CollisionDot is <  - #CrashSpeed
@@ -56,7 +55,7 @@
 			1) `velocity = velocity.slide(Collision.get_normal())`
 6) Modify #Collision results by difference in #rotation to #Collision normal
 	1) Prevent #crash from going off while looking away from wall
-		1) Before `func _physics_process(_delta):` define #CrashAngle & #CrashSpeed  as `global variable`
+		1) Define #CrashAngle & #CrashSpeed  as `global variable`
 			1) `@export var CrashAngle = .3
 			2) `@export var CrashSpeed = .35`
 		2) Inside `if: collision` determine difference in #rotation to #Collision normal
@@ -65,12 +64,12 @@
 			2) `if CollisionDot * (velocity.length() / MaxSpeed[0] ) < -CrashSpeed and WallBounce > CrashAngle:`
 				1) `crash()
 	2) Reduce #velocity when looking away from wall
-		1) Before `func _physics_process(_delta):` Define #Bounce as a `global array` to set Minimum & Maximum
+		1) Define #Bounce as a `global array` to set Minimum & Maximum
 			1) `@export var Bounce = [.4, 1.0]
 		2) Apply to #velocity when #Collision, according to #WallBounce 
 			1) `velocity = velocity.bounce(Collision.get_normal()) * lerpf(Bounce[1], Bounce[0], WallBounce)
 	3) Scale #CrashTime by #WallBounce & #rotation
-		1) Before `func crash()` Define #CrashTime as a `global array` to set Minimum & Maximum
+		1) Define #CrashTime as a `global array` to set Minimum & Maximum
 			1) `@export var CrashTime = [.6, 1.8]
 		2) Call #CrashTimeScaler input for `crash()` and `lerpf` #CrashTime by #CrashTimeScaler
 			1) `func crash(CrashTimeScaler):
@@ -79,7 +78,7 @@
 		3) Insert #WallBounce * #velocity length / #MaxSpeed into #crash as #CrashTimeScaler
 			1) `crash(WallBounce * (velocity.length() / MaxSpeed[0] )) `
 7) #CrashImmunity
-	1) Before `crash(CrashTimeScaler):` Define #CrashImmunity as a `global array` of a `false` `bool` and `float
+	1) Define #CrashImmunity as a `global array` of a `false` `bool` and `float
 		1) `@export var CrashImmunity = [false, .6]
 	2) Inside `crash(CrashTimeScaler):` pass the entire `func` `if` #CrashImmunity0 is `true`
 		1) `if not CrashImmunity[0]:
