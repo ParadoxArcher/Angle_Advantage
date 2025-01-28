@@ -50,11 +50,14 @@ kanban-plugin: board
 - [ ] Basic round system
 - [ ] [[Rhythm Lock]]
 - [ ] Simple PlayerChar mimic
+- [ ] [[Ability Concepts.excalidraw]]
 
 
 ## [[Audio]]
 
 - [ ] [[Player|Crash Sound]]
+- [ ] Boost Sound
+- [ ] Single Background song
 
 
 ## [[Artstyle]]

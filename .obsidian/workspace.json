@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DevNotes/Player/Dodge.md",
+                "file": "DevNotes/Player/Movement/Dodge.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -50,7 +50,7 @@
             }
           },
           {
-            "id": "b5d3dbca57bb10d1",
+            "id": "38f3ff542ecb8671",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -65,15 +65,15 @@
             }
           },
           {
-            "id": "491d9a288b024963",
+            "id": "435608f7729f4aef",
             "type": "leaf",
             "state": {
               "type": "excalidraw",
               "state": {
-                "file": "zReferences/Excalidraw/Ability Concepts.excalidraw.md"
+                "file": "zReferences/Excalidraw/Racing Concept.excalidraw.md"
               },
               "icon": "excalidraw-icon",
-              "title": "Ability Concepts.excalidraw"
+              "title": "Racing Concept.excalidraw"
             }
           }
         ],
@@ -233,10 +233,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zReferences/Excalidraw/Ability Concepts.excalidraw.md"
+                "file": "zReferences/Excalidraw/Racing Concept.excalidraw.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of Ability Concepts.excalidraw"
+              "title": "Outline of Racing Concept.excalidraw"
             }
           }
         ],
@@ -260,13 +260,14 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "491d9a288b024963",
+  "active": "435608f7729f4aef",
   "lastOpenFiles": [
     "DevNotes/Idea splurges/Level Ideas.md",
+    "zReferences/Excalidraw/Racing Concept.excalidraw.md",
+    "DevNotes/ToDoList.md",
     "zReferences/Excalidraw/Ability Concepts.excalidraw.md",
     "DevNotes/Idea splurges/Ability ideas.md",
-    "DevNotes/ToDoList.md",
-    "DevNotes/Player/Dodge.md",
+    "DevNotes/Player/Movement/Dodge.md",
     "zProject Files/Godot/Scenes/Pla14D1.tmp",
     "zProject Files/Godot/Scripts/Pla1368.tmp",
     "DevNotes/Player/Movement/Rotation.md",
@@ -287,7 +288,7 @@
     "DevNotes/Player/Player.md",
     "Devlogs/2025-01-23.md",
     "Devlogs/2025-01-24.md",
-    "DevNotes/Player/Boost VFX.md",
+    "DevNotes/Player/Movement/Boost VFX.md",
     "zReferences/Excalidraw/Drawing 2025-01-25 09.15.40.excalidraw.md",
     "DevNotes/Boost VFX Shader.md",
     "Devlogs/2025-01-25.md",
