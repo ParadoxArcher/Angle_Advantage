@@ -6,7 +6,6 @@ kanban-plugin: board
 
 ## Current
 
-- [ ] Document ColorAnimator
 - [ ] Document Boost VFX
 - [ ] impleter Avatar actions
 - [ ] Dodge CD VFX via [[Action VFX]]

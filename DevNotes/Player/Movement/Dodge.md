@@ -1,5 +1,5 @@
 ### Final Work
-###### Description of contents
+###### A universal action that instantly sets speed to a a direction based off player input and rotation.
 
 #### Steps
 1) Instantiate movement

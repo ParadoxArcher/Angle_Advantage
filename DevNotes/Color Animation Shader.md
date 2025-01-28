@@ -1,5 +1,5 @@
 ### Final Work
-###### Description of contents
+###### A shader that can scale the image output by settable parameters, also allowing for multiple images in the image
 
 #### Steps
 1) Setup #ColorFilter 
@@ -20,6 +20,8 @@
 			1) `vec4 PixelColor = RedColor * smoothstep(RedFilter, 1., PixelSample.r);
 			2) `PixelColor += (vec4(1., 1., 1., 1.) - PixelColor ) * GreenColor * smoothstep(GreenFilter, 1., PixelSample.g);
 			3) `PixelColor += (vec4(1., 1., 1., 1.) - PixelColor ) * BlueColor * smoothstep(BlueFilter, 1., PixelSample.b);
+	5) Set `COLOR` to #PixelColor 
+		1) `COLOR = PixelColor;`
 2) #NoiseFilter
 	1) Export a `Sampler2D: noise_texture` request with `repeat` enabled
 		1) `uniform sampler2D noise_texture : repeat_enable;
@@ -54,7 +56,10 @@
 		1) `if (NoiseDistortionActive == true){
 			1) `DistortedUVx += (NoiseBrightness - .5) * DistortionColorStrengthX;
 			2) `DistortedUVy += (NoiseBrightness - .5) * DistortionColorStrengthY;`
-	6) Adjust #PixelSample result by each color's distortedUV
+	6) Adjust #PixelSample result by each color's #DistortedUVx and #DistortedUVy 
+		1) `PixelSample.r = texture(TEXTURE, vec2(DistortedUVx.r, DistortedUVy.r)).r;
+		2) `PixelSample.g = texture(TEXTURE, vec2(DistortedUVx.g, DistortedUVy.g)).g;
+		3) `PixelSample.b = texture(TEXTURE, vec2(DistortedUVx.b, DistortedUVy.b)).b;`
 
 ### Adjustment Log
 - 

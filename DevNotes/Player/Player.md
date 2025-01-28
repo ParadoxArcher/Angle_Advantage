@@ -27,6 +27,7 @@ Emulates movement style from [[Data Wing]] but in a combat-focused party game.
 	9) [[Rotation Collision]] 
 3) Visuals
 	1) [[Boost VFX]]
+		1) Create `Sprite2D` called BoostVFX
 	2) [[Avatar VFX]]
 
 ### Adjustment Log
