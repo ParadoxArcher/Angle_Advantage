@@ -50,7 +50,7 @@
             }
           },
           {
-            "id": "da92d90ccf470c88",
+            "id": "61220af015a8ba88",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -116,7 +116,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#CrashImmunity0",
+                "query": "tag:#MoveInput",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -137,7 +137,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -248,12 +249,16 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "da92d90ccf470c88",
+  "active": "d470cc9b7f6eaae3",
   "lastOpenFiles": [
     "DevNotes/ToDoList.md",
+    "DevNotes/Player/Movement/Crash & Wall Bounce.md",
     "DevNotes/Player/Dodge.md",
-    "DevNotes/Color Animation Shader.md",
     "DevNotes/Player/Movement/Brakes.md",
+    "DevNotes/Player/Movement/Movement Visualizer.md",
+    "DevNotes/Player/Movement/Boost.md",
+    "DevNotes/Player/Movement/Rotation.md",
+    "DevNotes/Color Animation Shader.md",
     "zProject Files/Godot/Scenes/Pla6274.tmp",
     "zProject Files/Godot/Shaders/Col6122.tmp",
     "zReferences/Excalidraw/Ability Concepts.excalidraw.md",
@@ -269,20 +274,16 @@
     "zProject Files/Godot/Scenes/GamF1D2.tmp",
     "DevNotes/Player/Player.md",
     "zProject Files/Godot/Scripts/Pla8472.tmp",
-    "DevNotes/Player/Movement/Rotation.md",
-    "DevNotes/Player/Movement/Crash & Wall Bounce.md",
     "Devlogs/2025-01-23.md",
     "Devlogs/2025-01-24.md",
     "DevNotes/Player/Boost VFX.md",
     "zReferences/Excalidraw/Drawing 2025-01-25 09.15.40.excalidraw.md",
-    "DevNotes/Player/Movement/Boost.md",
     "DevNotes/Boost VFX Shader.md",
     "Devlogs/2025-01-25.md",
     "Devlogs/2025-01-17.md",
     "zReferences/Excalidraw/Drawing 2025-01-23 13.45.49.excalidraw.md",
     "zProject Files/Godot/Assets/Boost Color.png",
     "zProject Files/Godot/Assets/Boost Particle.png",
-    "DevNotes/Player/Movement/Movement Visualizer.md",
     "Devlogs/2025-01-14.md",
     "Devlogs/2025-01-16.md",
     "zProject Files/Godot/Assets/Rocket.png",

@@ -6,7 +6,7 @@
 	2) Inside `func _physics_process(_delta):`
 		1) `var MoveInput = Input.get_action_strength("Boost)`
 2) Movement
-	1) Define Speed
+	1) Define #Speed  as `global variable`
 		1) `@export var Speed = 1500`
 	3) After `MoveInput`
 		1) Apply Speed to #velocity when Input is Pressed 
@@ -16,13 +16,13 @@
 			1)  `move_and_slide()`
 3) Acceleration
 	1) Accelerate #velocity
-		1) before `func _physics_process(_delta):` Define #MaxSpeed and #SpeedAccel `
+		1) Define #MaxSpeed and #SpeedAccel  as `global variables
 			1) ~~Speed~~ -> `MaxSpeed`
 			2) `@export var SpeedAccel = .01`
 		2) Apply them to #velocity math
 			1) `velocity.y = lerp(velocity, MaxSpeed, SpeedAccel)`
 4) #BoostDir based on #rotation
-	1) Define #BoostDir  before `func _physics_process(_delta):`
+	1) Define #BoostDir  as `global variable`
 		1) `var BoostDir = Vector2(0, 0)`
 	2) After `MoveInput` and before `velocity.y` math
 		1) Define #BoostDir when trying to move and reset when not
@@ -33,13 +33,13 @@
 		2) Apply #MaxSpeed to #BoostDir and use the full #Vector2 of #velocity
 			1) `velocity = lerp(velocity, BoostDir * MaxSpeed, SpeedAccel)`
 5) Preserve Momentum
-	1) Define #SpeedDecel 
+	1) Define #SpeedDecel  as `global variable`
 		1) `@export var SpeedDecel = .005`
 	2) After `if MoveInput > 0:` and before `velocity` math
 		1) create another #velocity adjustment and lerp it to it's `normalized()` value by #SpeedDecel
 			1) `velocity = lerp(velocity, velocity.normalized(), SpeedDecel)`
 6) #BoostDecay
-	1) Define a #BoostDecay array with 3 variables; a settable, an application ratio, and an initial value
+	1) Define a #BoostDecay  as `global array` with 3 variables; a settable, an application ratio, and an initial value
 		1) `@export var BoostDecay = [0, .015, .8]`
 	2) Set up #BoostDecay to activate
 		1) Inside `if MoveInput.y > 0:` 

@@ -3,7 +3,7 @@
 
 #### Steps
 1) #velocity
-	1) Before `func _process(_delta):` 
+	1)  as `global variables`:
 		1) Define #DisplaySize dictionary and key #CenterGap and #velLength 
 			1) `@export var DisplaySize = {"CenterGap": 30, "velLength": .5}
 		2) Define Dictionary #Displays and key velocity as #Sprites/velDisplay
@@ -16,7 +16,7 @@
 		3) set #velDisplay rotation to the angle of #velocity 
 			1) `Displays["velocity"].rotation = velocity.angle()`
 2) #BoostDir / #BoostDecay
-	1) Before `func _process(_delta):` 
+	1)  adjust `global variables`: 
 		2) Inside #DisplaySize dictionary key #boost_dirLength
 			1) `@export var DisplaySize = {"boost_dirLength": .35`}
 		3) Inside #Displays dictionary key boost_dir as #Sprites/Boost_dir 
@@ -29,7 +29,7 @@
 		3) set #boost_dir rotation to [[Player]] #rotation 
 			1) `Displays["boost_dir"].rotation = rotation`
 3) #RotaSpeed
-	1) ) Before `func _process(_delta):` 
+	1) )  adjust `global variables`
 		2) Inside #DisplaySize dictionary key #rota_speedLength
 			1) `@export var DisplaySize = {"rota_speedLength": .5`}
 		3) Inside #Displays dictionary key rota_speed as #Sprites/rota_speed 
@@ -42,7 +42,7 @@
 		3) set #rota_speed rotation to be perpendicular to #boost_dir 
 			1) `Displays["rota_speed"].rotation = Displays["boost_dir"].rotation + PI/2
 4) Toggleable visibility
-	1) Before `func _process(_delta):` Define #DisplaysActive array as 2 bools
+	1) Define #DisplaysActive  as `global array` of 2 bools
 		1) `@export var DisplaysActive = [false, false]`
 	2) Put contents of `func _process(_delta):` into if statement, requiring #DisplaysActive0 to be true
 		1) `if DisplaysActive[0]:

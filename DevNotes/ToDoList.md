@@ -30,8 +30,8 @@ kanban-plugin: board
 - [x] [[Rotation]]
 - [x] [[Movement Visualizer]]
 - [x] [[Brakes]]
-- [x] [[Dodge]]
 - [x] [[Crash & Wall Bounce]]
+- [x] [[Dodge]]
 - [x] [[Boost|Wall Boost]]
 
 

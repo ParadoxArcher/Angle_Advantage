@@ -2,7 +2,7 @@
 ###### Gives players an effective way to stop allowing us to drastically reduce base deceleration 
 
 #### Steps
-1) Set up variables before `_physics_process(_delta):`
+1)  as `global variables`
 	1) Define #SpeedDecel & #RotaDecel as arrays, where #SpeedDecel1 & #RotaDecel1 are the base values
 		1) `@export var SpeedAccel = [.01, .01]`
 		2) `@export var RotaDecel = [.01, .01]`
