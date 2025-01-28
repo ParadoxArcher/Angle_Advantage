@@ -13,6 +13,9 @@ kanban-plugin: board
 
 - [ ] Document ColorAnimator
 - [ ] Document Boost VFX
+- [ ] impleter Avatar actions
+- [ ] [[Boost VFX]] redfilter bug
+- [ ] [[Boost VFX]] green filter
 
 
 ## [[Player]]
