@@ -70,14 +70,14 @@
             "state": {
               "type": "excalidraw",
               "state": {
-                "file": "zReferences/Excalidraw/Racing Concept.excalidraw.md"
+                "file": "zReferences/Excalidraw/Enclosed Racing Concept.excalidraw.md"
               },
               "icon": "excalidraw-icon",
-              "title": "Racing Concept.excalidraw"
+              "title": "Enclosed Racing Concept.excalidraw"
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -233,10 +233,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zReferences/Excalidraw/Racing Concept.excalidraw.md"
+                "file": "DevNotes/ToDoList.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of Racing Concept.excalidraw"
+              "title": "Outline of ToDoList"
             }
           }
         ],
@@ -260,10 +260,10 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "435608f7729f4aef",
+  "active": "2b906768df75cac8",
   "lastOpenFiles": [
     "DevNotes/Idea splurges/Level Ideas.md",
-    "zReferences/Excalidraw/Racing Concept.excalidraw.md",
+    "zReferences/Excalidraw/Enclosed Racing Concept.excalidraw.md",
     "DevNotes/ToDoList.md",
     "zReferences/Excalidraw/Ability Concepts.excalidraw.md",
     "DevNotes/Idea splurges/Ability ideas.md",

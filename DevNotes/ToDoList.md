@@ -41,6 +41,7 @@ kanban-plugin: board
 - [ ] Gravity Zones
 - [ ] Level Editor
 - [ ] Movement Tracking for Level Creation
+- [ ] [[Enclosed Racing Concept.excalidraw]]
 
 
 ## Gameplay
