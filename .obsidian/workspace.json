@@ -13,13 +13,25 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DevNotes/Player/Dodge.md",
+                "file": "DevNotes/Idea splurges/Ability ideas.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Dodge"
+              "title": "Ability ideas"
+            }
+          },
+          {
+            "id": "1b62d25c2492d6d2",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "zReferences/Excalidraw/Ability Concepts.excalidraw.md"
+              },
+              "icon": "excalidraw-icon",
+              "title": "Ability Concepts.excalidraw"
             }
           },
           {
@@ -79,7 +91,8 @@
               "title": "Brakes"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -235,10 +248,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DevNotes/Player/Dodge.md"
+                "file": "zReferences/Excalidraw/Ability Concepts.excalidraw.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of Dodge"
+              "title": "Outline of Ability Concepts.excalidraw"
             }
           }
         ],
@@ -262,8 +275,13 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "9a115c1afccdcff2",
+  "active": "1b62d25c2492d6d2",
   "lastOpenFiles": [
+    "DevNotes/Idea splurges/Ability ideas.md",
+    "zReferences/Excalidraw/Ability Concepts.excalidraw.md",
+    "DevNotes/Idea splurges/Level Ideas.md",
+    "DevNotes/Player/Dodge.md",
+    "2025-W04.md",
     "zProject Files/Godot/Scripts/Pla9FBA.tmp",
     "zProject Files/Godot/Scenes/PlaDF4D.tmp",
     "zProject Files/Godot/Scenes/GamDDE7.tmp",
@@ -272,11 +290,9 @@
     "zProject Files/Godot/Scripts/PlaF1E5.tmp",
     "zProject Files/Godot/Scenes/GamF1D2.tmp",
     "DevNotes/Player/Player.md",
-    "DevNotes/Player/Dodge.md",
     "zProject Files/Godot/Scripts/Pla8472.tmp",
     "zProject Files/Godot/Scripts/PlaDB3B.tmp",
     "zProject Files/Godot/Scripts/Pla60D4.tmp",
-    "zProject Files/Godot/Scenes/Pla3628.tmp",
     "DevNotes/ToDoList.md",
     "DevNotes/Color Animation Shader.md",
     "DevNotes/Player/Movement/Brakes.md",
@@ -288,14 +304,11 @@
     "zReferences/Excalidraw/Drawing 2025-01-25 09.15.40.excalidraw.md",
     "DevNotes/Player/Movement/Boost.md",
     "DevNotes/Boost VFX Shader.md",
-    "2025-W04.md",
     "Devlogs/2025-01-25.md",
     "Devlogs/2025-01-17.md",
     "zReferences/Excalidraw/Drawing 2025-01-23 13.45.49.excalidraw.md",
     "zProject Files/Godot/Assets/Boost Color.png",
     "zProject Files/Godot/Assets/Boost Particle.png",
-    "DevNotes/Idea splurges/Level Ideas.md",
-    "DevNotes/Idea splurges/Ability ideas.md",
     "DevNotes/Player/Movement/Movement Visualizer.md",
     "Devlogs/2025-01-14.md",
     "Devlogs/2025-01-16.md",

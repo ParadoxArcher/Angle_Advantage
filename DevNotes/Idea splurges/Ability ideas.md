@@ -1,4 +1,6 @@
 
+[[Ability Concepts.excalidraw]]
+
 - 3 use Rocket that slowly accelerates forward
 - machine gun
 - channeled DoT laser that pushes back the user significantly
