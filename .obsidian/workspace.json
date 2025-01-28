@@ -48,21 +48,6 @@
               "icon": "lucide-trello",
               "title": "ToDoList"
             }
-          },
-          {
-            "id": "f7d9c9a1bd40f123",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "DevNotes/Player/Movement/Boost.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Boost"
-            }
           }
         ]
       }
@@ -249,16 +234,18 @@
   },
   "active": "57b3b42b76c12d29",
   "lastOpenFiles": [
+    "zProject Files/Godot/Scenes/Pla14D1.tmp",
+    "zProject Files/Godot/Scripts/Pla1368.tmp",
+    "DevNotes/Player/Movement/Rotation.md",
+    "DevNotes/Player/Movement/Brakes.md",
+    "DevNotes/ToDoList.md",
+    "DevNotes/Player/Movement/Boost.md",
+    "DevNotes/Player/Dodge.md",
     "zProject Files/Godot/Scenes/Pla596D.tmp",
     "zProject Files/Godot/Shaders/Col5818.tmp",
     "zProject Files/Godot/Scripts/Pla57F4.tmp",
-    "DevNotes/Player/Movement/Boost.md",
-    "DevNotes/ToDoList.md",
-    "DevNotes/Player/Dodge.md",
     "DevNotes/Player/Movement/Crash & Wall Bounce.md",
-    "DevNotes/Player/Movement/Brakes.md",
     "DevNotes/Player/Movement/Movement Visualizer.md",
-    "DevNotes/Player/Movement/Rotation.md",
     "DevNotes/Color Animation Shader.md",
     "zProject Files/Godot/Scenes/Pla6274.tmp",
     "zProject Files/Godot/Shaders/Col6122.tmp",
@@ -270,8 +257,6 @@
     "zProject Files/Godot/Scenes/PlaDF4D.tmp",
     "zProject Files/Godot/Scenes/GamDDE7.tmp",
     "zProject Files/Godot/Scenes/PlaF35E.tmp",
-    "zProject Files/Godot/Shaders/ColF209.tmp",
-    "zProject Files/Godot/Scripts/PlaF1E5.tmp",
     "DevNotes/Player/Player.md",
     "Devlogs/2025-01-23.md",
     "Devlogs/2025-01-24.md",
