@@ -99,14 +99,14 @@ target_position = Vector2(-90, 75)
 [node name="VFX" type="Node2D" parent="."]
 show_behind_parent = true
 
-[node name="BoostSprite" type="Sprite2D" parent="VFX"]
+[node name="BoostVFX" type="Sprite2D" parent="VFX"]
 show_behind_parent = true
 material = SubResource("ShaderMaterial_m5b53")
 position = Vector2(-92, 0.999664)
 rotation = 1.5708
 texture = ExtResource("7_cnoma")
 
-[node name="BoostParticle" type="CPUParticles2D" parent="VFX/BoostSprite"]
+[node name="BoostParticle" type="CPUParticles2D" parent="VFX/BoostVFX"]
 show_behind_parent = true
 position = Vector2(-0.999997, -68)
 rotation = 1.5708

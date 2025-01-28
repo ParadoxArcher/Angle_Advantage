@@ -26,9 +26,11 @@ Emulates movement style from [[Data Wing]] but in a combat-focused party game.
 		2) Added script to the `Node2D` called `WallBoostDetection
 	9) [[Rotation Collision]] 
 3) Visuals
-	1) [[Boost VFX]]
-		1) Create `Sprite2D` called BoostVFX
-	2) [[Avatar VFX]]
+	1) Create `Node2D` called `VFX`
+	2) [[Boost VFX]]
+		1) Under `VFX` create `Sprite2D` called `BoostVFX
+		2) Under `BoostVFX` create `CPUParticles2D` called `BoostParticle`
+	3) [[Avatar VFX]]
 
 ### Adjustment Log
 1) [[2025-01-23]]
