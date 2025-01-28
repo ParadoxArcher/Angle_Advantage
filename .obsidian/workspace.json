@@ -49,7 +49,8 @@
               "title": "ToDoList"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -205,10 +206,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DevNotes/Player/Dodge.md"
+                "file": "DevNotes/ToDoList.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of Dodge"
+              "title": "Outline of ToDoList"
             }
           }
         ],
@@ -232,15 +233,15 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "57b3b42b76c12d29",
+  "active": "2b906768df75cac8",
   "lastOpenFiles": [
+    "DevNotes/Player/Dodge.md",
+    "DevNotes/ToDoList.md",
     "zProject Files/Godot/Scenes/Pla14D1.tmp",
     "zProject Files/Godot/Scripts/Pla1368.tmp",
     "DevNotes/Player/Movement/Rotation.md",
     "DevNotes/Player/Movement/Brakes.md",
-    "DevNotes/ToDoList.md",
     "DevNotes/Player/Movement/Boost.md",
-    "DevNotes/Player/Dodge.md",
     "zProject Files/Godot/Scenes/Pla596D.tmp",
     "zProject Files/Godot/Shaders/Col5818.tmp",
     "zProject Files/Godot/Scripts/Pla57F4.tmp",
@@ -256,7 +257,6 @@
     "zProject Files/Godot/Scripts/Pla9FBA.tmp",
     "zProject Files/Godot/Scenes/PlaDF4D.tmp",
     "zProject Files/Godot/Scenes/GamDDE7.tmp",
-    "zProject Files/Godot/Scenes/PlaF35E.tmp",
     "DevNotes/Player/Player.md",
     "Devlogs/2025-01-23.md",
     "Devlogs/2025-01-24.md",

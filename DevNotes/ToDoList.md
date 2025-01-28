@@ -6,19 +6,18 @@ kanban-plugin: board
 
 ## Current
 
-- [ ] Document Dodge
+- [ ] Document ColorAnimator
+- [ ] Document Boost VFX
+- [ ] impleter Avatar actions
+- [ ] Dodge CD VFX via [[Action VFX]]
 - [ ] Dodge Cooldown
 
 
 ## Soon
 
-- [ ] Document ColorAnimator
-- [ ] Document Boost VFX
-- [ ] impleter Avatar actions
 - [ ] [[Boost VFX]] redfilter bug
 - [ ] [[Boost VFX]] green filter
 - [ ] adjust friction to be linear, not exponential
-- [ ] Dodge CD VFX via [[Action VFX]]
 - [ ] [[Rotation Collision]]
 - [ ] [[Wall Boost]] increases #MaxSpeed, not #SpeedAccel
 - [ ] Particle [[Dodge VFX]]
