@@ -55,13 +55,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DevNotes/Idea splurges/Ability ideas.md",
+                "file": "DevNotes/Idea splurges/Level Ideas.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Ability ideas"
+              "title": "Level Ideas"
             }
           },
           {
@@ -262,8 +262,9 @@
   },
   "active": "491d9a288b024963",
   "lastOpenFiles": [
-    "DevNotes/Idea splurges/Ability ideas.md",
+    "DevNotes/Idea splurges/Level Ideas.md",
     "zReferences/Excalidraw/Ability Concepts.excalidraw.md",
+    "DevNotes/Idea splurges/Ability ideas.md",
     "DevNotes/ToDoList.md",
     "DevNotes/Player/Dodge.md",
     "zProject Files/Godot/Scenes/Pla14D1.tmp",
@@ -279,7 +280,6 @@
     "DevNotes/Color Animation Shader.md",
     "zProject Files/Godot/Scenes/Pla6274.tmp",
     "zProject Files/Godot/Shaders/Col6122.tmp",
-    "DevNotes/Idea splurges/Level Ideas.md",
     "2025-W04.md",
     "zProject Files/Godot/Scripts/Pla9FBA.tmp",
     "zProject Files/Godot/Scenes/PlaDF4D.tmp",
