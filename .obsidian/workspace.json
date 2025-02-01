@@ -50,6 +50,18 @@
             }
           },
           {
+            "id": "01ac56d46c32af49",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.8.4"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.8.4"
+            }
+          },
+          {
             "id": "38f3ff542ecb8671",
             "type": "leaf",
             "state": {
@@ -107,7 +119,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -146,7 +158,8 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical"
+                "sortOrder": "alphabetical",
+                "autoReveal": false
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -263,10 +276,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DevNotes/ToDoList.md"
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of ToDoList"
+              "title": "Outline"
             }
           }
         ],
@@ -290,7 +305,7 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "2b906768df75cac8",
+  "active": "01ac56d46c32af49",
   "lastOpenFiles": [
     "zProject Files/Godot/Shaders/ColFDAF.tmp",
     "DevNotes/Player/Movement/Dodge.md",
