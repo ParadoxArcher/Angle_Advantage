@@ -53,12 +53,16 @@
             "id": "01ac56d46c32af49",
             "type": "leaf",
             "state": {
-              "type": "release-notes",
+              "type": "kanban",
               "state": {
-                "currentVersion": "1.8.4"
+                "file": "Untitled Kanban.md",
+                "kanbanViewState": {
+                  "kanban-plugin": "board",
+                  "list-collapse": []
+                }
               },
-              "icon": "lucide-book-up",
-              "title": "Release Notes 1.8.4"
+              "icon": "lucide-trello",
+              "title": "Untitled Kanban"
             }
           },
           {
@@ -276,12 +280,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "Untitled Kanban.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Outline of Untitled Kanban"
             }
           }
         ],
@@ -307,6 +312,7 @@
   },
   "active": "01ac56d46c32af49",
   "lastOpenFiles": [
+    "Untitled Kanban.md",
     "zReferences/Excalidraw/Enclosed Racing Concept.excalidraw.md",
     "zProject Files/Godot/Shaders/ColFDAF.tmp",
     "DevNotes/Player/Movement/Dodge.md",
