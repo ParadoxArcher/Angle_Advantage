@@ -154,9 +154,33 @@
               "icon": "excalidraw-icon",
               "title": "Drawing 2025-03-12 12.43.39.excalidraw"
             }
+          },
+          {
+            "id": "8f91c9dea0931037",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "DevNotes/Player/Player.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "Player"
+            }
           }
         ],
-        "currentTab": 6
+        "currentTab": 7
       }
     ],
     "direction": "vertical"
@@ -313,13 +337,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zReferences/Excalidraw/Drawing 2025-03-12 12.43.39.excalidraw.md",
+                "file": "DevNotes/Player/Player.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Drawing 2025-03-12 12.43.39.excalidraw"
+              "title": "Outline of Player"
             }
           }
         ],
@@ -343,11 +367,12 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "db08f7477d3f1010",
+  "active": "8f91c9dea0931037",
   "lastOpenFiles": [
-    "zProject Files/Godot/Scripts/Pla55B2.tmp",
-    "zReferences/Excalidraw/Drawing 2025-03-12 12.43.39.excalidraw.md",
     "DevNotes/ToDoList.md",
+    "zReferences/Excalidraw/Drawing 2025-03-12 12.43.39.excalidraw.md",
+    "zProject Files/Godot/Scenes/Pla38B1.tmp",
+    "zProject Files/Godot/Scripts/Pla55B2.tmp",
     "DevNotes/Player/Movement/Boost VFX.md",
     "DevNotes/Player/Movement/Boost.md",
     "DevNotes/Color Animation Shader.md",
@@ -361,8 +386,6 @@
     "zProject Files/Godot/Scripts/Pla7C63.tmp",
     "zProject Files/Godot/Scripts/Pla6CE.tmp",
     "zProject Files/Godot/Scripts/PlaA863.tmp",
-    "zProject Files/Godot/Scenes/GamA841.tmp",
-    "zProject Files/Godot/Scenes/Pla8F96.tmp",
     "DevNotes/Player/Movement/Dodge.md",
     "zReferences/Excalidraw/Drawing 2025-03-12 11.44.59.excalidraw.md",
     "DevNotes/Idea splurges/Level Ideas.md",
