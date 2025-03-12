@@ -144,7 +144,7 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -301,13 +301,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DevNotes/Player/Movement/Boost VFX.md",
+                "file": "DevNotes/ToDoList.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Boost VFX"
+              "title": "Outline of ToDoList"
             }
           }
         ],
@@ -331,12 +331,12 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "29450da188c3ca0e",
+  "active": "2b906768df75cac8",
   "lastOpenFiles": [
+    "DevNotes/Player/Movement/Boost VFX.md",
     "DevNotes/Player/Movement/Boost.md",
     "DevNotes/Color Animation Shader.md",
     "DevNotes/Player/Movement/Crash & Wall Bounce.md",
-    "DevNotes/Player/Movement/Boost VFX.md",
     "DevNotes/ToDoList.md",
     "zReferences/Excalidraw/Enclosed Racing Concept.excalidraw.md",
     "zProject Files/Godot/Scripts/PlaB56B.tmp",

@@ -14,11 +14,15 @@
 			1) a
 				1) 
 	3) Green
-		1) Base on #velocity relative to #MaxSpeed & [[Player]] #rotation
-			1) Get Relative #velocity of Player to #MaxSpeed 
-				1) ``
+		1) Base on #velocity relative to #MaxSpeed & #rotation
+			1) Find #velocityLength relative to #MaxSpeed 
+				1) `var GreenFilterScaler = (velocity.length() / MaxSpeed )`
+			2) Multiply by #velocityDir relative to #rotation
+				1)  `* ((1 + velocity.normalized().dot(Vector2(-sin(rotation - PI/2), cos(rotation - PI/2))) ) / 2 )
+		2) Call shader to adjust `GreenFilter` to base amount minus scaled amount
+			1) `boost_sprite.material.set_shader_parameter("GreenFilter", .8 - GreenFilterScaler * .8)
 	4) Blue
-		1) unimplented
+		2) unimplented
 2) `BoostParticle
 
 ### Adjustment Log
