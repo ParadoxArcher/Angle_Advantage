@@ -8,12 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "57b3b42b76c12d29",
+            "id": "96b600a550ef6aa6",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DevNotes/Player/Movement/Dodge.md",
+                "file": "Devlogs/2025-03-12.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,7 +28,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "Dodge"
+              "title": "2025-03-12"
             }
           },
           {
@@ -65,7 +65,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DevNotes/Idea splurges/Level Ideas.md",
+                "file": "DevNotes/Player/Movement/Boost.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -80,7 +80,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "Level Ideas"
+              "title": "Boost"
             }
           },
           {
@@ -180,7 +180,7 @@
             }
           }
         ],
-        "currentTab": 7
+        "currentTab": 6
       }
     ],
     "direction": "vertical"
@@ -337,13 +337,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DevNotes/Player/Player.md",
+                "file": "zReferences/Excalidraw/Drawing 2025-03-12 12.43.39.excalidraw.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Player"
+              "title": "Outline of Drawing 2025-03-12 12.43.39.excalidraw"
             }
           }
         ],
@@ -367,31 +367,31 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "8f91c9dea0931037",
+  "active": "db08f7477d3f1010",
   "lastOpenFiles": [
+    "DevNotes/Player/Player.md",
+    "DevNotes/ToDoList.md",
+    "DevNotes/Player/Movement/Boost.md",
+    "Devlogs/2025-03-12.md",
+    "DevNotes/Player/Movement/Dodge.md",
+    "DevNotes/Player/Movement/Boost VFX.md",
+    "DevNotes/Idea splurges/Level Ideas.md",
+    "zReferences/Excalidraw/Drawing 2025-03-12 12.43.39.excalidraw.md",
+    "zProject Files/Godot/Scripts/PlaF353.tmp",
+    "zProject Files/Godot/Scripts/Pla2444.tmp",
+    "zProject Files/Godot/Scripts/Pla64A.tmp",
     "zProject Files/Godot/Scripts/PlaF291.tmp",
     "zProject Files/Godot/Scenes/Wal322B.tmp",
     "zProject Files/Godot/Scripts/Pla31F7.tmp",
-    "DevNotes/ToDoList.md",
-    "zReferences/Excalidraw/Drawing 2025-03-12 12.43.39.excalidraw.md",
     "zProject Files/Godot/Scenes/Pla38B1.tmp",
     "zProject Files/Godot/Scripts/Pla55B2.tmp",
-    "DevNotes/Player/Movement/Boost VFX.md",
-    "DevNotes/Player/Movement/Boost.md",
     "DevNotes/Color Animation Shader.md",
     "DevNotes/Player/Movement/Crash & Wall Bounce.md",
     "zReferences/Excalidraw/Enclosed Racing Concept.excalidraw.md",
     "zProject Files/Godot/Scripts/PlaB56B.tmp",
     "zProject Files/Godot/Scripts/PlaB096.tmp",
-    "zProject Files/Godot/Scripts/Pla778E.tmp",
-    "zProject Files/Godot/Scripts/Pla9BA3.tmp",
-    "zProject Files/Godot/Scripts/Pla4F6A.tmp",
-    "zProject Files/Godot/Scripts/Pla7C63.tmp",
-    "DevNotes/Player/Movement/Dodge.md",
     "zReferences/Excalidraw/Drawing 2025-03-12 11.44.59.excalidraw.md",
-    "DevNotes/Idea splurges/Level Ideas.md",
     "Untitled Kanban.md",
-    "DevNotes/Player/Player.md",
     "DevNotes/ColorAnimator.md",
     "zReferences/Excalidraw/Ability Concepts.excalidraw.md",
     "DevNotes/Idea splurges/Ability ideas.md",

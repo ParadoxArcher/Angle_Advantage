@@ -75,3 +75,6 @@
 	- Scales #BoostDecay0 by #MoveInputY
 - [[2025-01-23]]
 	- #BoostDecay0 is now properly capped by #MoveInputY
+- [[2025-03-12]]
+	- #BoostDir is unlinked with acceleration and merely determine velocity direction
+	- #SpeedAccel is controlled by #BoostDecay to determine velocity

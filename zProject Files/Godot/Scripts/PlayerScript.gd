@@ -75,9 +75,11 @@ func _physics_process(_delta):
 			SpeedAccel[1] = SpeedAccel[2] * BoostDecay[0]
 			
 		else:
-			SpeedAccel[1] = SpeedAccel[2] * BoostDecay[0] * BoostDecay[2]
 			BoostDecay[0] -= clampf(BoostDecay[1], 0, BoostDecay[0])
+			SpeedAccel[1] = SpeedAccel[2] * BoostDecay[0] * BoostDecay[2]
 	#endregion
+	
+	print(SpeedAccel[1])
 	
 	#region Rotation --- Defines rotation acceleration and it's momentum
 	if MoveInput.x != 0: 
@@ -99,6 +101,8 @@ func _physics_process(_delta):
 	
 	velocity = lerp(velocity, velocity.normalized(), SpeedDecel[0]) # Momentum
 	velocity = lerp(velocity, MaxSpeed * Vector2(cos(rotation), sin(rotation)), SpeedAccel[1] * SpeedAccel[0]) # Acceleration
+	
+	SpeedAccel[0] = 1.0
 	
 	if RotaAccel[0] != RotaAccel[1]:
 		RotaAccel[0] -= clampf((RotaAccel[0] - RotaAccel[1] ) * RotaAccel[2], 0, RotaAccel[0] - RotaAccel[1])

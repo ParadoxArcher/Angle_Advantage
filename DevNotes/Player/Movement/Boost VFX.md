@@ -26,6 +26,6 @@
 2) `BoostParticle
 
 ### Adjustment Log
-- 
-	- 
+- - [[2025-03-12]]
+	- - #GreenFilter now correlates with velocity direction
 	 
