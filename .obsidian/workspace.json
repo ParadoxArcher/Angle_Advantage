@@ -180,7 +180,7 @@
             }
           }
         ],
-        "currentTab": 7
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -338,13 +338,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DevNotes/Player/Player.md",
+                "file": "DevNotes/ToDoList.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Player"
+              "title": "Outline of ToDoList"
             }
           }
         ],
@@ -368,8 +368,9 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "8f91c9dea0931037",
+  "active": "2b906768df75cac8",
   "lastOpenFiles": [
+    "DevNotes/Player/Player.md",
     "zProject Files/Godot/Scenes/Showerhead.gdshader",
     "zProject Files/Godot/Scripts/Pla3E64.tmp",
     "zProject Files/Godot/Scripts/Pla7B70.tmp",
@@ -380,13 +381,11 @@
     "zProject Files/Godot/Scripts/Pla4E96.tmp",
     "zProject Files/Godot/Scenes/Pla4E74.tmp",
     "zProject Files/Godot/Scripts/Pla6B13.tmp",
-    "zProject Files/Godot/Scenes/Pla6B00.tmp",
     "DevNotes/Player/Movement/Boost VFX.md",
     "DevNotes/Player/Movement/Boost.md",
     "DevNotes/ToDoList.md",
     "Devlogs/2025-03-12.md",
     "zReferences/Excalidraw/Drawing 2025-03-12 12.43.39.excalidraw.md",
-    "DevNotes/Player/Player.md",
     "DevNotes/Player/Movement/Dodge.md",
     "DevNotes/Idea splurges/Level Ideas.md",
     "DevNotes/Color Animation Shader.md",

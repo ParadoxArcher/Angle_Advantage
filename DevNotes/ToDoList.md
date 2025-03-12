@@ -11,6 +11,7 @@ kanban-plugin: board
 - [ ] set up redfilter again, documentate
 - [ ] [[Boost VFX]] redfilter bug sets VFX to max
 - [ ] Document Boost VFX
+- [ ] Learn and create particle shader
 
 
 ## Band-aids
