@@ -109,7 +109,7 @@ func _physics_process(_delta):
 	if RotaAccel[0] != RotaAccel[1]:
 		RotaAccel[0] -= clampf((RotaAccel[0] - RotaAccel[1] ) * RotaAccel[2], 0, RotaAccel[0] - RotaAccel[1])
 	
-	boost_sprite.material.set_shader_parameter("GreenFilter", .6 - clampf((velocity.length() / MaxSpeed * .6 ), 0, 1)) # VFX
+	boost_sprite.material.set_shader_parameter("GreenFilter", .8 - (velocity.length() / MaxSpeed * .8 )) # VFX
 	#endregion
 	
 	#region Collision --- Crash && WallBounce
@@ -132,7 +132,7 @@ func _physics_process(_delta):
 		#BounceVFX[0] += clampf(BounceVFX[1], 0, 1 - BounceVFX[0])
 		#boost_sprite.material.set_shader_parameter("GreenFilter", clampf(BounceVFX[0], 0, 1))
 	#endregion
-	print(Vector2(-cos(rotation), -sin(rotation)))
+	print(1 - velocity.normalized().dot(Vector2(sin(rotation), cos(rotation))))
 
 #region Graphics Variables
 ##Markers Variables
