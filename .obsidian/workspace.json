@@ -142,9 +142,21 @@
               "icon": "lucide-file",
               "title": "Boost VFX"
             }
+          },
+          {
+            "id": "db08f7477d3f1010",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "zReferences/Excalidraw/Drawing 2025-03-12 12.43.39.excalidraw.md"
+              },
+              "icon": "excalidraw-icon",
+              "title": "Drawing 2025-03-12 12.43.39.excalidraw"
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 6
       }
     ],
     "direction": "vertical"
@@ -301,13 +313,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DevNotes/ToDoList.md",
+                "file": "zReferences/Excalidraw/Drawing 2025-03-12 12.43.39.excalidraw.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of ToDoList"
+              "title": "Outline of Drawing 2025-03-12 12.43.39.excalidraw"
             }
           }
         ],
@@ -331,13 +343,15 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "2b906768df75cac8",
+  "active": "db08f7477d3f1010",
   "lastOpenFiles": [
+    "zProject Files/Godot/Scripts/Pla55B2.tmp",
+    "zReferences/Excalidraw/Drawing 2025-03-12 12.43.39.excalidraw.md",
+    "DevNotes/ToDoList.md",
     "DevNotes/Player/Movement/Boost VFX.md",
     "DevNotes/Player/Movement/Boost.md",
     "DevNotes/Color Animation Shader.md",
     "DevNotes/Player/Movement/Crash & Wall Bounce.md",
-    "DevNotes/ToDoList.md",
     "zReferences/Excalidraw/Enclosed Racing Concept.excalidraw.md",
     "zProject Files/Godot/Scripts/PlaB56B.tmp",
     "zProject Files/Godot/Scripts/PlaB096.tmp",
@@ -367,7 +381,6 @@
     "DevNotes/Boost VFX Shader.md",
     "Devlogs/2025-01-25.md",
     "Devlogs/2025-01-17.md",
-    "zReferences/Excalidraw/Drawing 2025-01-23 13.45.49.excalidraw.md",
     "zProject Files/Godot/Assets/Boost Color.png",
     "zProject Files/Godot/Assets/Boost Particle.png",
     "zProject Files/Godot/Assets/Rocket.png",

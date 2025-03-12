@@ -109,8 +109,8 @@ func _physics_process(_delta):
 	if RotaAccel[0] != RotaAccel[1]:
 		RotaAccel[0] -= clampf((RotaAccel[0] - RotaAccel[1] ) * RotaAccel[2], 0, RotaAccel[0] - RotaAccel[1])
 	
-	var GreenFilterScaler = (velocity.length() / MaxSpeed ) * ((1 + velocity.normalized().dot(Vector2(-sin(rotation - PI/2), cos(rotation - PI/2))) ) / 2 )
-	boost_sprite.material.set_shader_parameter("GreenFilter", .8 - GreenFilterScaler * .8) # VFX
+	var GreenFilterScaler = (velocity.length() / MaxSpeed ) * ((1 + velocity.normalized().dot(Vector2(-sin(rotation - PI/2), cos(rotation - PI/2))) ) / 2 ) # VFX
+	boost_sprite.material.set_shader_parameter("GreenFilter", .8 - GreenFilterScaler * .8)
 	#endregion
 	
 	#region Collision --- Crash && WallBounce
