@@ -50,22 +50,6 @@
             }
           },
           {
-            "id": "01ac56d46c32af49",
-            "type": "leaf",
-            "state": {
-              "type": "kanban",
-              "state": {
-                "file": "Untitled Kanban.md",
-                "kanbanViewState": {
-                  "kanban-plugin": "board",
-                  "list-collapse": []
-                }
-              },
-              "icon": "lucide-trello",
-              "title": "Untitled Kanban"
-            }
-          },
-          {
             "id": "38f3ff542ecb8671",
             "type": "leaf",
             "state": {
@@ -115,15 +99,24 @@
               "state": {
                 "file": "DevNotes/Player/Movement/Boost VFX.md",
                 "mode": "source",
+                "source": false,
                 "backlinks": true,
-                "source": false
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
               },
               "icon": "lucide-file",
               "title": "Boost VFX"
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -280,13 +273,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Untitled Kanban.md",
+                "file": "DevNotes/ToDoList.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Untitled Kanban"
+              "title": "Outline of ToDoList"
             }
           }
         ],
@@ -310,32 +303,33 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "01ac56d46c32af49",
+  "active": "2b906768df75cac8",
   "lastOpenFiles": [
+    "zProject Files/Godot/Scenes/PlaBF42.tmp",
+    "zProject Files/Godot/Scenes/Pla3F7D.tmp",
+    "zProject Files/Godot/Shaders/Col3DDA.tmp",
+    "zProject Files/Godot/Shaders/Col3DC7.tmp",
+    "zProject Files/Godot/Scenes/Gam3DB5.tmp",
+    "DevNotes/Player/Movement/Boost VFX.md",
     "Untitled Kanban.md",
+    "DevNotes/ToDoList.md",
+    "zProject Files/Godot/pro3C0C.tmp",
     "zReferences/Excalidraw/Enclosed Racing Concept.excalidraw.md",
     "zProject Files/Godot/Shaders/ColFDAF.tmp",
     "DevNotes/Player/Movement/Dodge.md",
-    "DevNotes/Player/Movement/Boost VFX.md",
     "DevNotes/Player/Player.md",
     "zProject Files/Godot/Scripts/Pla9676.tmp",
     "zProject Files/Godot/Scenes/Pla9654.tmp",
     "zProject Files/Godot/Shaders/Col7FE4.tmp",
     "zProject Files/Godot/Scenes/Pla7FC2.tmp",
-    "DevNotes/ToDoList.md",
     "DevNotes/Color Animation Shader.md",
     "DevNotes/ColorAnimator.md",
     "DevNotes/Idea splurges/Level Ideas.md",
     "zReferences/Excalidraw/Ability Concepts.excalidraw.md",
     "DevNotes/Idea splurges/Ability ideas.md",
-    "zProject Files/Godot/Scenes/Pla14D1.tmp",
-    "zProject Files/Godot/Scripts/Pla1368.tmp",
     "DevNotes/Player/Movement/Rotation.md",
     "DevNotes/Player/Movement/Brakes.md",
     "DevNotes/Player/Movement/Boost.md",
-    "zProject Files/Godot/Scenes/Pla596D.tmp",
-    "zProject Files/Godot/Shaders/Col5818.tmp",
-    "zProject Files/Godot/Scripts/Pla57F4.tmp",
     "DevNotes/Player/Movement/Crash & Wall Bounce.md",
     "DevNotes/Player/Movement/Movement Visualizer.md",
     "2025-W04.md",
@@ -349,7 +343,6 @@
     "zProject Files/Godot/Assets/Boost Color.png",
     "zProject Files/Godot/Assets/Boost Particle.png",
     "Devlogs/2025-01-14.md",
-    "Devlogs/2025-01-16.md",
     "zProject Files/Godot/Assets/Rocket.png",
     "zReferences/Images/Data Wing.jpg",
     "Reference Images/Images/Pasted image 20250112075332.png",
