@@ -73,14 +73,21 @@ func _physics_process(_delta):
 		if MoveInput.y / BoostDecay[2] >= BoostDecay[0]:
 			BoostDecay[0] += clampf(2 * BoostDecay[1] * MoveInput.y, 0, MoveInput.y - BoostDecay[0])
 			SpeedAccel[1] = SpeedAccel[2] * BoostDecay[0]
-			boost_particle.emitting = true
 			
+			boost_particle.amount = 4
 		else:
 			BoostDecay[0] -= clampf(BoostDecay[1], 0, BoostDecay[0])
 			SpeedAccel[1] = SpeedAccel[2] * BoostDecay[0] * BoostDecay[2]
+			
+			var Particles = clampi(round(BoostDecay[0] * 5), 1, 5)
+			if Particles != boost_particle.amount:
+				boost_particle.amount = Particles
+			
+		boost_particle.emitting = true #VFX
+		print(boost_particle.amount)
+	else:
+		pass
 	#endregion
-	
-	print(velocity)
 	
 	#region Rotation --- Defines rotation acceleration and it's momentum
 	if MoveInput.x != 0: 

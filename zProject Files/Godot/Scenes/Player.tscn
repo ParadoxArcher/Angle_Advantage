@@ -42,7 +42,7 @@ _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.99999, 1.74725), 0.0, 0.0, 0, 
 point_count = 3
 
 [sub_resource type="Gradient" id="Gradient_88hfk"]
-offsets = PackedFloat32Array(0.0866667, 0.206667, 0.326667, 0.7, 0.88)
+offsets = PackedFloat32Array(0.0866667, 0.206667, 0.326667, 0.84, 0.933333)
 colors = PackedColorArray(0.490196, 0, 1, 0, 0.756863, 0.486275, 1, 1, 0.490196, 0, 1, 1, 0.490196, 0, 1, 1, 0.490196, 0, 1, 0)
 
 [node name="Player" type="CharacterBody2D"]
@@ -108,19 +108,20 @@ texture = ExtResource("7_cnoma")
 
 [node name="BoostParticle" type="CPUParticles2D" parent="VFX/BoostVFX"]
 show_behind_parent = true
-position = Vector2(-0.999997, -68)
+position = Vector2(-1, -90)
 rotation = 1.5708
-amount = 3
+amount = 5
+lifetime = 0.4
 explosiveness = 0.2
-randomness = 1.0
-lifetime_randomness = 0.25
+randomness = 0.75
+lifetime_randomness = 0.5
 local_coords = true
 texture = ExtResource("6_q13sk")
 particle_flag_align_y = true
-spread = 60.0
+spread = 40.0
 gravity = Vector2(0, 0)
-initial_velocity_min = 400.0
-initial_velocity_max = 400.0
+initial_velocity_min = 500.0
+initial_velocity_max = 500.0
 scale_amount_min = 0.05
 scale_amount_max = 0.1
 split_scale = true
