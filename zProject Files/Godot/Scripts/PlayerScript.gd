@@ -4,13 +4,13 @@ extends CharacterBody2D
 var MoveInput = Vector2(0, 0)
 
 ## Brake Variables
-@export var BrakeDecelMult = [10.0, 3.0] # {0: SpeedDecelMult, 1: RotaDecelMult}
+@export var BrakeDecelMult = [4.0, 3.0] # {0: SpeedDecelMult, 1: RotaDecelMult}
 
 ## Boost Variables
 @export var MaxSpeed = 2000
 @export var BoostDecay = [0, .015, .8] # {0: Final,  1:DecayRate, 2:ReleaseAccelScaler(cannot be 0)}
 @export var SpeedAccel = [1.0, 0, .01] # {0: Global Mod, 1: BoostResult, 2: BaseSpeedAccel} ## Beware WallBoostScale
-@export var SpeedDecel = [.001, .001] # {0: Fluctuating,  1: Decel} ## Beware BrakeDecelMult
+@export var SpeedDecel = [.002, .002] # {0: Fluctuating,  1: Decel} ## Beware BrakeDecelMult
 var AccelRate = 0
 
 ## Rotation Variables

@@ -22,9 +22,7 @@
 		2) Apply them to #velocity math
 			1) `velocity.y = lerp(velocity, MaxSpeed, SpeedAccel)`
 4) #BoostDir based on #rotation
-	1) Define #BoostDir  as `global variable`
-		1) `var BoostDir = Vector2(0, 0)`
-	2) After `MoveInput` and before `velocity.y` math
+	1) After `MoveInput` and before `velocity.y` math
 		1) Define #BoostDir when trying to move and reset when not
 			1) `if MoveInput > 0:
 				1) `BoostDir = Vector2(cos(rotation), sin(rotation)) * MoveInput.y
@@ -33,11 +31,11 @@
 		2) Apply #MaxSpeed to #BoostDir and use the full #Vector2 of #velocity
 			1) `velocity = lerp(velocity, BoostDir * MaxSpeed, SpeedAccel)`
 5) Preserve Momentum
-	1) Define #SpeedDecel  as `global variable`
+	2) Define #SpeedDecel  as `global variable`
 		1) `@export var SpeedDecel = .005`
-	2) After `if MoveInput > 0:` and before `velocity` math
-		1) create another #velocity adjustment and lerp it to it's `normalized()` value by #SpeedDecel
-			1) `velocity = lerp(velocity, velocity.normalized(), SpeedDecel)`
+	3) After `if MoveInput > 0:` and before `velocity` math
+		1) create another #velocity adjustment that decreases by #SpeedDecel * #MaxSpeed, clamping to prevent reduction from being greater than current  #velocity
+			1) `velocity -= clampf(SpeedDecel[0] * MaxSpeed, 0,  velocity.length()) * velocity.normalized()`
 6) #BoostDecay
 	1) Define a #BoostDecay  as `global array` with 3 variables; a settable, an application ratio, and an initial value
 		1) `@export var BoostDecay = [0, .015, .8]`
@@ -76,5 +74,6 @@
 - [[2025-01-23]]
 	- #BoostDecay0 is now properly capped by #MoveInputY
 - [[2025-03-12]]
-	- #BoostDir is unlinked with acceleration and merely determine velocity direction
+	- #BoostDir is unlinked with acceleration and directly determines velocity direction
 	- #SpeedAccel is controlled by #BoostDecay to determine velocity
+	- #Momentum is now decreased by a Linear friction

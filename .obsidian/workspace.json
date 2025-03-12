@@ -180,7 +180,7 @@
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -232,7 +232,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#MoveInput",
+                "query": "tag:#Fr",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -253,7 +253,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -337,13 +338,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zReferences/Excalidraw/Drawing 2025-03-12 12.43.39.excalidraw.md",
+                "file": "DevNotes/Player/Movement/Boost.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Drawing 2025-03-12 12.43.39.excalidraw"
+              "title": "Outline of Boost"
             }
           }
         ],
@@ -367,27 +368,26 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "db08f7477d3f1010",
+  "active": "38f3ff542ecb8671",
   "lastOpenFiles": [
+    "Devlogs/2025-03-12.md",
+    "DevNotes/Player/Movement/Boost.md",
+    "DevNotes/ToDoList.md",
+    "zReferences/Excalidraw/Drawing 2025-03-12 12.43.39.excalidraw.md",
+    "zProject Files/Godot/Scenes/Pla40AF.tmp",
+    "zProject Files/Godot/Shaders/Col3F5A.tmp",
+    "zProject Files/Godot/Scripts/Pla3F26.tmp",
+    "zProject Files/Godot/Scenes/Gam3F14.tmp",
+    "zProject Files/Godot/Scripts/PlaCCCE.tmp",
+    "zProject Files/Godot/Scripts/Pla2C80.tmp",
+    "zProject Files/Godot/Scripts/Pla597.tmp",
     "zProject Files/Godot/Scripts/Pla54BF.tmp",
     "zProject Files/Godot/Scenes/Pla6ADF.tmp",
     "zProject Files/Godot/Scripts/Pla6985.tmp",
-    "zProject Files/Godot/Scripts/Pla1A79.tmp",
-    "zProject Files/Godot/Scripts/Pla5B87.tmp",
-    "zProject Files/Godot/Scripts/Pla35F0.tmp",
-    "zProject Files/Godot/Scripts/Pla90D.tmp",
-    "zProject Files/Godot/Scripts/Pla8D3F.tmp",
     "DevNotes/Player/Player.md",
-    "DevNotes/ToDoList.md",
-    "DevNotes/Player/Movement/Boost.md",
-    "Devlogs/2025-03-12.md",
     "DevNotes/Player/Movement/Dodge.md",
     "DevNotes/Player/Movement/Boost VFX.md",
     "DevNotes/Idea splurges/Level Ideas.md",
-    "zReferences/Excalidraw/Drawing 2025-03-12 12.43.39.excalidraw.md",
-    "zProject Files/Godot/Scripts/PlaF353.tmp",
-    "zProject Files/Godot/Scripts/Pla2444.tmp",
-    "zProject Files/Godot/Scripts/Pla64A.tmp",
     "DevNotes/Color Animation Shader.md",
     "DevNotes/Player/Movement/Crash & Wall Bounce.md",
     "zReferences/Excalidraw/Enclosed Racing Concept.excalidraw.md",
