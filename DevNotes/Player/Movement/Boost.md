@@ -20,13 +20,16 @@
 			1) ~~Speed~~ -> `MaxSpeed`
 			2) `@export var SpeedAccel = {.01, .01}`
 		2) Adjust #SpeedAccel based on Input
-			1)  Define #SpeedAccel1 as #SpeedAccel0 when #M 
-				1) 
-			2) Move #velocity adjustment out of the `if MoveInput > 0:` function Apply them to #velocity math
-				2) `velocity.y = lerp(velocity, MaxSpeed, SpeedAccel)`
+			1)  Inside `if MoveInput > 0:` Define #SpeedAccel1 as #SpeedAccel0 
+				1) `SpeedAccel[1] = SpeedAccel[0]`
+			2) Set #SpeedAccel1 to `0` in `else:`
+				1) `else:`
+					1) `SpeedAccel[1] = 0`
+			3) Move #velocity adjustment under `if MoveInput > 0:` function and apply #MaxSpeed and #SpeedAccel1 to it
+				1) `velocity.y = lerp(velocity, MaxSpeed, SpeedAccel[1])`
 		3) Implement #BoostDir 
 			2) Use the full #Vector2 of #velocity and multiply #MaxSpeed by `cos` and `sin` of #rotation 
-				1) `velocity = lerp(velocity, Vector2(cos(rotation), sin(rotation)) * MaxSpeed, SpeedAccel)`
+				1) `velocity = lerp(velocity, Vector2(cos(rotation), sin(rotation)) * MaxSpeed, SpeedAccel[1])`
 4) Preserve Momentum
 	2) Define #SpeedDecel  as `global variable`
 		1) `@export var SpeedDecel = .005`
@@ -38,12 +41,13 @@
 		1) `@export var BoostDecay = [0, .015, .8]`
 		2) `@export var SpeedAccel = [1.0, 0, .01]`
 	2) Set up #BoostDecay to activate
-		2) Inside `if MoveInput.y > 0:` 
-			1) Increase #BoostDecay0 by #BoostDecay1 * #MoveInputY and apply clampf to prevent exceeding #MoveInputY
-				1) `BoostDecay[0] += clampf(BoostDecay[1] * MoveInput.y, 0, MoveInput.y - BoostDecay[0])`
-		3) Allow #BoostDecay to pass through `if MoveInput.y > 0`
+		1) Allow #BoostDecay to pass through `if MoveInput.y > 0`
 			1) `if MoveInput.y > 0 or BoostDecay[0] > 0:`
-	3) Adjust value of #BoostDir by #BoostDecay when not moving
+		2) Inside `if MoveInput.y > 0 or BoostDecay[0] > 0:` & before `SpeedAccel[1]...` Increase #BoostDecay0 by #BoostDecay1 * #MoveInputY and apply `clampf` to prevent exceeding #MoveInputY
+				1) `BoostDecay[0] += clampf(BoostDecay[1] * MoveInput.y, 0, MoveInput.y - BoostDecay[0])`
+			1) 
+	3) Multiply #SpeedAccel1 by #BoostDecay0 and #SpeedAccel2 when there is Input
+	4) Adjust value of #BoostDir by #BoostDecay when not moving
 		1) set contents of `if MoveInput.y > 0 or BoostDecay[0] > 0:` to only activate when #MoveInputY is greater than #BoostDecay0. Divide #MoveInputY by #BoostDecay2 to prevent controllers from toggling between base #BoostDir and the weaker #BoostDecay #BoostDir
 			1) `if MoveInput.y > 0 or BoostDecay[0] > 0:
 				1) `if MoveInput.y / BoostDecay [2] >= BoostDecay[0]:
