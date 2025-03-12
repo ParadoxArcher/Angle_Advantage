@@ -6,11 +6,11 @@ kanban-plugin: board
 
 ## Current
 
-- [ ] Refactor Movement System
-- [ ] #velocity never stops! Adjust to linear friction?
+- [x] Refactor Movement System
+- [x] #velocity never stops! Adjust to linear friction?
+- [ ] set up redfilter again, documentate
 - [ ] [[Boost VFX]] redfilter bug sets VFX to max
 - [ ] Document Boost VFX
-- [ ] [[Boost | Wall Boost]] Documentation
 
 
 ## Band-aids
@@ -24,6 +24,7 @@ kanban-plugin: board
 
 ## Soon
 
+- [ ] [[Boost | Wall Boost]] Documentation
 - [ ] [[Player]] Flowchart
 - [ ] [[Wall Boost]] increases #MaxSpeed, not #SpeedAccel
 - [ ] [[Rotation Collision]]

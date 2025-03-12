@@ -180,7 +180,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 7
       }
     ],
     "direction": "vertical"
@@ -338,13 +338,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DevNotes/Player/Movement/Boost.md",
+                "file": "DevNotes/Player/Player.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Boost"
+              "title": "Outline of Player"
             }
           }
         ],
@@ -368,11 +368,13 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "38f3ff542ecb8671",
+  "active": "8f91c9dea0931037",
   "lastOpenFiles": [
-    "Devlogs/2025-03-12.md",
+    "DevNotes/Player/Movement/Boost VFX.md",
     "DevNotes/Player/Movement/Boost.md",
     "DevNotes/ToDoList.md",
+    "Devlogs/2025-03-12.md",
+    "zProject Files/Godot/Scripts/Pla52FD.tmp",
     "zReferences/Excalidraw/Drawing 2025-03-12 12.43.39.excalidraw.md",
     "zProject Files/Godot/Scenes/Pla40AF.tmp",
     "zProject Files/Godot/Shaders/Col3F5A.tmp",
@@ -383,10 +385,8 @@
     "zProject Files/Godot/Scripts/Pla597.tmp",
     "zProject Files/Godot/Scripts/Pla54BF.tmp",
     "zProject Files/Godot/Scenes/Pla6ADF.tmp",
-    "zProject Files/Godot/Scripts/Pla6985.tmp",
     "DevNotes/Player/Player.md",
     "DevNotes/Player/Movement/Dodge.md",
-    "DevNotes/Player/Movement/Boost VFX.md",
     "DevNotes/Idea splurges/Level Ideas.md",
     "DevNotes/Color Animation Shader.md",
     "DevNotes/Player/Movement/Crash & Wall Bounce.md",

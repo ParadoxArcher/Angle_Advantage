@@ -30,17 +30,17 @@
 		3) Implement #BoostDir 
 			2) Use the full #Vector2 of #velocity and multiply #MaxSpeed by `cos` and `sin` of #rotation 
 				1) `velocity = lerp(velocity, Vector2(cos(rotation), sin(rotation)) * MaxSpeed, SpeedAccel[1])`
-4) Preserve Momentum
-	2) Define #SpeedDecel  as `global variable`
+4) Momentum & Friction
+	1) Define #SpeedDecel  as `global variable`
 		1) `@export var SpeedDecel = .005`
-	3) After `if MoveInput > 0:` and before `velocity` math
+	2) After `if MoveInput > 0:` and before `velocity` math
 		1) create another #velocity adjustment that decreases by #SpeedDecel * #MaxSpeed, clamping to prevent reduction from being greater than current  #velocity
 			1) `velocity -= clampf(SpeedDecel[0] * MaxSpeed, 0,  velocity.length()) * velocity.normalized()`
 5) #BoostDecay
-	1) Define #SpeedAccel #BoostDecay  as `global arrays` with 3 variables each
+	3) Define #SpeedAccel #BoostDecay  as `global arrays` with 3 variables each
 		1) `@export var BoostDecay = [0, .015, .8]`
 		2) `@export var SpeedAccel = [1.0, 0, .01]`
-	2) Set up #BoostDecay to activate
+	4) Set up #BoostDecay to activate
 		1) Allow #BoostDecay to pass through `if MoveInput.y > 0`
 			1) `if MoveInput.y > 0 or BoostDecay[0] > 0:`
 		2) Increase #BoostDecay0 when #MoveInputY is greater than #BoostDecay0's effective value
@@ -52,30 +52,16 @@
 				2) Set #SpeedAccel1 to #BoostDecay0 times #SpeedAccel2 
 					1) ~~`SpeedAccel[1] = SpeedAccel[0]
 					2) `SpeedAccel[1] = SpeedAccel[2] * BoostDecay[0]`
-	3) Deactivate #BoostDecay 
+	5) Deactivate #BoostDecay 
 		1) After `if MoveInput.y / BoostDecay[2] >= BoostDecay[0]:`
 			1) `else:
 			2) Decrease #BoostDecay0 by #BoostDecay1, `clampf` by #BoostDecay0 
 				1) `BoostDecay[0] -= clampf(BoostDecay[1], 0, BoostDecay[0])
-			3) Set #SpeedAccel1 to 
-	4) Adjust value of #BoostDir by #BoostDecay when not moving
-		1) set contents of `if MoveInput.y > 0 or BoostDecay[0] > 0:` to only activate when #MoveInputY is greater than #BoostDecay0. Divide #MoveInputY by #BoostDecay2 to prevent controllers from toggling between base #BoostDir and the weaker #BoostDecay #BoostDir
-			1) `if MoveInput.y > 0 or BoostDecay[0] > 0:
-				1) `if MoveInput.y / BoostDecay [2] >= BoostDecay[0]:
-		2) In `else:`, set a weaker #BoostDir proportional to #BoostDecay before subtracting from #BoostDecay0 by #BoostDecay1
-			1) `else:
-				1) `Vector2(cos(rotation), sin(rotation)) * BoostDecay[0] * BoostDecay[2]
-				2) `BoostDecay[0] -= clampf(BoostDecay[1], 0, BoostDecay[0])`
-		3) Separate #BoostDir adjustments into new variable for if statement, then combine with main portion of #BoostDir math at end
-			1) `if MoveInput.y > 0 or BoostDecay[0] > 0:
-				1) `var BoostDirAmp
-				2) `if MoveInput.y / BoostDecay[2] >= BoostDecay[0]:
-					1) `BoostDirAmp = MoveInput.y
-					2) `BoostDecay[0] += clampf(BoostDecay[1], 0, MoveInput.y - BoostDecay[0])
-				3) `else:
-					1) `BoostDirAmp = BoostDecay[0] * BoostDecay[2]
-					2) `BoostDecay[0] -= clampf(BoostDecay[1], 0, BoostDecay[0])
-				4) `BoostDir = Vector2(cos(rotation), sin(rotation)) * BoostDirAmp
+			3) Set #SpeedAccel1 to #BoostDecay0 times #SpeedAccel2 & #BoostDecay2 
+				1) `SpeedAccel[1] = SpeedAccel[2] * BoostDecay[0] * BoostDecay[2]
+		2) Delete old #SpeedAccel code
+			1) ~~`else:
+				1) ~~`speedAccel[1] = 0`~~
 ### Adjustment Log
 - [[2025-01-13]]
 	- Added #BoostDecay
