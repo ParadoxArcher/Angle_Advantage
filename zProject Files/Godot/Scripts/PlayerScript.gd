@@ -8,10 +8,9 @@ var MoveInput = Vector2(0, 0)
 
 ## Boost Variables
 @export var MaxSpeed = 2000
-@export var BoostDecay = [0, .015, .8] # {0: Fluctuating,  1:DecayRate, 2:BoostRelease(cannot be 0)}
-@export var SpeedAccel = [.01, .01, .15] # {0: Fluctuating, 1: Accel, 2: DecayLerp} ## Beware WallBoostScale
+@export var BoostDecay = [0, .015, .8] # {0: Final,  1:DecayRate, 2:ReleaseAccelScaler(cannot be 0)}
+@export var SpeedAccel = [1.0, 0, .01] # {0: Global Mod, 1: BoostResult, 2: BaseSpeedAccel} ## Beware WallBoostScale
 @export var SpeedDecel = [.001, .001] # {0: Fluctuating,  1: Decel} ## Beware BrakeDecelMult
-var BoostDir = Vector2(0, 0)
 var AccelRate = 0
 
 ## Rotation Variables
@@ -62,25 +61,22 @@ func _physics_process(_delta):
 	#endregion
 		
 	#region Boost --- Determines movement application and delays it's deactivation
-	if MoveInput.y > 0 or BoostDecay[0] > 0:
-		var BoostDirAmp
-		if MoveInput.y / BoostDecay[2] >= BoostDecay[0]:
-			BoostDirAmp = MoveInput.y
-			BoostDecay[0] += clampf(BoostDecay[1] * MoveInput.y, 0, MoveInput.y - BoostDecay[0])
-			
-			boost_sprite.material.set_shader_parameter("RedFilter", 1 - clampf((.5 * SpeedAccel[0]/SpeedAccel[1] ), 0, 1)) # VFX, Enable Boost Visual
-			boost_particle.emitting = true
-		else:
-			BoostDirAmp = BoostDecay[0] * BoostDecay[2]
-			BoostDecay[0] -= clampf(BoostDecay[1], 0, BoostDecay[0])
-			
-			boost_sprite.material.set_shader_parameter("RedFilter", 1 - clampf((.5 * BoostDecay[0] * SpeedAccel[0]/SpeedAccel[1] ), 0, 1)) # VFX, Decay Boost Visual
-			boost_particle.emitting = false
+	
+#	boost_sprite.material.set_shader_parameter("RedFilter", 1 - clampf((.5 * SpeedAccel[0]/SpeedAccel[1] ), 0, 1)) # VFX, Enable Boost Visual
+#	boost_particle.emitting = true
+#			boost_sprite.material.set_shader_parameter("RedFilter", 1 - clampf((.5 * BoostDecay[0] * SpeedAccel[0]/SpeedAccel[1] ), 0, 1)) # VFX, Decay Boost Visual
+#			boost_particle.emitting = false
+#		boost_sprite.material.set_shader_parameter("RedFilter", 1) # VFX, Disable Boost Visual
+#		boost_particle.emitting = false
 		
-		BoostDir = Vector2(cos(rotation), sin(rotation)) * BoostDirAmp
-	else:
-		boost_sprite.material.set_shader_parameter("RedFilter", 1) # VFX, Disable Boost Visual
-		boost_particle.emitting = false
+	if MoveInput.y > 0 or BoostDecay[0] > 0:
+		if MoveInput.y / BoostDecay[2] >= BoostDecay[0]:
+			BoostDecay[0] += clampf(2 * BoostDecay[1] * MoveInput.y, 0, MoveInput.y - BoostDecay[0])
+			SpeedAccel[1] = SpeedAccel[2] * BoostDecay[0]
+			
+		else:
+			SpeedAccel[1] = SpeedAccel[2] * BoostDecay[0] * BoostDecay[2]
+			BoostDecay[0] -= clampf(BoostDecay[1], 0, BoostDecay[0])
 	#endregion
 	
 	#region Rotation --- Defines rotation acceleration and it's momentum
@@ -102,10 +98,8 @@ func _physics_process(_delta):
 	rotate(RotaSpeed)
 	
 	velocity = lerp(velocity, velocity.normalized(), SpeedDecel[0]) # Momentum
-	velocity = lerp(velocity, BoostDir * MaxSpeed, SpeedAccel[0]) # Acceleration
+	velocity = lerp(velocity, MaxSpeed * Vector2(cos(rotation), sin(rotation)), SpeedAccel[1] * SpeedAccel[0]) # Acceleration
 	
-	if SpeedAccel[0] != SpeedAccel[1]:
-		SpeedAccel[0] -= clampf((SpeedAccel[0] - SpeedAccel[1] ) * SpeedAccel[2], 0, SpeedAccel[0] - SpeedAccel[1])
 	if RotaAccel[0] != RotaAccel[1]:
 		RotaAccel[0] -= clampf((RotaAccel[0] - RotaAccel[1] ) * RotaAccel[2], 0, RotaAccel[0] - RotaAccel[1])
 	
@@ -191,4 +185,4 @@ func dodge(DodgeDir):
 	velocity = MaxSpeed * DodgeSpeed * DodgeDir.rotated(rotation + PI/2)
 
 func _on_wall_boost_detection_wall_boosting(TotalBoost):
-	SpeedAccel[0] = TotalBoost * SpeedAccel[1]
+	SpeedAccel[0] += TotalBoost

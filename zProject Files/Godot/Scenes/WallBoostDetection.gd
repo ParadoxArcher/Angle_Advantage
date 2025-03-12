@@ -13,7 +13,7 @@ signal WallBoosting(TotalBoost)
 func _physics_process(_delta):
 	if ray_cast_l.is_colliding() or ray_cast_ml.is_colliding() or ray_cast_m.is_colliding() or ray_cast_mr.is_colliding() or ray_cast_r.is_colliding():
 		
-		var TotalBoost = 1
+		var TotalBoost = 0
 		if ray_cast_l.is_colliding():
 			TotalBoost += WallBoostScale
 		if ray_cast_ml.is_colliding:
