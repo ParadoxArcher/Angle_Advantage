@@ -120,7 +120,7 @@
             }
           },
           {
-            "id": "0de53492a73901e9",
+            "id": "29450da188c3ca0e",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -141,30 +141,6 @@
               },
               "icon": "lucide-file",
               "title": "Boost VFX"
-            }
-          },
-          {
-            "id": "29450da188c3ca0e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "DevNotes/Player/Movement/Boost.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "Boost"
             }
           }
         ],
@@ -355,26 +331,26 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "0de53492a73901e9",
+  "active": "29450da188c3ca0e",
   "lastOpenFiles": [
+    "DevNotes/Player/Movement/Boost.md",
+    "DevNotes/Color Animation Shader.md",
+    "DevNotes/Player/Movement/Crash & Wall Bounce.md",
+    "DevNotes/Player/Movement/Boost VFX.md",
+    "DevNotes/ToDoList.md",
+    "zReferences/Excalidraw/Enclosed Racing Concept.excalidraw.md",
+    "zProject Files/Godot/Scripts/PlaB56B.tmp",
+    "zProject Files/Godot/Scripts/PlaB096.tmp",
+    "zProject Files/Godot/Scripts/Pla778E.tmp",
+    "zProject Files/Godot/Scripts/Pla9BA3.tmp",
+    "zProject Files/Godot/Scripts/Pla4F6A.tmp",
+    "zProject Files/Godot/Scripts/Pla7C63.tmp",
+    "zProject Files/Godot/Scripts/Pla6CE.tmp",
     "zProject Files/Godot/Scripts/PlaA863.tmp",
     "zProject Files/Godot/Scenes/GamA841.tmp",
     "zProject Files/Godot/Scenes/Pla8F96.tmp",
-    "zProject Files/Godot/Scripts/Pla8E5C.tmp",
-    "zProject Files/Godot/Scenes/Gam8E3A.tmp",
-    "zProject Files/Godot/Scripts/Pla543A.tmp",
-    "zProject Files/Godot/Scripts/Pla59ED.tmp",
-    "DevNotes/ToDoList.md",
     "DevNotes/Player/Movement/Dodge.md",
-    "DevNotes/Player/Movement/Boost.md",
     "zReferences/Excalidraw/Drawing 2025-03-12 11.44.59.excalidraw.md",
-    "zProject Files/Godot/Scripts/PlaAD60.tmp",
-    "zProject Files/Godot/Scripts/Pla42F5.tmp",
-    "zProject Files/Godot/Scripts/PlaB59F.tmp",
-    "zProject Files/Godot/Scripts/Pla6B3F.tmp",
-    "DevNotes/Player/Movement/Boost VFX.md",
-    "DevNotes/Color Animation Shader.md",
-    "zReferences/Excalidraw/Enclosed Racing Concept.excalidraw.md",
     "DevNotes/Idea splurges/Level Ideas.md",
     "Untitled Kanban.md",
     "DevNotes/Player/Player.md",
@@ -383,7 +359,6 @@
     "DevNotes/Idea splurges/Ability ideas.md",
     "DevNotes/Player/Movement/Rotation.md",
     "DevNotes/Player/Movement/Brakes.md",
-    "DevNotes/Player/Movement/Crash & Wall Bounce.md",
     "DevNotes/Player/Movement/Movement Visualizer.md",
     "2025-W04.md",
     "Devlogs/2025-01-23.md",

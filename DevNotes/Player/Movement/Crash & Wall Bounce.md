@@ -44,7 +44,7 @@
 	3) #crash `if` #CollisionDot is <  - #CrashSpeed
 		1) `if CollisionDot < -CrashSpeed:`
 			1) `crash()`
-	4) Multiply #CollisionDot  by #velocity length over #MaxSpeed1
+	4) Multiply #CollisionDot  by #velocity length over #MaxSpeed
 		1) `if CollisionDot * (velocity.length() / MaxSpeed[0] ) < -CrashSpeed:`
 5) `slide` player when velocity is lower than #CrashSpeed 
 	1) move `velocity = velocity.bounce(Collision.get_normal()) * Bounce` inside ``if CollisionDot * (velocity.length() / MaxSpeed[0] ) < -CrashSpeed:``

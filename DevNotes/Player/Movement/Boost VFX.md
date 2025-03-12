@@ -14,7 +14,9 @@
 			1) a
 				1) 
 	3) Green
-		1) Base Size on #velocity 
+		1) Base on #velocity relative to #MaxSpeed & [[Player]] #rotation
+			1) Get Relative #velocity of Player to #MaxSpeed 
+				1) ``
 	4) Blue
 		1) unimplented
 2) `BoostParticle
