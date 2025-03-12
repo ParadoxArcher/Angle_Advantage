@@ -4,7 +4,7 @@ extends CharacterBody2D
 var MoveInput = Vector2(0, 0)
 
 ## Brake Variables
-@export var BrakeDecelMult = [5.0, 3.0] # {0: SpeedDecelMult, 1: RotaDecelMult}
+@export var BrakeDecelMult = [10.0, 3.0] # {0: SpeedDecelMult, 1: RotaDecelMult}
 
 ## Boost Variables
 @export var MaxSpeed = 2000
@@ -79,7 +79,7 @@ func _physics_process(_delta):
 			SpeedAccel[1] = SpeedAccel[2] * BoostDecay[0] * BoostDecay[2]
 	#endregion
 	
-	print(SpeedAccel[1])
+	print(velocity)
 	
 	#region Rotation --- Defines rotation acceleration and it's momentum
 	if MoveInput.x != 0: 
@@ -99,7 +99,7 @@ func _physics_process(_delta):
 	RotaSpeed = lerpf(RotaSpeed, MoveInput.x * MaxRota, clampf(RotaRate, 0, 1)) # Rotation Acceleration
 	rotate(RotaSpeed)
 	
-	velocity = lerp(velocity, velocity.normalized(), SpeedDecel[0]) # Momentum
+	velocity -= velocity.normalized() * clampf(SpeedDecel[0] * MaxSpeed, 0,  velocity.length())   # Momentum
 	velocity = lerp(velocity, MaxSpeed * Vector2(cos(rotation), sin(rotation)), SpeedAccel[1] * SpeedAccel[0]) # Acceleration
 	
 	SpeedAccel[0] = 1.0
