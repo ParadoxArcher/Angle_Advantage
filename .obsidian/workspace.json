@@ -232,7 +232,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#Fr",
+                "query": "tag:#velocity",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -368,7 +368,7 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "38f3ff542ecb8671",
+  "active": "d470cc9b7f6eaae3",
   "lastOpenFiles": [
     "Devlogs/2025-03-12.md",
     "DevNotes/Player/Movement/Boost.md",
