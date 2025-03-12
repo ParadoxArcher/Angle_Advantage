@@ -157,9 +157,21 @@
               "icon": "lucide-file",
               "title": "Boost"
             }
+          },
+          {
+            "id": "928059a835ac0955",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "zReferences/Excalidraw/Drawing 2025-03-12 11.44.59.excalidraw.md"
+              },
+              "icon": "excalidraw-icon",
+              "title": "Drawing 2025-03-12 11.44.59.excalidraw"
+            }
           }
         ],
-        "currentTab": 5
+        "currentTab": 7
       }
     ],
     "direction": "vertical"
@@ -316,13 +328,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DevNotes/Player/Movement/Boost VFX.md",
+                "file": "zReferences/Excalidraw/Drawing 2025-03-12 11.44.59.excalidraw.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Boost VFX"
+              "title": "Outline of Drawing 2025-03-12 11.44.59.excalidraw"
             }
           }
         ],
@@ -346,24 +358,25 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "0de53492a73901e9",
+  "active": "928059a835ac0955",
   "lastOpenFiles": [
+    "zProject Files/Godot/Scripts/PlaC537.tmp",
+    "zProject Files/Godot/Scripts/PlaF08A.tmp",
+    "zProject Files/Godot/Scripts/PlaCF80.tmp",
+    "zProject Files/Godot/Scripts/Pla52C6.tmp",
+    "zProject Files/Godot/Scripts/Pla4301.tmp",
+    "zProject Files/Godot/Scripts/PlaB8DF.tmp",
+    "zReferences/Excalidraw/Drawing 2025-03-12 11.44.59.excalidraw.md",
+    "DevNotes/Player/Movement/Boost VFX.md",
+    "zProject Files/Godot/Scripts/PlaE565.tmp",
+    "zProject Files/Godot/Scripts/PlaC49A.tmp",
     "zProject Files/Godot/Scripts/Pla11E3.tmp",
     "zProject Files/Godot/Scripts/PlaD63C.tmp",
     "zProject Files/Godot/Scripts/Pla89DF.tmp",
-    "zProject Files/Godot/Scripts/Pla57AC.tmp",
-    "zProject Files/Godot/Scripts/Pla5E32.tmp",
-    "zProject Files/Godot/Scripts/PlaEBCA.tmp",
-    "zProject Files/Godot/Scripts/Pla3091.tmp",
-    "zProject Files/Godot/Scripts/PlaA189.tmp",
-    "zProject Files/Godot/Scripts/PlaA97D.tmp",
-    "zProject Files/Godot/Scenes/PlaA96A.tmp",
     "DevNotes/ToDoList.md",
-    "DevNotes/Player/Movement/Boost VFX.md",
     "DevNotes/Color Animation Shader.md",
     "zReferences/Excalidraw/Enclosed Racing Concept.excalidraw.md",
     "DevNotes/Idea splurges/Level Ideas.md",
-    "zProject Files/Godot/Scripts/PlaC9E2.tmp",
     "DevNotes/Player/Movement/Boost.md",
     "Untitled Kanban.md",
     "DevNotes/Player/Movement/Dodge.md",
@@ -385,7 +398,6 @@
     "zReferences/Excalidraw/Drawing 2025-01-23 13.45.49.excalidraw.md",
     "zProject Files/Godot/Assets/Boost Color.png",
     "zProject Files/Godot/Assets/Boost Particle.png",
-    "Devlogs/2025-01-14.md",
     "zProject Files/Godot/Assets/Rocket.png",
     "zReferences/Images/Data Wing.jpg",
     "Reference Images/Images/Pasted image 20250112075332.png",
