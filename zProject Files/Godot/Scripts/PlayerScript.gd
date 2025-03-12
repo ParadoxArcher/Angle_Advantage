@@ -132,7 +132,7 @@ func _physics_process(_delta):
 		#BounceVFX[0] += clampf(BounceVFX[1], 0, 1 - BounceVFX[0])
 		#boost_sprite.material.set_shader_parameter("GreenFilter", clampf(BounceVFX[0], 0, 1))
 	#endregion
-	print(velocity)
+	print(Vector2(-cos(rotation), -sin(rotation)))
 
 #region Graphics Variables
 ##Markers Variables

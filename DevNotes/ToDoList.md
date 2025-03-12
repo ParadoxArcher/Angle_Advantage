@@ -19,8 +19,8 @@ kanban-plugin: board
 
 ## Soon
 
-- [ ] [[Rotation Collision]]
 - [ ] [[Wall Boost]] increases #MaxSpeed, not #SpeedAccel
+- [ ] [[Rotation Collision]]
 - [ ] Braking VFX via [[Action VFX]]
 - [ ] WallBounce VFX via [[Action VFX]]
 - [ ] Dodge Cooldown

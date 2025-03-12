@@ -94,8 +94,17 @@
               "state": {
                 "file": "DevNotes/Color Animation Shader.md",
                 "mode": "source",
+                "source": false,
                 "backlinks": true,
-                "source": false
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
               },
               "icon": "lucide-file",
               "title": "Color Animation Shader"
@@ -150,7 +159,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 5
       }
     ],
     "direction": "vertical"
@@ -307,13 +316,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DevNotes/ToDoList.md",
+                "file": "DevNotes/Player/Movement/Boost VFX.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of ToDoList"
+              "title": "Outline of Boost VFX"
             }
           }
         ],
@@ -337,13 +346,15 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "2b906768df75cac8",
+  "active": "0de53492a73901e9",
   "lastOpenFiles": [
-    "zProject Files/Godot/Scripts/PlaC9E2.tmp",
     "DevNotes/ToDoList.md",
-    "DevNotes/Player/Movement/Boost.md",
-    "DevNotes/Idea splurges/Level Ideas.md",
     "DevNotes/Player/Movement/Boost VFX.md",
+    "DevNotes/Color Animation Shader.md",
+    "zReferences/Excalidraw/Enclosed Racing Concept.excalidraw.md",
+    "DevNotes/Idea splurges/Level Ideas.md",
+    "zProject Files/Godot/Scripts/PlaC9E2.tmp",
+    "DevNotes/Player/Movement/Boost.md",
     "zProject Files/Godot/Scenes/PlaBF42.tmp",
     "zProject Files/Godot/Scenes/Pla3F7D.tmp",
     "zProject Files/Godot/Shaders/Col3DDA.tmp",
@@ -351,14 +362,11 @@
     "zProject Files/Godot/Scenes/Gam3DB5.tmp",
     "Untitled Kanban.md",
     "zProject Files/Godot/pro3C0C.tmp",
-    "zReferences/Excalidraw/Enclosed Racing Concept.excalidraw.md",
     "zProject Files/Godot/Shaders/ColFDAF.tmp",
     "DevNotes/Player/Movement/Dodge.md",
     "DevNotes/Player/Player.md",
     "zProject Files/Godot/Scripts/Pla9676.tmp",
     "zProject Files/Godot/Scenes/Pla9654.tmp",
-    "zProject Files/Godot/Shaders/Col7FE4.tmp",
-    "DevNotes/Color Animation Shader.md",
     "DevNotes/ColorAnimator.md",
     "zReferences/Excalidraw/Ability Concepts.excalidraw.md",
     "DevNotes/Idea splurges/Ability ideas.md",
