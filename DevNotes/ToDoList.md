@@ -7,7 +7,6 @@ kanban-plugin: board
 ## Current
 
 - [ ] Document Boost VFX
-- [ ] impleter Avatar actions
 
 
 ## Problems
@@ -15,14 +14,15 @@ kanban-plugin: board
 - [ ] [[Boost VFX]] redfilter bug sets VFX to max
 - [ ] [[Boost VFX]] GreenFilter isn't omnidirectional
 - [ ] [[Boost | Wall Boost]] Documentation
+- [ ] #velocity never stops! Adjust to linear friction?
 
 
 ## Soon
 
-- [ ] adjust friction to be linear, not exponential
 - [ ] [[Rotation Collision]]
 - [ ] [[Wall Boost]] increases #MaxSpeed, not #SpeedAccel
-- [ ] Particle [[Dodge VFX]]
+- [ ] Braking VFX via [[Action VFX]]
+- [ ] WallBounce VFX via [[Action VFX]]
 - [ ] Dodge Cooldown
 - [ ] Dodge CD VFX via [[Action VFX]]
 
@@ -70,6 +70,7 @@ kanban-plugin: board
 
 - [ ] [[Movement Visualizer|Movement Visualizer Art Pass]]
 - [ ] [[Player|PlayerTrails]]
+- [ ] Particle [[Dodge VFX]]
 - [x] [[Color Animation Shader]]
 
 
