@@ -73,6 +73,7 @@ func _physics_process(_delta):
 		if MoveInput.y / BoostDecay[2] >= BoostDecay[0]:
 			BoostDecay[0] += clampf(2 * BoostDecay[1] * MoveInput.y, 0, MoveInput.y - BoostDecay[0])
 			SpeedAccel[1] = SpeedAccel[2] * BoostDecay[0]
+			boost_particle.emitting = true
 			
 		else:
 			BoostDecay[0] -= clampf(BoostDecay[1], 0, BoostDecay[0])

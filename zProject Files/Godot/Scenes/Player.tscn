@@ -42,7 +42,7 @@ _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.99999, 1.74725), 0.0, 0.0, 0, 
 point_count = 3
 
 [sub_resource type="Gradient" id="Gradient_88hfk"]
-offsets = PackedFloat32Array(0.186667, 0.346667, 0.453333, 0.7, 0.88)
+offsets = PackedFloat32Array(0.0866667, 0.206667, 0.326667, 0.7, 0.88)
 colors = PackedColorArray(0.490196, 0, 1, 0, 0.756863, 0.486275, 1, 1, 0.490196, 0, 1, 1, 0.490196, 0, 1, 1, 0.490196, 0, 1, 0)
 
 [node name="Player" type="CharacterBody2D"]
@@ -111,9 +111,8 @@ show_behind_parent = true
 position = Vector2(-0.999997, -68)
 rotation = 1.5708
 amount = 3
-lifetime = 0.4
 explosiveness = 0.2
-randomness = 0.5
+randomness = 1.0
 lifetime_randomness = 0.25
 local_coords = true
 texture = ExtResource("6_q13sk")
