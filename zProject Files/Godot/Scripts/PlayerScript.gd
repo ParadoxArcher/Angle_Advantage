@@ -61,32 +61,22 @@ func _physics_process(_delta):
 	#endregion
 		
 	#region Boost --- Determines movement application and delays it's deactivation
-	
-#	boost_sprite.material.set_shader_parameter("RedFilter", 1 - clampf((.5 * SpeedAccel[0]/SpeedAccel[1] ), 0, 1)) # VFX, Enable Boost Visual
-#	boost_particle.emitting = true
-#			boost_sprite.material.set_shader_parameter("RedFilter", 1 - clampf((.5 * BoostDecay[0] * SpeedAccel[0]/SpeedAccel[1] ), 0, 1)) # VFX, Decay Boost Visual
-#			boost_particle.emitting = false
-#		boost_sprite.material.set_shader_parameter("RedFilter", 1) # VFX, Disable Boost Visual
-#		boost_particle.emitting = false
-		
 	if MoveInput.y > 0 or BoostDecay[0] > 0:
 		if MoveInput.y / BoostDecay[2] >= BoostDecay[0]:
 			BoostDecay[0] += clampf(2 * BoostDecay[1] * MoveInput.y, 0, MoveInput.y - BoostDecay[0])
 			SpeedAccel[1] = SpeedAccel[2] * BoostDecay[0]
 			
-			boost_particle.amount = 4
 		else:
 			BoostDecay[0] -= clampf(BoostDecay[1], 0, BoostDecay[0])
 			SpeedAccel[1] = SpeedAccel[2] * BoostDecay[0] * BoostDecay[2]
-			
-			var Particles = clampi(round(BoostDecay[0] * 5), 1, 5)
-			if Particles != boost_particle.amount:
-				boost_particle.amount = Particles
-			
+		
+		
 		boost_particle.emitting = true #VFX
-		print(boost_particle.amount)
+		#var Particles = clampi(round(BoostDecay[0] * 5), 1, 5)
+		#if Particles != boost_particle.amount:
+		#	boost_particle.amount = Particles
 	else:
-		pass
+		boost_particle.emitting = false
 	#endregion
 	
 	#region Rotation --- Defines rotation acceleration and it's momentum
@@ -110,13 +100,15 @@ func _physics_process(_delta):
 	velocity -= clampf(SpeedDecel[0] * MaxSpeed, 0,  velocity.length()) * velocity.normalized() # Momentum & Friction
 	velocity = lerp(velocity, MaxSpeed * Vector2(cos(rotation), sin(rotation)), SpeedAccel[1] * SpeedAccel[0]) # Acceleration
 	
-	SpeedAccel[0] = 1.0
+	print(SpeedAccel)
+	boost_sprite.material.set_shader_parameter("RedFilter", 1 - clampf((SpeedAccel[1] * SpeedAccel[0] / (SpeedAccel[2] * 2 )), 0, 1)) # VFX
+	var GreenFilterScaler = (velocity.length() / MaxSpeed ) * ((1 + velocity.normalized().dot(Vector2(-sin(rotation - PI/2), cos(rotation - PI/2))) ) / 2 )
+	boost_sprite.material.set_shader_parameter("GreenFilter", .8 - GreenFilterScaler * .8)
+	
 	
 	if RotaAccel[0] != RotaAccel[1]:
 		RotaAccel[0] -= clampf((RotaAccel[0] - RotaAccel[1] ) * RotaAccel[2], 0, RotaAccel[0] - RotaAccel[1])
-	
-	var GreenFilterScaler = (velocity.length() / MaxSpeed ) * ((1 + velocity.normalized().dot(Vector2(-sin(rotation - PI/2), cos(rotation - PI/2))) ) / 2 ) # VFX
-	boost_sprite.material.set_shader_parameter("GreenFilter", .8 - GreenFilterScaler * .8)
+	SpeedAccel[0] = 1.0
 	#endregion
 	
 	#region Collision --- Crash && WallBounce
@@ -189,6 +181,7 @@ func crash(CrashTimeScaler):
 
 func dodge(DodgeDir):
 	BoostDecay[0] = 0
+	SpeedAccel[1] = 0
 	
 	RotaAccel[0] += RotaAccel[1] * DodgeRotaAccel
 	

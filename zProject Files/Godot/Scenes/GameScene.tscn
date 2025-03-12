@@ -21,6 +21,7 @@ position_smoothing_speed = 3.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 light_mask = 0
+visibility_layer = 512
 z_index = -10
 position = Vector2(2, 0)
 scale = Vector2(2.5, 2.5)
