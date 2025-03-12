@@ -7,14 +7,18 @@ kanban-plugin: board
 ## Current
 
 - [ ] Document Boost VFX
+- [ ] [[Boost VFX]] redfilter bug sets VFX to max
+- [ ] [[Boost | Wall Boost]] Documentation
+- [ ] #velocity never stops! Adjust to linear friction?
+
+
+## Band-aids
+
+- [ ] [[Boost VFX]] GreenFilter isn't omnidirectional
 
 
 ## Problems
 
-- [ ] [[Boost VFX]] redfilter bug sets VFX to max
-- [ ] [[Boost VFX]] GreenFilter isn't omnidirectional
-- [ ] [[Boost | Wall Boost]] Documentation
-- [ ] #velocity never stops! Adjust to linear friction?
 
 
 ## Soon
@@ -72,10 +76,6 @@ kanban-plugin: board
 - [ ] [[Player|PlayerTrails]]
 - [ ] Particle [[Dodge VFX]]
 - [x] [[Color Animation Shader]]
-
-
-## Band-aids
-
 
 
 ***
