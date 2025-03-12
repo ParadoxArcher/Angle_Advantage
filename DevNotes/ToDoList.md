@@ -8,18 +8,23 @@ kanban-plugin: board
 
 - [ ] Document Boost VFX
 - [ ] impleter Avatar actions
-- [ ] Dodge CD VFX via [[Action VFX]]
-- [ ] Dodge Cooldown
+
+
+## Problems
+
+- [ ] [[Boost VFX]] redfilter bug sets VFX to max
+- [ ] [[Boost VFX]] GreenFilter isn't omnidirectional
+- [ ] [[Boost | Wall Boost]] Documentation
 
 
 ## Soon
 
-- [ ] [[Boost VFX]] redfilter bug
-- [ ] [[Boost VFX]] green filter
 - [ ] adjust friction to be linear, not exponential
 - [ ] [[Rotation Collision]]
 - [ ] [[Wall Boost]] increases #MaxSpeed, not #SpeedAccel
 - [ ] Particle [[Dodge VFX]]
+- [ ] Dodge Cooldown
+- [ ] Dodge CD VFX via [[Action VFX]]
 
 
 ## [[Player]]
@@ -41,6 +46,7 @@ kanban-plugin: board
 - [ ] Level Editor
 - [ ] Movement Tracking for Level Creation
 - [ ] [[Enclosed Racing Concept.excalidraw]]
+- [ ] Mechanics seem mindlessly implemented
 
 
 ## Gameplay
@@ -82,6 +88,6 @@ kanban-plugin: board
 
 %% kanban:settings
 ```
-{"kanban-plugin":"board","list-collapse":[false,false,false,false,false,false,false,false],"full-list-lane-width":false,"show-checkboxes":true}
+{"kanban-plugin":"board","list-collapse":[false,false,false,false,false,false,false,false,false],"full-list-lane-width":false,"show-checkboxes":true}
 ```
 %%
