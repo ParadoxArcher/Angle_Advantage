@@ -191,3 +191,4 @@ func dodge(DodgeDir):
 
 func _on_wall_boost_detection_wall_boosting(TotalBoost):
 	SpeedAccel[0] += TotalBoost
+	print("Boosting!")

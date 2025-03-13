@@ -82,27 +82,33 @@ texture = ExtResource("5_o2ksf")
 script = ExtResource("6_1n3q7")
 
 [node name="RayCastL" type="RayCast2D" parent="WallBoost Detection"]
-target_position = Vector2(-90, -75)
+position = Vector2(-55, -50)
+target_position = Vector2(-70, -55)
 
 [node name="RayCastML" type="RayCast2D" parent="WallBoost Detection"]
-target_position = Vector2(-115, -45)
+position = Vector2(-55, -25)
+target_position = Vector2(-95, -30)
 
 [node name="RayCastM" type="RayCast2D" parent="WallBoost Detection"]
-target_position = Vector2(-130, 0)
+position = Vector2(-55, 0)
+target_position = Vector2(-105, 0)
 
 [node name="RayCastMR" type="RayCast2D" parent="WallBoost Detection"]
-target_position = Vector2(-115, 45)
+position = Vector2(-55, 25)
+target_position = Vector2(-95, 30)
 
 [node name="RayCastR" type="RayCast2D" parent="WallBoost Detection"]
-target_position = Vector2(-90, 75)
+position = Vector2(-55, 50)
+target_position = Vector2(-70, 55)
 
 [node name="VFX" type="Node2D" parent="."]
+visible = false
 show_behind_parent = true
 
 [node name="BoostVFX" type="Sprite2D" parent="VFX"]
 show_behind_parent = true
 material = SubResource("ShaderMaterial_m5b53")
-position = Vector2(-92, 0.999664)
+position = Vector2(-101, -3)
 rotation = 1.5708
 texture = ExtResource("7_cnoma")
 

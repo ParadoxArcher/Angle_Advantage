@@ -16,13 +16,18 @@ func _physics_process(_delta):
 		var TotalBoost = 0
 		if ray_cast_l.is_colliding():
 			TotalBoost += WallBoostScale
+			print(ray_cast_l.get_collider())
 		if ray_cast_ml.is_colliding:
 			TotalBoost += WallBoostScale
+			print(ray_cast_l.get_collider())
 		if ray_cast_m.is_colliding():
 			TotalBoost += WallBoostScale
+			print(ray_cast_l.get_collider())
 		if ray_cast_mr.is_colliding():
 			TotalBoost += WallBoostScale
+			print(ray_cast_l.get_collider())
 		if ray_cast_r.is_colliding():
 			TotalBoost += clampf(WallBoostScale, 0, 2 - TotalBoost)
+			print(ray_cast_l.get_collider())
 		WallBoosting.emit(TotalBoost)
 	
