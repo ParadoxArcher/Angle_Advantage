@@ -49,7 +49,6 @@
                     false,
                     false,
                     false,
-                    false,
                     false
                   ]
                 }
@@ -370,6 +369,8 @@
   },
   "active": "2b906768df75cac8",
   "lastOpenFiles": [
+    "zProject Files/Godot/Scenes/Pla3D85.tmp",
+    "zProject Files/Godot/Scenes/Pla4E34.tmp",
     "zProject Files/Godot/Scenes/Pla238F.tmp",
     "zProject Files/Godot/Scenes/Pla6259.tmp",
     "zProject Files/Godot/Scenes/Pla3EE5.tmp",
@@ -379,8 +380,6 @@
     "zProject Files/Godot/Scenes/PlaE9EC.tmp",
     "zProject Files/Godot/Scripts/Pla3104.tmp",
     "zProject Files/Godot/Scripts/Pla4C3B.tmp",
-    "zProject Files/Godot/Scripts/Pla1762.tmp",
-    "zProject Files/Godot/Scenes/Gam174F.tmp",
     "DevNotes/Player/Player.md",
     "DevNotes/Player/Movement/Boost VFX.md",
     "DevNotes/Player/Movement/Boost.md",

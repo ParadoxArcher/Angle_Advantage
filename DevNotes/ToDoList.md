@@ -9,6 +9,7 @@ kanban-plugin: board
 - [x] Refactor Movement System
 - [x] #velocity never stops! Adjust to linear friction?
 - [ ] set up redfilter again, documentate
+- [ ] Replace raycasts with a colliding body
 - [ ] [[Boost VFX]] redfilter bug sets VFX to max
 - [ ] Document Boost VFX
 - [ ] Learn and create particle shader
@@ -17,10 +18,6 @@ kanban-plugin: board
 ## Band-aids
 
 - [ ] [[Boost VFX]] GreenFilter isn't omnidirectional
-
-
-## Problems
-
 
 
 ## Soon
@@ -93,6 +90,6 @@ kanban-plugin: board
 
 %% kanban:settings
 ```
-{"kanban-plugin":"board","list-collapse":[false,false,false,false,false,false,false,false,false],"full-list-lane-width":false,"show-checkboxes":true}
+{"kanban-plugin":"board","list-collapse":[false,false,false,false,false,false,false,false],"full-list-lane-width":false,"show-checkboxes":true}
 ```
 %%

@@ -82,7 +82,7 @@ texture = ExtResource("5_o2ksf")
 script = ExtResource("6_1n3q7")
 
 [node name="RayCastL" type="RayCast2D" parent="WallBoost Detection"]
-position = Vector2(-55, -50)
+position = Vector2(-60, -50)
 target_position = Vector2(-70, -55)
 
 [node name="RayCastML" type="RayCast2D" parent="WallBoost Detection"]
@@ -98,7 +98,7 @@ position = Vector2(-55, 25)
 target_position = Vector2(-95, 30)
 
 [node name="RayCastR" type="RayCast2D" parent="WallBoost Detection"]
-position = Vector2(-55, 50)
+position = Vector2(-60, 50)
 target_position = Vector2(-70, 55)
 
 [node name="VFX" type="Node2D" parent="."]
