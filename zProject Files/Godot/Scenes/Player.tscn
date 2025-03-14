@@ -1,11 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://u7p1uxpg5mr5"]
+[gd_scene load_steps=16 format=3 uid="uid://u7p1uxpg5mr5"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerScript.gd" id="1_g1qce"]
 [ext_resource type="Texture2D" uid="uid://d0iqunuwncvfd" path="res://Assets/Player/Avatar.png" id="2_u7ctg"]
 [ext_resource type="Texture2D" uid="uid://mfqwv60pknjx" path="res://Assets/Green Arrow.png" id="3_2uf6m"]
 [ext_resource type="Texture2D" uid="uid://dvkmtnxqu82d3" path="res://Assets/Red Arrow.png" id="5_a1lun"]
 [ext_resource type="Texture2D" uid="uid://bw0kkepdb55nf" path="res://Assets/Yellow Arrow.png" id="5_o2ksf"]
-[ext_resource type="Script" path="res://Scenes/WallBoostDetection.gd" id="6_1n3q7"]
 [ext_resource type="Texture2D" uid="uid://caa4c2i0dp1bm" path="res://Assets/Player/Boost Particle.png" id="6_q13sk"]
 [ext_resource type="Shader" path="res://Shaders/ColorAnimater.gdshader" id="7_c6xhd"]
 [ext_resource type="Texture2D" uid="uid://82veagudcihb" path="res://Assets/Player/Boost VFX.png" id="7_cnoma"]
@@ -83,33 +82,9 @@ position = Vector2(-8.88178e-14, -52)
 scale = Vector2(0.35, 0.5)
 texture = ExtResource("5_o2ksf")
 
-[node name="WallBoost Detection" type="Node2D" parent="."]
-script = ExtResource("6_1n3q7")
-
-[node name="RayCastL" type="RayCast2D" parent="WallBoost Detection"]
-position = Vector2(-60, -50)
-target_position = Vector2(-70, -55)
-
-[node name="RayCastML" type="RayCast2D" parent="WallBoost Detection"]
-position = Vector2(-55, -25)
-target_position = Vector2(-95, -30)
-
-[node name="RayCastM" type="RayCast2D" parent="WallBoost Detection"]
-position = Vector2(-55, 0)
-target_position = Vector2(-105, 0)
-
-[node name="RayCastMR" type="RayCast2D" parent="WallBoost Detection"]
-position = Vector2(-55, 25)
-target_position = Vector2(-95, 30)
-
-[node name="RayCastR" type="RayCast2D" parent="WallBoost Detection"]
-position = Vector2(-60, 50)
-target_position = Vector2(-70, 55)
-
 [node name="Boost" type="Area2D" parent="."]
 show_behind_parent = true
 script = ExtResource("7_ki0xn")
-WallBoostScale = null
 
 [node name="Sprite" type="Sprite2D" parent="Boost"]
 show_behind_parent = true
@@ -145,4 +120,4 @@ color_ramp = SubResource("Gradient_88hfk")
 position = Vector2(-109, -4.76837e-06)
 shape = SubResource("CapsuleShape2D_7jcn7")
 
-[connection signal="body_entered" from="Boost" to="WallBoost Detection" method="_on_boost_body_entered"]
+[connection signal="body_entered" from="Boost" to="Boost" method="_on_body_entered"]
