@@ -188,7 +188,3 @@ func dodge(DodgeDir):
 	if DodgeDir.normalized().is_zero_approx():
 		DodgeDir = Vector2(0,-1)
 	velocity = MaxSpeed * DodgeSpeed * DodgeDir.rotated(rotation + PI/2)
-
-func _on_wall_boost_detection_wall_boosting(TotalBoost):
-	SpeedAccel[0] += TotalBoost
-	print("Boosting!")
