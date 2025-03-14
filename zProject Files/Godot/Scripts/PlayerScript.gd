@@ -37,8 +37,8 @@ var Crashed = false
 #endregion
 
 #region VFX
-@onready var boost_sprite = $VFX/BoostVFX
-@onready var boost_particle = $VFX/BoostVFX/BoostParticle
+@onready var boost_sprite = $Boost/Sprite
+@onready var boost_particle = $Boost/Sprite/Particle2D
 @export var BounceVFX = [0, .05] # {0: fluctuating, 1: DecayRate}
 #endregion
 
