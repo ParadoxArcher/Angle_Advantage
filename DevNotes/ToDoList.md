@@ -25,7 +25,7 @@ kanban-plugin: board
 - [ ] [[Boost | Wall Boost]] Documentation
 - [ ] [[Player]] Flowchart
 - [ ] [[Wall Boost]] increases #MaxSpeed, not #SpeedAccel
-- [ ] [[Rotation Collision]]
+- [ ] [[Rotation Collision]] add_constant_torque?
 - [ ] Braking VFX via [[Action VFX]]
 - [ ] WallBounce VFX via [[Action VFX]]
 - [ ] Dodge Cooldown

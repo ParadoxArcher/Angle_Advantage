@@ -46,7 +46,7 @@ offsets = PackedFloat32Array(0.0866667, 0.206667, 0.326667, 0.84, 0.933333)
 colors = PackedColorArray(0.490196, 0, 1, 0, 0.756863, 0.486275, 1, 1, 0.490196, 0, 1, 1, 0.490196, 0, 1, 1, 0.490196, 0, 1, 0)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7jcn7"]
-radius = 66.0
+radius = 55.0
 height = 166.0
 
 [node name="Player" type="CharacterBody2D"]
@@ -117,7 +117,7 @@ scale_curve_y = SubResource("Curve_70c1a")
 color_ramp = SubResource("Gradient_88hfk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boost"]
-position = Vector2(-109, -4.76837e-06)
+position = Vector2(-106, -4.63341e-06)
 shape = SubResource("CapsuleShape2D_7jcn7")
 
 [connection signal="body_shape_entered" from="Boost" to="Boost" method="_on_body_shape_entered"]

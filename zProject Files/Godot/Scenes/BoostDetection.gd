@@ -4,7 +4,8 @@ extends Area2D
 ## detect collision (on body shape entered)
 # get body shape
 func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
-	print(body.shape_find_owner(body_shape_index))
+	var bodyRID = body_rid
+	print(body)
 	pass # Replace with function body.
 	
 func _physics_process(_delta):
