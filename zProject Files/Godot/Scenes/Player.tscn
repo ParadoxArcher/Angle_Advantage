@@ -120,5 +120,7 @@ color_ramp = SubResource("Gradient_88hfk")
 position = Vector2(-92, -3.99351e-06)
 shape = SubResource("CapsuleShape2D_7jcn7")
 
+[node name="RayCast2D" type="RayCast2D" parent="Boost"]
+
 [connection signal="body_shape_entered" from="Boost" to="Boost" method="_on_body_shape_entered"]
 [connection signal="body_shape_exited" from="Boost" to="Boost" method="_on_body_shape_exited"]
