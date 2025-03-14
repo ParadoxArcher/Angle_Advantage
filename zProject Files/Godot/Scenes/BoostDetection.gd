@@ -8,8 +8,6 @@ func _ready():
 func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
 	if body != Bodies[0]:
 		Bodies.append(body)
-		print(Bodies)
-		# add body to array
 	
 func _physics_process(_delta):
 	pass
@@ -20,5 +18,4 @@ func _physics_process(_delta):
 
 func _on_body_shape_exited(body_rid, body, body_shape_index, local_shape_index):
 	if body != Bodies[0]:
-		print(body.position)
-		
+		Bodies.erase(body)

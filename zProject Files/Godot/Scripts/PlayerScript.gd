@@ -24,7 +24,7 @@ var RotaRate = 0
 
 #region Advanced Movement Variables
 ##Dodge Variables
-@export var DodgeSpeed = 1.
+@export var DodgeSpeed = .75
 @export var DodgeRotaAccel = 4.
 
 ##Crash && WallBounce Variables

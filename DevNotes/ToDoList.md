@@ -13,6 +13,7 @@ kanban-plugin: board
 - [ ] [[Boost VFX]] redfilter bug sets VFX to max
 - [ ] Document Boost VFX
 - [ ] Learn and create particle shader
+- [ ] [[Dodge]] shouldn't override positive movement
 
 
 ## Band-aids
