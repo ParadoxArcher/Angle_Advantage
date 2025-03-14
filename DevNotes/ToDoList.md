@@ -8,8 +8,8 @@ kanban-plugin: board
 
 - [x] Refactor Movement System
 - [x] #velocity never stops! Adjust to linear friction?
-- [ ] set up redfilter again, documentate
 - [ ] Replace raycasts with a colliding body
+- [ ] set up redfilter again, documentate
 - [ ] [[Boost VFX]] redfilter bug sets VFX to max
 - [ ] Document Boost VFX
 - [ ] Learn and create particle shader
