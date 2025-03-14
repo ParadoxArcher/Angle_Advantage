@@ -179,7 +179,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 6
       }
     ],
     "direction": "vertical"
@@ -337,13 +337,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DevNotes/ToDoList.md",
+                "file": "zReferences/Excalidraw/Drawing 2025-03-12 12.43.39.excalidraw.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of ToDoList"
+              "title": "Outline of Drawing 2025-03-12 12.43.39.excalidraw"
             }
           }
         ],
@@ -367,23 +367,23 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "2b906768df75cac8",
+  "active": "db08f7477d3f1010",
   "lastOpenFiles": [
+    "zProject Files/Godot/Scenes/Boo92DD.tmp",
+    "DevNotes/ToDoList.md",
+    "zProject Files/Godot/Scenes/BooDC8B.tmp",
+    "zProject Files/Godot/Scenes/Boo9918.tmp",
+    "zProject Files/Godot/Scenes/Boo5FD4.tmp",
+    "zProject Files/Godot/Scenes/Pla5FC1.tmp",
     "zProject Files/Godot/Scenes/Boo3480.tmp",
     "zProject Files/Godot/Scenes/BooBA1.tmp",
     "zProject Files/Godot/Scenes/GamB8F.tmp",
     "zProject Files/Godot/Scenes/Boo5757.tmp",
     "zProject Files/Godot/Scenes/Pla5744.tmp",
     "zProject Files/Godot/Scenes/Boo80B6.tmp",
-    "zProject Files/Godot/Scenes/Gam80A3.tmp",
-    "zProject Files/Godot/Scenes/PlaB1E8.tmp",
-    "zProject Files/Godot/Scenes/BooFAF9.tmp",
-    "zProject Files/Godot/Scenes/Boo4794.tmp",
-    "zProject Files/Godot/Scenes/Boo59A8.tmp",
     "DevNotes/Player/Player.md",
     "DevNotes/Player/Movement/Boost VFX.md",
     "DevNotes/Player/Movement/Boost.md",
-    "DevNotes/ToDoList.md",
     "Devlogs/2025-03-12.md",
     "zReferences/Excalidraw/Drawing 2025-03-12 12.43.39.excalidraw.md",
     "DevNotes/Player/Movement/Dodge.md",

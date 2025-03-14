@@ -121,3 +121,4 @@ position = Vector2(-92, -3.99351e-06)
 shape = SubResource("CapsuleShape2D_7jcn7")
 
 [connection signal="body_shape_entered" from="Boost" to="Boost" method="_on_body_shape_entered"]
+[connection signal="body_shape_exited" from="Boost" to="Boost" method="_on_body_shape_exited"]
