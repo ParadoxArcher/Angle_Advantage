@@ -40,7 +40,7 @@ texture = ExtResource("3_s4jx2")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 position = Vector2(250, -500)
-rotation = -0.71733
+rotation = -0.785398
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2(-0.5, -0.5)
@@ -52,7 +52,7 @@ texture = ExtResource("3_s4jx2")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
 position = Vector2(-200, -700)
-rotation = -1.55509
+rotation = -1.5708
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
 position = Vector2(-0.5, -0.5)
