@@ -1,12 +1,11 @@
 extends Area2D
 
+#Make array
 
-## detect collision (on body shape entered)
-# get body shape
 func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
-	var bodyRID = body_rid
-	print(body)
-	pass # Replace with function body.
+	if body != get_parent():
+		print(body.position)
+		# add body to array
 	
 func _physics_process(_delta):
 	pass
@@ -15,4 +14,8 @@ func _physics_process(_delta):
 # get collision normal
 # return collision normal to PlayerScript via signal
 
-## end collision (body shape exited)
+
+
+
+func _on_body_shape_exited(body_rid, body, body_shape_index, local_shape_index):
+	pass # Replace with function body.

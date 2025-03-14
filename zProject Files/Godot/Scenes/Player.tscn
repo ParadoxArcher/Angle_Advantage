@@ -46,8 +46,8 @@ offsets = PackedFloat32Array(0.0866667, 0.206667, 0.326667, 0.84, 0.933333)
 colors = PackedColorArray(0.490196, 0, 1, 0, 0.756863, 0.486275, 1, 1, 0.490196, 0, 1, 1, 0.490196, 0, 1, 1, 0.490196, 0, 1, 0)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7jcn7"]
-radius = 55.0
-height = 166.0
+radius = 65.0
+height = 156.0
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 10
@@ -89,7 +89,7 @@ script = ExtResource("7_ki0xn")
 [node name="Sprite" type="Sprite2D" parent="Boost"]
 show_behind_parent = true
 material = SubResource("ShaderMaterial_m5b53")
-position = Vector2(-95, -1)
+position = Vector2(-94, -4.17233e-06)
 rotation = 1.5708
 texture = ExtResource("7_cnoma")
 
@@ -117,7 +117,7 @@ scale_curve_y = SubResource("Curve_70c1a")
 color_ramp = SubResource("Gradient_88hfk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boost"]
-position = Vector2(-106, -4.63341e-06)
+position = Vector2(-92, -3.99351e-06)
 shape = SubResource("CapsuleShape2D_7jcn7")
 
 [connection signal="body_shape_entered" from="Boost" to="Boost" method="_on_body_shape_entered"]
