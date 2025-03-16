@@ -10,14 +10,15 @@ func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index)
 		Bodies.append(body)
 	
 func _physics_process(_delta):
-	print(Bodies)
+	
+	var ParentGlobalPos = get_parent().position
+	var ParentRotation = get_parent().rotation
+	
 	for Body in Bodies:
-		print(Body)
 		if Body != Bodies[0]:
-			raycast.target_position = Body.position
-			print(Body)
-			print(raycast.target_position)
-			print(Body.position)
+			var RelativeGlobalPos = Body.position - ParentGlobalPos
+			var LocalPos = Vector2(cos(ParentRotation) * RelativeGlobalPos.x, sin(ParentRotation) * RelativeGlobalPos.y)
+			raycast.target_position = LocalPos
 			if raycast.is_colliding():
 				CollisionNormal = raycast.get_collision_normal()
 				print(CollisionNormal)
