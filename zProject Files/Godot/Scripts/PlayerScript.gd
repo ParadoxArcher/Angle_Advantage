@@ -63,7 +63,7 @@ func _physics_process(_delta):
 	#region Boost --- Determines movement application and delays it's deactivation
 	if MoveInput.y > 0 or BoostDecay[0] > 0:
 		if MoveInput.y / BoostDecay[2] >= BoostDecay[0]:
-			BoostDecay[0] += clampf(2 * BoostDecay[1] * MoveInput.y, 0, MoveInput.y - BoostDecay[0])
+			BoostDecay[0] += clampf(2.5 * BoostDecay[1] * MoveInput.y, 0, MoveInput.y - BoostDecay[0])
 			SpeedAccel[1] = SpeedAccel[2] * BoostDecay[0]
 			
 		else:

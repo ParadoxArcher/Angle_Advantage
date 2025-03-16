@@ -18,6 +18,7 @@ func _physics_process(_delta):
 		if Body != Bodies[0]:
 			var RelativeGlobalPos = Body.position - ParentGlobalPos
 			var LocalPos = Vector2(cos(ParentRotation) * RelativeGlobalPos.x, sin(ParentRotation) * RelativeGlobalPos.y)
+			print(LocalPos)
 			raycast.target_position = LocalPos
 			if raycast.is_colliding():
 				CollisionNormal = raycast.get_collision_normal()
