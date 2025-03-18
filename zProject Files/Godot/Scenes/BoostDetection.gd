@@ -8,9 +8,10 @@ var CollisionNormal
 
 
 func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
+	var BodyCollider = get_node("../CollisionPolygon2D")
+	print(str(body) + ", " + str(BodyCollider))
 	if body != Bodies[0]:
 		Bodies.append(body)
-	print(body_shape_index)
 	
 func _physics_process(_delta):
 	
