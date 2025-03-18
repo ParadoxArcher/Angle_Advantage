@@ -5,10 +5,12 @@ extends Area2D
 var CollisionNormal
 
 
+
+
 func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
 	if body != Bodies[0]:
 		Bodies.append(body)
-		print(body.shape())
+	print(body_shape_index)
 	
 func _physics_process(_delta):
 	
@@ -19,11 +21,9 @@ func _physics_process(_delta):
 		if Body != Bodies[0]:
 			var RelativeGlobalPos = Body.position - ParentGlobalPos
 			var LocalPos = Vector2(cos(ParentRotation) * RelativeGlobalPos.x, sin(ParentRotation) * RelativeGlobalPos.y)
-			print(LocalPos)
 			raycast.target_position = LocalPos
 			if raycast.is_colliding():
 				CollisionNormal = raycast.get_collision_normal()
-				print(CollisionNormal)
 	
 #direct raycast towards body shape
 # get collision normal
