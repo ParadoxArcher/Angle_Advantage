@@ -8,8 +8,8 @@ var CollisionNormal
 
 
 func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
-	print(str(body_rid))
-	var shapeRID = PhysicsServer2D.body_get_shape(body_rid, 0)
+	print(str(body_rid) + ", " + str(body_shape_index))
+	var shapeRID = PhysicsServer2D.body_get_shape(body_rid, body_shape_index)
 	print(str(shapeRID))
 	print(str(PhysicsServer2D.shape_get_data(shapeRID)))
 	if body != Bodies[0]:
