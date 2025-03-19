@@ -8,8 +8,8 @@ var CollisionNormal
 
 
 func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
-	var BodyCollider = shape_find_owner(local_shape_index)
-	print(str(BodyCollider))
+	var BodyCollider = shape_find_owner(body_shape_index)
+	print(str(body_shape_index) + ", " + str(BodyCollider))
 	if body != Bodies[0]:
 		Bodies.append(body)
 	
