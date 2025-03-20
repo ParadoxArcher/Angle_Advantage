@@ -18,7 +18,7 @@ func _physics_process(_delta):
 	var ParentGlobalPos = get_parent().position
 	var ParentRotation = get_parent().rotation
 	
-	print(str(ColliderInfo.size))
+	print(str(ColliderInfo.size()))
 	
 	#for shape in ColliderInfo:
 	#	var RelativeGlobalPos = shape.position - ParentGlobalPos
