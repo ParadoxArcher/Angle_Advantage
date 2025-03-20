@@ -7,8 +7,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mdej7"]
 size = Vector2(255, 1537)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_v85ow"]
-radius = 220.54
+[sub_resource type="CircleShape2D" id="CircleShape2D_djhi5"]
+radius = 200.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2rgot"]
 size = Vector2(257, 509)
@@ -29,7 +29,7 @@ position_smoothing_speed = 3.0
 light_mask = 0
 visibility_layer = 512
 z_index = -10
-position = Vector2(2, 0)
+position = Vector2(29, -3)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("2_3lpfc")
 
@@ -41,8 +41,16 @@ position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_mdej7")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-10, 770)
-shape = SubResource("CircleShape2D_v85ow")
+position = Vector2(-240, 987)
+rotation = -0.785398
+scale = Vector2(1, 1)
+shape = SubResource("CircleShape2D_djhi5")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(-198, -750)
+rotation = -0.785398
+scale = Vector2(1, 1)
+polygon = PackedVector2Array(-785.596, 1067.02, -697.914, 1240.97, -791.253, 1444.62, -982.878, 1497.65, -1154, 1434.01, -1217.64, 1230.37, -1161.07, 1026.72, -903.682, 1006.92)
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
 scale = Vector2(2, 12)
