@@ -119,7 +119,6 @@ func _physics_process(_delta):
 	var GreenFilterLeft = (VelLength / MaxSpeed ) * ((1 + velocity.normalized().dot(Vector2(cos(PlayerRot - PI/6), sin(PlayerRot - PI/6))) ) / 2 )
 	var GreenFilterRight = (VelLength / MaxSpeed ) * ((1 + velocity.normalized().dot(Vector2(cos(PlayerRot + PI/6), sin(PlayerRot + PI/6))) ) / 2 )
 	boost_sprite.material.set_shader_parameter("GreenFilterLeft", GreenFilterLeft)
-	print(1 - GreenFilterLeft)
 	boost_sprite.material.set_shader_parameter("GreenFilterRight", GreenFilterRight)
 	
 	if RotaAccel[0] != RotaAccel[1]:
