@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://Scripts/BoostDetection.gd" id="6_0175k"]
 [ext_resource type="Texture2D" uid="uid://caa4c2i0dp1bm" path="res://Assets/Player/Boost Particle.png" id="6_q13sk"]
 [ext_resource type="Shader" path="res://Shaders/Test/ColorAnimater.gdshader" id="7_5q3wb"]
-[ext_resource type="Texture2D" uid="uid://82veagudcihb" path="res://Assets/Player/Boost VFX.png" id="7_cnoma"]
+[ext_resource type="Texture2D" uid="uid://c7h0tig6e6o2j" path="res://Assets/Player/Boost VFX 1.png" id="8_7oomm"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_lx4no"]
 noise_type = 0
@@ -24,7 +24,7 @@ shader_parameter/ScrollVelocity = Vector2(0.05, -0.3)
 shader_parameter/NoiseAlphaFilterActive = false
 shader_parameter/AlphaFilterStrength = 1.0
 shader_parameter/NoiseDistortionActive = true
-shader_parameter/DistortionColorStrengthX = Vector3(0.04, 0.02, 0)
+shader_parameter/DistortionColorStrengthX = Vector3(0.06, 0.02, 0)
 shader_parameter/DistortionColorStrengthY = null
 shader_parameter/RedFilter = 0.36
 shader_parameter/RedColor = Color(0.490196, 0, 1, 1)
@@ -88,6 +88,7 @@ texture = ExtResource("5_o2ksf")
 
 [node name="Boost" type="Area2D" parent="."]
 show_behind_parent = true
+z_index = -5
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("6_0175k")
@@ -97,7 +98,7 @@ show_behind_parent = true
 material = SubResource("ShaderMaterial_m5b53")
 position = Vector2(-94, -4.17233e-06)
 rotation = 1.5708
-texture = ExtResource("7_cnoma")
+texture = ExtResource("8_7oomm")
 
 [node name="Particle2D" type="CPUParticles2D" parent="Boost/Sprite"]
 show_behind_parent = true

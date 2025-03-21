@@ -345,17 +345,18 @@
   },
   "active": "2b906768df75cac8",
   "lastOpenFiles": [
+    "zProject Files/Godot/Scenes/GamFB2D.tmp",
+    "zProject Files/Godot/Scenes/Pla1467.tmp",
+    "zProject Files/Godot/Assets/Player/Boost VFX 1.png~",
+    "zProject Files/Godot/Scenes/Pla3770.tmp",
+    "zProject Files/Godot/Assets/Player/Boost VFX 1.png.import",
+    "zProject Files/Godot/Assets/Player/Boost VFX 1.png",
     "zProject Files/Godot/Scripts/Pla8215.tmp",
     "zProject Files/Godot/Assets/Player/BooC4C.tmp",
     "zProject Files/Godot/Assets/Player/Boost VFX.png~",
     "zProject Files/Krita/Boost VFX.kra~",
     "zProject Files/Godot/Assets/Test/opacity test.kra",
     "zProject Files/Godot/Scripts/Pla2394.tmp",
-    "zProject Files/Godot/Scripts/PlaF4CB.tmp",
-    "zProject Files/Godot/Scripts/PlaBC8D.tmp",
-    "zProject Files/Godot/Scripts/Pla432F.tmp",
-    "zProject Files/Godot/Scripts/PlaD836.tmp",
-    "zProject Files/Godot/Scripts/Boo8B48.tmp",
     "zReferences/Excalidraw/Drawing 2025-03-12 12.43.39.excalidraw.md",
     "DevNotes/ToDoList.md",
     "DevNotes/Player/Movement/Boost.md",
@@ -389,7 +390,6 @@
     "Devlogs/2025-01-25.md",
     "zProject Files/Godot/Assets/Boost Color.png",
     "zProject Files/Godot/Assets/Boost Particle.png",
-    "zProject Files/Godot/Assets/Rocket.png",
-    "zReferences/Images/Data Wing.jpg"
+    "zProject Files/Godot/Assets/Rocket.png"
   ]
 }

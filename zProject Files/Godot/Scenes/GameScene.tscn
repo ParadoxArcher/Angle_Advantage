@@ -34,6 +34,7 @@ scale = Vector2(2.5, 2.5)
 texture = ExtResource("2_3lpfc")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." groups=["LevelObjects"]]
+z_index = 6
 position = Vector2(448, 250)
 collision_layer = 2
 
@@ -56,6 +57,7 @@ scale = Vector2(2, 12)
 texture = ExtResource("3_s4jx2")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="." groups=["LevelObjects"]]
+z_index = 6
 position = Vector2(250, -500)
 rotation = -0.785398
 collision_layer = 2
@@ -69,6 +71,7 @@ scale = Vector2(2, 4)
 texture = ExtResource("3_s4jx2")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="." groups=["LevelObjects"]]
+z_index = 6
 position = Vector2(-200, -700)
 rotation = -1.5708
 collision_layer = 2
