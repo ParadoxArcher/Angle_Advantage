@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Devlogs/2025-03-12.md",
+                "file": "Devlogs/2025-03-21.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,7 +28,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "2025-03-12"
+              "title": "2025-03-21"
             }
           },
           {
@@ -83,42 +83,6 @@
             }
           },
           {
-            "id": "435608f7729f4aef",
-            "type": "leaf",
-            "state": {
-              "type": "excalidraw",
-              "state": {
-                "file": "zReferences/Excalidraw/Enclosed Racing Concept.excalidraw.md"
-              },
-              "icon": "excalidraw-icon",
-              "title": "Enclosed Racing Concept.excalidraw"
-            }
-          },
-          {
-            "id": "be7963d1e7575b8f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "DevNotes/Color Animation Shader.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "Color Animation Shader"
-            }
-          },
-          {
             "id": "29450da188c3ca0e",
             "type": "leaf",
             "state": {
@@ -153,9 +117,21 @@
               "icon": "excalidraw-icon",
               "title": "Drawing 2025-03-12 12.43.39.excalidraw"
             }
+          },
+          {
+            "id": "435608f7729f4aef",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "zReferences/Excalidraw/Enclosed Racing Concept.excalidraw.md"
+              },
+              "icon": "excalidraw-icon",
+              "title": "Enclosed Racing Concept.excalidraw"
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -228,8 +204,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -313,13 +288,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DevNotes/ToDoList.md",
+                "file": "DevNotes/Player/Movement/Boost VFX.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of ToDoList"
+              "title": "Outline of Boost VFX"
             }
           }
         ],
@@ -343,8 +318,19 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "2b906768df75cac8",
+  "active": "29450da188c3ca0e",
   "lastOpenFiles": [
+    "zProject Files/Godot/Scripts/Pla63BD.tmp",
+    "zReferences/Excalidraw/Drawing 2025-03-12 12.43.39.excalidraw.md",
+    "DevNotes/Player/Movement/Boost VFX.md",
+    "zReferences/Excalidraw/Enclosed Racing Concept.excalidraw.md",
+    "DevNotes/Color Animation Shader.md",
+    "DevNotes/ToDoList.md",
+    "zProject Files/Godot/Scenes/Gam1DE7.tmp",
+    "zProject Files/Godot/Scenes/PlaF361.tmp",
+    "Devlogs/2025-03-21.md",
+    "DevNotes/Player/Movement/Boost.md",
+    "Devlogs/2025-03-12.md",
     "zProject Files/Godot/Scenes/GamFB2D.tmp",
     "zProject Files/Godot/Scenes/Pla1467.tmp",
     "zProject Files/Godot/Assets/Player/Boost VFX 1.png~",
@@ -354,14 +340,6 @@
     "zProject Files/Godot/Scripts/Pla8215.tmp",
     "zProject Files/Godot/Assets/Player/BooC4C.tmp",
     "zProject Files/Godot/Assets/Player/Boost VFX.png~",
-    "zProject Files/Krita/Boost VFX.kra~",
-    "zProject Files/Godot/Assets/Test/opacity test.kra",
-    "zProject Files/Godot/Scripts/Pla2394.tmp",
-    "zReferences/Excalidraw/Drawing 2025-03-12 12.43.39.excalidraw.md",
-    "DevNotes/ToDoList.md",
-    "DevNotes/Player/Movement/Boost.md",
-    "DevNotes/Player/Movement/Boost VFX.md",
-    "DevNotes/Color Animation Shader.md",
     "DevNotes/Player/Player.md",
     "zProject Files/Godot/Assets/Noises/PixelNoise.jpg",
     "zProject Files/Godot/Assets/Noises/FractalNoise.jpg",
@@ -369,11 +347,9 @@
     "zProject Files/Godot/Assets/Test/CMYKCheckerboard1.png",
     "zProject Files/Godot/Assets/Test/icon.svg",
     "zProject Files/Godot/Assets/Test/Rainbowjpg.jpg",
-    "Devlogs/2025-03-12.md",
     "DevNotes/Player/Movement/Dodge.md",
     "DevNotes/Idea splurges/Level Ideas.md",
     "DevNotes/Player/Movement/Crash & Wall Bounce.md",
-    "zReferences/Excalidraw/Enclosed Racing Concept.excalidraw.md",
     "zReferences/Excalidraw/Drawing 2025-03-12 11.44.59.excalidraw.md",
     "Untitled Kanban.md",
     "DevNotes/ColorAnimator.md",
@@ -387,7 +363,6 @@
     "Devlogs/2025-01-24.md",
     "zReferences/Excalidraw/Drawing 2025-01-25 09.15.40.excalidraw.md",
     "DevNotes/Boost VFX Shader.md",
-    "Devlogs/2025-01-25.md",
     "zProject Files/Godot/Assets/Boost Color.png",
     "zProject Files/Godot/Assets/Boost Particle.png",
     "zProject Files/Godot/Assets/Rocket.png"

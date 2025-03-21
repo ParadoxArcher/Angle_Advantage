@@ -10,9 +10,11 @@
 		1) load reference to `BoostVFX`
 			1) `@onready var boost_sprite = $VFX/BoostVFX
 	2) Red
-		1) Base size #MaxSpeed, only active with [[Boost]]
-			1) a
-				1) 
+		1) Base on #SpeedAccel in relation to #MaxSpeed 
+			1) 
+			2) 
+			3) Call shader to adjust `RedFilter` by it's scaler
+				1) `boost_sprite.material.set_shader_parameter("RedFilter", .1 - RedFilterScaler)
 	3) Green
 		1) Base on #velocity relative to #MaxSpeed & #rotation
 			1) Find #velocityLength relative to #MaxSpeed 

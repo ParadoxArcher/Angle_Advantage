@@ -111,7 +111,8 @@ func _physics_process(_delta):
 	velocity -= clampf(SpeedDecel[0] * MaxSpeed, 0,  velocity.length()) * velocity.normalized() # Momentum & Friction
 	velocity = lerp(velocity, MaxSpeed * Vector2(cos(rotation), sin(rotation)), SpeedAccel[1] * SpeedAccel[0]) # Acceleration
 	
-	boost_sprite.material.set_shader_parameter("RedFilter", 1 - clampf((SpeedAccel[1] * SpeedAccel[0] / (SpeedAccel[2] * 1 )), 0, 1)) # VFX
+	var RedFilterScaler = clampf((SpeedAccel[1] * SpeedAccel[0] / (SpeedAccel[2] * 1.5 )), 0, 1)
+	boost_sprite.material.set_shader_parameter("RedFilter", 1 - RedFilterScaler) # VFX
 	var GreenFilterScaler = (velocity.length() / MaxSpeed ) * ((1 + velocity.normalized().dot(Vector2(-sin(rotation - PI/2), cos(rotation - PI/2))) ) / 2 )
 	boost_sprite.material.set_shader_parameter("GreenFilter", .8 - GreenFilterScaler * .8)
 	
