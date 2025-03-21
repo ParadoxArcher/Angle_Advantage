@@ -31,10 +31,18 @@
 			2) Use the full #Vector2 of #velocity and multiply #MaxSpeed by `cos` and `sin` of #rotation 
 				1) `velocity = lerp(velocity, Vector2(cos(rotation), sin(rotation)) * MaxSpeed, SpeedAccel[1])`
 4) Momentum & Friction
-	1) Define #SpeedDecel  as `global variable`
-		1) `@export var SpeedDecel = .005`
-	2) After `if MoveInput > 0:` and before `velocity` math
-		1) create another #velocity adjustment that decreases by #SpeedDecel * #MaxSpeed, clamping to prevent reduction from being greater than current  #velocity
+	1) Define #SpeedDecel  as `global array`, for a fluctuating variable, and a base
+		1) `@export var SpeedDecel = [.002, .002]`
+	2) Call #SpeedDecel0 to be #SpeedDecel1
+		1) `SpeedDecel[0] = SpeedDecel[1]
+	3) Decrease #SpeedDecel0 if #velocityLength is low
+		1) `if velocity.length() <= .15 * MaxSpeed:
+		if velocity.length() <= .05 * MaxSpeed:
+			SpeedDecel[0] *= .2
+		else:
+			SpeedDecel[0] *= .4`
+	4) After `if MoveInput > 0:` and before `velocity` math
+		2) create another #velocity adjustment that decreases by #SpeedDecel * #MaxSpeed, clamping to prevent reduction from being greater than current  #velocity
 			1) `velocity -= clampf(SpeedDecel[0] * MaxSpeed, 0,  velocity.length()) * velocity.normalized()`
 5) #BoostDecay
 	3) Define #SpeedAccel #BoostDecay  as `global arrays` with 3 variables each
@@ -76,3 +84,5 @@
 	- #BoostDir is unlinked with acceleration and directly determines velocity direction
 	- #SpeedAccel is controlled by #BoostDecay to determine velocity
 	- #Momentum is now decreased by a Linear friction
+- [[2025-03-21]]
+	-  reduced friction at low end with effectively a step function

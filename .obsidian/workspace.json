@@ -131,7 +131,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -288,13 +288,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DevNotes/Player/Movement/Boost VFX.md",
+                "file": "DevNotes/Player/Movement/Boost.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Boost VFX"
+              "title": "Outline of Boost"
             }
           }
         ],
@@ -318,28 +318,30 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "29450da188c3ca0e",
+  "active": "38f3ff542ecb8671",
   "lastOpenFiles": [
-    "zProject Files/Godot/Scripts/Pla63BD.tmp",
-    "zReferences/Excalidraw/Drawing 2025-03-12 12.43.39.excalidraw.md",
-    "DevNotes/Player/Movement/Boost VFX.md",
-    "zReferences/Excalidraw/Enclosed Racing Concept.excalidraw.md",
-    "DevNotes/Color Animation Shader.md",
-    "DevNotes/ToDoList.md",
-    "zProject Files/Godot/Scenes/Gam1DE7.tmp",
-    "zProject Files/Godot/Scenes/PlaF361.tmp",
+    "zProject Files/Godot/Assets/Player/Avatar.png.import",
     "Devlogs/2025-03-21.md",
     "DevNotes/Player/Movement/Boost.md",
+    "DevNotes/Player/Movement/Boost VFX.md",
+    "zProject Files/Godot/Assets/Player/Avatar.png",
+    "zProject Files/Godot/Assets/Player/Boost VFX.png",
+    "DevNotes/ToDoList.md",
+    "zReferences/Excalidraw/Drawing 2025-03-12 12.43.39.excalidraw.md",
+    "zProject Files/Godot/Assets/Player/Boo218B.tmp",
+    "zProject Files/Godot/pro206A.tmp",
+    "zProject Files/Godot/Assets/Player/Boost VFX.png.import",
+    "zProject Files/Godot/Scripts/Pla1F8F.tmp",
+    "zProject Files/Godot/Scripts/Pla63BD.tmp",
+    "zReferences/Excalidraw/Enclosed Racing Concept.excalidraw.md",
+    "DevNotes/Color Animation Shader.md",
+    "zProject Files/Godot/Scenes/Gam1DE7.tmp",
+    "zProject Files/Godot/Scenes/PlaF361.tmp",
     "Devlogs/2025-03-12.md",
     "zProject Files/Godot/Scenes/GamFB2D.tmp",
     "zProject Files/Godot/Scenes/Pla1467.tmp",
     "zProject Files/Godot/Assets/Player/Boost VFX 1.png~",
-    "zProject Files/Godot/Scenes/Pla3770.tmp",
-    "zProject Files/Godot/Assets/Player/Boost VFX 1.png.import",
     "zProject Files/Godot/Assets/Player/Boost VFX 1.png",
-    "zProject Files/Godot/Scripts/Pla8215.tmp",
-    "zProject Files/Godot/Assets/Player/BooC4C.tmp",
-    "zProject Files/Godot/Assets/Player/Boost VFX.png~",
     "DevNotes/Player/Player.md",
     "zProject Files/Godot/Assets/Noises/PixelNoise.jpg",
     "zProject Files/Godot/Assets/Noises/FractalNoise.jpg",
@@ -363,8 +365,6 @@
     "Devlogs/2025-01-24.md",
     "zReferences/Excalidraw/Drawing 2025-01-25 09.15.40.excalidraw.md",
     "DevNotes/Boost VFX Shader.md",
-    "zProject Files/Godot/Assets/Boost Color.png",
-    "zProject Files/Godot/Assets/Boost Particle.png",
-    "zProject Files/Godot/Assets/Rocket.png"
+    "zProject Files/Godot/Assets/Boost Color.png"
   ]
 }

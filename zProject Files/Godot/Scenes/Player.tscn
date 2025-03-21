@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://Scripts/BoostDetection.gd" id="6_0175k"]
 [ext_resource type="Texture2D" uid="uid://caa4c2i0dp1bm" path="res://Assets/Player/Boost Particle.png" id="6_q13sk"]
 [ext_resource type="Shader" path="res://Shaders/Test/ColorAnimater.gdshader" id="7_5q3wb"]
-[ext_resource type="Texture2D" uid="uid://c7h0tig6e6o2j" path="res://Assets/Player/Boost VFX 1.png" id="8_7oomm"]
+[ext_resource type="Texture2D" uid="uid://c7h0tig6e6o2j" path="res://Assets/Player/Boost VFX.png" id="8_7oomm"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_lx4no"]
 noise_type = 0
