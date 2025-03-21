@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://ctvqdcv7mbg4f"]
+[gd_scene load_steps=9 format=3 uid="uid://ctvqdcv7mbg4f"]
 
 [ext_resource type="PackedScene" uid="uid://u7p1uxpg5mr5" path="res://Scenes/Player.tscn" id="1_h4wmg"]
-[ext_resource type="Texture2D" uid="uid://dagthc88af6g6" path="res://Assets/CMYKCheckerboard1.png" id="2_3lpfc"]
-[ext_resource type="Texture2D" uid="uid://bsoxmb2pwe8tu" path="res://Assets/icon.svg" id="3_s4jx2"]
-[ext_resource type="Script" path="res://Scenes/Icon.gd" id="4_1n2lv"]
+[ext_resource type="Texture2D" uid="uid://dagthc88af6g6" path="res://Assets/Test/CMYKCheckerboard1.png" id="2_3lpfc"]
+[ext_resource type="Texture2D" uid="uid://bsoxmb2pwe8tu" path="res://Assets/Test/icon.svg" id="3_s4jx2"]
+[ext_resource type="Script" path="res://Scenes/Rainbowjpg.gd" id="5_3hlrh"]
+[ext_resource type="Texture2D" uid="uid://b1hvlxx3rpxcd" path="res://Assets/Test/Rainbowjpg.jpg" id="5_oim1y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mdej7"]
 size = Vector2(255, 1537)
@@ -45,13 +46,11 @@ shape = SubResource("RectangleShape2D_mdej7")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-240, 987)
 rotation = -0.785398
-scale = Vector2(1, 1)
 shape = SubResource("CircleShape2D_djhi5")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2(-198, -750)
 rotation = -0.785398
-scale = Vector2(1, 1)
 polygon = PackedVector2Array(-785.596, 1067.02, -697.914, 1240.97, -791.253, 1444.62, -982.878, 1497.65, -1154, 1434.01, -1217.64, 1230.37, -1161.07, 1026.72, -903.682, 1006.92)
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
@@ -84,7 +83,7 @@ shape = SubResource("RectangleShape2D_2rgot")
 scale = Vector2(2, 4)
 texture = ExtResource("3_s4jx2")
 
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(-592, 253)
-texture = ExtResource("3_s4jx2")
-script = ExtResource("4_1n2lv")
+[node name="Rainbowjpg" type="Sprite2D" parent="."]
+position = Vector2(-592, 80)
+texture = ExtResource("5_oim1y")
+script = ExtResource("5_3hlrh")
