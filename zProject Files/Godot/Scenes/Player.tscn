@@ -1,14 +1,14 @@
 [gd_scene load_steps=16 format=3 uid="uid://u7p1uxpg5mr5"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerScript.gd" id="1_g1qce"]
-[ext_resource type="Texture2D" uid="uid://d0iqunuwncvfd" path="res://Assets/Player/Avatar.png" id="2_u7ctg"]
-[ext_resource type="Texture2D" uid="uid://mfqwv60pknjx" path="res://Assets/Green Arrow.png" id="3_2uf6m"]
-[ext_resource type="Texture2D" uid="uid://dvkmtnxqu82d3" path="res://Assets/Red Arrow.png" id="5_a1lun"]
-[ext_resource type="Texture2D" uid="uid://bw0kkepdb55nf" path="res://Assets/Yellow Arrow.png" id="5_o2ksf"]
+[ext_resource type="Texture2D" uid="uid://tcdrx104tlv1" path="res://Assets/Player/Avatar.png" id="2_u7ctg"]
+[ext_resource type="Texture2D" uid="uid://myu1tknx58ow" path="res://Assets/Green Arrow.png" id="3_2uf6m"]
+[ext_resource type="Texture2D" uid="uid://dls4xvmjd2n3y" path="res://Assets/Red Arrow.png" id="5_a1lun"]
+[ext_resource type="Texture2D" uid="uid://bdkynjhxu7jyb" path="res://Assets/Yellow Arrow.png" id="5_o2ksf"]
 [ext_resource type="Script" path="res://Scripts/BoostDetection.gd" id="6_0175k"]
-[ext_resource type="Texture2D" uid="uid://caa4c2i0dp1bm" path="res://Assets/Player/Boost Particle.png" id="6_q13sk"]
+[ext_resource type="Texture2D" uid="uid://c0cmw5f18dakc" path="res://Assets/Player/Boost Particle.png" id="6_q13sk"]
 [ext_resource type="Shader" path="res://Shaders/Test/ColorAnimater.gdshader" id="7_5q3wb"]
-[ext_resource type="Texture2D" uid="uid://c7h0tig6e6o2j" path="res://Assets/Player/Boost VFX.png" id="8_7oomm"]
+[ext_resource type="Texture2D" uid="uid://ifk45mw0vxvl" path="res://Assets/Player/Boost VFX.png" id="7_cnoma"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_lx4no"]
 noise_type = 0
@@ -96,7 +96,7 @@ show_behind_parent = true
 material = SubResource("ShaderMaterial_m5b53")
 position = Vector2(-94, -4.17233e-06)
 rotation = 1.5708
-texture = ExtResource("8_7oomm")
+texture = ExtResource("7_cnoma")
 
 [node name="Particle2D" type="CPUParticles2D" parent="Boost/Sprite"]
 show_behind_parent = true

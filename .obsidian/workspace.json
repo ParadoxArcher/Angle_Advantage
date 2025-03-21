@@ -131,7 +131,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -288,13 +288,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zReferences/Excalidraw/Drawing 2025-03-12 12.43.39.excalidraw.md",
+                "file": "DevNotes/Player/Movement/Boost VFX.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Drawing 2025-03-12 12.43.39.excalidraw"
+              "title": "Outline of Boost VFX"
             }
           }
         ],
@@ -318,8 +318,14 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "db08f7477d3f1010",
+  "active": "29450da188c3ca0e",
   "lastOpenFiles": [
+    "zReferences/Excalidraw/Drawing 2025-03-12 12.43.39.excalidraw.md",
+    "zProject Files/Godot/Scripts/Pla1425.tmp",
+    "zProject Files/Godot/Scripts/Pla7A01.tmp",
+    "zProject Files/Godot/Scenes/Pla6D20.tmp",
+    "zProject Files/Godot/Scripts/Pla6BC7.tmp",
+    "zProject Files/Godot/Scenes/Gam6BB4.tmp",
     "DevNotes/ToDoList.md",
     "Devlogs/2025-03-21.md",
     "DevNotes/Player/Movement/Boost.md",
@@ -327,19 +333,13 @@
     "DevNotes/Player/Movement/Boost VFX.md",
     "zProject Files/Godot/Assets/Player/Avatar.png",
     "zProject Files/Godot/Assets/Player/Boost VFX.png",
-    "zReferences/Excalidraw/Drawing 2025-03-12 12.43.39.excalidraw.md",
     "zProject Files/Godot/Assets/Player/Boo218B.tmp",
     "zProject Files/Godot/pro206A.tmp",
     "zProject Files/Godot/Assets/Player/Boost VFX.png.import",
     "zProject Files/Godot/Scripts/Pla1F8F.tmp",
-    "zProject Files/Godot/Scripts/Pla63BD.tmp",
     "zReferences/Excalidraw/Enclosed Racing Concept.excalidraw.md",
     "DevNotes/Color Animation Shader.md",
-    "zProject Files/Godot/Scenes/Gam1DE7.tmp",
-    "zProject Files/Godot/Scenes/PlaF361.tmp",
     "Devlogs/2025-03-12.md",
-    "zProject Files/Godot/Scenes/GamFB2D.tmp",
-    "zProject Files/Godot/Scenes/Pla1467.tmp",
     "zProject Files/Godot/Assets/Player/Boost VFX 1.png",
     "DevNotes/Player/Player.md",
     "zProject Files/Godot/Assets/Noises/PixelNoise.jpg",

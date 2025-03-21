@@ -43,6 +43,9 @@ var Crashed = false
 #endregion
 
 func _physics_process(_delta):
+	var VelLength = velocity.length()
+	var PlayerRot = rotation
+	
 	#region Basic Movement
 	#region Input
 	if not Crashed:
@@ -56,8 +59,8 @@ func _physics_process(_delta):
 	SpeedDecel[0] = SpeedDecel[1]
 	RotaDecel[0] = RotaDecel[1]
 	
-	if velocity.length() <= .15 * MaxSpeed:
-		if velocity.length() <= .05 * MaxSpeed:
+	if VelLength <= .15 * MaxSpeed:
+		if VelLength <= .05 * MaxSpeed:
 			SpeedDecel[0] *= .2
 		else:
 			SpeedDecel[0] *= .4
@@ -108,13 +111,16 @@ func _physics_process(_delta):
 	RotaSpeed = lerpf(RotaSpeed, MoveInput.x * MaxRota, clampf(RotaRate, 0, 1)) # Rotation Acceleration
 	rotate(RotaSpeed)
 	
-	velocity -= clampf(SpeedDecel[0] * MaxSpeed, 0,  velocity.length()) * velocity.normalized() # Momentum & Friction
-	velocity = lerp(velocity, MaxSpeed * Vector2(cos(rotation), sin(rotation)), SpeedAccel[1] * SpeedAccel[0]) # Acceleration
+	velocity -= clampf(SpeedDecel[0] * MaxSpeed, 0, VelLength) * velocity.normalized() # Momentum & Friction
+	velocity = lerp(velocity, MaxSpeed * Vector2(cos(PlayerRot), sin(PlayerRot)), SpeedAccel[1] * SpeedAccel[0]) # Acceleration
 	
-	var RedFilterScaler = 1 - clampf((SpeedAccel[1] * SpeedAccel[0] / (SpeedAccel[2] * 1.5 )), 0, 1)
-	boost_sprite.material.set_shader_parameter("RedFilter", RedFilterScaler) # VFX
-	var GreenFilterScaler = (velocity.length() / MaxSpeed ) * ((1 + velocity.normalized().dot(Vector2(-sin(rotation - PI/2), cos(rotation - PI/2))) ) / 2 )
-	boost_sprite.material.set_shader_parameter("GreenFilter", .8 - GreenFilterScaler * .8)
+	var RedFilter = 1 - clampf((SpeedAccel[1] * SpeedAccel[0] / (SpeedAccel[2] * 1.5 )), 0, 1) # VFX
+	boost_sprite.material.set_shader_parameter("RedFilter", RedFilter)
+	var GreenFilterLeft = (VelLength / MaxSpeed ) * ((1 + velocity.normalized().dot(Vector2(cos(PlayerRot), sin(PlayerRot))) ) / 2 )
+	print(GreenFilterLeft)
+	#var GreenFilterRight = (VelLength / MaxSpeed ) * ((1 + velocity.normalized().dot(Vector2(-sin(PlayerRot - PI/2), cos(PlayerRot - PI/2))) ) / 2 )
+	boost_sprite.material.set_shader_parameter("GreenFilter", .8 - GreenFilterLeft * .8)
+	#boost_sprite.material.set_shader_parameter("GreenFilterRight", .8 - GreenFilterRight * .8)
 	
 	if RotaAccel[0] != RotaAccel[1]:
 		RotaAccel[0] -= clampf((RotaAccel[0] - RotaAccel[1] ) * RotaAccel[2], 0, RotaAccel[0] - RotaAccel[1])
