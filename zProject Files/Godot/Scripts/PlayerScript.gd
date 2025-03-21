@@ -56,8 +56,11 @@ func _physics_process(_delta):
 	SpeedDecel[0] = SpeedDecel[1]
 	RotaDecel[0] = RotaDecel[1]
 	
-	if velocity.length() <= .25 * MaxSpeed:
-		SpeedDecel[0] *= .5
+	if velocity.length() <= .15 * MaxSpeed:
+		if velocity.length() <= .05 * MaxSpeed:
+			SpeedDecel[0] *= .2
+		else:
+			SpeedDecel[0] *= .4
 		
 	if Input.is_action_pressed("Brake") and not Crashed:
 		SpeedDecel[0] *= BrakeDecelMult[0]

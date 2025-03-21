@@ -155,7 +155,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 6
       }
     ],
     "direction": "vertical"
@@ -313,13 +313,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DevNotes/ToDoList.md",
+                "file": "zReferences/Excalidraw/Drawing 2025-03-12 12.43.39.excalidraw.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of ToDoList"
+              "title": "Outline of Drawing 2025-03-12 12.43.39.excalidraw"
             }
           }
         ],
@@ -343,14 +343,17 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "2b906768df75cac8",
+  "active": "db08f7477d3f1010",
   "lastOpenFiles": [
+    "DevNotes/ToDoList.md",
+    "zProject Files/Godot/Scripts/Pla1672.tmp",
+    "zProject Files/Godot/Scripts/Pla8E26.tmp",
+    "zProject Files/Godot/Scripts/Pla47AF.tmp",
     "zProject Files/Godot/Scripts/PlaC3C3.tmp",
     "zProject Files/Godot/Scripts/Pla97CA.tmp",
     "DevNotes/Player/Movement/Boost.md",
     "DevNotes/Player/Movement/Boost VFX.md",
     "zReferences/Excalidraw/Drawing 2025-03-12 12.43.39.excalidraw.md",
-    "DevNotes/ToDoList.md",
     "DevNotes/Color Animation Shader.md",
     "DevNotes/Player/Player.md",
     "zProject Files/Godot/Scenes/GameScene.tscn",
@@ -361,10 +364,6 @@
     "zProject Files/Godot/Assets/Noises/flowerNoise.jpg",
     "zProject Files/Godot/Assets/Noises/flowerNoise.jpg.import",
     "zProject Files/Godot/Assets/Noises",
-    "zProject Files/Godot/Scripts/BoostDetection.gd",
-    "zProject Files/Godot/Scenes/PlaDDCA.tmp",
-    "zProject Files/Godot/Shaders/Test/Glitch.gdshader",
-    "zProject Files/Godot/Shaders/Test/Wave.gdshader",
     "zProject Files/Godot/Assets/Test/CMYKCheckerboard1.png",
     "zProject Files/Godot/Assets/Test/icon.svg",
     "zProject Files/Godot/Assets/Test/Rainbowjpg.jpg",
