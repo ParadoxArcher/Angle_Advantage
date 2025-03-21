@@ -14,6 +14,7 @@ uniform float RedFilter : hint_range(.0, 1, .01) = .1;
 uniform vec4 RedColor: source_color;
 uniform float GreenFilterLeft : hint_range(.0, 1, .01) = .1;
 uniform float GreenFilterRight : hint_range(.0, 1, .01) = .1;
+uniform float GreenFilterMax : hint_range(.0, 1., .01) = .8;
 uniform vec4 GreenColor: source_color;
 uniform float BlueFilter : hint_range(.0, 1, .01) = .1;
 uniform vec4 BlueColor: source_color;
@@ -41,7 +42,7 @@ void fragment() {
 	PixelSample.b = texture(TEXTURE, vec2(DistortedUVx.b, DistortedUVy.b)).b;
 	
 	
-	float GreenFilter = 1. - (GreenFilterLeft * abs(UV.x - 1.) / 2. );
+	float GreenFilter = GreenFilterMax - clamp((GreenFilterLeft * abs(UV.x - 1.) / 1.5 ) + (GreenFilterRight * (UV.x + 1. ) / 1.5) * GreenFilterMax, 0, GreenFilterMax);
 	
 	// Cumulatively adds colors together into the opacity    /* Remove [ * NoiseFilter] to remove Noise Alpha Filtering from any of the following colors */	
 	vec4 PixelColor = RedColor * smoothstep(RedFilter, 1., PixelSample.r) * NoiseFilter;
