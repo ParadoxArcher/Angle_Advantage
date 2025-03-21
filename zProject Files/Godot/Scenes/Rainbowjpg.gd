@@ -10,4 +10,5 @@ func _process(delta):
 	
 	print(transform)
 
-	transform.x.x = circle
+	transform.x.x = 2 * circle
+	transform.y.y = .5 * circle

@@ -9,6 +9,9 @@ func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index)
 	var localTransform = PhysicsServer2D.body_get_shape_transform(body_rid, body_shape_index)
 	var shapeType = PhysicsServer2D.shape_get_type(shapeRID)
 	var shapeData = PhysicsServer2D.shape_get_data(shapeRID)
+	
+	print(localTransform)
+	
 	ColliderInfo[shapeRID] = [bodyTransform, localTransform, shapeType, shapeData]
 	
 	
