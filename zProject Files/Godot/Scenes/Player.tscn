@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bdkynjhxu7jyb" path="res://Assets/Yellow Arrow.png" id="5_o2ksf"]
 [ext_resource type="Script" path="res://Scripts/BoostDetection.gd" id="6_0175k"]
 [ext_resource type="Texture2D" uid="uid://c0cmw5f18dakc" path="res://Assets/Player/Boost Particle.png" id="6_q13sk"]
-[ext_resource type="Shader" path="res://Shaders/Test/ColorAnimater.gdshader" id="7_5q3wb"]
+[ext_resource type="Shader" path="res://Shaders/BoostColorVFX.gdshader" id="7_ac5yp"]
 [ext_resource type="Texture2D" uid="uid://ifk45mw0vxvl" path="res://Assets/Player/Boost VFX.png" id="7_cnoma"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_lx4no"]
@@ -19,16 +19,17 @@ seamless = true
 noise = SubResource("FastNoiseLite_lx4no")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m5b53"]
-shader = ExtResource("7_5q3wb")
+shader = ExtResource("7_ac5yp")
 shader_parameter/ScrollVelocity = Vector2(0.05, -0.3)
 shader_parameter/NoiseAlphaFilterActive = false
 shader_parameter/AlphaFilterStrength = 1.0
 shader_parameter/NoiseDistortionActive = true
 shader_parameter/DistortionColorStrengthX = Vector3(0.06, 0.02, 0)
 shader_parameter/DistortionColorStrengthY = null
-shader_parameter/RedFilter = 0.6
+shader_parameter/RedFilter = 0.1
 shader_parameter/RedColor = Color(0.490196, 0, 1, 1)
-shader_parameter/GreenFilter = 0.8
+shader_parameter/GreenFilterLeft = 0.1
+shader_parameter/GreenFilterRight = 0.1
 shader_parameter/GreenColor = Color(0.490196, 0, 1, 1)
 shader_parameter/BlueFilter = 0.1
 shader_parameter/BlueColor = Color(0, 0, 0, 0)
@@ -122,6 +123,7 @@ scale_curve_y = SubResource("Curve_70c1a")
 color_ramp = SubResource("Gradient_88hfk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boost"]
+visible = false
 position = Vector2(-92, -3.99351e-06)
 shape = SubResource("CapsuleShape2D_7jcn7")
 

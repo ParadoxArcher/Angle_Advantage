@@ -41,7 +41,7 @@ void fragment() {
 	PixelSample.b = texture(TEXTURE, vec2(DistortedUVx.b, DistortedUVy.b)).b;
 	
 	
-	float GreenFilter = (1. - GreenFilterLeft * (abs(UV.x - 1.) / 2. ) ) + (1. - GreenFilterRight * ((UV.x + 1. ) / 2. ) );
+	float GreenFilter = smoothstep(GreenFilterLeft, 1., UV.x);
 	
 	// Cumulatively adds colors together into the opacity    /* Remove [ * NoiseFilter] to remove Noise Alpha Filtering from any of the following colors */	
 	vec4 PixelColor = RedColor * smoothstep(RedFilter, 1., PixelSample.r) * NoiseFilter;
