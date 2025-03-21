@@ -6,9 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://dvkmtnxqu82d3" path="res://Assets/Red Arrow.png" id="5_a1lun"]
 [ext_resource type="Texture2D" uid="uid://bw0kkepdb55nf" path="res://Assets/Yellow Arrow.png" id="5_o2ksf"]
 [ext_resource type="Texture2D" uid="uid://caa4c2i0dp1bm" path="res://Assets/Player/Boost Particle.png" id="6_q13sk"]
-[ext_resource type="Shader" path="res://Shaders/ColorAnimater.gdshader" id="7_c6xhd"]
+[ext_resource type="Shader" path="res://Shaders/Test/ColorAnimater.gdshader" id="7_5q3wb"]
 [ext_resource type="Texture2D" uid="uid://82veagudcihb" path="res://Assets/Player/Boost VFX.png" id="7_cnoma"]
-[ext_resource type="Script" path="res://Scenes/BoostDetection.gd" id="7_ki0xn"]
+[ext_resource type="Script" path="res://Scripts/BoostDetection.gd" id="7_ki0xn"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_lx4no"]
 noise_type = 0
@@ -19,7 +19,7 @@ seamless = true
 noise = SubResource("FastNoiseLite_lx4no")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m5b53"]
-shader = ExtResource("7_c6xhd")
+shader = ExtResource("7_5q3wb")
 shader_parameter/ScrollVelocity = Vector2(0.05, -0.3)
 shader_parameter/NoiseAlphaFilterActive = false
 shader_parameter/AlphaFilterStrength = 1.0

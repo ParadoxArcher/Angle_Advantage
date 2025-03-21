@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ccbxde3m4q34n"
-path="res://.godot/imported/PixelNoise.jpg-96543822b1a57270c53af4808f285eba.ctex"
+path="res://.godot/imported/PixelNoise.jpg-8db6df9804f075484ac58f1edc5eac5a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Noises/PixelNoise.jpg"
-dest_files=["res://.godot/imported/PixelNoise.jpg-96543822b1a57270c53af4808f285eba.ctex"]
+source_file="res://Assets/Noises/PixelNoise.jpg"
+dest_files=["res://.godot/imported/PixelNoise.jpg-8db6df9804f075484ac58f1edc5eac5a.ctex"]
 
 [params]
 
