@@ -131,7 +131,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -288,13 +288,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DevNotes/Player/Movement/Boost.md",
+                "file": "zReferences/Excalidraw/Drawing 2025-03-12 12.43.39.excalidraw.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Boost"
+              "title": "Outline of Drawing 2025-03-12 12.43.39.excalidraw"
             }
           }
         ],
@@ -318,15 +318,15 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "38f3ff542ecb8671",
+  "active": "db08f7477d3f1010",
   "lastOpenFiles": [
-    "zProject Files/Godot/Assets/Player/Avatar.png.import",
+    "DevNotes/ToDoList.md",
     "Devlogs/2025-03-21.md",
     "DevNotes/Player/Movement/Boost.md",
+    "zProject Files/Godot/Assets/Player/Avatar.png.import",
     "DevNotes/Player/Movement/Boost VFX.md",
     "zProject Files/Godot/Assets/Player/Avatar.png",
     "zProject Files/Godot/Assets/Player/Boost VFX.png",
-    "DevNotes/ToDoList.md",
     "zReferences/Excalidraw/Drawing 2025-03-12 12.43.39.excalidraw.md",
     "zProject Files/Godot/Assets/Player/Boo218B.tmp",
     "zProject Files/Godot/pro206A.tmp",
@@ -340,7 +340,6 @@
     "Devlogs/2025-03-12.md",
     "zProject Files/Godot/Scenes/GamFB2D.tmp",
     "zProject Files/Godot/Scenes/Pla1467.tmp",
-    "zProject Files/Godot/Assets/Player/Boost VFX 1.png~",
     "zProject Files/Godot/Assets/Player/Boost VFX 1.png",
     "DevNotes/Player/Player.md",
     "zProject Files/Godot/Assets/Noises/PixelNoise.jpg",

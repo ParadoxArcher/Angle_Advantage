@@ -7,16 +7,16 @@ kanban-plugin: board
 ## Current
 
 - [x] reduce friction at low end
-- [ ] set up redfilter again, documentate
+- [x] set up redfilter again, documentate
+- [ ] [[Boost VFX]] GreenFilter isn't omnidirectional
+- [ ] [[Dodge]] shouldn't override positive movement
 - [ ] Reformat WallBoost
 - [ ] Learn and create particle shader
-- [ ] [[Dodge]] shouldn't override positive movement
 - [ ] Look into PhysicsServer2D to replace current functions
 
 
 ## Band-aids
 
-- [ ] [[Boost VFX]] GreenFilter isn't omnidirectional
 
 
 ## Soon

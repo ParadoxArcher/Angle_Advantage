@@ -37,12 +37,12 @@
 		1) `SpeedDecel[0] = SpeedDecel[1]
 	3) Decrease #SpeedDecel0 if #velocityLength is low
 		1) `if velocity.length() <= .15 * MaxSpeed:
-		if velocity.length() <= .05 * MaxSpeed:
-			SpeedDecel[0] *= .2
-		else:
-			SpeedDecel[0] *= .4`
-	4) After `if MoveInput > 0:` and before `velocity` math
-		2) create another #velocity adjustment that decreases by #SpeedDecel * #MaxSpeed, clamping to prevent reduction from being greater than current  #velocity
+			1) `if velocity.length() <= .05 * MaxSpeed:
+				1) `SpeedDecel[0] *= .2
+			2) `else:
+				1) `SpeedDecel[0] *= .4`
+	4) Just before `velocity` math
+		1) create another #velocity adjustment that decreases by #SpeedDecel * #MaxSpeed, clamping to prevent reduction from being greater than current  #velocity
 			1) `velocity -= clampf(SpeedDecel[0] * MaxSpeed, 0,  velocity.length()) * velocity.normalized()`
 5) #BoostDecay
 	3) Define #SpeedAccel #BoostDecay  as `global arrays` with 3 variables each
