@@ -1,14 +1,16 @@
 extends Sprite2D
 
-var x = 0
-# Called when the node enters the scene tree for the first time.
-
+func _ready():
+	print(transform)
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+var x = 0
+
 func _process(delta):
 	x += .02
-	var circle = cos(x)
+	var cycle = cos(x)
 	
-	print(transform)
+	#transform.y = Vector2(-sin(.75), cos(.75))
+	#transform.x = Vector2(cos(.75), sin(.75))
 
-	transform.x.x = 2 * circle
-	transform.y.y = .5 * circle
+	print(transform)

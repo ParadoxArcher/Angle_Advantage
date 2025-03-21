@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://ctvqdcv7mbg4f"]
+[gd_scene load_steps=9 format=3 uid="uid://ctvqdcv7mbg4f"]
 
 [ext_resource type="PackedScene" uid="uid://u7p1uxpg5mr5" path="res://Scenes/Player.tscn" id="1_h4wmg"]
 [ext_resource type="Texture2D" uid="uid://dagthc88af6g6" path="res://Assets/Test/CMYKCheckerboard1.png" id="2_3lpfc"]
 [ext_resource type="Texture2D" uid="uid://bsoxmb2pwe8tu" path="res://Assets/Test/icon.svg" id="3_s4jx2"]
+[ext_resource type="Script" path="res://Scenes/Rainbowjpg.gd" id="5_3hlrh"]
+[ext_resource type="Texture2D" uid="uid://b1hvlxx3rpxcd" path="res://Assets/Test/Rainbowjpg.jpg" id="5_oim1y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mdej7"]
 size = Vector2(255, 1537)
@@ -80,3 +82,9 @@ shape = SubResource("RectangleShape2D_2rgot")
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D3"]
 scale = Vector2(2, 4)
 texture = ExtResource("3_s4jx2")
+
+[node name="Rainbowjpg" type="Sprite2D" parent="."]
+position = Vector2(-634, 303)
+skew = -0.657989
+texture = ExtResource("5_oim1y")
+script = ExtResource("5_3hlrh")
