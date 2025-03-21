@@ -6,11 +6,12 @@ kanban-plugin: board
 
 ## Current
 
+- [x] reduce friction at low end
 - [ ] set up redfilter again, documentate
 - [ ] Reformat WallBoost
 - [ ] Learn and create particle shader
 - [ ] [[Dodge]] shouldn't override positive movement
-- [ ] reduce friction at low end
+- [ ] Look into PhysicsServer2D to replace current functions
 
 
 ## Band-aids
