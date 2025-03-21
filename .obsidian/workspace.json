@@ -153,33 +153,9 @@
               "icon": "excalidraw-icon",
               "title": "Drawing 2025-03-12 12.43.39.excalidraw"
             }
-          },
-          {
-            "id": "8f91c9dea0931037",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "DevNotes/Player/Player.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "Player"
-            }
           }
         ],
-        "currentTab": 6
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -337,13 +313,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zReferences/Excalidraw/Drawing 2025-03-12 12.43.39.excalidraw.md",
+                "file": "DevNotes/ToDoList.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Drawing 2025-03-12 12.43.39.excalidraw"
+              "title": "Outline of ToDoList"
             }
           }
         ],
@@ -367,8 +343,16 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "db08f7477d3f1010",
+  "active": "2b906768df75cac8",
   "lastOpenFiles": [
+    "zProject Files/Godot/Scripts/PlaC3C3.tmp",
+    "zProject Files/Godot/Scripts/Pla97CA.tmp",
+    "DevNotes/Player/Movement/Boost.md",
+    "DevNotes/Player/Movement/Boost VFX.md",
+    "zReferences/Excalidraw/Drawing 2025-03-12 12.43.39.excalidraw.md",
+    "DevNotes/ToDoList.md",
+    "DevNotes/Color Animation Shader.md",
+    "DevNotes/Player/Player.md",
     "zProject Files/Godot/Scenes/GameScene.tscn",
     "zProject Files/Godot/Assets/Noises/PixelNoise.jpg.import",
     "zProject Files/Godot/Assets/Noises/FractalNoise.jpg.import",
@@ -381,20 +365,12 @@
     "zProject Files/Godot/Scenes/PlaDDCA.tmp",
     "zProject Files/Godot/Shaders/Test/Glitch.gdshader",
     "zProject Files/Godot/Shaders/Test/Wave.gdshader",
-    "zProject Files/Godot/Shaders/Test/ScrollingNoise.gdshader",
-    "zProject Files/Godot/Shaders/Test/Grayscale.gdshader",
     "zProject Files/Godot/Assets/Test/CMYKCheckerboard1.png",
     "zProject Files/Godot/Assets/Test/icon.svg",
     "zProject Files/Godot/Assets/Test/Rainbowjpg.jpg",
-    "DevNotes/ToDoList.md",
-    "zReferences/Excalidraw/Drawing 2025-03-12 12.43.39.excalidraw.md",
-    "DevNotes/Player/Player.md",
-    "DevNotes/Player/Movement/Boost VFX.md",
-    "DevNotes/Player/Movement/Boost.md",
     "Devlogs/2025-03-12.md",
     "DevNotes/Player/Movement/Dodge.md",
     "DevNotes/Idea splurges/Level Ideas.md",
-    "DevNotes/Color Animation Shader.md",
     "DevNotes/Player/Movement/Crash & Wall Bounce.md",
     "zReferences/Excalidraw/Enclosed Racing Concept.excalidraw.md",
     "zReferences/Excalidraw/Drawing 2025-03-12 11.44.59.excalidraw.md",

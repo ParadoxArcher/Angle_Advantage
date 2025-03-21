@@ -10,7 +10,7 @@ var MoveInput = Vector2(0, 0)
 @export var MaxSpeed = 2000
 @export var BoostDecay = [0, .015, .8] # {0: Final,  1:DecayRate, 2:ReleaseAccelScaler(cannot be 0)}
 @export var SpeedAccel = [1.0, 0, .01] # {0: Global Mod, 1: BoostResult, 2: BaseSpeedAccel} ## Beware WallBoostScale
-@export var SpeedDecel = [.002, .002] # {0: Fluctuating,  1: Decel} ## Beware BrakeDecelMult
+@export var SpeedDecel = [.002, .002] # {0: Fluctuating,  1: Base} ## Beware BrakeDecelMult
 var AccelRate = 0
 
 ## Rotation Variables
@@ -51,15 +51,20 @@ func _physics_process(_delta):
 		MoveInput = Vector2(0, 0)
 	#endregion
 	
+	
 	#region Brakes --- Amplifies Deceleration	
-	if Input.is_action_pressed("Brake") and not Crashed:
-		SpeedDecel[0] = SpeedDecel[1] * BrakeDecelMult[0]
-		RotaDecel[0] = RotaDecel[1] * BrakeDecelMult[1]
-	else:
-		SpeedDecel[0] = SpeedDecel[1]
-		RotaDecel[0] = RotaDecel[1]
-	#endregion
+	SpeedDecel[0] = SpeedDecel[1]
+	RotaDecel[0] = RotaDecel[1]
+	
+	if velocity.length() <= .25 * MaxSpeed:
+		SpeedDecel[0] *= .5
 		
+	if Input.is_action_pressed("Brake") and not Crashed:
+		SpeedDecel[0] *= BrakeDecelMult[0]
+		RotaDecel[0] *= BrakeDecelMult[1]
+	#endregion
+	
+	
 	#region Boost --- Determines movement application and delays it's deactivation
 	if MoveInput.y > 0 or BoostDecay[0] > 0:
 		if MoveInput.y / BoostDecay[2] >= BoostDecay[0]:
@@ -79,6 +84,7 @@ func _physics_process(_delta):
 		boost_particle.emitting = false
 	#endregion
 	
+	
 	#region Rotation --- Defines rotation acceleration and it's momentum
 	if MoveInput.x != 0: 
 		var CounterSteer = absf((RotaSpeed / MaxRota ) - MoveInput.x) * CounterSteerRate
@@ -88,10 +94,12 @@ func _physics_process(_delta):
 	#endregion
 	#endregion
 	
+	
 	#region Advanced Movement
 	if Input.is_action_just_pressed("Dodge") and not Crashed: # Calls Dodge() to instantanteously set movement in direction relative to rotation
 		dodge(Vector2(MoveInput.x, -MoveInput.y).normalized())
 	#endregion
+	
 	
 	#region Transform
 	RotaSpeed = lerpf(RotaSpeed, MoveInput.x * MaxRota, clampf(RotaRate, 0, 1)) # Rotation Acceleration
@@ -104,11 +112,11 @@ func _physics_process(_delta):
 	var GreenFilterScaler = (velocity.length() / MaxSpeed ) * ((1 + velocity.normalized().dot(Vector2(-sin(rotation - PI/2), cos(rotation - PI/2))) ) / 2 )
 	boost_sprite.material.set_shader_parameter("GreenFilter", .8 - GreenFilterScaler * .8)
 	
-	
 	if RotaAccel[0] != RotaAccel[1]:
 		RotaAccel[0] -= clampf((RotaAccel[0] - RotaAccel[1] ) * RotaAccel[2], 0, RotaAccel[0] - RotaAccel[1])
 	SpeedAccel[0] = 1.0
 	#endregion
+	
 	
 	#region Collision --- Crash && WallBounce
 	var Collision = move_and_collide(velocity * _delta, false, .7, false)
@@ -130,6 +138,7 @@ func _physics_process(_delta):
 		#BounceVFX[0] += clampf(BounceVFX[1], 0, 1 - BounceVFX[0])
 		#boost_sprite.material.set_shader_parameter("GreenFilter", clampf(BounceVFX[0], 0, 1))
 	#endregion
+
 
 #region Graphics Variables
 ##Markers Variables

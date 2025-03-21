@@ -6,14 +6,11 @@ kanban-plugin: board
 
 ## Current
 
-- [x] Refactor Movement System
-- [x] #velocity never stops! Adjust to linear friction?
-- [ ] Replace raycasts with a colliding body
 - [ ] set up redfilter again, documentate
-- [ ] [[Boost VFX]] redfilter bug sets VFX to max
-- [ ] Document Boost VFX
+- [ ] Reformat WallBoost
 - [ ] Learn and create particle shader
 - [ ] [[Dodge]] shouldn't override positive movement
+- [ ] reduce friction at low end
 
 
 ## Band-aids

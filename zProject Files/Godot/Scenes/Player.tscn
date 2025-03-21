@@ -5,10 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://mfqwv60pknjx" path="res://Assets/Green Arrow.png" id="3_2uf6m"]
 [ext_resource type="Texture2D" uid="uid://dvkmtnxqu82d3" path="res://Assets/Red Arrow.png" id="5_a1lun"]
 [ext_resource type="Texture2D" uid="uid://bw0kkepdb55nf" path="res://Assets/Yellow Arrow.png" id="5_o2ksf"]
+[ext_resource type="Script" path="res://Scripts/BoostDetection.gd" id="6_0175k"]
 [ext_resource type="Texture2D" uid="uid://caa4c2i0dp1bm" path="res://Assets/Player/Boost Particle.png" id="6_q13sk"]
 [ext_resource type="Shader" path="res://Shaders/Test/ColorAnimater.gdshader" id="7_5q3wb"]
 [ext_resource type="Texture2D" uid="uid://82veagudcihb" path="res://Assets/Player/Boost VFX.png" id="7_cnoma"]
-[ext_resource type="Script" path="res://Scripts/BoostDetection.gd" id="7_ki0xn"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_lx4no"]
 noise_type = 0
@@ -87,7 +87,7 @@ texture = ExtResource("5_o2ksf")
 show_behind_parent = true
 collision_layer = 0
 collision_mask = 2
-script = ExtResource("7_ki0xn")
+script = ExtResource("6_0175k")
 
 [node name="Sprite" type="Sprite2D" parent="Boost"]
 show_behind_parent = true
