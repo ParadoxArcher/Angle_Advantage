@@ -116,8 +116,8 @@ func _physics_process(_delta):
 	
 	var RedFilter = 1 - clampf((SpeedAccel[1] * SpeedAccel[0] / (SpeedAccel[2] * 1.5 )), 0, 1) # VFX
 	boost_sprite.material.set_shader_parameter("RedFilter", RedFilter)
-	var GreenFilterLeft = (VelLength / MaxSpeed ) * ((1 + velocity.normalized().dot(Vector2(cos(PlayerRot - PI/4), sin(PlayerRot - PI/4))) ) / 2 )
-	var GreenFilterRight = (VelLength / MaxSpeed ) * ((1 + velocity.normalized().dot(Vector2(cos(PlayerRot + PI/4), sin(PlayerRot + PI/4))) ) / 2 )
+	var GreenFilterLeft = (VelLength / MaxSpeed ) * ((1 + velocity.normalized().dot(Vector2(cos(PlayerRot - PI/6), sin(PlayerRot - PI/6))) ) / 2 )
+	var GreenFilterRight = (VelLength / MaxSpeed ) * ((1 + velocity.normalized().dot(Vector2(cos(PlayerRot + PI/6), sin(PlayerRot + PI/6))) ) / 2 )
 	boost_sprite.material.set_shader_parameter("GreenFilterLeft", GreenFilterLeft)
 	boost_sprite.material.set_shader_parameter("GreenFilterRight", GreenFilterRight)
 	
