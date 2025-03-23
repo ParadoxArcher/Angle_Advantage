@@ -140,7 +140,7 @@ func _physics_process(_delta):
 		#var RotaDot = (Vector2(-cos(rotation), -sin(rotation)).dot(CollisionNormal) + 1 ) / 2
 		
 	if is_on_wall():
-		velocity = velocity.bounce(get_wall_normal())
+		#velocity = velocity.bounce(get_wall_normal())
 		PhysicsServer2D.body_set_param(get_rid(), PhysicsServer2D.BODY_PARAM_BOUNCE, 1)
 		print(PhysicsServer2D.body_get_param(get_rid(), PhysicsServer2D.BODY_PARAM_BOUNCE))
 		pass
