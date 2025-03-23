@@ -3,27 +3,36 @@
 
 #### Steps
 1) Make [[Player]] bounce off walls
-	1)  As `global variable`:
-		1) Define #Bounce 
-			1) `@export var CollisionRebound = .3`
-	2) Call `move_and_collide` as a variable instead, with a `safe_margin` of .7
-		1) `var Collision = move_and_collide(velocity * _delta, false, .7, false)`
-	3) When #Collision, invert #velocity by #Collision normal times #Bounce
-		1) `if Collision:
-			1) `velocity = velocity.bounce(Collision.get_normal()) * Bounce
+	1) Just after `move_and_slide`
+		1) When in contact with a wall...
+			1) `if is_touching_wall():`
+		2) Store the collision normal for optimization and legibility
+			1) `var WallNormal = get_wall_normal()`
+		3) Bounce velocity off the collision normal
+			2) `velocity = velocity.bounce(WallNormal)
+	2) Change Bounce potency
+		1) `@export` #BounceStrength
+			1) `@export var BounceStrength = .4
+		2) in `func _ready():`
+			1) set `PhysicsServer2D.BODY_PARAM_BOUNCE`
+				1) `PhysicsServer2D.body_set_param(get_rid(), PhysicsServer2D.BODY_PARAM_BOUNCE, BounceStrength)`
+		3) modify `velocity.bounce()` by our parameter
+			1) Store #BounceStrength for optimization and legibility
+				1) `var BounceParam = PhysicsServer2D.body_get_param(get_rid(), PhysicsServer2D.BODY_PARAM_BOUNCE)
+			2) Multiply `velocity.bounce()` by a `Vector2`
 2) Disable Movement
-	1) Define  #CrashTime and #Crashed as `global variables`
+	2) Define  #CrashTime and #Crashed as `global variables`
 		2) `var Crashed = false
 		3) `@export var CrashTime = 1.5
-	2) Create and use `func crash():`
+	3) Create and use `func crash():`
 		1) `func crash():
 		2) Inside `if Collision:` 
 			1) `crash()
-	3) Inside `func crash():`, set #Crashed to true, `await` with `proccess_in_physics` set to `true`, then set #Crashed to `false`
+	4) Inside `func crash():`, set #Crashed to true, `await` with `proccess_in_physics` set to `true`, then set #Crashed to `false`
 		1) `Crashed = true
 		2) `await get_tree().create_timer(CrashTime, true, true).timeout
 		3) `Crashed = false`
-	4) Apply to `if:` statement around #MoveInput and [[Brakes]]
+	5) Apply to `if:` statement around #MoveInput and [[Brakes]]
 		1) Call #MoveInput as `global variable`
 			1) Before `func _physics_process(_delta):`
 				1) `var MoveInput = Vector2(0, 0)
