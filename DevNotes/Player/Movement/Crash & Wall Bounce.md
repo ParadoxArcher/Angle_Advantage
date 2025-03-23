@@ -60,17 +60,17 @@
 					1) `MoveInput = Vector2(0, 0)`
 			3) [[Brakes]]
 				1) `if Input.is_action_pressed("Brake") and not Crashed:`
-	2) Scale `crash` time by relative #velocity and `CollisionAngle`
-		1) Determine
+	2) Scale `crash()` time by relative #velocity and `CollisionAngle`
+		1) Determine `CrashScaler`
 			1) Define #CrashSpeed as `global variable`
 				1) `@export var CrashSpeed = .2
-			2) Determine relative #velocity
-				1) 
-		2) #crash `if` #CollisionDot is <  - #CrashSpeed
-			1) `if CollisionDot < -CrashSpeed:`
-				1) `crash()`
-		3) Multiply #CollisionDot  by #velocity length over #MaxSpeed
-			1) `if CollisionDot * (velocity.length() / MaxSpeed[0] ) < -CrashSpeed:`
+			2) Multiply relative `velocity` by the effective `crash` angles
+				1) `var Impact = velocity.length() / MaxSpeed * (1 - (CollisionAngle / (PI - wallbounce_angle ) ) )
+			3) add #CrashSpeed to `CollisionAngle` filter for `Crash()`
+				1) `if CollisionAngle <= wallbounce_angle and Impact >= CrashSpeed:`
+			4) 
+		2) Multiply #CollisionDot  by #velocity length over #MaxSpeed
+			2) `if CollisionDot * (velocity.length() / MaxSpeed[0] ) < -CrashSpeed:`
 3) Modify #Collision results by difference in #rotation to #Collision normal
 	5) Prevent #crash from going off while looking away from wall
 		1) Define #CrashAngle & #CrashSpeed  as `global variable`
