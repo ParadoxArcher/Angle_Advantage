@@ -27,21 +27,26 @@
 				1) *this utilizes a Marker2D to determine the angle*
 		2) Determine the angle difference between the [[Player]] and collision normal
 			1) in a `pingpong()` function...
-				1) subtract the [[Player]] `rotation` collision normal `.angle()` minus the [[Player]]`rotation` by `TAU`, then Subtract the result by `PI` to wrap it around
-2) 
-3) Disable Movement
-	2) Define  #CrashTime and #Crashed as `global variables`
+				1) subtract the [[Player]] `rotation` from our collision normal `.angle()`, wrapped around `TAU`
+					1) `var CollisionAngle = (pingpong(WallNormal.angle() - rotation, TAU)`
+			2) then Subtract the result by `PI` to wrap around the player before grabbing the `abs()` of the result
+				1) `var CollisionAngle = abs(pingpong(WallNormal.angle() - rotation, TAU) - PI)`
+		3) Execute, multiplying `BounceParam` by the inverse of #BounceStrength 
+			1) `if CollisionAngle >= wallbounce_angle:
+				1) `BounceParam *= (1 / BounceStrength)`
+2) Crashing
+	1) Define  #CrashTime and #Crashed as `global variables`
 		2) `var Crashed = false
 		3) `@export var CrashTime = 1.5
-	3) Create and use `func crash():`
+	2) Create and use `func crash():`
 		1) `func crash():
-		2) Inside `if Collision:` 
+		2) Inside `if is_on_walls():` 
 			1) `crash()
-	4) Inside `func crash():`, set #Crashed to true, `await` with `proccess_in_physics` set to `true`, then set #Crashed to `false`
+	3) Inside `func crash():`, set #Crashed to true, `await` with `proccess_in_physics` set to `true`, then set #Crashed to `false`
 		1) `Crashed = true
 		2) `await get_tree().create_timer(CrashTime, true, true).timeout
 		3) `Crashed = false`
-	5) Apply to `if:` statement around #MoveInput and [[Brakes]]
+	4) Apply to `if:` statement around #MoveInput and [[Brakes]]
 		1) Call #MoveInput as `global variable`
 			1) Before `func _physics_process(_delta):`
 				1) `var MoveInput = Vector2(0, 0)
@@ -52,17 +57,17 @@
 				1) `MoveInput = Vector2(0, 0)`
 		3) [[Brakes]]
 			1) `if Input.is_action_pressed("Brake") and not Crashed:`
-4) Limit `crash` by #Collision direction and #velocity
-	1) Define #CrashSpeed as `global variable`
-		1) `@export var CrashSpeed = .4
-	2) Inside `if Collision:` Get angle difference from #velocity and #Collision normal
+3) Limit `crash` by #Collision direction and #velocity
+	5) Define #CrashSpeed as `global variable`
+		1) `@export var CrashSpeed = .2
+	6) Inside `if Collision:` Get angle difference from #velocity and #Collision normal
 		1) `var CollisionDot = velocity.normalized().dot(Collision.get_normal())
-	3) #crash `if` #CollisionDot is <  - #CrashSpeed
+	7) #crash `if` #CollisionDot is <  - #CrashSpeed
 		1) `if CollisionDot < -CrashSpeed:`
 			1) `crash()`
-	4) Multiply #CollisionDot  by #velocity length over #MaxSpeed
+	8) Multiply #CollisionDot  by #velocity length over #MaxSpeed
 		1) `if CollisionDot * (velocity.length() / MaxSpeed[0] ) < -CrashSpeed:`
-5) Modify #Collision results by difference in #rotation to #Collision normal
+4) Modify #Collision results by difference in #rotation to #Collision normal
 	1) Prevent #crash from going off while looking away from wall
 		1) Define #CrashAngle & #CrashSpeed  as `global variable`
 			1) `@export var CrashAngle = .3
@@ -86,7 +91,7 @@
 				2) `await get_tree().create_timer(CrashTimer, true,true).timeout`
 		3) Insert #WallBounce * #velocity length / #MaxSpeed into #crash as #CrashTimeScaler
 			1) `crash(WallBounce * (velocity.length() / MaxSpeed[0] )) `
-6) #CrashImmunity
+5) #CrashImmunity
 	1) Define #CrashImmunity as a `global array` of a `false` `bool` and `float
 		1) `@export var CrashImmunity = [false, .6]
 	2) Inside `crash(CrashTimeScaler):` pass the entire `func` `if` #CrashImmunity0 is `true`
