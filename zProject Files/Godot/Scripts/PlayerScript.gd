@@ -28,8 +28,8 @@ var RotaRate = 0
 @export var DodgeRotaAccel = 4.
 
 ##Crash && WallBounce Variables
-@onready var wallbounce_pos = $CollisionPolygon2D/WallbounceMarker.position.normalized()
-@onready var WallbounceAngle = atan2(wallbounce_pos.x, wallbounce_pos.y)
+@onready var wallbounce_pos = atan2($CollisionPolygon2D/WallbounceMarker.position.x, $CollisionPolygon2D/WallbounceMarker.position.y)
+#@onready var WallbounceAngle = atan2(wallbounce_pos.x, wallbounce_pos.y)
 @export var Bounce = [.4, 1.0] # {0: Minimum, 1: Maximum}
 @export var CrashAngle = .3
 @export var CrashSpeed = .35
@@ -135,7 +135,7 @@ func _physics_process(_delta):
 		var Impact = velocity.normalized().dot(get_wall_normal())
 		var RotaDot = (Vector2(-cos(rotation), -sin(rotation)).dot(get_wall_normal()) + 1 ) / 2
 		velocity = velocity.bounce(get_wall_normal())
-		print(RotaDot)
+		print(wallbounce_pos)
 		pass
 
 	
