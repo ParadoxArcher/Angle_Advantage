@@ -128,7 +128,9 @@ func _physics_process(_delta):
 	
 	
 	#region Collision --- Crash && WallBounce
-	move_and_slide()
+	var Slide = move_and_slide()
+	if is_on_wall():
+		print(get_wall_normal())
 
 	
 	#if BounceVFX[0] > 0: # VFX Bounce effect
