@@ -141,7 +141,7 @@ func _physics_process(_delta):
 	if is_on_wall():
 		var WallNormal = get_wall_normal().angle()
 		var BounceParam = PhysicsServer2D.body_get_param(get_rid(), PhysicsServer2D.BODY_PARAM_BOUNCE)
-		print(rotation + wallbounce_angle, rotation - wallbounce_angle)
+		print(WallNormal - global_rotation)
 		#if rotation - wallbounce_angle <= WallNormal <= rotation + wallbounce_angle:
 			#velocity = velocity.bounce(WallNormal) * BounceParam
 
