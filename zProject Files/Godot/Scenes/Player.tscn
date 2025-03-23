@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://u7p1uxpg5mr5"]
+[gd_scene load_steps=17 format=3 uid="uid://u7p1uxpg5mr5"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerScript.gd" id="1_g1qce"]
 [ext_resource type="Texture2D" uid="uid://tcdrx104tlv1" path="res://Assets/Player/Avatar.png" id="2_u7ctg"]
@@ -9,6 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://c0cmw5f18dakc" path="res://Assets/Player/Boost Particle.png" id="6_q13sk"]
 [ext_resource type="Shader" path="res://Shaders/BoostColorVFX.gdshader" id="7_ac5yp"]
 [ext_resource type="Texture2D" uid="uid://ifk45mw0vxvl" path="res://Assets/Player/Boost VFX.png" id="7_cnoma"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vl74o"]
+bounce = 0.3
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_lx4no"]
 noise_type = 0
@@ -60,10 +63,15 @@ safe_margin = 1.0
 script = ExtResource("1_g1qce")
 BounceVFX = [0, 0.08]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_vl74o")
+gravity_scale = 0.0
+inertia = 5.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
 polygon = PackedVector2Array(50, 0, -50, 40, -50, -40)
 
-[node name="WallbounceMarker" type="Marker2D" parent="CollisionPolygon2D"]
+[node name="WallbounceMarker" type="Marker2D" parent="RigidBody2D/CollisionPolygon2D"]
 position = Vector2(-50, 40)
 
 [node name="PlayerAvatar" type="Sprite2D" parent="."]
