@@ -139,11 +139,12 @@ func _physics_process(_delta):
 		#var RotaDot = (Vector2(-cos(rotation), -sin(rotation)).dot(CollisionNormal) + 1 ) / 2
 		
 	if is_on_wall():
-		var WallNormal = get_wall_normal().angle()
+		var WallNormal = get_wall_normal()
 		var BounceParam = PhysicsServer2D.body_get_param(get_rid(), PhysicsServer2D.BODY_PARAM_BOUNCE)
-		print(WallNormal - global_rotation)
-		#if rotation - wallbounce_angle <= WallNormal <= rotation + wallbounce_angle:
-			#velocity = velocity.bounce(WallNormal) * BounceParam
+		var CollisionAngle = pingpong(WallNormal.angle() - rotation, TAU) - PI
+		
+		if abs(CollisionAngle) >= wallbounce_angle:
+			velocity = velocity.bounce(WallNormal) * BounceParam
 
 	
 	#if BounceVFX[0] > 0: # VFX Bounce effect
