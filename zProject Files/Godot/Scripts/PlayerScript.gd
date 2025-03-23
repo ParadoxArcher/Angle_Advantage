@@ -29,7 +29,7 @@ var RotaRate = 0
 
 ##Crash && WallBounce Variables
 @onready var wallbounce_angle = $CollisionPolygon2D/WallbounceMarker.position.angle()
-@export var BounceStrength = .4
+@export var BounceStrength = .3
 @export var CrashSpeed = .2
 @export var CrashTime = [.8, 1.6] # {0: Minimum, 1: Maximum}
 @export var CrashImmunity = [false, .6] # {0: isActive, 1: CrashTimerMult}

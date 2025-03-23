@@ -119,7 +119,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -276,13 +276,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Devlogs/2025-03-22.md",
+                "file": "DevNotes/ToDoList.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 2025-03-22"
+              "title": "Outline of ToDoList"
             }
           }
         ],
@@ -306,29 +306,28 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "db08f7477d3f1010",
+  "active": "2b906768df75cac8",
   "lastOpenFiles": [
+    "DevNotes/Player/Movement/Boost.md",
+    "Devlogs/2025-03-21.md",
+    "DevNotes/ToDoList.md",
+    "zReferences/Excalidraw/Enclosed Racing Concept.excalidraw.md",
+    "Devlogs/2025-03-22.md",
+    "zProject Files/Godot/Scripts/PlaA573.tmp",
     "zProject Files/Godot/Scripts/Pla3122.tmp",
     "DevNotes/Player/Movement/Crash & Wall Bounce.md",
-    "DevNotes/Player/Movement/Boost.md",
     "zProject Files/Godot/Scripts/Pla66B1.tmp",
     "zProject Files/Godot/Scripts/PlaD50E.tmp",
     "zProject Files/Godot/Scenes/GamD4FB.tmp",
-    "DevNotes/ToDoList.md",
     "DevNotes/Player/Player.md",
     "zProject Files/Godot/Scenes/PlaDC06.tmp",
-    "Devlogs/2025-03-22.md",
     "DevNotes/Player/Movement/Boost VFX.md",
     "zProject Files/Godot/Scripts/PlaE3BA.tmp",
     "zReferences/Excalidraw/Drawing 2025-03-12 12.43.39.excalidraw.md",
     "zProject Files/Godot/Scripts/PlaD9B3.tmp",
     "zProject Files/Godot/Scripts/PlaFC34.tmp",
     "zProject Files/Godot/Scripts/PlaD3EF.tmp",
-    "zProject Files/Godot/Scripts/Pla90E8.tmp",
-    "zProject Files/Godot/Scripts/PlaBF1A.tmp",
     "zProject Files/Godot/Assets/Player/Boost VFX 1.png",
-    "zReferences/Excalidraw/Enclosed Racing Concept.excalidraw.md",
-    "Devlogs/2025-03-21.md",
     "zProject Files/Godot/Assets/Player/Avatar.png",
     "zProject Files/Godot/Assets/Player/Boost VFX.png",
     "DevNotes/Color Animation Shader.md",
