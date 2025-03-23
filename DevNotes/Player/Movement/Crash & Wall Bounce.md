@@ -61,53 +61,36 @@
 			3) [[Brakes]]
 				1) `if Input.is_action_pressed("Brake") and not Crashed:`
 	2) Scale `crash()` time by relative #velocity and `CollisionAngle`
-		1) Determine `CrashScaler`
-			1) Define #CrashSpeed as `global variable`
+		1) Set #CrashSpeed minimum
 				1) `@export var CrashSpeed = .2
-			2) Multiply relative `velocity` by the effective `crash` angles
+		2) Enable `CrashTimeScaler` to be accepted by `crash()`
+			1) `func crash(CrashTimeScaler):`
+		3) Determine and insert `CrashScaler`
+			1) Multiply relative `velocity` by the effective `crash` angles
 				1) `var Impact = velocity.length() / MaxSpeed * (1 - (CollisionAngle / (PI - wallbounce_angle ) ) )
-			3) add #CrashSpeed to `CollisionAngle` filter for `Crash()`
+			2) add #CrashSpeed to `CollisionAngle` filter for `Crash()`
 				1) `if CollisionAngle <= wallbounce_angle and Impact >= CrashSpeed:`
-			4) 
-		2) Multiply #CollisionDot  by #velocity length over #MaxSpeed
-			2) `if CollisionDot * (velocity.length() / MaxSpeed[0] ) < -CrashSpeed:`
-3) Modify #Collision results by difference in #rotation to #Collision normal
-	5) Prevent #crash from going off while looking away from wall
-		1) Define #CrashAngle & #CrashSpeed  as `global variable`
-			1) `@export var CrashAngle = .3
-			2) `@export var CrashSpeed = .35`
-		2) Inside `if: collision` determine difference in #rotation to #Collision normal
-			1) `var WallBounce = (Vector2(-cos(rotation), -sin(rotation)).dot(Collision.get_normal()) + 1 ) / 2
-		3) Set #crash `if` #WallBounce > #CrashAngle
-			2) `if CollisionDot * (velocity.length() / MaxSpeed[0] ) < -CrashSpeed and WallBounce > CrashAngle:`
-				1) `crash()
-	6) Reduce #velocity when looking away from wall
-		1) Define #Bounce as a `global array` to set Minimum & Maximum
-			1) `@export var Bounce = [.4, 1.0]
-		2) Apply to #velocity when #Collision, according to #WallBounce 
-			1) `velocity = velocity.bounce(Collision.get_normal()) * lerpf(Bounce[1], Bounce[0], WallBounce)
-	7) Scale #CrashTime by #WallBounce & #rotation
-		1) Define #CrashTime as a `global array` to set Minimum & Maximum
-			1) `@export var CrashTime = [.6, 1.8]
-		2) Call #CrashTimeScaler input for `crash()` and `lerpf` #CrashTime by #CrashTimeScaler
-			1) `func crash(CrashTimeScaler):
-				1) `var CrashTimer = lerpf(CrashTime[0], CrashTime[1], CrashTimeScaler)
-				2) `await get_tree().create_timer(CrashTimer, true,true).timeout`
-		3) Insert #WallBounce * #velocity length / #MaxSpeed into #crash as #CrashTimeScaler
-			1) `crash(WallBounce * (velocity.length() / MaxSpeed[0] )) `
-4) #CrashImmunity
-	1) Define #CrashImmunity as a `global array` of a `false` `bool` and `float
-		1) `@export var CrashImmunity = [false, .6]
-	2) Inside `crash(CrashTimeScaler):` pass the entire `func` `if` #CrashImmunity0 is `true`
-		1) `if not CrashImmunity[0]:
-			1) `...`
-		2) `else:
-			1) `pass`
-	3) Inside `if not CrashImmunity[0]:` and before `await(CrashTimer)` set #CrashImmunity0 to `true`
-		1) `CrashImmunity[0] = true
-	4) After `Crashed = false` `Await` by #CrashImmunity1 * #CrashTimer with `process_in_physics` set to `true` before setting #CrashImmunity0 to `false`
-		1) `await get_tree().create_timer(CrashImmunity[1] * CrashTimer, true, true).timeout
-		2) `CrashImmunity[0] = false
+			3) Insert `Impact` into `crash()`, scaled properly by #CrashSpeed`
+				1) `crash((Impact - CrashSpeed ) * (1 / (1 - CrashSpeed ) ))
+	3) Utilize `CrashTimeScaler` in `crash()`
+		1) Redefine #CrashTime as an `array` for Min & Max
+			1) `@export var CrashTime = [.8, 1.6]
+		2) `lerpf()` `CrashTimer` between #CrashTime by `CrashTimeScaler
+			1) `await get_tree().create_timer(CrashTimer, true, true).timeout
+		3) 
+	4) Setup #CrashImmunity
+		1) Define #CrashImmunity as a `global array` of a `false` `bool` and `float
+			1) `@export var CrashImmunity = [false, .6]
+		2) Inside `crash(CrashTimeScaler):` pass the entire `func` `if` #CrashImmunity0 is `true`
+			1) `if not CrashImmunity[0]:
+				1) `...`
+			2) `else:
+				1) `pass`
+		3) Inside `if not CrashImmunity[0]:` and before `await(CrashTimer)` set #CrashImmunity0 to `true`
+			1) `CrashImmunity[0] = true
+		4) After `Crashed = false` `Await` by #CrashImmunity1 * #CrashTimer with `process_in_physics` set to `true` before setting #CrashImmunity0 to `false`
+			1) `await get_tree().create_timer(CrashImmunity[1] * CrashTimer, true, true).timeout
+			2) `CrashImmunity[0] = false
 
 ### Adjustment Log
 - [[2025-01-16]]
