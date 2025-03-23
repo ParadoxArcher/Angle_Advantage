@@ -128,20 +128,8 @@ func _physics_process(_delta):
 	
 	
 	#region Collision --- Crash && WallBounce
-	var Collision = move_and_collide(velocity * _delta, false, .7, false)
-	if Collision:
-		var CollisionDot = velocity.normalized().dot(Collision.get_normal())
-		var WallBounce = (Vector2(-cos(rotation), -sin(rotation)).dot(Collision.get_normal()) + 1 ) / 2
-		if CollisionDot * velocity.length() / MaxSpeed < -CrashSpeed:
-			velocity = velocity.bounce(Collision.get_normal()) * lerpf(Bounce[1], Bounce[0], WallBounce)
-			
-			if WallBounce > CrashAngle:
-				crash(WallBounce * velocity.length() / MaxSpeed)
-			else:
-				BounceVFX[0] = 1 - (velocity.length() / MaxSpeed)
-			
-		else:
-			velocity = velocity.slide(Collision.get_normal())
+	move_and_slide()
+
 	
 	#if BounceVFX[0] > 0: # VFX Bounce effect
 		#BounceVFX[0] += clampf(BounceVFX[1], 0, 1 - BounceVFX[0])
