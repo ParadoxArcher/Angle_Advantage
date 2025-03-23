@@ -29,9 +29,9 @@ var RotaRate = 0
 
 ##Crash && WallBounce Variables
 @onready var wallbounce_angle = $CollisionPolygon2D/WallbounceMarker.position.angle()
-@export var BounceStrength = [.4, 2.5] # {0: Minimum, 1: MaxMult}
-@export var CrashSpeed = .35
-@export var CrashTime = [.6, 1.8] # {0: Minimum, 1: Maximum}
+@export var BounceStrength = .4
+@export var CrashSpeed = .2
+@export var CrashTime = [.8, 1.6] # {0: Minimum, 1: Maximum}
 @export var CrashImmunity = [false, .6] # {0: isActive, 1: CrashTimerMult}
 var Crashed = false
 #endregion
@@ -43,7 +43,7 @@ var Crashed = false
 #endregion
 
 func _ready():
-	PhysicsServer2D.body_set_param(get_rid(), PhysicsServer2D.BODY_PARAM_BOUNCE, BounceStrength[0])
+	PhysicsServer2D.body_set_param(get_rid(), PhysicsServer2D.BODY_PARAM_BOUNCE, BounceStrength)
 
 func _physics_process(_delta):
 	var VelLength = velocity.length()
@@ -138,9 +138,9 @@ func _physics_process(_delta):
 		var CollisionAngle = abs(pingpong(WallNormal.angle() - rotation, TAU) - PI)
 		var Impact = velocity.length() / MaxSpeed * (1 - (CollisionAngle / (PI - wallbounce_angle ) ) )
 		if CollisionAngle <= wallbounce_angle and Impact >= CrashSpeed:
-			crash(Impact)
+			crash((Impact - CrashSpeed ) * (1 / (1 - CrashSpeed ) ))
 		elif CollisionAngle >= wallbounce_angle:
-			BounceParam *= BounceStrength[1]
+			BounceParam *= (1 / BounceStrength)
 			
 		velocity = velocity.bounce(WallNormal) * Vector2(lerpf(1, BounceParam, abs(WallNormal.x)), lerpf(1, BounceParam, abs(WallNormal.y)))
 
