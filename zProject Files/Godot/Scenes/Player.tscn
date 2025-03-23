@@ -64,6 +64,9 @@ BounceVFX = [0, 0.08]
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(50, 0, -50, 40, -50, -40)
 
+[node name="WallbounceMarker" type="Marker2D" parent="CollisionPolygon2D"]
+position = Vector2(-50, -40)
+
 [node name="PlayerAvatar" type="Sprite2D" parent="."]
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("2_u7ctg")

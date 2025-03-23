@@ -28,6 +28,7 @@ var RotaRate = 0
 @export var DodgeRotaAccel = 4.
 
 ##Crash && WallBounce Variables
+@onready var wallbounce_pos = $CollisionPolygon2D/WallbounceMarker.position.normalized()
 @export var Bounce = [.4, 1.0] # {0: Minimum, 1: Maximum}
 @export var CrashAngle = .3
 @export var CrashSpeed = .35
@@ -128,9 +129,10 @@ func _physics_process(_delta):
 	
 	
 	#region Collision --- Crash && WallBounce
-	var Slide = move_and_slide()
+	move_and_slide()
 	if is_on_wall():
-		print(get_wall_normal())
+		print(wallbounce_pos)
+		pass
 
 	
 	#if BounceVFX[0] > 0: # VFX Bounce effect
