@@ -17,7 +17,7 @@ bounce = 0.3
 noise_type = 0
 frequency = 0.0035
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_52dgi"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_l7nrb"]
 seamless = true
 noise = SubResource("FastNoiseLite_lx4no")
 
@@ -37,7 +37,7 @@ shader_parameter/GreenFilterMax = 1.0
 shader_parameter/GreenColor = Color(0.686275, 0, 1, 1)
 shader_parameter/BlueFilter = 0.1
 shader_parameter/BlueColor = Color(0, 0, 0, 0)
-shader_parameter/noise_texture = SubResource("NoiseTexture2D_52dgi")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_l7nrb")
 
 [sub_resource type="Curve" id="Curve_70c1a"]
 min_value = 1.0
