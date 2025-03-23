@@ -56,7 +56,7 @@ func _physics_process(_delta):
 	else:
 		Speed = 0
 	
-	apply_force(Speed * Vector2(cos(PlayerRot), sin(PlayerRot)))
+	add_constant_central_force(Speed * Vector2(cos(PlayerRot), sin(PlayerRot)))
 
 
 func crash(CrashTimeScaler):

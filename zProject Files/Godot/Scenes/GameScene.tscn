@@ -23,6 +23,7 @@ radius = 67.42
 [node name="GameScene" type="Node2D"]
 
 [node name="RigidBody2D2" parent="." instance=ExtResource("1_5xijx")]
+position = Vector2(-398, 750)
 
 [node name="Camera2D" type="Camera2D" parent="RigidBody2D2"]
 position = Vector2(1.92498, 0.03579)
@@ -39,13 +40,13 @@ position = Vector2(1, -2)
 light_mask = 0
 visibility_layer = 512
 z_index = -10
-position = Vector2(29, -3)
+position = Vector2(-46.9999, 217)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("2_3lpfc")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." groups=["LevelObjects"]]
 z_index = 6
-position = Vector2(-558, -58)
+position = Vector2(-1153, -66)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
@@ -95,6 +96,7 @@ scale = Vector2(2, 4)
 texture = ExtResource("3_s4jx2")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(-91, -1119)
 physics_material_override = SubResource("PhysicsMaterial_e3m65")
 gravity_scale = 0.0
 inertia = 5.0
@@ -103,9 +105,7 @@ constant_torque = 100.0
 script = ExtResource("4_xh4g6")
 
 [node name="Icon" type="Sprite2D" parent="RigidBody2D"]
-position = Vector2(-777, 297)
 texture = ExtResource("3_s4jx2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2(-777, 297)
 shape = SubResource("CircleShape2D_k8gvr")
