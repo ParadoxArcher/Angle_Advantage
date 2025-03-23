@@ -101,7 +101,7 @@
 	- restructured collision to slide when moving alongside the wall
 - [[2025-03-22]]
 - Refactored
-	- `move_and_collide` based converted to `move_and_slide` base
+	- `move_and_collide` base converted to `move_and_slide` base
 	- Uses angles for calculation over `dot` product of velocity and CollisionNormal
 	- Each step is properly scaled from 0 to 1 as opposed to leaking portion of the value from previous step
 	- no longer overrides `velocity.bounce()` with a slide collision, bounce property can be reduced without decreasing velocity in unrelated direction

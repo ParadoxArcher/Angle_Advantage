@@ -6,6 +6,7 @@ kanban-plugin: board
 
 ## Current
 
+- [ ] Convert from CharacterBody2D to RigidBody2D
 - [ ] [[Dodge]] shouldn't override positive movement
 - [ ] Reformat WallBoost
 - [ ] Learn and create particle shader
