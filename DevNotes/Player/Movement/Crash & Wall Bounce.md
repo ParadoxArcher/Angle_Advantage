@@ -10,17 +10,26 @@
 			1) `var WallNormal = get_wall_normal()`
 		3) Bounce velocity off the collision normal
 			2) `velocity = velocity.bounce(WallNormal)
-	2) Change Bounce potency
-		1) `@export` #BounceStrength
+	2) Make Bounce potency modifiable
+		1) `@export var` #BounceStrength
 			1) `@export var BounceStrength = .4
 		2) in `func _ready():`
-			1) set `PhysicsServer2D.BODY_PARAM_BOUNCE`
+			2) set `PhysicsServer2D.BODY_PARAM_BOUNCE`
 				1) `PhysicsServer2D.body_set_param(get_rid(), PhysicsServer2D.BODY_PARAM_BOUNCE, BounceStrength)`
 		3) modify `velocity.bounce()` by our parameter
 			1) Store #BounceStrength for optimization and legibility
 				1) `var BounceParam = PhysicsServer2D.body_get_param(get_rid(), PhysicsServer2D.BODY_PARAM_BOUNCE)
-			2) Multiply `velocity.bounce()` by a `Vector2`
-2) Disable Movement
+			2) Multiply `velocity.bounce()` by a `Vector2` where both the `x` and `y` values are `lerpf()` between `1` and our `BounceParam`, weighted by the `abs()` of the collision normal's `x` and `y` values, respectively
+				1) `velocity = velocity.bounce(WallNormal) * Vector2(lerpf(1, BounceParam, abs(WallNormal.x)), lerpf(1, BounceParam, abs(WallNormal.y)))`
+	3) Boost #BounceStrength when colliding with back of player model
+		1) Set an actuation angle
+			1) `@onready var wallbounce_angle = $CollisionPolygon2D/WallbounceMarker.position.angle()
+				1) *this utilizes a Marker2D to determine the angle*
+		2) Determine the angle difference between the [[Player]] and collision normal
+			1) in a `pingpong()` function...
+				1) subtract the [[Player]] `rotation` collision normal `.angle()` minus the [[Player]]`rotation` by `TAU`, then Subtract the result by `PI` to wrap it around
+2) 
+3) Disable Movement
 	2) Define  #CrashTime and #Crashed as `global variables`
 		2) `var Crashed = false
 		3) `@export var CrashTime = 1.5
@@ -43,7 +52,7 @@
 				1) `MoveInput = Vector2(0, 0)`
 		3) [[Brakes]]
 			1) `if Input.is_action_pressed("Brake") and not Crashed:`
-3) Limit `crash` by #Collision direction and #velocity
+4) Limit `crash` by #Collision direction and #velocity
 	1) Define #CrashSpeed as `global variable`
 		1) `@export var CrashSpeed = .4
 	2) Inside `if Collision:` Get angle difference from #velocity and #Collision normal
@@ -53,13 +62,6 @@
 			1) `crash()`
 	4) Multiply #CollisionDot  by #velocity length over #MaxSpeed
 		1) `if CollisionDot * (velocity.length() / MaxSpeed[0] ) < -CrashSpeed:`
-4) `slide` player when velocity is lower than #CrashSpeed 
-	1) move `velocity = velocity.bounce(Collision.get_normal()) * Bounce` inside ``if CollisionDot * (velocity.length() / MaxSpeed[0] ) < -CrashSpeed:``
-		1) `if CollisionDot * (velocity.length() / MaxSpeed[0] ) < -CrashSpeed:`
-			1) `velocity = velocity.bounce(Collision.get_normal()) * Bounce` 
-	2) call `else` for `if CollisionDot * (velocity.length() / MaxSpeed[0] ) < -CrashSpeed:` and set #velocity to `slide`
-		1) `else:
-			1) `velocity = velocity.slide(Collision.get_normal())`
 5) Modify #Collision results by difference in #rotation to #Collision normal
 	1) Prevent #crash from going off while looking away from wall
 		1) Define #CrashAngle & #CrashSpeed  as `global variable`
