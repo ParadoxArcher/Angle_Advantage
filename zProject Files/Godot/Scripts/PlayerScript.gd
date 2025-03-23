@@ -137,6 +137,7 @@ func _physics_process(_delta):
 		var BounceParam = PhysicsServer2D.body_get_param(get_rid(), PhysicsServer2D.BODY_PARAM_BOUNCE)
 		var CollisionAngle = abs(pingpong(WallNormal.angle() - rotation, TAU) - PI)
 		var Impact = velocity.length() / MaxSpeed * (1 - (CollisionAngle / (PI - wallbounce_angle ) ) )
+		
 		if CollisionAngle <= wallbounce_angle and Impact >= CrashSpeed:
 			crash((Impact - CrashSpeed ) * (1 / (1 - CrashSpeed ) ))
 		elif CollisionAngle >= wallbounce_angle:

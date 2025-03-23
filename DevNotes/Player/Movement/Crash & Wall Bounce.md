@@ -2,9 +2,7 @@
 ###### Small bounce off wall when colliding and disable all actions shortly
 
 #### Steps
-1) Convert to KinematicBody2D physics
-	2) Replace `move_and_slide` with `move_and_collide(velocity)`
-2) Make [[Player]] bounce off walls
+1) Make [[Player]] bounce off walls
 	1)  As `global variable`:
 		1) Define #Bounce 
 			1) `@export var CollisionRebound = .3`
@@ -13,7 +11,7 @@
 	3) When #Collision, invert #velocity by #Collision normal times #Bounce
 		1) `if Collision:
 			1) `velocity = velocity.bounce(Collision.get_normal()) * Bounce
-3) Disable Movement
+2) Disable Movement
 	1) Define  #CrashTime and #Crashed as `global variables`
 		2) `var Crashed = false
 		3) `@export var CrashTime = 1.5
@@ -36,7 +34,7 @@
 				1) `MoveInput = Vector2(0, 0)`
 		3) [[Brakes]]
 			1) `if Input.is_action_pressed("Brake") and not Crashed:`
-4) Limit `crash` by #Collision direction and #velocity
+3) Limit `crash` by #Collision direction and #velocity
 	1) Define #CrashSpeed as `global variable`
 		1) `@export var CrashSpeed = .4
 	2) Inside `if Collision:` Get angle difference from #velocity and #Collision normal
@@ -46,14 +44,14 @@
 			1) `crash()`
 	4) Multiply #CollisionDot  by #velocity length over #MaxSpeed
 		1) `if CollisionDot * (velocity.length() / MaxSpeed[0] ) < -CrashSpeed:`
-5) `slide` player when velocity is lower than #CrashSpeed 
+4) `slide` player when velocity is lower than #CrashSpeed 
 	1) move `velocity = velocity.bounce(Collision.get_normal()) * Bounce` inside ``if CollisionDot * (velocity.length() / MaxSpeed[0] ) < -CrashSpeed:``
 		1) `if CollisionDot * (velocity.length() / MaxSpeed[0] ) < -CrashSpeed:`
 			1) `velocity = velocity.bounce(Collision.get_normal()) * Bounce` 
 	2) call `else` for `if CollisionDot * (velocity.length() / MaxSpeed[0] ) < -CrashSpeed:` and set #velocity to `slide`
 		1) `else:
 			1) `velocity = velocity.slide(Collision.get_normal())`
-6) Modify #Collision results by difference in #rotation to #Collision normal
+5) Modify #Collision results by difference in #rotation to #Collision normal
 	1) Prevent #crash from going off while looking away from wall
 		1) Define #CrashAngle & #CrashSpeed  as `global variable`
 			1) `@export var CrashAngle = .3
@@ -77,7 +75,7 @@
 				2) `await get_tree().create_timer(CrashTimer, true,true).timeout`
 		3) Insert #WallBounce * #velocity length / #MaxSpeed into #crash as #CrashTimeScaler
 			1) `crash(WallBounce * (velocity.length() / MaxSpeed[0] )) `
-7) #CrashImmunity
+6) #CrashImmunity
 	1) Define #CrashImmunity as a `global array` of a `false` `bool` and `float
 		1) `@export var CrashImmunity = [false, .6]
 	2) Inside `crash(CrashTimeScaler):` pass the entire `func` `if` #CrashImmunity0 is `true`
@@ -98,3 +96,10 @@
 	- Implemented movement disable and it's limitations (3-6)
 - [[2025-01-24]]
 	- restructured collision to slide when moving alongside the wall
+- [[2025-03-22]]
+- Refactored
+	- `move_and_collide` based converted to `move_and_slide` base
+	- Uses angles for calculation over `dot` product of velocity and CollisionNormal
+	- Each step is properly scaled from 0 to 1 as opposed to leaking portion of the value from previous step
+	- no longer overrides `velocity.bounce()` with a slide collision, bounce property can be reduced without decreasing velocity in unrelated direction
+	- Bounce Property is stored in `PhysicsServer2D.BODY_PARAM_BOUNCE`

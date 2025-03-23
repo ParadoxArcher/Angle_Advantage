@@ -7,6 +7,9 @@ Emulates movement style from [[Data Wing]] but in a combat-focused party game.
 1) Make Player Character
 	1) new scene "PlayerChar"
 	2) create `CharacterBody2D` named: "Player"
+		1) change `motion_mode` to `floating`
+			1) set `wall_min_slide_angle` to `0`
+			2) set `Collision.safe_margin` to `1`
 	3) attach `Sprite2D` and link any Sprite
 2) Develop Movement
 	1) Attach script to `Player` named: `PlayerScript
@@ -37,7 +40,8 @@ Emulates movement style from [[Data Wing]] but in a combat-focused party game.
 	1) [[Boost VFX]]
 2) [[2025-01-24]]
 	1) [[Wall Boost]]
-
+3) [[2025-03-22]]
+	1) `motion_mode` swapped from `grounded` to `floating`
 
 
 
