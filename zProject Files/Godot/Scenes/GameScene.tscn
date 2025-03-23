@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://kb8u00xr1s8u"]
+[gd_scene load_steps=9 format=3 uid="uid://kb8u00xr1s8u"]
 
 [ext_resource type="PackedScene" uid="uid://u7p1uxpg5mr5" path="res://Scenes/Player.tscn" id="1_h4wmg"]
 [ext_resource type="Texture2D" uid="uid://6w78c88nqu6l" path="res://Assets/Test/CMYKCheckerboard1.png" id="2_3lpfc"]
 [ext_resource type="Texture2D" uid="uid://raqrxkd6elbf" path="res://Assets/Test/icon.svg" id="3_s4jx2"]
+[ext_resource type="Script" path="res://Scripts/RigidBody2D.gd" id="4_xh4g6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mdej7"]
 size = Vector2(255, 1537)
@@ -12,6 +13,9 @@ radius = 200.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2rgot"]
 size = Vector2(257, 509)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k8gvr"]
+radius = 67.42
 
 [node name="GameScene" type="Node2D"]
 
@@ -83,3 +87,16 @@ shape = SubResource("RectangleShape2D_2rgot")
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D3"]
 scale = Vector2(2, 4)
 texture = ExtResource("3_s4jx2")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+gravity_scale = 0.0
+constant_torque = 100.0
+script = ExtResource("4_xh4g6")
+
+[node name="Icon" type="Sprite2D" parent="RigidBody2D"]
+position = Vector2(-777, 297)
+texture = ExtResource("3_s4jx2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(-777, 297)
+shape = SubResource("CircleShape2D_k8gvr")
