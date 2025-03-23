@@ -45,7 +45,7 @@ texture = ExtResource("2_3lpfc")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." groups=["LevelObjects"]]
 z_index = 6
-position = Vector2(448, 250)
+position = Vector2(-558, -58)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
