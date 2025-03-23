@@ -9,12 +9,12 @@ kanban-plugin: board
 - [ ] [[Dodge]] shouldn't override positive movement
 - [ ] Reformat WallBoost
 - [ ] Learn and create particle shader
-- [ ] [[Boost VFX]] GreenFilter isn't omnidirectional
 - [ ] Look into PhysicsServer2D to replace current functions
 
 
 ## Band-aids
 
+- [ ] [[Boost VFX]] GreenFilter isn't omnidirectional
 
 
 ## Soon
