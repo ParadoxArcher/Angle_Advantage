@@ -144,7 +144,7 @@ func _physics_process(_delta):
 		else:
 			BounceParam *= BounceStrength[1]
 			
-		velocity = velocity.bounce(WallNormal) * BounceParam
+		velocity = velocity.bounce(WallNormal * BounceParam)
 
 	
 	#if BounceVFX[0] > 0: # VFX Bounce effect
