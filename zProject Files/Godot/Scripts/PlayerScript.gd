@@ -28,7 +28,7 @@ var RotaRate = 0
 @export var DodgeRotaAccel = 4.
 
 ##Crash && WallBounce Variables
-@onready var wallbounce_angle = atan2($CollisionPolygon2D/WallbounceMarker.position.x, $CollisionPolygon2D/WallbounceMarker.position.y)
+@onready var wallbounce_angle = $CollisionPolygon2D/WallbounceMarker.position.angle()
 
 @export var Bounce = [.4, 1.0] # {0: Minimum, 1: Maximum}
 @export var CrashAngle = .3
@@ -131,14 +131,18 @@ func _physics_process(_delta):
 	
 	#region Collision --- Crash && WallBounce
 	move_and_slide()
-	for i in get_slide_collision_count():
-		var Collision = get_slide_collision(i)
-		var CollisionNormal = Collision.get_normal()
-		var Impact = velocity.normalized().dot(CollisionNormal)
-		var RotaDot = (Vector2(-cos(rotation), -sin(rotation)).dot(CollisionNormal) + 1 ) / 2
+	#for i in get_slide_collision_count():
+		#var Collision = get_slide_collision(i)
+		#var CollisionNormal = Collision.get_normal()
+		#var CrashZone = wallbounce_angle + global_rotation
+		#print(rad_to_deg(CrashZone))
+		#var Impact = velocity.normalized().dot(CollisionNormal)
+		#var RotaDot = (Vector2(-cos(rotation), -sin(rotation)).dot(CollisionNormal) + 1 ) / 2
 		
-		velocity = velocity.bounce(CollisionNormal)
-		print(fmod(wallbounce_angle, 0))
+	if is_on_wall():
+		velocity = velocity.bounce(get_wall_normal())
+		PhysicsServer2D.body_set_param(get_rid(), PhysicsServer2D.BODY_PARAM_BOUNCE, 1)
+		print(PhysicsServer2D.body_get_param(get_rid(), PhysicsServer2D.BODY_PARAM_BOUNCE))
 		pass
 
 	
