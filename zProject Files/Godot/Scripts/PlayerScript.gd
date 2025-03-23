@@ -29,8 +29,8 @@ var RotaRate = 0
 
 ##Crash && WallBounce Variables
 @onready var wallbounce_angle = $CollisionPolygon2D/WallbounceMarker.position.angle()
+@export var BounceStrength = [.8, 1.0] # {0: Minimum, 1: Maximum}
 
-@export var Bounce = [.4, 1.0] # {0: Minimum, 1: Maximum}
 @export var CrashAngle = .3
 @export var CrashSpeed = .35
 @export var CrashTime = [.6, 1.8] # {0: Minimum, 1: Maximum}
@@ -43,6 +43,9 @@ var Crashed = false
 @onready var boost_particle = $Boost/Sprite/Particle2D
 @export var BounceVFX = [0, .05] # {0: fluctuating, 1: DecayRate}
 #endregion
+
+func _ready():
+	PhysicsServer2D.body_set_param(get_rid(), PhysicsServer2D.BODY_PARAM_BOUNCE, BounceStrength[0])
 
 func _physics_process(_delta):
 	var VelLength = velocity.length()
@@ -131,18 +134,17 @@ func _physics_process(_delta):
 	
 	#region Collision --- Crash && WallBounce
 	move_and_slide()
-	#for i in get_slide_collision_count():
-		#var Collision = get_slide_collision(i)
-		#var CollisionNormal = Collision.get_normal()
 		#var CrashZone = wallbounce_angle + global_rotation
-		#print(rad_to_deg(CrashZone))
 		#var Impact = velocity.normalized().dot(CollisionNormal)
 		#var RotaDot = (Vector2(-cos(rotation), -sin(rotation)).dot(CollisionNormal) + 1 ) / 2
 		
 	if is_on_wall():
-		#velocity = velocity.bounce(get_wall_normal())
-		PhysicsServer2D.body_set_param(get_rid(), PhysicsServer2D.BODY_PARAM_BOUNCE, 1)
-		print(PhysicsServer2D.body_get_param(get_rid(), PhysicsServer2D.BODY_PARAM_BOUNCE))
+		var WallNormal = get_wall_normal()
+		var BounceParam = PhysicsServer2D.body_get_param(get_rid(), PhysicsServer2D.BODY_PARAM_BOUNCE)
+		print(wallbounce_angle)
+		
+		
+		velocity = velocity.bounce(WallNormal) * BounceParam
 		pass
 
 	
