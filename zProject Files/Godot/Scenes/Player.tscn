@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://Scripts/BoostDetection.gd" id="6_0175k"]
 [ext_resource type="Texture2D" uid="uid://c0cmw5f18dakc" path="res://Assets/Player/Boost Particle.png" id="6_q13sk"]
 [ext_resource type="Shader" path="res://Shaders/BoostColorVFX.gdshader" id="7_ac5yp"]
-[ext_resource type="Texture2D" uid="uid://ifk45mw0vxvl" path="res://Assets/Player/Boost VFX.png" id="7_cnoma"]
+[ext_resource type="Texture2D" uid="uid://g36yuiip7g5d" path="res://Assets/Player/Boost VFX 1.png" id="8_7oomm"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_lx4no"]
 noise_type = 0
@@ -28,9 +28,9 @@ shader_parameter/DistortionColorStrengthX = Vector3(0.06, 0.02, 0)
 shader_parameter/DistortionColorStrengthY = null
 shader_parameter/RedFilter = 0.1
 shader_parameter/RedColor = Color(0.490196, 0, 1, 1)
-shader_parameter/GreenFilterLeft = 0.0
-shader_parameter/GreenFilterRight = 0.0
-shader_parameter/GreenFilterMax = 0.6
+shader_parameter/GreenFilterLeft = 1.0
+shader_parameter/GreenFilterRight = 1.0
+shader_parameter/GreenFilterMax = 1.0
 shader_parameter/GreenColor = Color(0.490196, 0, 1, 1)
 shader_parameter/BlueFilter = 0.1
 shader_parameter/BlueColor = Color(0, 0, 0, 0)
@@ -98,7 +98,7 @@ show_behind_parent = true
 material = SubResource("ShaderMaterial_m5b53")
 position = Vector2(-94, -4.17233e-06)
 rotation = 1.5708
-texture = ExtResource("7_cnoma")
+texture = ExtResource("8_7oomm")
 
 [node name="Particle2D" type="CPUParticles2D" parent="Boost/Sprite"]
 show_behind_parent = true
