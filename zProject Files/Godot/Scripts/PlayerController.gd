@@ -10,7 +10,7 @@ var MoveInput = Vector2(0, 0)
 @export var MaxSpeed = 2000
 @export var BoostDecay = [0, .015, .8] # {0: Final,  1:DecayRate, 2:ReleaseAccelScaler(cannot be 0)}
 @export var AccelRate = [10, 0, 1.0] # {0: Base, 1: Current, 2: Multiplier} ## Beware WallBoostScale
-@export var BaseDamp = 5
+@export var BaseDamp = 40
 
 ## Rotation Variables
 @export var MaxRota = PI/24
@@ -41,6 +41,9 @@ var Crashed = false
 @export var BounceVFX = [0, .05] # {0: fluctuating, 1: DecayRate}
 #endregion
 
+func _ready():
+	linear_damp = BaseDamp
+
 func _physics_process(_delta):
 	var PlayerRot = rotation
 	
@@ -59,7 +62,7 @@ func _physics_process(_delta):
 		linear_damp = BaseDamp
 	
 	if MoveInput.y > 0 or BoostDecay[0] > 0:
-		AccelRate[1] = AccelRate[0]
+		AccelRate[1] = lerpf(0, MaxSpeed - linear_velocity.length(), .3) 
 		#if MoveInput.y / BoostDecay[2] >= BoostDecay[0]:
 			#BoostDecay[0] += clampf(2.5 * BoostDecay[1] * MoveInput.y, 0, MoveInput.y - BoostDecay[0])
 			#AccelRate[1] = AccelRate[2] * BoostDecay[0]
@@ -83,6 +86,7 @@ func _physics_process(_delta):
 	rotate(RotaSpeed)
 	
 	add_constant_central_force(AccelRate[1] * Vector2(cos(PlayerRot), sin(PlayerRot)))
+	move_and_collide(linear_velocity)
 
 
 func crash(CrashTimeScaler):
