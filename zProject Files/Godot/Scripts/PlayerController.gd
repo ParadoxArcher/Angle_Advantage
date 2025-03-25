@@ -9,9 +9,8 @@ var MoveInput = Vector2(0, 0)
 ## Boost Variables
 @export var MaxSpeed = 2000
 @export var BoostDecay = [0, .015, .8] # {0: Final,  1:DecayRate, 2:ReleaseAccelScaler(cannot be 0)}
-@export var SpeedAccel = [1.0, 0, .1] # {0: Global Mod, 1: BoostResult, 2: BaseSpeedAccel} ## Beware WallBoostScale
-@export var SpeedDecel = [.002, .002] # {0: Fluctuating,  1: Base} ## Beware BrakeDecelMult
-var AccelRate = 0
+@export var AccelRate = [10, 0, 1.0] # {0: Base, 1: Current, 2: Multiplier} ## Beware WallBoostScale
+@export var BaseDamp = 5
 
 ## Rotation Variables
 @export var MaxRota = PI/24
@@ -50,13 +49,40 @@ func _physics_process(_delta):
 	else:
 		MoveInput = Vector2(0, 0)
 	
-	var Speed
-	if MoveInput.y > 0:
-		Speed = 10
-	else:
-		Speed = 0
 	
-	add_constant_central_force(Speed * Vector2(cos(PlayerRot), sin(PlayerRot)))
+	RotaDecel[0] = RotaDecel[1]
+		
+	if Input.is_action_pressed("Brake") and not Crashed:
+		linear_damp *= BrakeDecelMult[0]
+		RotaDecel[0] *= BrakeDecelMult[1]
+	else:
+		linear_damp = BaseDamp
+	
+	if MoveInput.y > 0 or BoostDecay[0] > 0:
+		AccelRate[1] = AccelRate[0]
+		#if MoveInput.y / BoostDecay[2] >= BoostDecay[0]:
+			#BoostDecay[0] += clampf(2.5 * BoostDecay[1] * MoveInput.y, 0, MoveInput.y - BoostDecay[0])
+			#AccelRate[1] = AccelRate[2] * BoostDecay[0]
+			
+	else:
+		AccelRate[1] = 0
+		#BoostDecay[0] -= clampf(BoostDecay[1], 0, BoostDecay[0])
+		#AccelRate[1] = AccelRate[2] * BoostDecay[0] * BoostDecay[2]
+	
+	
+		#region Rotation --- Defines rotation acceleration and it's momentum
+	if MoveInput.x != 0: 
+		var CounterSteer = absf((RotaSpeed / MaxRota ) - MoveInput.x) * CounterSteerRate
+		RotaRate = RotaAccel[0] + RotaDecel[0] * CounterSteer
+	else:
+		RotaRate = RotaDecel[0]
+	#endregion
+	
+	
+	RotaSpeed = lerpf(RotaSpeed, MoveInput.x * MaxRota, clampf(RotaRate, 0, 1)) # Accelerated Rotation 
+	rotate(RotaSpeed)
+	
+	add_constant_central_force(AccelRate[1] * Vector2(cos(PlayerRot), sin(PlayerRot)))
 
 
 func crash(CrashTimeScaler):
@@ -73,7 +99,7 @@ func crash(CrashTimeScaler):
 
 func dodge(DodgeDir):
 	BoostDecay[0] = 0
-	SpeedAccel[1] = 0
+	AccelRate[1] = 0
 	
 	RotaAccel[0] += RotaAccel[1] * DodgeRotaAccel
 	
