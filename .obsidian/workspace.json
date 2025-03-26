@@ -131,7 +131,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -318,8 +318,12 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "ecd503932a28a34c",
+  "active": "2b906768df75cac8",
   "lastOpenFiles": [
+    "zProject Files/Godot/Scripts/PlaA0C9.tmp",
+    "zProject Files/Godot/Scenes/Pla77D9.tmp",
+    "zProject Files/Godot/Shaders/Boo75B0.tmp",
+    "zProject Files/Godot/Scenes/Gam759D.tmp",
     "zProject Files/Godot/Scripts/Pla8B2D.tmp",
     "zProject Files/Godot/Scenes/Pla2913.tmp",
     "zProject Files/Godot/Scripts/Pla2D3F.tmp",
@@ -327,10 +331,6 @@
     "zProject Files/Godot/Scripts/Pla29B0.tmp",
     "zProject Files/Godot/Scripts/Pla9040.tmp",
     "zProject Files/Godot/Scripts/Pla5D86.tmp",
-    "zProject Files/Godot/Scripts/PlaB084.tmp",
-    "zProject Files/Godot/Scripts/Pla3214.tmp",
-    "zProject Files/Godot/Scenes/Pla3202.tmp",
-    "zProject Files/Godot/Scenes/Pla17A9.tmp",
     "DevNotes/Player/Movement/Crash & Wall Bounce.md",
     "Devlogs/2025-03-22.md",
     "DevNotes/Player/Movement/Boost.md",

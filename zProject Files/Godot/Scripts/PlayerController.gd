@@ -86,7 +86,7 @@ func _physics_process(_delta):
 	rotate(RotaSpeed)
 	
 	add_constant_central_force(AccelRate[1] * Vector2(cos(PlayerRot), sin(PlayerRot)))
-	move_and_collide(linear_velocity)
+	#move_and_collide(linear_velocity)
 
 
 func crash(CrashTimeScaler):
