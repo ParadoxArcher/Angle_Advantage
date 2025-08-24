@@ -142,5 +142,7 @@ polygon = PackedVector2Array(50, 0, -50, 40, -50, -40)
 [node name="WallbounceMarker" type="Marker2D" parent="CollisionPolygon2D"]
 position = Vector2(-50, 40)
 
+[node name="Node2D" type="Node2D" parent="."]
+
 [connection signal="body_shape_entered" from="Boost" to="Boost" method="_on_body_shape_entered"]
 [connection signal="body_shape_exited" from="Boost" to="Boost" method="_on_body_shape_exited"]
