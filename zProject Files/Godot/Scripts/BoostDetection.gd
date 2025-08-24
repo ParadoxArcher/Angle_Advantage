@@ -2,7 +2,7 @@ extends Area2D
 
 @onready var ColliderInfo = {}
 
-func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):	
+func _on_body_shape_entered(body_rid, body, body_shape_index, _local_shape_index):	
 	
 	var shapeRID = PhysicsServer2D.body_get_shape(body_rid, body_shape_index)
 	var bodyTransform = body.transform
@@ -13,9 +13,9 @@ func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index)
 	
 	
 func _physics_process(_delta):
-	
-	var ParentGlobalPos = get_parent().position
-	var ParentRotation = get_parent().rotation
+	return
+	#var ParentGlobalPos = get_parent().position
+	#var ParentRotation = get_parent().rotation
 	
 	#print(str(ColliderInfo.size()))
 	
@@ -24,5 +24,5 @@ func _physics_process(_delta):
 	#	var LocalPos = Vector2(cos(ParentRotation) * RelativeGlobalPos.x, sin(ParentRotation) * RelativeGlobalPos.y)
 
 
-func _on_body_shape_exited(body_rid, body, body_shape_index, local_shape_index):
+func _on_body_shape_exited(body_rid, _body, body_shape_index, _local_shape_index):
 	ColliderInfo.erase(PhysicsServer2D.body_get_shape(body_rid, body_shape_index))

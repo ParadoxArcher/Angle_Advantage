@@ -28,7 +28,7 @@ var RotaRate = 0
 @export var DodgeRotaAccel = 4.
 
 ##Crash && WallBounce Variables
-@onready var wallbounce_angle = $RigidBody2D/CollisionPolygon2D/WallbounceMarker.position.angle()
+@onready var wallbounce_angle = $CollisionPolygon2D/WallbounceMarker.position.angle()
 @export var BounceStrength = .3
 @export var CrashSpeed = .2
 @export var CrashTime = [.8, 1.6] # {0: Minimum, 1: Maximum}
@@ -137,6 +137,7 @@ func _physics_process(_delta):
 		var BounceParam = PhysicsServer2D.body_get_param(get_rid(), PhysicsServer2D.BODY_PARAM_BOUNCE)
 		var CollisionAngle = abs(pingpong(WallNormal.angle() - rotation, TAU) - PI)
 		var Impact = velocity.length() / MaxSpeed * (1 - (CollisionAngle / (PI - wallbounce_angle ) ) )
+		print(BounceParam)
 		
 		if CollisionAngle <= wallbounce_angle and Impact >= CrashSpeed:
 			crash((Impact - CrashSpeed ) * (1 / (1 - CrashSpeed ) ))

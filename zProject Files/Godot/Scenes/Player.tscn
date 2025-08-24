@@ -70,12 +70,6 @@ physics_material_override = SubResource("PhysicsMaterial_vl74o")
 gravity_scale = 0.0
 inertia = 5.0
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
-polygon = PackedVector2Array(50, 0, -50, 40, -50, -40)
-
-[node name="WallbounceMarker" type="Marker2D" parent="RigidBody2D/CollisionPolygon2D"]
-position = Vector2(-50, 40)
-
 [node name="PlayerAvatar" type="Sprite2D" parent="."]
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("2_u7ctg")
@@ -142,6 +136,11 @@ visible = false
 position = Vector2(-92, -3.99351e-06)
 shape = SubResource("CapsuleShape2D_7jcn7")
 
-[connection signal="area_shape_entered" from="Boost" to="Boost" method="_on_area_shape_entered"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(50, 0, -50, 40, -50, -40)
+
+[node name="WallbounceMarker" type="Marker2D" parent="CollisionPolygon2D"]
+position = Vector2(-50, 40)
+
 [connection signal="body_shape_entered" from="Boost" to="Boost" method="_on_body_shape_entered"]
 [connection signal="body_shape_exited" from="Boost" to="Boost" method="_on_body_shape_exited"]
