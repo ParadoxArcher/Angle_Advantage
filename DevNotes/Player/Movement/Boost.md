@@ -1,5 +1,5 @@
 ### Final Work
-###### Move forward in relation to rotation, preserving momentum and smoothing deactivation
+###### Move forward in relation to rotation, preserving momentum and deactivating slowly
 #### Steps
 1)  Define Input
 	1) Project Settings --> Input Map --> "Boost" = W
@@ -30,7 +30,7 @@
 		3) Implement #BoostDir 
 			2) Use the full #Vector2 of #velocity and multiply #MaxSpeed by `cos` and `sin` of #rotation 
 				1) `velocity = lerp(velocity, Vector2(cos(rotation), sin(rotation)) * MaxSpeed, SpeedAccel[1])`
-4) Friction & Momentum
+4) #Friction & Momentum
 	1) Define #Friction  as `global array`, for a fluctuating variable, and a base
 		1) `@export var Friction = [.002, .002]`
 	2) Define #FrictRate as `global array`, for the actuation multiplier, step size, and step strength

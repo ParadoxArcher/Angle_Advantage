@@ -10,8 +10,8 @@ var MoveInput = Vector2(0, 0)
 @export var MaxSpeed = 2000
 @export var BoostDecay = [0, .015, .8] # {0: Final,  1:DecayRate, 2:ReleaseAccelScaler(cannot be 0)}
 @export var SpeedAccel = [1.0, 0, .01] # {0: Global Mod, 1: BoostResult, 2: BaseSpeedAccel} ## Beware WallBoostScale
-@export var SpeedDecel = [.002, .002] # {0: Fluctuating,  1: Base} ## Beware BrakeDecelMult
-@export var DecelRate = [.2, .04, .08] # {0: ActivationMin, 1: StepSize, 2: StepStrength}
+@export var Friction = [.002, .002] # {0: Fluctuating,  1: Base} ## Beware BrakeDecelMult
+@export var FrictRate = [.2, .04, .08] # {0: Actuation, 1: StepSize, 2: StepStrength}
 var AccelRate = 0
 
 ## Rotation Variables
@@ -60,14 +60,14 @@ func _physics_process(_delta):
 	
 	
 	#region Friction
-	SpeedDecel[0] = SpeedDecel[1] # reset values
+	Friction[0] = Friction[1] # reset values
 	RotaDecel[0] = RotaDecel[1]
 	
-	if VelLength <= DecelRate[0] * MaxSpeed: # Baseline Friction
-		SpeedDecel[0] *= (((VelLength / MaxSpeed ) + DecelRate[1] ) / DecelRate[1] ) * DecelRate[2]
+	if VelLength <= FrictRate[0] * MaxSpeed: # Baseline Friction
+		Friction[0] *= (((VelLength / MaxSpeed ) + FrictRate[1] ) / FrictRate[1] ) * FrictRate[2]
 	
 	if Input.is_action_pressed("Brake") and not Crashed:
-		SpeedDecel[0] *= BrakeDecelMult[0]
+		Friction[0] *= BrakeDecelMult[0]
 		RotaDecel[0] *= BrakeDecelMult[1]
 	#endregion
 	
@@ -112,7 +112,7 @@ func _physics_process(_delta):
 	RotaSpeed = lerpf(RotaSpeed, MoveInput.x * MaxRota, clampf(RotaRate, 0, 1)) # Rotation Acceleration
 	rotate(RotaSpeed)
 	
-	velocity -= clampf(SpeedDecel[0] * MaxSpeed, 0, VelLength) * velocity.normalized() # Momentum & Friction
+	velocity -= clampf(Friction[0] * MaxSpeed, 0, VelLength) * velocity.normalized() # Momentum & Friction
 	velocity = lerp(velocity, MaxSpeed * Vector2(cos(PlayerRot), sin(PlayerRot)), SpeedAccel[1] * SpeedAccel[0]) # Acceleration
 	
 	var RedFilter = 1 - clampf((SpeedAccel[1] * SpeedAccel[0] / (SpeedAccel[2] * 1.5 )), 0, 1) # VFX
