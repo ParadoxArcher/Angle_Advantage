@@ -119,7 +119,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -277,12 +277,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "DevNotes/ToDoList.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Outline of ToDoList"
             }
           }
         ],
@@ -306,8 +307,12 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "4688c3cbab7702aa",
+  "active": "2b906768df75cac8",
   "lastOpenFiles": [
+    "zProject Files/Godot/Scripts/PlaC180.tmp",
+    "zProject Files/Godot/Scripts/Pla5DB5.tmp",
+    "zProject Files/Godot/Scripts/PlaF48A.tmp",
+    "zProject Files/Godot/Scripts/PlaB9E3.tmp",
     "DevNotes/Player/Movement/Boost.md",
     "zProject Files/Godot/Scripts/Pla42E0.tmp",
     "zProject Files/Godot/Scenes/Gam42CD.tmp",
@@ -320,9 +325,6 @@
     "zProject Files/Godot/Scripts/PlaA86F.tmp",
     "zProject Files/Godot/Scripts/PlaC8D7.tmp",
     "zProject Files/Godot/Scenes/GamF492.tmp",
-    "zProject Files/Godot/Scenes/Pla18A1.tmp",
-    "zProject Files/Godot/Shaders/Test/Col1739.tmp",
-    "zProject Files/Godot/Scripts/Pla1715.tmp",
     "Devlogs/2025-03-22.md",
     "DevNotes/Player/Player.md",
     "DevNotes/Player/Movement/Boost VFX.md",

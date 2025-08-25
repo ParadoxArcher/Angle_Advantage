@@ -7,10 +7,6 @@ kanban-plugin: board
 ## Current
 
 - [ ] [[Dodge]] shouldn't override positive movement
-- [ ] Reformat WallBoost
-- [ ] Learn and create particle shader
-- [ ] convert inert Rigidbody2D to Node2D
-- [ ] Document baseline friction rework
 
 
 ## Band-aids
@@ -20,9 +16,11 @@ kanban-plugin: board
 
 ## Soon
 
-- [ ] [[Boost | Wall Boost]] Documentation
+- [ ] convert inert Rigidbody2D to Node2D
+- [ ] Reformat WallBoost
 - [ ] [[Player]] Flowchart
 - [ ] [[Rotation Collision]] add_constant_torque?
+- [ ] Learn and create particle shader
 - [ ] Braking VFX via [[Action VFX]]
 - [ ] WallBounce VFX via [[Action VFX]]
 - [ ] Dodge Cooldown
