@@ -59,18 +59,6 @@
             }
           },
           {
-            "id": "ecd503932a28a34c",
-            "type": "leaf",
-            "state": {
-              "type": "release-notes",
-              "state": {
-                "currentVersion": "1.8.9"
-              },
-              "icon": "lucide-book-up",
-              "title": "Release Notes 1.8.9"
-            }
-          },
-          {
             "id": "38f3ff542ecb8671",
             "type": "leaf",
             "state": {
@@ -131,7 +119,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -183,7 +171,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#DecelRate1",
+                "query": "tag:#SpeedDecel0",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -289,13 +277,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DevNotes/Player/Movement/Boost.md",
+                "file": "DevNotes/ToDoList.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Boost"
+              "title": "Outline of ToDoList"
             }
           }
         ],
@@ -319,9 +307,13 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "d470cc9b7f6eaae3",
+  "active": "2b906768df75cac8",
   "lastOpenFiles": [
+    "Devlogs/2025-03-21.md",
     "DevNotes/ToDoList.md",
+    "DevNotes/Player/Movement/Boost.md",
+    "zReferences/Excalidraw/Enclosed Racing Concept.excalidraw.md",
+    "DevNotes/Player/Movement/Crash & Wall Bounce.md",
     "zProject Files/Godot/Scripts/PlaFEB6.tmp",
     "zProject Files/Godot/Scenes/GamFEA3.tmp",
     "zProject Files/Godot/Scripts/PlaA86F.tmp",
@@ -332,11 +324,7 @@
     "zProject Files/Godot/Scripts/Pla1715.tmp",
     "zProject Files/Godot/Scenes/Gam1703.tmp",
     "zProject Files/Godot/Scripts/PlaD967.tmp",
-    "zReferences/Excalidraw/Enclosed Racing Concept.excalidraw.md",
-    "DevNotes/Player/Movement/Crash & Wall Bounce.md",
     "Devlogs/2025-03-22.md",
-    "DevNotes/Player/Movement/Boost.md",
-    "Devlogs/2025-03-21.md",
     "DevNotes/Player/Player.md",
     "DevNotes/Player/Movement/Boost VFX.md",
     "zReferences/Excalidraw/Drawing 2025-03-12 12.43.39.excalidraw.md",

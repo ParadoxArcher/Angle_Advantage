@@ -30,21 +30,21 @@
 		3) Implement #BoostDir 
 			2) Use the full #Vector2 of #velocity and multiply #MaxSpeed by `cos` and `sin` of #rotation 
 				1) `velocity = lerp(velocity, Vector2(cos(rotation), sin(rotation)) * MaxSpeed, SpeedAccel[1])`
-4) Momentum & Friction
-	1) Define #SpeedDecel  as `global array`, for a fluctuating variable, and a base
-		1) `@export var SpeedDecel = [.002, .002]`
-	2) Define #DecelRate as `global array`, for the release multiplier, iteration length, and iteration count multiplier
-		1) `@export var DecelRate = [.2, .04, .08]`
-	3) Reset #SpeedDecel0 to be #SpeedDecel1
-		1) `SpeedDecel[0] = SpeedDecel[1]
-	4) Reduce #SpeedDecel0 for low-end #velocity 
-		1) Require #VelLength to be less than our #DecelRate0 release multiplier
-			1) `if VelLength <= DecelRate[0] * MaxSpeed:`
-			2) Divide #VelLength by #MaxSpeed for the proportional value, then add #DecelRate1 to it before diving the sum by #DecelRate1 to accrue total multiplier for #DecelRate2. Multiply to #SpeedDecel0
-				1) `SpeedDecel[0] *= (((VelLength / MaxSpeed ) + DecelRate[1] ) / DecelRate[1] ) * DecelRate[2]
+4) Friction & Momentum
+	1) Define #Friction  as `global array`, for a fluctuating variable, and a base
+		1) `@export var Friction = [.002, .002]`
+	2) Define #FrictRate as `global array`, for the actuation multiplier, step size, and step strength
+		1) `@export var FrictRate = [.2, .04, .08]`
+	3) Reset #Friction0 to be #Friction1
+		1) `Friction[0] = Friction[1]
+	4) Reduce #Friction0 for low-end #velocity 
+		1) Require #VelLength to be less than our #FrictRate0 actuation multiplier
+			1) `if VelLength <= FrictRate[0] * MaxSpeed:`
+			2) Divide #VelLength by #MaxSpeed for the proportional value, then add #FrictRate1 to it before diving the sum by #FrictRate1 to accrue total multiplier for #FrictRate2. Multiply to #Friction0
+				1) `Friction[0] *= (((VelLength / MaxSpeed ) + FrictRate[1] ) / FrictRate[1] ) * FrictRate[2]
 	5) Just before `velocity` math
-		1) create another #velocity adjustment that decreases by #SpeedDecel * #MaxSpeed, clamping to prevent reduction from being greater than current  #velocity
-			1) `velocity -= clampf(SpeedDecel[0] * MaxSpeed, 0,  velocity.length()) * velocity.normalized()`
+		1) create another #velocity adjustment that decreases by #Friction * #MaxSpeed, clamping to prevent reduction from being greater than current  #velocity
+			1) `velocity -= clampf(Friction[0] * MaxSpeed, 0,  velocity.length()) * velocity.normalized()`
 5) #BoostDecay
 	3) Define #SpeedAccel #BoostDecay  as `global arrays` with 3 variables each
 		1) `@export var BoostDecay = [0, .015, .8]`
@@ -75,7 +75,7 @@
 - [[2025-01-13]]
 	- Added #BoostDecay
 - [[2025-01-14]]
-	- Utilizes two separate #velocity adjustments to calculate momentum with #SpeedDecel and acceleration with #SpeedAccel 
+	- Utilizes two separate #velocity adjustments to calculate momentum with #Friction and acceleration with #SpeedAccel 
 	- When [[Boost|BoostDecay]] isn't active, #BoostDir is amplified by #MoveInputY value
 - [[2025-01-17]]
 	- Scales #BoostDecay0 by #MoveInputY
@@ -86,4 +86,4 @@
 	- #SpeedAccel is controlled by #BoostDecay to determine velocity
 	- #Momentum is now decreased by a Linear friction
 - [[2025-03-21]]
-	-  reduced friction at low end with effectively a step function
+	-  reduced #Friction at low-end #velocity

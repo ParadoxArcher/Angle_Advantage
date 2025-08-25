@@ -49,6 +49,7 @@ kanban-plugin: board
 - [ ] Movement Tracking for Level Creation
 - [ ] [[Enclosed Racing Concept.excalidraw]]
 - [ ] Mechanics seem mindlessly implemented
+- [ ] Draw Bezier Curves
 
 
 ## Gameplay
