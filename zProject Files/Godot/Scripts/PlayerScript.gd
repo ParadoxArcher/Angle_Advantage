@@ -63,12 +63,12 @@ func _physics_process(_delta):
 	RotaDecel[0] = RotaDecel[1]
 	
 	
+	var DecelRate = [.2, .04, .08] # Baseline Friction
 	
-	if VelLength <= .15 * MaxSpeed: # Baseline Friction
-		if VelLength <= .05 * MaxSpeed:
-			SpeedDecel[0] *= .2
-		else:
-			SpeedDecel[0] *= .4
+	if VelLength <= DecelRate[0] * MaxSpeed:
+		SpeedDecel[0] *= (((VelLength / MaxSpeed ) + DecelRate[1] ) / DecelRate[1] ) * DecelRate[2]
+	
+
 	
 	
 	if Input.is_action_pressed("Brake") and not Crashed:
