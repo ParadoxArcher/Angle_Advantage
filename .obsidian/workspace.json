@@ -277,13 +277,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DevNotes/Player/Movement/Boost.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Boost"
+              "title": "Outline"
             }
           }
         ],
@@ -307,13 +306,13 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "38f3ff542ecb8671",
+  "active": "4688c3cbab7702aa",
   "lastOpenFiles": [
+    "DevNotes/Player/Movement/Boost.md",
     "zProject Files/Godot/Scripts/Pla42E0.tmp",
     "zProject Files/Godot/Scenes/Gam42CD.tmp",
     "DevNotes/ToDoList.md",
     "Devlogs/2025-03-21.md",
-    "DevNotes/Player/Movement/Boost.md",
     "zReferences/Excalidraw/Enclosed Racing Concept.excalidraw.md",
     "DevNotes/Player/Movement/Crash & Wall Bounce.md",
     "zProject Files/Godot/Scripts/PlaFEB6.tmp",
@@ -324,7 +323,6 @@
     "zProject Files/Godot/Scenes/Pla18A1.tmp",
     "zProject Files/Godot/Shaders/Test/Col1739.tmp",
     "zProject Files/Godot/Scripts/Pla1715.tmp",
-    "zProject Files/Godot/Scenes/Gam1703.tmp",
     "Devlogs/2025-03-22.md",
     "DevNotes/Player/Player.md",
     "DevNotes/Player/Movement/Boost VFX.md",
