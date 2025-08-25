@@ -11,6 +11,7 @@ var MoveInput = Vector2(0, 0)
 @export var BoostDecay = [0, .015, .8] # {0: Final,  1:DecayRate, 2:ReleaseAccelScaler(cannot be 0)}
 @export var SpeedAccel = [1.0, 0, .01] # {0: Global Mod, 1: BoostResult, 2: BaseSpeedAccel} ## Beware WallBoostScale
 @export var SpeedDecel = [.002, .002] # {0: Fluctuating,  1: Base} ## Beware BrakeDecelMult
+@export var DecelRate = [.2, .04, .08] # {0: ActivationMin, 1: StepSize, 2: StepStrength}
 var AccelRate = 0
 
 ## Rotation Variables
@@ -63,12 +64,8 @@ func _physics_process(_delta):
 	RotaDecel[0] = RotaDecel[1]
 	
 	
-	var DecelRate = [.2, .04, .08] # Baseline Friction
-	
-	if VelLength <= DecelRate[0] * MaxSpeed:
+	if VelLength <= DecelRate[0] * MaxSpeed: # Baseline Friction
 		SpeedDecel[0] *= (((VelLength / MaxSpeed ) + DecelRate[1] ) / DecelRate[1] ) * DecelRate[2]
-	
-
 	
 	
 	if Input.is_action_pressed("Brake") and not Crashed:

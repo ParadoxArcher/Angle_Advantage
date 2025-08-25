@@ -9,8 +9,8 @@ kanban-plugin: board
 - [ ] [[Dodge]] shouldn't override positive movement
 - [ ] Reformat WallBoost
 - [ ] Learn and create particle shader
-- [ ] Look into PhysicsServer2D to replace current functions
 - [ ] convert inert Rigidbody2D to Node2D
+- [ ] Document baseline friction rework
 
 
 ## Band-aids
