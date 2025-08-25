@@ -131,7 +131,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -183,7 +183,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#MoveInput",
+                "query": "tag:#DecelRate1",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -204,7 +204,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -288,13 +289,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DevNotes/ToDoList.md",
+                "file": "DevNotes/Player/Movement/Boost.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of ToDoList"
+              "title": "Outline of Boost"
             }
           }
         ],
@@ -318,8 +319,9 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "2b906768df75cac8",
+  "active": "d470cc9b7f6eaae3",
   "lastOpenFiles": [
+    "DevNotes/ToDoList.md",
     "zProject Files/Godot/Scripts/PlaFEB6.tmp",
     "zProject Files/Godot/Scenes/GamFEA3.tmp",
     "zProject Files/Godot/Scripts/PlaA86F.tmp",
@@ -330,9 +332,7 @@
     "zProject Files/Godot/Scripts/Pla1715.tmp",
     "zProject Files/Godot/Scenes/Gam1703.tmp",
     "zProject Files/Godot/Scripts/PlaD967.tmp",
-    "zProject Files/Godot/Scripts/Pla2EC3.tmp",
     "zReferences/Excalidraw/Enclosed Racing Concept.excalidraw.md",
-    "DevNotes/ToDoList.md",
     "DevNotes/Player/Movement/Crash & Wall Bounce.md",
     "Devlogs/2025-03-22.md",
     "DevNotes/Player/Movement/Boost.md",

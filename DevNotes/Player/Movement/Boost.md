@@ -33,15 +33,16 @@
 4) Momentum & Friction
 	1) Define #SpeedDecel  as `global array`, for a fluctuating variable, and a base
 		1) `@export var SpeedDecel = [.002, .002]`
-	2) Call #SpeedDecel0 to be #SpeedDecel1
+	2) Define #DecelRate as `global array`, for the release multiplier, iteration length, and iteration count multiplier
+		1) `@export var DecelRate = [.2, .04, .08]`
+	3) Reset #SpeedDecel0 to be #SpeedDecel1
 		1) `SpeedDecel[0] = SpeedDecel[1]
-	3) Decrease #SpeedDecel0 if #velocityLength is low
-		1) `if velocity.length() <= .15 * MaxSpeed:
-			1) `if velocity.length() <= .05 * MaxSpeed:
-				1) `SpeedDecel[0] *= .2
-			2) `else:
-				1) `SpeedDecel[0] *= .4`
-	4) Just before `velocity` math
+	4) Reduce #SpeedDecel0 for low-end #velocity 
+		1) Require #VelLength to be less than our #DecelRate0 release multiplier
+			1) `if VelLength <= DecelRate[0] * MaxSpeed:`
+			2) Divide #VelLength by #MaxSpeed for the proportional value, then add #DecelRate1 to it before diving the sum by #DecelRate1 to accrue total multiplier for #DecelRate2. Multiply to #SpeedDecel0
+				1) `SpeedDecel[0] *= (((VelLength / MaxSpeed ) + DecelRate[1] ) / DecelRate[1] ) * DecelRate[2]
+	5) Just before `velocity` math
 		1) create another #velocity adjustment that decreases by #SpeedDecel * #MaxSpeed, clamping to prevent reduction from being greater than current  #velocity
 			1) `velocity -= clampf(SpeedDecel[0] * MaxSpeed, 0,  velocity.length()) * velocity.normalized()`
 5) #BoostDecay
