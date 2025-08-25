@@ -198,7 +198,7 @@ func crash(CrashTimeScaler):
 		pass
 
 func dodge(DodgeDir):
-	print(DodgeDir.dot(rotation))
+	print(DodgeDir)
 	BoostDecay[0] = 0
 	SpeedAccel[1] = 0
 	
