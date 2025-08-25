@@ -59,14 +59,12 @@ func _physics_process(_delta):
 	#endregion
 	
 	
-	#region Brakes --- Amplifies Deceleration	
-	SpeedDecel[0] = SpeedDecel[1]
+	#region Friction
+	SpeedDecel[0] = SpeedDecel[1] # reset values
 	RotaDecel[0] = RotaDecel[1]
-	
 	
 	if VelLength <= DecelRate[0] * MaxSpeed: # Baseline Friction
 		SpeedDecel[0] *= (((VelLength / MaxSpeed ) + DecelRate[1] ) / DecelRate[1] ) * DecelRate[2]
-	
 	
 	if Input.is_action_pressed("Brake") and not Crashed:
 		SpeedDecel[0] *= BrakeDecelMult[0]
@@ -74,7 +72,7 @@ func _physics_process(_delta):
 	#endregion
 	
 	
-	#region Boost --- Determines movement application and delays it's deactivation
+	#region Boost --- Acceleration application and delay timing
 	if MoveInput.y > 0 or BoostDecay[0] > 0:
 		if MoveInput.y / BoostDecay[2] >= BoostDecay[0]:
 			BoostDecay[0] += clampf(2.5 * BoostDecay[1] * MoveInput.y, 0, MoveInput.y - BoostDecay[0])
@@ -94,7 +92,7 @@ func _physics_process(_delta):
 	#endregion
 	
 	
-	#region Rotation --- Defines rotation acceleration and it's momentum
+	#region Rotation --- Accelerated rotation and  it's momentum
 	if MoveInput.x != 0: 
 		var CounterSteer = absf((RotaSpeed / MaxRota ) - MoveInput.x) * CounterSteerRate
 		RotaRate = RotaAccel[0] + RotaDecel[0] * CounterSteer
@@ -137,7 +135,6 @@ func _physics_process(_delta):
 		var BounceParam = PhysicsServer2D.body_get_param(get_rid(), PhysicsServer2D.BODY_PARAM_BOUNCE)
 		var CollisionAngle = abs(pingpong(WallNormal.angle() - rotation, TAU) - PI)
 		var Impact = velocity.length() / MaxSpeed * (1 - (CollisionAngle / (PI - wallbounce_angle ) ) )
-		print(BounceParam)
 		
 		if CollisionAngle <= wallbounce_angle and Impact >= CrashSpeed:
 			crash((Impact - CrashSpeed ) * (1 / (1 - CrashSpeed ) ))
