@@ -4,13 +4,13 @@
 1)  Define Input
 	1) Project Settings --> Input Map --> "Boost" = W
 	2) Inside `func _physics_process(_delta):`
-		1) `var MoveInput = Input.get_axis(0, "Boost")`
+		1) `var MoveInput = Input.get_axis("Boost", 0)`
 2) Movement
 	1) Define #Speed  as `global variable`
 		1) `@export var Speed = 1500`
 	3) After `MoveInput`
 		1) Apply Speed to #velocity when Input is Pressed 
-			2) `if MoveInput > 0:
+			2) `if -MoveInput > 0:
 				1) `velocity.y = Speed
 		2) Activate #CharacterBody2D #velocity & physics
 			1)  `move_and_slide()`
@@ -20,12 +20,12 @@
 			1) ~~`Speed`~~ -> `MaxSpeed`
 			2) `@export var SpeedAccel = {.01, .01}`
 		2) Adjust #SpeedAccel based on Input
-			1)  Inside `if MoveInput > 0:` Define #SpeedAccel1 as #SpeedAccel0 
+			1)  Inside `if -MoveInput > 0:` Define #SpeedAccel1 as #SpeedAccel0 
 				1) `SpeedAccel[1] = SpeedAccel[0]`
 			2) Set #SpeedAccel1 to `0` in `else:`
 				1) `else:`
 					1) `SpeedAccel[1] = 0`
-			3) Move #velocity adjustment under `if MoveInput > 0:` function and apply #MaxSpeed and #SpeedAccel1 to it
+			3) Move #velocity adjustment under `if -MoveInput > 0:` function and apply #MaxSpeed and #SpeedAccel1 to it
 				1) `velocity.y = lerp(velocity, MaxSpeed, SpeedAccel[1])`
 		3) Implement #BoostDir 
 			2) Use the full #Vector2 of #velocity and multiply #MaxSpeed by `cos` and `sin` of #rotation 
@@ -52,19 +52,19 @@
 		1) `@export var BoostDecay = [0, .015, .8]`
 		2) `@export var SpeedAccel = [1.0, 0, .01]`
 	4) Set up #BoostDecay to activate
-		1) Allow #BoostDecay to pass through `if MoveInput.y > 0`
-			1) `if MoveInput.y > 0 or BoostDecay[0] > 0:`
+		1) Allow #BoostDecay to pass through `if -MoveInput.y > 0`
+			1) `if -MoveInput.y > 0 or BoostDecay[0] > 0:`
 		2) Increase #BoostDecay0 when #MoveInputY is greater than #BoostDecay0's effective value
-			1) Inside `if MoveInput.y > 0 or BoostDecay[0] > 0:` 
-				1) `if MoveInput.y / BoostDecay[2] >= BoostDecay[0]:`
-			2) Inside `if MoveInput.y / BoostDecay[2] >= BoostDecay[0]:`
+			1) Inside `if -MoveInput.y > 0 or BoostDecay[0] > 0:` 
+				1) `if -MoveInput.y / BoostDecay[2] >= BoostDecay[0]:`
+			2) Inside `if -MoveInput.y / BoostDecay[2] >= BoostDecay[0]:`
 				1) Increase #BoostDecay0 by #BoostDecay1 * #MoveInputY and apply `clampf` to prevent exceeding #MoveInputY
-					1) `BoostDecay[0] += clampf(2 * BoostDecay[1] * MoveInput.y, 0, MoveInput.y - BoostDecay[0])`
+					1) `BoostDecay[0] += clampf(2 * BoostDecay[1] * -MoveInput.y, 0, -MoveInput.y - BoostDecay[0])`
 				2) Set #SpeedAccel1 to #BoostDecay0 times #SpeedAccel2 
 					1) ~~`SpeedAccel[1] = SpeedAccel[0]
 					2) `SpeedAccel[1] = SpeedAccel[2] * BoostDecay[0]`
 	5) Deactivate #BoostDecay 
-		1) After `if MoveInput.y / BoostDecay[2] >= BoostDecay[0]:`
+		1) After `if -MoveInput.y / BoostDecay[2] >= BoostDecay[0]:`
 			1) `else:
 			2) Decrease #BoostDecay0 by #BoostDecay1, `clampf` by #BoostDecay0 
 				1) `BoostDecay[0] -= clampf(BoostDecay[1], 0, BoostDecay[0])
@@ -92,4 +92,4 @@
 - [[2025-08-26]]
 	- Use of `Vector2.from_angle(x)` over `Vector2(cos(x), sin(x))`
 	- Use of `Input.get_axis(x, y)` over `Input.get_action_strength, ...`
-	- seperated #friction to be an isolated function
+	- seperated #friction and Boost to be isolated functions

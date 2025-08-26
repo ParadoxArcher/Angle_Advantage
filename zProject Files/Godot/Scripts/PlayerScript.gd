@@ -52,31 +52,12 @@ func _physics_process(_delta):
 	
 	#region Basic Movement
 	if not Crashed:
-		MoveInput = Vector2(Input.get_axis("RotateLeft", "RotateRight"), Input.get_axis("Back", "Boost"))
+		MoveInput = Vector2(Input.get_axis("RotateLeft", "RotateRight"), Input.get_axis("Boost", "Back"))
 	else:
 		MoveInput = Vector2(0, 0)
 	
-	_friction(VelLength)
-	
-	#region Boost --- Acceleration application and delay timing
-	if MoveInput.y > 0 or BoostDecay[0] > 0:
-		if MoveInput.y / BoostDecay[2] >= BoostDecay[0]:
-			BoostDecay[0] += clampf(2.5 * BoostDecay[1] * MoveInput.y, 0, MoveInput.y - BoostDecay[0])
-			SpeedAccel[1] = SpeedAccel[2] * BoostDecay[0]
-			
-		else:
-			BoostDecay[0] -= clampf(BoostDecay[1], 0, BoostDecay[0])
-			SpeedAccel[1] = SpeedAccel[2] * BoostDecay[0] * BoostDecay[2]
-		
-		
-		boost_particle.emitting = true #VFX
-		#var Particles = clampi(round(BoostDecay[0] * 5), 1, 5)
-		#if Particles != boost_particle.amount:
-		#	boost_particle.amount = Particles
-	else:
-		boost_particle.emitting = false
-	#endregion
-	
+	_friction(VelLength)	
+	_boost()
 	
 	#region Rotation --- Accelerated rotation and  it's momentum
 	if MoveInput.x != 0: 
@@ -90,7 +71,7 @@ func _physics_process(_delta):
 	
 	#region Advanced Movement
 	if Input.is_action_just_pressed("Dodge") and not Crashed: # Calls Dodge() to instantanteously set movement in direction relative to rotation
-		dodge(Vector2(MoveInput.x, -MoveInput.y).normalized())
+		dodge(Vector2(MoveInput.x, MoveInput.y).normalized())
 	#endregion
 	
 	
@@ -181,6 +162,24 @@ func _friction(VelLength):
 	if Input.is_action_pressed("Brake") and not Crashed:
 		Friction[0] *= BrakeDecelMult[0]
 		RotaDecel[0] *= BrakeDecelMult[1]
+
+func _boost():
+	if -MoveInput.y > 0 or BoostDecay[0] > 0:
+		if -MoveInput.y / BoostDecay[2] >= BoostDecay[0]:
+			BoostDecay[0] += clampf(2.5 * BoostDecay[1] * -MoveInput.y, 0, -MoveInput.y - BoostDecay[0])
+			SpeedAccel[1] = SpeedAccel[2] * BoostDecay[0]
+			
+		else:
+			BoostDecay[0] -= clampf(BoostDecay[1], 0, BoostDecay[0])
+			SpeedAccel[1] = SpeedAccel[2] * BoostDecay[0] * BoostDecay[2]
+		
+		
+		boost_particle.emitting = true #VFX
+		#var Particles = clampi(round(BoostDecay[0] * 5), 1, 5)
+		#if Particles != boost_particle.amount:
+		#	boost_particle.amount = Particles
+	else:
+		boost_particle.emitting = false
 
 func crash(CrashTimeScaler):
 	if CrashImmunity[0]:
