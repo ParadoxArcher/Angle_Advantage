@@ -35,15 +35,17 @@
 		1) `@export var Friction = [.002, .002]`
 	2) Define #FrictRate as `global array`, for the actuation multiplier, step size, and step strength
 		1) `@export var FrictRate = [.2, .04, .08]`
-	3) Reset #Friction0 to be #Friction1
-		1) `Friction[0] = Friction[1]
-	4) Reduce #Friction0 for low-end #velocity 
-		1) Require #VelLength to be less than our #FrictRate0 actuation multiplier
-			1) `if VelLength <= FrictRate[0] * MaxSpeed:`
-			2) Divide #VelLength by #MaxSpeed for the proportional value, then add #FrictRate1 to it before diving the sum by #FrictRate1 to accrue total multiplier for #FrictRate2. Multiply to #Friction0
-				1) `Friction[0] *= (((VelLength / MaxSpeed ) + FrictRate[1] ) / FrictRate[1] ) * FrictRate[2]
-	5) Just before `velocity` math
-		1) create another #velocity adjustment that decreases by #Friction * #MaxSpeed, clamping to prevent reduction from being greater than current  #velocity
+	3) Inside `func _friction()`
+		1) Reset #Friction0 to be #Friction1
+			1) `Friction[0] = Friction[1]
+		2) Reduce #Friction0 for low-end #velocity 
+			1) Require #VelLength to be less than our #FrictRate0 actuation multiplier
+				1) `if VelLength <= FrictRate[0] * MaxSpeed:`
+				2) Divide #VelLength by #MaxSpeed for the proportional value, then add #FrictRate1 to it before diving the sum by #FrictRate1 to accrue total multiplier for #FrictRate2. Multiply to #Friction0
+					1) `Friction[0] *= (((VelLength / MaxSpeed ) + FrictRate[1] ) / FrictRate[1] ) * FrictRate[2]
+	4) Just before `velocity` math
+		1) call `func _friction`
+		2) then create another #velocity adjustment that decreases by #Friction0 * #MaxSpeed, clamping to prevent reduction from being greater than current  #velocity
 			1) `velocity -= clampf(Friction[0] * MaxSpeed, 0,  velocity.length()) * velocity.normalized()`
 5) #BoostDecay
 	3) Define #SpeedAccel #BoostDecay  as `global arrays` with 3 variables each
@@ -90,3 +92,4 @@
 - [[2025-08-26]]
 	- Use of `Vector2.from_angle(x)` over `Vector2(cos(x), sin(x))`
 	- Use of `Input.get_axis(x, y)` over `Input.get_action_strength, ...`
+	- seperated #friction to be an isolated function
