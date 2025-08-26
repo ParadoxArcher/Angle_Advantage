@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dls4xvmjd2n3y"
-path="res://.godot/imported/Red Arrow.png-26c70050f667672e4353696198951cd1.ctex"
+uid="uid://myu1tknx58ow"
+path="res://.godot/imported/Green Arrow.png-6e45d61fb28a86d89bc4640ec39e8ef2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Red Arrow.png"
-dest_files=["res://.godot/imported/Red Arrow.png-26c70050f667672e4353696198951cd1.ctex"]
+source_file="res://Assets/Player/DisplayArrows/Green Arrow.png"
+dest_files=["res://.godot/imported/Green Arrow.png-6e45d61fb28a86d89bc4640ec39e8ef2.ctex"]
 
 [params]
 
