@@ -6,6 +6,7 @@ kanban-plugin: board
 
 ## Current
 
+- [ ] Bezier curves for Level objects
 
 
 ## Band-aids
@@ -45,8 +46,6 @@ kanban-plugin: board
 - [ ] Level Editor
 - [ ] Movement Tracking for Level Creation
 - [ ] [[Enclosed Racing Concept.excalidraw]]
-- [ ] Mechanics seem mindlessly implemented
-- [ ] Draw Bezier Curves
 
 
 ## Gameplay
