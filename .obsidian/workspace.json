@@ -88,14 +88,14 @@
             "state": {
               "type": "excalidraw",
               "state": {
-                "file": "zReferences/Excalidraw/Enclosed Racing Concept.excalidraw.md"
+                "file": "zReferences/Excalidraw/Thought splurge.md"
               },
               "icon": "excalidraw-icon",
-              "title": "Enclosed Racing Concept.excalidraw"
+              "title": "Thought splurge"
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -168,8 +168,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -253,13 +252,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DevNotes/ToDoList.md",
+                "file": "zReferences/Excalidraw/Thought splurge.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of ToDoList"
+              "title": "Outline of Thought splurge"
             }
           }
         ],
@@ -284,17 +283,18 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "2b906768df75cac8",
+  "active": "435608f7729f4aef",
   "lastOpenFiles": [
+    "DevNotes/Idea splurges/Level Ideas.md",
+    "zReferences/Excalidraw/Enclosed Racing Concept.excalidraw.md",
+    "DevNotes/ToDoList.md",
     "DevNotes/Player/Movement/Dodge.md",
     "zProject Files/Godot/Scripts/Pla3B17.tmp",
-    "DevNotes/ToDoList.md",
     "Devlogs/2025-08-26.md",
     "Devlogs/2025-01-16.md",
     "zReferences/Excalidraw/Thought splurge.md",
     "Devlogs/2025-08-25.md",
     "DevNotes/Player/Movement/Boost.md",
-    "zReferences/Excalidraw/Enclosed Racing Concept.excalidraw.md",
     "zProject Files/Godot/Scripts/Pla5A70.tmp",
     "Devlogs/2025-03-21.md",
     "DevNotes/Player/Movement/Crash & Wall Bounce.md",
@@ -320,7 +320,6 @@
     "zProject Files/Godot/Assets/Test/CMYKCheckerboard1.png",
     "zProject Files/Godot/Assets/Test/icon.svg",
     "zProject Files/Godot/Assets/Test/Rainbowjpg.jpg",
-    "DevNotes/Idea splurges/Level Ideas.md",
     "zReferences/Excalidraw/Drawing 2025-03-12 11.44.59.excalidraw.md",
     "Untitled Kanban.md",
     "DevNotes/ColorAnimator.md",

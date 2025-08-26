@@ -6,6 +6,7 @@ kanban-plugin: board
 
 ## Current
 
+- [ ] Level Editor
 - [ ] Bezier curves for Level objects
 
 
@@ -43,7 +44,6 @@ kanban-plugin: board
 - [ ] Destructable Terrain
 - [ ] Pickup Items
 - [ ] Gravity Zones
-- [ ] Level Editor
 - [ ] Movement Tracking for Level Creation
 - [ ] [[Enclosed Racing Concept.excalidraw]]
 
