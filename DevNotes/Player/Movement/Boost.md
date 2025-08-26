@@ -29,7 +29,7 @@
 				1) `velocity.y = lerp(velocity, MaxSpeed, SpeedAccel[1])`
 		3) Implement #BoostDir 
 			2) Use the full #Vector2 of #velocity and multiply #MaxSpeed by `cos` and `sin` of #rotation 
-				1) `velocity = lerp(velocity, Vector2(cos(rotation), sin(rotation)) * MaxSpeed, SpeedAccel[1])`
+				1) `velocity = lerp(velocity, Vector2.from_angle(rotation) * MaxSpeed, SpeedAccel[1])`
 4) #Friction & Momentum
 	1) Define #Friction  as `global array`, for a fluctuating variable, and a base
 		1) `@export var Friction = [.002, .002]`
@@ -87,3 +87,5 @@
 	- #Momentum is now decreased by a Linear friction
 - [[2025-03-21]]
 	-  reduced #Friction at low-end #velocity
+- [[2025-08-26]]
+	- Use of `Vector2.from_angle(x)` over `Vector2(cos(x), sin(x))`

@@ -20,7 +20,7 @@
 			1) Find #velocityLength relative to #MaxSpeed 
 				1) `var GreenFilterScaler = (velocity.length() / MaxSpeed )`
 			2) Multiply by #velocityDir relative to #rotation
-				1)  `* ((1 + velocity.normalized().dot(Vector2(cos(rotation), sin(rotation))) ) / 2 )
+				1)  `* ((1 + velocity.normalized().dot(Vector2.from_angle(rotation)) ) / 2 )
 		2) Call shader to adjust `GreenFilter` to base amount minus scaled amount
 			1) `boost_sprite.material.set_shader_parameter("GreenFilter", .8 - GreenFilterScaler * .8)
 	4) Blue
@@ -32,3 +32,5 @@
 	- #GreenFilter now correlates with velocity direction
 - [[2025-03-21]]
 	- sprite draw order reduced below level objects
+- [[2025-08-26]]
+	- Use of `Vector2.from_angle(x)` over `Vector2(cos(x), sin(x))`

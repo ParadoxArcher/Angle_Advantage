@@ -62,6 +62,7 @@ wall_min_slide_angle = 0.0
 safe_margin = 1.0
 script = ExtResource("1_g1qce")
 BounceVFX = [0, 0.08]
+DisplaysActive = [true, false]
 
 [node name="PhysicsParam" type="Node2D" parent="."]
 

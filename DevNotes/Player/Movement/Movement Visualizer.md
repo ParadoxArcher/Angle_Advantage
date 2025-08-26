@@ -25,7 +25,7 @@
 		1) set #boost_dir scale.x proportional to #BoostDecay. Multiply by #boost_dirLength
 			1) `Displays["boost_dir"].scale.x = BoostDecay[0] * DisplaySize["boost_dirLength"]
 		2) set #boos_dir position directly in front of [[Player]] with distance scaled by sprite size
-			1) `Displays["boost_dir"].position = position + ((150 * Displays["boost_dir"].scale.x ) + DisplaySize["CenterGap"] ) * Vector2(cos(rotation), sin(rotation))
+			1) `Displays["boost_dir"].position = position + ((150 * Displays["boost_dir"].scale.x ) + DisplaySize["CenterGap"] ) * Vector2.from_angle(rotation)
 		3) set #boost_dir rotation to [[Player]] #rotation 
 			1) `Displays["boost_dir"].rotation = rotation`
 3) #RotaSpeed
@@ -38,7 +38,7 @@
 		1) set #rota_speed scale.x proportional to #RotaSpeed / #MaxRota. Multiply by #rota_speedLength 
 			1) `Displays["rota_speed"].scale.x = RotaSpeed / MaxRota * DisplaySize["rota_speedLength"]
 		2) set #rota_speed position to be perpendicular to #boost_dir, scaled by sprite size
-			1) `Displays["rota_speed"].position = Displays["boost_dir"].position + ((150 * Displays["rota_speed"].scale.x ) * Vector2(cos(Displays["boost_dir"].rotation + PI/2), sin(Displays["boost_dir"].rotation + PI/2)) )
+			1) `Displays["rota_speed"].position = Displays["boost_dir"].position + ((150 * Displays["rota_speed"].scale.x ) * Vector2.from_angle(Displays["boost_dir"].rotation + PI/2) )
 		3) set #rota_speed rotation to be perpendicular to #boost_dir 
 			1) `Displays["rota_speed"].rotation = Displays["boost_dir"].rotation + PI/2
 4) Toggleable visibility
@@ -64,5 +64,5 @@
 				4) `DisplaysActive[1] = false```
 
 ### Adjustment Log
-- 
-	- 
+- [[2025-08-26]]
+	- Use of `Vector2.from_angle(x)` over `Vector2(cos(x), sin(x))`

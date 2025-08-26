@@ -25,22 +25,22 @@ var RotaRate := 0.0
 
 #region Advanced Movement Variables
 ##Dodge Variables
-@export var DodgeSpeed = .75
-@export var DodgeRotaAccel = 4.
+@export var DodgeSpeed := .75
+@export var DodgeRotaAccel := 4.
 
 ##Crash && WallBounce Variables
 @onready var wallbounce_angle = $CollisionPolygon2D/WallbounceMarker.position.angle()
-@export var BounceStrength = .3
-@export var CrashSpeed = .2
-@export var CrashTime = [.8, 1.6] # {0: Minimum, 1: Maximum}
-@export var CrashImmunity = [false, .6] # {0: isActive, 1: CrashTimerMult}
-var Crashed = false
+@export var BounceStrength := .3
+@export var CrashSpeed := .2
+@export var CrashTime := [.8, 1.6] # {0: Minimum, 1: Maximum}
+@export var CrashImmunity := [false, .6] # {0: isActive, 1: CrashTimerMult}
+var Crashed := false
 #endregion
 
 #region VFX
 @onready var boost_sprite = $Boost/Sprite
 @onready var boost_particle = $Boost/Sprite/Particle2D
-@export var BounceVFX = [0, .05] # {0: fluctuating, 1: DecayRate}
+@export var BounceVFX := [0, .05] # {0: fluctuating, 1: DecayRate}
 #endregion
 
 func _ready():
@@ -113,7 +113,7 @@ func _physics_process(_delta):
 	rotate(RotaSpeed)
 	
 	velocity -= clampf(Friction[0] * MaxSpeed, 0, VelLength) * velocity.normalized() # Momentum & Friction
-	velocity = lerp(velocity, MaxSpeed * Vector2(cos(PlayerRot), sin(PlayerRot)), SpeedAccel[1] * SpeedAccel[0]) # Acceleration
+	velocity = lerp(velocity, MaxSpeed * Vector2.from_angle(PlayerRot), SpeedAccel[1] * SpeedAccel[0]) # Acceleration
 	
 	var RedFilter = 1 - clampf((SpeedAccel[1] * SpeedAccel[0] / (SpeedAccel[2] * 1.5 )), 0, 1) # VFX
 	boost_sprite.material.set_shader_parameter("RedFilter", RedFilter)
@@ -171,11 +171,11 @@ func _process(_delta):
 		Displays["velocity"].rotation = velocity.angle()
 		
 		Displays["boost_dir"].scale.x = BoostDecay[0] * DisplaySize["boost_dirLength"]
-		Displays["boost_dir"].position = position + ((150 * Displays["boost_dir"].scale.x ) + DisplaySize["CenterGap"] ) * Vector2(cos(rotation), sin(rotation))
+		Displays["boost_dir"].position = position + ((150 * Displays["boost_dir"].scale.x ) + DisplaySize["CenterGap"] ) * Vector2.from_angle(rotation)
 		Displays["boost_dir"].rotation = rotation
 		
 		Displays["rota_speed"].scale.x = RotaSpeed / MaxRota * DisplaySize["rota_speedLength"]
-		Displays["rota_speed"].position = Displays["boost_dir"].position + ((150 * Displays["rota_speed"].scale.x ) * Vector2(cos(Displays["boost_dir"].rotation + PI/2), sin(Displays["boost_dir"].rotation + PI/2)) )
+		Displays["rota_speed"].position = Displays["boost_dir"].position + ((150 * Displays["rota_speed"].scale.x ) * Vector2.from_angle(Displays["boost_dir"].rotation + PI/2) )
 		Displays["rota_speed"].rotation = Displays["boost_dir"].rotation + PI/2
 	
 	elif DisplaysActive [1]:

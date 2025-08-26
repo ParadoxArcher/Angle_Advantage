@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DevNotes/Player/Movement/Dodge.md",
+                "file": "Devlogs/2025-08-26.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,34 +28,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "Dodge"
-            }
-          },
-          {
-            "id": "2b906768df75cac8",
-            "type": "leaf",
-            "pinned": true,
-            "state": {
-              "type": "kanban",
-              "state": {
-                "file": "DevNotes/ToDoList.md",
-                "kanbanViewState": {
-                  "kanban-plugin": "board",
-                  "list-collapse": [
-                    false,
-                    false,
-                    false,
-                    false,
-                    false,
-                    false,
-                    false,
-                    false
-                  ]
-                }
-              },
-              "pinned": true,
-              "icon": "lucide-trello",
-              "title": "ToDoList"
+              "title": "2025-08-26"
             }
           },
           {
@@ -93,9 +66,35 @@
               "icon": "excalidraw-icon",
               "title": "Thought splurge"
             }
+          },
+          {
+            "id": "2b906768df75cac8",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "kanban",
+              "state": {
+                "file": "DevNotes/ToDoList.md",
+                "kanbanViewState": {
+                  "kanban-plugin": "board",
+                  "list-collapse": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              },
+              "pinned": true,
+              "icon": "lucide-trello",
+              "title": "ToDoList"
+            }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "vertical"
@@ -252,13 +251,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zReferences/Excalidraw/Thought splurge.md",
+                "file": "Devlogs/2025-08-26.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Thought splurge"
+              "title": "Outline of 2025-08-26"
             }
           }
         ],
@@ -283,8 +282,18 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "435608f7729f4aef",
+  "active": "9fae18dbf1d84e64",
   "lastOpenFiles": [
+    "DevNotes/Player/Movement/Boost.md",
+    "Devlogs/2025-08-26.md",
+    "DevNotes/Player/Movement/Boost VFX.md",
+    "DevNotes/Player/Movement/Movement Visualizer.md",
+    "DevNotes/ToDoList.md",
+    "DevNotes/Player/Movement/Dodge.md",
+    "zReferences/Excalidraw/Thought splurge.md",
+    "zProject Files/Godot/Scripts/Pla579E.tmp",
+    "zProject Files/Godot/Scripts/Pla5EC8.tmp",
+    "zProject Files/Godot/Scenes/Pla5EB5.tmp",
     "zProject Files/Godot/Scripts/Pla4E12.tmp",
     "zProject Files/Godot/Scripts/Pla104E.tmp",
     "zProject Files/Godot/txt Files",
@@ -293,29 +302,19 @@
     "zProject Files/Godot/Assets/Player/DisplayArrows/Yellow Arrow.png.import",
     "zProject Files/Godot/Assets/Player/DisplayArrows/Yellow Arrow.png",
     "zProject Files/Godot/Scenes/Pla7273.tmp",
-    "zProject Files/Godot/Assets/Player/DisplayArrows/Red6D19.tmp",
-    "zProject Files/Godot/Assets/Player/DisplayArrows/Red Arrow.png.import",
     "zProject Files/Godot/Assets/Player/DisplayArrows/Red Arrow.png",
-    "zProject Files/Godot/Scenes/Pla6BCA.tmp",
-    "zProject Files/Godot/Assets/Player/DisplayArrows/Gre672B.tmp",
     "zProject Files/Godot/Assets/Player/DisplayArrows/Green Arrow.png",
     "zProject Files/Godot/Assets/Player/Yellow Arrow.png",
     "zProject Files/Godot/Assets/Player/Red Arrow.png",
     "zProject Files/Godot/Assets/Player/Green Arrow.png",
     "DevNotes/Idea splurges/Level Ideas.md",
     "zReferences/Excalidraw/Enclosed Racing Concept.excalidraw.md",
-    "DevNotes/ToDoList.md",
-    "DevNotes/Player/Movement/Dodge.md",
-    "Devlogs/2025-08-26.md",
     "Devlogs/2025-01-16.md",
-    "zReferences/Excalidraw/Thought splurge.md",
     "Devlogs/2025-08-25.md",
-    "DevNotes/Player/Movement/Boost.md",
     "Devlogs/2025-03-21.md",
     "DevNotes/Player/Movement/Crash & Wall Bounce.md",
     "Devlogs/2025-03-22.md",
     "DevNotes/Player/Player.md",
-    "DevNotes/Player/Movement/Boost VFX.md",
     "zProject Files/Godot/Assets/Player/Boost VFX 1.png",
     "zProject Files/Godot/Assets/Player/Avatar.png",
     "zProject Files/Godot/Assets/Player/Boost VFX.png",
@@ -329,7 +328,6 @@
     "DevNotes/Idea splurges/Ability ideas.md",
     "DevNotes/Player/Movement/Rotation.md",
     "DevNotes/Player/Movement/Brakes.md",
-    "DevNotes/Player/Movement/Movement Visualizer.md",
     "2025-W04.md"
   ]
 }
