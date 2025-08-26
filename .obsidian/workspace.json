@@ -83,6 +83,18 @@
             }
           },
           {
+            "id": "3662ac1735dd3be7",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.9.10"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.9.10"
+            }
+          },
+          {
             "id": "db08f7477d3f1010",
             "type": "leaf",
             "state": {
@@ -119,7 +131,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -295,6 +307,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "bases:Create new base": false,
       "workspaces:Manage workspace layouts": false,
       "obsidian-excalidraw-plugin:Create new drawing": false,
       "switcher:Open quick switcher": false,
@@ -307,7 +320,7 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "38f3ff542ecb8671",
+  "active": "3662ac1735dd3be7",
   "lastOpenFiles": [
     "DevNotes/ToDoList.md",
     "zProject Files/Godot/Scripts/Pla6593.tmp",
