@@ -51,26 +51,12 @@ func _physics_process(_delta):
 	var PlayerRot = rotation
 	
 	#region Basic Movement
-	#region Input
 	if not Crashed:
 		MoveInput = Vector2(Input.get_axis("RotateLeft", "RotateRight"), Input.get_axis("Back", "Boost"))
 	else:
 		MoveInput = Vector2(0, 0)
-	#endregion
 	
-	
-	#region Friction
-	Friction[0] = Friction[1] # reset values
-	RotaDecel[0] = RotaDecel[1]
-	
-	if VelLength <= FrictRate[0] * MaxSpeed: # Baseline Friction
-		Friction[0] *= (((VelLength / MaxSpeed ) + FrictRate[1] ) / FrictRate[1] ) * FrictRate[2]
-	
-	if Input.is_action_pressed("Brake") and not Crashed:
-		Friction[0] *= BrakeDecelMult[0]
-		RotaDecel[0] *= BrakeDecelMult[1]
-	#endregion
-	
+	_friction(VelLength)
 	
 	#region Boost --- Acceleration application and delay timing
 	if MoveInput.y > 0 or BoostDecay[0] > 0:
@@ -184,6 +170,17 @@ func _process(_delta):
 		Displays["rota_speed"].visible = false
 		DisplaysActive[1] = false
 	#endregion
+
+func _friction(VelLength):
+	Friction[0] = Friction[1] # reset values
+	RotaDecel[0] = RotaDecel[1]
+	
+	if VelLength <= FrictRate[0] * MaxSpeed: # Baseline Friction
+		Friction[0] *= (((VelLength / MaxSpeed ) + FrictRate[1] ) / FrictRate[1] ) * FrictRate[2]
+	
+	if Input.is_action_pressed("Brake") and not Crashed:
+		Friction[0] *= BrakeDecelMult[0]
+		RotaDecel[0] *= BrakeDecelMult[1]
 
 func crash(CrashTimeScaler):
 	if CrashImmunity[0]:

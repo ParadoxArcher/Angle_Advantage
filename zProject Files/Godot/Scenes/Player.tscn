@@ -143,6 +143,7 @@ shape = SubResource("CapsuleShape2D_7jcn7")
 polygon = PackedVector2Array(50, 0, -50, 40, -50, -40)
 
 [node name="WallbounceMarker" type="Marker2D" parent="CollisionPolygon2D"]
+unique_name_in_owner = true
 position = Vector2(-50, 40)
 
 [connection signal="body_shape_entered" from="Boost" to="Boost" method="_on_body_shape_entered"]
