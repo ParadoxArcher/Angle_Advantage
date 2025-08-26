@@ -1,26 +1,26 @@
 extends CharacterBody2D
 
 #region Basic Movement Variables
-var MoveInput = Vector2(0, 0)
+var MoveInput := Vector2(0, 0)
 
 ## Brake Variables
-@export var BrakeDecelMult = [4.0, 3.0] # {0: SpeedDecelMult, 1: RotaDecelMult}
+@export var BrakeDecelMult := [4.0, 3.0] # {0: SpeedDecelMult, 1: RotaDecelMult}
 
 ## Boost Variables
-@export var MaxSpeed = 2000
-@export var BoostDecay = [0, .015, .8] # {0: Final,  1:DecayRate, 2:ReleaseAccelScaler(cannot be 0)}
-@export var SpeedAccel = [1.0, 0, .01] # {0: Global Mod, 1: BoostResult, 2: BaseSpeedAccel} ## Beware WallBoostScale
-@export var Friction = [.002, .002] # {0: Fluctuating,  1: Base} ## Beware BrakeDecelMult
-@export var FrictRate = [.2, .04, .08] # {0: Actuation, 1: StepSize, 2: StepStrength}
-var AccelRate = 0
+@export var MaxSpeed := 2000
+@export var BoostDecay := [0, .015, .8] # {0: Final,  1:DecayRate, 2:ReleaseAccelScaler(cannot be 0)}
+@export var SpeedAccel := [1.0, 0, .01] # {0: Global Mod, 1: BoostResult, 2: BaseSpeedAccel} ## Beware WallBoostScale
+@export var Friction := [.002, .002] # {0: Fluctuating,  1: Base} ## Beware BrakeDecelMult
+@export var FrictRate := [.2, .04, .08] # {0: Actuation, 1: StepSize, 2: StepStrength}
+var AccelRate := 0.0
 
 ## Rotation Variables
-@export var MaxRota = PI/24
-@export var RotaAccel = [.02, .02, .1] # {0: Fluctuating, 1: BaseRotaAccel} ## Beware DodgeRotaAccel
-@export var RotaDecel = [.01, .01] # {0: Fluctuating, 1: BaseRotaDecel, 2: DecayLerp} ## Beware BrakeDecelMult
-@export var CounterSteerRate = .35
-var RotaSpeed = 0
-var RotaRate = 0
+@export var MaxRota := PI/24
+@export var RotaAccel := [.02, .02, .1] # {0: Fluctuating, 1: BaseRotaAccel} ## Beware DodgeRotaAccel
+@export var RotaDecel := [.01, .01] # {0: Fluctuating, 1: BaseRotaDecel, 2: DecayLerp} ## Beware BrakeDecelMult
+@export var CounterSteerRate := .35
+var RotaSpeed := 0.0
+var RotaRate := 0.0
 #endregion
 
 #region Advanced Movement Variables
