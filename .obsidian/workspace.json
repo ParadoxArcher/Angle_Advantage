@@ -94,7 +94,8 @@
               "title": "Enclosed Racing Concept.excalidraw"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -252,13 +253,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DevNotes/Player/Movement/Dodge.md",
+                "file": "DevNotes/ToDoList.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Dodge"
+              "title": "Outline of ToDoList"
             }
           }
         ],
@@ -283,11 +284,11 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "9fae18dbf1d84e64",
+  "active": "2b906768df75cac8",
   "lastOpenFiles": [
+    "DevNotes/Player/Movement/Dodge.md",
     "zProject Files/Godot/Scripts/Pla3B17.tmp",
     "DevNotes/ToDoList.md",
-    "DevNotes/Player/Movement/Dodge.md",
     "Devlogs/2025-08-26.md",
     "Devlogs/2025-01-16.md",
     "zReferences/Excalidraw/Thought splurge.md",
@@ -305,7 +306,6 @@
     "zProject Files/Godot/Scripts/Pla7BF2.tmp",
     "zProject Files/Godot/Scripts/Pla50FA.tmp",
     "zProject Files/Godot/Scenes/Gam50E7.tmp",
-    "zProject Files/Godot/Scripts/PlaE714.tmp",
     "Devlogs/2025-03-22.md",
     "DevNotes/Player/Player.md",
     "DevNotes/Player/Movement/Boost VFX.md",

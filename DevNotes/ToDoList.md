@@ -6,12 +6,11 @@ kanban-plugin: board
 
 ## Current
 
-- [x] [[Dodge]] shouldn't override positive movement
 
 
 ## Band-aids
 
-- [ ] [[Boost VFX]] GreenFilter isn't omnidirectional
+- [ ] [[Boost VFX]] GreenFilter isn't acceptable
 
 
 ## Soon
