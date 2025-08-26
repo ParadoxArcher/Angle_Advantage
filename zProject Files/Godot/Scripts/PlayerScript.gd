@@ -198,15 +198,12 @@ func crash(CrashTimeScaler):
 		pass
 
 func dodge(DodgeDir):
-	print(DodgeDir)
+	if DodgeDir.normalized().is_zero_approx():
+		DodgeDir = Vector2(0,-1)
+	
 	BoostDecay[0] = 0
 	SpeedAccel[1] = 0
 	
 	RotaAccel[0] += RotaAccel[1] * DodgeRotaAccel
 	
-	if DodgeDir.normalized().is_zero_approx():
-		DodgeDir = Vector2(0,-1)
-		
-	# velocity.normalized().dot()
-	# velocity.length / (2 * MaxSpeed * DodgeSpeed)
-	velocity = MaxSpeed * DodgeSpeed * DodgeDir.rotated(rotation + PI/2)
+	velocity = (velocity / 2 ) + MaxSpeed * DodgeSpeed * DodgeDir.rotated(rotation + PI/2)

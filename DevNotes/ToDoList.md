@@ -6,7 +6,7 @@ kanban-plugin: board
 
 ## Current
 
-- [ ] [[Dodge]] shouldn't override positive movement
+- [x] [[Dodge]] shouldn't override positive movement
 
 
 ## Band-aids

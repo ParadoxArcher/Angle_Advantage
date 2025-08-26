@@ -1,5 +1,5 @@
 ### Final Work
-###### A universal action that instantly sets speed to a a direction based off player input and rotation.
+###### A universal action that grants a burst of speed to a direction based off player input and rotation.
 
 #### Steps
 1) Instantiate movement
@@ -11,6 +11,8 @@
 	3) Call `Dodge()` when input is pressed & not #Crashed 
 		1) `if Input.is_action_just_pressed("Dodge") and not Crashed:`
 			1) `dodge()`
+	4) ) Preserve Momentum by adding half of current velocity
+		1) `velocity = (velocity / 2 ) + MaxSpeed * DodgeSpeed`
 2) Adjust movement by Input 
 	1) Request #DodgeDir for `dodge():`
 		1) `func dodge(DodgeDir):`
@@ -20,7 +22,7 @@
 		3) `if DodgeDir.normalized().is_zero_approx():
 			1) `DodgeDir = Vector2(0,-1)
 	5) Adjust #velocity math by #DodgeDir 
-		1) `velocity = MaxSpeed * DodgeSpeed * DodgeDir.rotated(rotation + PI/2)
+		1) `velocity = (velocity / 2 ) + MaxSpeed * DodgeSpeed * DodgeDir.rotated(rotation + PI/2)
 3) Increase #RotaAccel temporarily and remove #BoostDecay when calling `dodge()`
 	1) as `global variables`
 		2) Redefine #RotaAccel as an array where #RotaAccel1 is the base value and #RotaAccel2 is the decay rate
@@ -36,6 +38,6 @@
 		3) `if RotaAccel[0] != RotaAccel[1]:
 			1) `RotaAccel[0] -= clampf((RotaAccel[0] - RotaAccel[1] ) * RotaAccel[2], 0, RotaAccel[0] - RotaAccel[1])
 ### Adjustment Log
-- 
-	- 
+- [[2025-08-26]]
+	- no longer overrides velocity, but halves it and adds on top
 	 
