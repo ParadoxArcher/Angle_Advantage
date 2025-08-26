@@ -8,7 +8,7 @@
 	2) Define `func dodge():` for global use and set #velocity to #MaxSpeed * #DodgeSpeed inside it
 		1) `func dodge(DodgeDir):
 			1) `velocity = MaxSpeed * DodgeSpeed`
-	3) Call `Dodge()` when input is pressed & not #Crashed 
+	3) Call `dodge()` when input is pressed & not #Crashed 
 		1) `if Input.is_action_just_pressed("Dodge") and not Crashed:`
 			1) `dodge()`
 	4) ) Preserve Momentum by adding half of current velocity
@@ -18,10 +18,10 @@
 		1) `func dodge(DodgeDir):`
 	2) Insert #MoveInput into `dodge()` call 
 		1) `dodge(Vector2(MoveInput.x, -MoveInput.y).normalized())`
-	4) Set #DodgeDir to a neutral direction when no #MoveInput 
+	3) Set #DodgeDir to a neutral direction when no #MoveInput 
 		3) `if DodgeDir.normalized().is_zero_approx():
 			1) `DodgeDir = Vector2(0,-1)
-	5) Adjust #velocity math by #DodgeDir 
+	4) Adjust #velocity math by #DodgeDir 
 		1) `velocity = (velocity / 2 ) + MaxSpeed * DodgeSpeed * DodgeDir.rotated(rotation + PI/2)
 3) Increase #RotaAccel temporarily and remove #BoostDecay when calling `dodge()`
 	1) as `global variables`

@@ -80,13 +80,12 @@
 		3) 
 	4) Setup #CrashImmunity
 		1) Define #CrashImmunity as a `global array` of a `false` `bool` and `float
-			1) `@export var CrashImmunity = [false, .6]
-		2) Inside `crash(CrashTimeScaler):` pass the entire `func` `if` #CrashImmunity0 is `true`
-			1) `if not CrashImmunity[0]:
-				1) `...`
-			2) `else:
-				1) `pass`
-		3) Inside `if not CrashImmunity[0]:` and before `await(CrashTimer)` set #CrashImmunity0 to `true`
+			1) `@export var CrashImmunity := [false, .6]
+		2) Inside `crash(CrashTimeScaler):` `return` `if` #CrashImmunity0 is `true`
+			1) `if CrashImmunity[0]:
+				1) return
+			2) `...`
+		3) After `return` and before `await(CrashTimer)` set #CrashImmunity0 to `true`
 			1) `CrashImmunity[0] = true
 		4) After `Crashed = false` `Await` by #CrashImmunity1 * #CrashTimer with `process_in_physics` set to `true` before setting #CrashImmunity0 to `false`
 			1) `await get_tree().create_timer(CrashImmunity[1] * CrashTimer, true, true).timeout
@@ -100,9 +99,11 @@
 - [[2025-01-24]]
 	- restructured collision to slide when moving alongside the wall
 - [[2025-03-22]]
-- Refactored
-	- `move_and_collide` base converted to `move_and_slide` base
-	- Uses angles for calculation over `dot` product of velocity and CollisionNormal
-	- Each step is properly scaled from 0 to 1 as opposed to leaking portion of the value from previous step
-	- no longer overrides `velocity.bounce()` with a slide collision, bounce property can be reduced without decreasing velocity in unrelated direction
-	- Bounce Property is stored in `PhysicsServer2D.BODY_PARAM_BOUNCE`
+	- Refactored
+		- `move_and_collide` base converted to `move_and_slide` base
+		- Uses angles for calculation over `dot` product of velocity and CollisionNormal
+		- Each step is properly scaled from 0 to 1 as opposed to leaking portion of the value from previous step
+		- no longer overrides `velocity.bounce()` with a slide collision, bounce property can be reduced without decreasing velocity in unrelated direction
+		- Bounce Property is stored in `PhysicsServer2D.BODY_PARAM_BOUNCE`
+- [[2025-08-26]]
+	- Early Bypass for #CrashImmunity0 

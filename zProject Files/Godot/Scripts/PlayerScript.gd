@@ -53,7 +53,7 @@ func _physics_process(_delta):
 	#region Basic Movement
 	#region Input
 	if not Crashed:
-		MoveInput = Vector2(Input.get_action_strength("RotateRight") - Input.get_action_strength("RotateLeft"), Input.get_action_strength("Boost") - Input.get_action_strength("Back"))
+		MoveInput = Vector2(Input.get_axis("RotateLeft", "RotateRight"), Input.get_axis("Back", "Boost"))
 	else:
 		MoveInput = Vector2(0, 0)
 	#endregion
@@ -117,8 +117,8 @@ func _physics_process(_delta):
 	
 	var RedFilter = 1 - clampf((SpeedAccel[1] * SpeedAccel[0] / (SpeedAccel[2] * 1.5 )), 0, 1) # VFX
 	boost_sprite.material.set_shader_parameter("RedFilter", RedFilter)
-	var GreenFilterLeft = (VelLength / MaxSpeed ) * ((1 + velocity.normalized().dot(Vector2(cos(PlayerRot - PI/6), sin(PlayerRot - PI/6))) ) / 2 )
-	var GreenFilterRight = (VelLength / MaxSpeed ) * ((1 + velocity.normalized().dot(Vector2(cos(PlayerRot + PI/6), sin(PlayerRot + PI/6))) ) / 2 )
+	var GreenFilterLeft = (VelLength / MaxSpeed ) * ((1 + velocity.normalized().dot(Vector2.from_angle(PlayerRot - PI/6)) ) / 2 )
+	var GreenFilterRight = (VelLength / MaxSpeed ) * ((1 + velocity.normalized().dot(Vector2.from_angle(PlayerRot - PI/6)) ) / 2 )
 	boost_sprite.material.set_shader_parameter("GreenFilterLeft", GreenFilterLeft)
 	boost_sprite.material.set_shader_parameter("GreenFilterRight", GreenFilterRight)
 	
@@ -186,16 +186,17 @@ func _process(_delta):
 	#endregion
 
 func crash(CrashTimeScaler):
-	if not CrashImmunity[0]:
-		CrashImmunity[0] = true
-		Crashed = true
-		var CrashTimer = lerpf(CrashTime[0], CrashTime[1], CrashTimeScaler)
-		await get_tree().create_timer(CrashTimer, true, true).timeout
-		Crashed = false
-		await get_tree().create_timer(CrashImmunity[1] * CrashTimer, true, true).timeout
-		CrashImmunity[0] = false
-	else:
-		pass
+	if CrashImmunity[0]:
+		return
+	
+	CrashImmunity[0] = true
+	Crashed = true
+	var CrashTimer = lerpf(CrashTime[0], CrashTime[1], CrashTimeScaler)
+	await get_tree().create_timer(CrashTimer, true, true).timeout
+	Crashed = false
+	await get_tree().create_timer(CrashImmunity[1] * CrashTimer, true, true).timeout
+	CrashImmunity[0] = false
+
 
 func dodge(DodgeDir):
 	if DodgeDir.normalized().is_zero_approx():

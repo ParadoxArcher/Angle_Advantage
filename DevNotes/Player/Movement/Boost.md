@@ -89,3 +89,4 @@
 	-  reduced #Friction at low-end #velocity
 - [[2025-08-26]]
 	- Use of `Vector2.from_angle(x)` over `Vector2(cos(x), sin(x))`
+	- Use of `Input.get_axis(x, y)` over 

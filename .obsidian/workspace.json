@@ -32,7 +32,7 @@
             }
           },
           {
-            "id": "38f3ff542ecb8671",
+            "id": "b18ab1c5ffc31710",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -94,7 +94,8 @@
               "title": "ToDoList"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -251,13 +252,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Devlogs/2025-08-26.md",
+                "file": "DevNotes/Player/Movement/Boost.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 2025-08-26"
+              "title": "Outline of Boost"
             }
           }
         ],
@@ -282,15 +283,17 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "9fae18dbf1d84e64",
+  "active": "b18ab1c5ffc31710",
   "lastOpenFiles": [
-    "DevNotes/Player/Movement/Boost.md",
+    "DevNotes/Player/Movement/Crash & Wall Bounce.md",
+    "DevNotes/Player/Movement/Dodge.md",
+    "zProject Files/Godot/Scripts/PlaE75F.tmp",
     "Devlogs/2025-08-26.md",
+    "zReferences/Excalidraw/Thought splurge.md",
+    "DevNotes/ToDoList.md",
+    "DevNotes/Player/Movement/Boost.md",
     "DevNotes/Player/Movement/Boost VFX.md",
     "DevNotes/Player/Movement/Movement Visualizer.md",
-    "DevNotes/ToDoList.md",
-    "DevNotes/Player/Movement/Dodge.md",
-    "zReferences/Excalidraw/Thought splurge.md",
     "zProject Files/Godot/Scripts/Pla579E.tmp",
     "zProject Files/Godot/Scripts/Pla5EC8.tmp",
     "zProject Files/Godot/Scenes/Pla5EB5.tmp",
@@ -301,7 +304,6 @@
     "zProject Files/Godot/Assets/Player/DisplayArrows/Yel73B3.tmp",
     "zProject Files/Godot/Assets/Player/DisplayArrows/Yellow Arrow.png.import",
     "zProject Files/Godot/Assets/Player/DisplayArrows/Yellow Arrow.png",
-    "zProject Files/Godot/Scenes/Pla7273.tmp",
     "zProject Files/Godot/Assets/Player/DisplayArrows/Red Arrow.png",
     "zProject Files/Godot/Assets/Player/DisplayArrows/Green Arrow.png",
     "zProject Files/Godot/Assets/Player/Yellow Arrow.png",
@@ -312,7 +314,6 @@
     "Devlogs/2025-01-16.md",
     "Devlogs/2025-08-25.md",
     "Devlogs/2025-03-21.md",
-    "DevNotes/Player/Movement/Crash & Wall Bounce.md",
     "Devlogs/2025-03-22.md",
     "DevNotes/Player/Player.md",
     "zProject Files/Godot/Assets/Player/Boost VFX 1.png",
