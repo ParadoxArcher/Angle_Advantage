@@ -35,7 +35,7 @@ kanban-plugin: board
 - [x] [[Brakes]]
 - [x] [[Crash & Wall Bounce]]
 - [x] [[Dodge]]
-- [x] [[Boost|Wall Boost]]
+- [ ] [[Boost|Wall Boost]]
 
 
 ## [[Level Creation]]
