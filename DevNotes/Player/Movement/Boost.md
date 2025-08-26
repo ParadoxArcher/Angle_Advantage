@@ -4,7 +4,7 @@
 1)  Define Input
 	1) Project Settings --> Input Map --> "Boost" = W
 	2) Inside `func _physics_process(_delta):`
-		1) `var MoveInput = Input.get_action_strength("Boost)`
+		1) `var MoveInput = Input.get_axis(0, "Boost")`
 2) Movement
 	1) Define #Speed  as `global variable`
 		1) `@export var Speed = 1500`
@@ -89,4 +89,4 @@
 	-  reduced #Friction at low-end #velocity
 - [[2025-08-26]]
 	- Use of `Vector2.from_angle(x)` over `Vector2(cos(x), sin(x))`
-	- Use of `Input.get_axis(x, y)` over 
+	- Use of `Input.get_axis(x, y)` over `Input.get_action_strength, ...`

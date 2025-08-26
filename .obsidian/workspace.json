@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DevNotes/Player/Movement/Boost.md",
+                "file": "DevNotes/Player/Movement/Rotation.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -52,7 +52,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "Boost"
+              "title": "Rotation"
             }
           },
           {
@@ -252,13 +252,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DevNotes/Player/Movement/Boost.md",
+                "file": "DevNotes/Player/Movement/Rotation.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Boost"
+              "title": "Outline of Rotation"
             }
           }
         ],
@@ -285,13 +285,13 @@
   },
   "active": "b18ab1c5ffc31710",
   "lastOpenFiles": [
+    "DevNotes/Player/Movement/Boost.md",
+    "Devlogs/2025-08-26.md",
     "DevNotes/Player/Movement/Crash & Wall Bounce.md",
     "DevNotes/Player/Movement/Dodge.md",
     "zProject Files/Godot/Scripts/PlaE75F.tmp",
-    "Devlogs/2025-08-26.md",
     "zReferences/Excalidraw/Thought splurge.md",
     "DevNotes/ToDoList.md",
-    "DevNotes/Player/Movement/Boost.md",
     "DevNotes/Player/Movement/Boost VFX.md",
     "DevNotes/Player/Movement/Movement Visualizer.md",
     "zProject Files/Godot/Scripts/Pla579E.tmp",

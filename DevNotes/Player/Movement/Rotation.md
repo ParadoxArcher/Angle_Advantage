@@ -3,7 +3,7 @@
 #### Steps
 1) Define Input
 	2) Reformat #MoveInput
-		1) `var MoveInput = Vector2(Input.get_action_strength("RotateRight") - Input.get_action_strength("RotateLeft"), Input.get_action_strength("Boost"))
+		1) `var MoveInput = Vector2(Input.get_axis("RotateLeft", "RotateRight"), Input.get_axis(0, "Boost"))
 2) Rotate
 	1) Define #RotaSpeed  as `global variable`
 		1) `@export var RotaSpeed = PI/24`
