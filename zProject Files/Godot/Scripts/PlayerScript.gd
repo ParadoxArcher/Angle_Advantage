@@ -110,21 +110,18 @@ func _ready():
 	PhysicsServer2D.body_set_param(get_rid(), PhysicsServer2D.BODY_PARAM_BOUNCE, BounceStrength)
 
 func _physics_process(_delta):
+	#region Setup
 	var VelLength = velocity.length()
 	var PlayerRot = rotation
 	
 	var MoveInput = _moveInput()
 	_friction(VelLength)
 	_boost(MoveInput.y)
-	
 	var RotaRate = _rotationSpeed(MoveInput.x)
-	
-	
-	#region Advanced Movement
-	if Input.is_action_just_pressed("Dodge") and not Crashed: # Calls Dodge() to instantanteously set movement in direction relative to rotation
-		dodge(Vector2(MoveInput.x, MoveInput.y).normalized())
 	#endregion
 	
+	if Input.is_action_just_pressed("Dodge") and not Crashed:
+		dodge(Vector2(MoveInput.x, MoveInput.y).normalized())
 	
 	#region Transform
 	RotaSpeed = lerpf(RotaSpeed, MoveInput.x * MaxRota, clampf(RotaRate, 0, 1)) # Rotation Acceleration
