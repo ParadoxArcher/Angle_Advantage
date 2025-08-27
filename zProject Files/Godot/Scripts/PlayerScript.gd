@@ -56,7 +56,7 @@ func _physics_process(_delta):
 	else:
 		MoveInput = Vector2(0, 0)
 	
-	_friction(VelLength)	
+	_friction(VelLength)
 	_boost()
 	
 	#region Rotation --- Accelerated rotation and  it's momentum
