@@ -18,7 +18,6 @@ var AccelRate := 0.0
 @export var RotaDecel := [.01, .01] # {0: Fluctuating, 1: BaseRotaDecel, 2: DecayLerp} ## Beware BrakeDecelMult
 @export var CounterSteerRate := .35
 var RotaSpeed := 0.0
-var RotaRate := 0.0
 #endregion
 
 #region Advanced Movement Variables
@@ -77,6 +76,13 @@ func _boost(YInput: float):
 	else:
 		boost_particle.emitting = false
 
+func _rotationSpeed(XInput):
+	if XInput != 0: 
+		var CounterSteer = absf((RotaSpeed / MaxRota ) - XInput) * CounterSteerRate
+		return (RotaDecel[0] * CounterSteer ) + RotaAccel[0]
+	else:
+		return RotaDecel[0]
+
 func crash(CrashTimeScaler):
 	if CrashImmunity[0]:
 		return
@@ -107,17 +113,11 @@ func _physics_process(_delta):
 	var VelLength = velocity.length()
 	var PlayerRot = rotation
 	
-	#region Basic Movement
 	var MoveInput = _moveInput()
 	_friction(VelLength)
 	_boost(MoveInput.y)
 	
-	if MoveInput.x != 0: 
-		var CounterSteer = absf((RotaSpeed / MaxRota ) - MoveInput.x) * CounterSteerRate
-		RotaRate = RotaAccel[0] + RotaDecel[0] * CounterSteer
-	else:
-		RotaRate = RotaDecel[0]
-	#endregion
+	var RotaRate = _rotationSpeed(MoveInput.x)
 	
 	
 	#region Advanced Movement
