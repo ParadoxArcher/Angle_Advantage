@@ -1,8 +1,6 @@
 extends CharacterBody2D
 
-#region Basic Movement Variables
-var MoveInput := Vector2(0, 0)
-
+#region Movement Variables
 ## Brake Variables
 @export var BrakeDecelMult := [4.0, 3.0] # {0: SpeedDecelMult, 1: RotaDecelMult}
 
@@ -43,6 +41,65 @@ var Crashed := false
 @export var BounceVFX := [0, .05] # {0: fluctuating, 1: DecayRate}
 #endregion
 
+func _moveInput():
+	if not Crashed:
+		return Vector2(Input.get_axis("RotateLeft", "RotateRight"), Input.get_axis("Boost", "Back"))
+	else:
+		return Vector2(0, 0)
+
+func _friction(VelLength):
+	Friction[0] = Friction[1] # reset values
+	RotaDecel[0] = RotaDecel[1]
+	
+	if VelLength <= FrictRate[0] * MaxSpeed: # Baseline Friction
+		Friction[0] *= (((VelLength / MaxSpeed ) + FrictRate[1] ) / FrictRate[1] ) * FrictRate[2]
+	
+	if Input.is_action_pressed("Brake") and not Crashed:
+		Friction[0] *= BrakeDecelMult[0]
+		RotaDecel[0] *= BrakeDecelMult[1]
+
+func _boost(YInput: float):
+	YInput *= -1
+	if YInput > 0 or BoostDecay[0] > 0:
+		if YInput / BoostDecay[2] >= BoostDecay[0]:
+			BoostDecay[0] += clampf(2.5 * BoostDecay[1] * YInput, 0, YInput - BoostDecay[0])
+			SpeedAccel[1] = SpeedAccel[2] * BoostDecay[0]
+			
+		else:
+			BoostDecay[0] -= clampf(BoostDecay[1], 0, BoostDecay[0])
+			SpeedAccel[1] = SpeedAccel[2] * BoostDecay[0] * BoostDecay[2]
+		
+		
+		boost_particle.emitting = true #VFX
+		#var Particles = clampi(round(BoostDecay[0] * 5), 1, 5)
+		#if Particles != boost_particle.amount:
+		#	boost_particle.amount = Particles
+	else:
+		boost_particle.emitting = false
+
+func crash(CrashTimeScaler):
+	if CrashImmunity[0]:
+		return
+	
+	CrashImmunity[0] = true
+	Crashed = true
+	var CrashTimer = lerpf(CrashTime[0], CrashTime[1], CrashTimeScaler)
+	await get_tree().create_timer(CrashTimer, true, true).timeout
+	Crashed = false
+	await get_tree().create_timer(CrashImmunity[1] * CrashTimer, true, true).timeout
+	CrashImmunity[0] = false
+
+func dodge(DodgeDir):
+	if DodgeDir.normalized().is_zero_approx():
+		DodgeDir = Vector2(0,-1)
+	
+	BoostDecay[0] = 0
+	SpeedAccel[1] = 0
+	
+	RotaAccel[0] += RotaAccel[1] * DodgeRotaAccel
+	
+	velocity = (velocity / 2 ) + MaxSpeed * DodgeSpeed * DodgeDir.rotated(rotation + PI/2)
+
 func _ready():
 	PhysicsServer2D.body_set_param(get_rid(), PhysicsServer2D.BODY_PARAM_BOUNCE, BounceStrength)
 
@@ -51,21 +108,15 @@ func _physics_process(_delta):
 	var PlayerRot = rotation
 	
 	#region Basic Movement
-	if not Crashed:
-		MoveInput = Vector2(Input.get_axis("RotateLeft", "RotateRight"), Input.get_axis("Boost", "Back"))
-	else:
-		MoveInput = Vector2(0, 0)
-	
+	var MoveInput = _moveInput()
 	_friction(VelLength)
-	_boost()
+	_boost(MoveInput.y)
 	
-	#region Rotation --- Accelerated rotation and  it's momentum
 	if MoveInput.x != 0: 
 		var CounterSteer = absf((RotaSpeed / MaxRota ) - MoveInput.x) * CounterSteerRate
 		RotaRate = RotaAccel[0] + RotaDecel[0] * CounterSteer
 	else:
 		RotaRate = RotaDecel[0]
-	#endregion
 	#endregion
 	
 	
@@ -151,56 +202,3 @@ func _process(_delta):
 		Displays["rota_speed"].visible = false
 		DisplaysActive[1] = false
 	#endregion
-
-func _friction(VelLength):
-	Friction[0] = Friction[1] # reset values
-	RotaDecel[0] = RotaDecel[1]
-	
-	if VelLength <= FrictRate[0] * MaxSpeed: # Baseline Friction
-		Friction[0] *= (((VelLength / MaxSpeed ) + FrictRate[1] ) / FrictRate[1] ) * FrictRate[2]
-	
-	if Input.is_action_pressed("Brake") and not Crashed:
-		Friction[0] *= BrakeDecelMult[0]
-		RotaDecel[0] *= BrakeDecelMult[1]
-
-func _boost():
-	if -MoveInput.y > 0 or BoostDecay[0] > 0:
-		if -MoveInput.y / BoostDecay[2] >= BoostDecay[0]:
-			BoostDecay[0] += clampf(2.5 * BoostDecay[1] * -MoveInput.y, 0, -MoveInput.y - BoostDecay[0])
-			SpeedAccel[1] = SpeedAccel[2] * BoostDecay[0]
-			
-		else:
-			BoostDecay[0] -= clampf(BoostDecay[1], 0, BoostDecay[0])
-			SpeedAccel[1] = SpeedAccel[2] * BoostDecay[0] * BoostDecay[2]
-		
-		
-		boost_particle.emitting = true #VFX
-		#var Particles = clampi(round(BoostDecay[0] * 5), 1, 5)
-		#if Particles != boost_particle.amount:
-		#	boost_particle.amount = Particles
-	else:
-		boost_particle.emitting = false
-
-func crash(CrashTimeScaler):
-	if CrashImmunity[0]:
-		return
-	
-	CrashImmunity[0] = true
-	Crashed = true
-	var CrashTimer = lerpf(CrashTime[0], CrashTime[1], CrashTimeScaler)
-	await get_tree().create_timer(CrashTimer, true, true).timeout
-	Crashed = false
-	await get_tree().create_timer(CrashImmunity[1] * CrashTimer, true, true).timeout
-	CrashImmunity[0] = false
-
-
-func dodge(DodgeDir):
-	if DodgeDir.normalized().is_zero_approx():
-		DodgeDir = Vector2(0,-1)
-	
-	BoostDecay[0] = 0
-	SpeedAccel[1] = 0
-	
-	RotaAccel[0] += RotaAccel[1] * DodgeRotaAccel
-	
-	velocity = (velocity / 2 ) + MaxSpeed * DodgeSpeed * DodgeDir.rotated(rotation + PI/2)
