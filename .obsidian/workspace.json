@@ -95,7 +95,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -252,13 +252,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DevNotes/Player/Movement/Boost.md",
+                "file": "DevNotes/ToDoList.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Boost"
+              "title": "Outline of ToDoList"
             }
           }
         ],
@@ -283,8 +283,10 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "b18ab1c5ffc31710",
+  "active": "2b906768df75cac8",
   "lastOpenFiles": [
+    "zReferences/Excalidraw/Thought splurge.md",
+    "DevNotes/Player/Movement/Boost.md",
     "zProject Files/Godot/Shaders/Test/Showerhead.gdshader",
     "zProject Files/Godot/pro32DC.tmp",
     "zProject Files/Godot/Scripts/PlayerVFX.gd",
@@ -295,10 +297,7 @@
     "zProject Files/Godot/Scenes/PlaE15C.tmp",
     "zProject Files/Godot/Scripts/PlaE138.tmp",
     "zProject Files/Godot/Scenes/PlaE125.tmp",
-    "zProject Files/Godot/Scenes/Pla64F5.tmp",
     "Devlogs/2025-08-27.md",
-    "DevNotes/Player/Movement/Boost.md",
-    "zReferences/Excalidraw/Thought splurge.md",
     "Devlogs/2025-08-26.md",
     "DevNotes/Player/Movement/Rotation.md",
     "DevNotes/Player/Movement/Crash & Wall Bounce.md",

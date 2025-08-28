@@ -17,8 +17,6 @@ kanban-plugin: board
 
 ## Soon
 
-- [ ] convert inert Rigidbody2D to Node2D
-- [ ] Reformat WallBoost
 - [ ] [[Player]] Flowchart
 - [ ] [[Rotation Collision]] add_constant_torque?
 - [ ] Learn and create particle shader
@@ -26,6 +24,7 @@ kanban-plugin: board
 - [ ] WallBounce VFX via [[Action VFX]]
 - [ ] Dodge Cooldown
 - [ ] Dodge CD VFX via [[Action VFX]]
+- [ ] [[Boost|Wall Boost]]
 
 
 ## [[Player]]
@@ -36,7 +35,6 @@ kanban-plugin: board
 - [x] [[Brakes]]
 - [x] [[Crash & Wall Bounce]]
 - [x] [[Dodge]]
-- [ ] [[Boost|Wall Boost]]
 
 
 ## [[Level Creation]]
