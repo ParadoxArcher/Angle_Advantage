@@ -27,8 +27,10 @@
 			1) ~~`Speed`~~ -> `MaxSpeed`
 			2) `@export var SpeedAccel = {.01, .01}`
 		2) Adjust #SpeedAccel based on Input
-			1)  Inside `if -MoveInput > 0:` Define #SpeedAccel1 as #SpeedAccel0 
-				1) `SpeedAccel[1] = SpeedAccel[0]`
+			1)  Define #SpeedAccel1 as #SpeedAccel0 within `func _boost():` 
+				1) `if YInput > 0:` 
+					1) ~~`velocity.y = Speed`~~
+					2) `SpeedAccel[0] = SpeedAccel[1]`
 			2) Set #SpeedAccel1 to `0` in `else:`
 				1) `else:`
 					1) `SpeedAccel[1] = 0`
@@ -99,6 +101,6 @@
 - [[2025-08-26]]
 	- Use of `Vector2.from_angle(x)` over `Vector2(cos(x), sin(x))`
 	- Use of `Input.get_axis(x, y)` over `Input.get_action_strength, ...`
-	- separated #friction and Boost to be isolated functions
+	- separated `_friction()` to be an isolated function
 - [[2025-08-27]]
-	- 
+	- separated `MoveInput` & `_boost()` to be isolated functions
