@@ -94,8 +94,7 @@
               "title": "ToDoList"
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "vertical"
@@ -252,12 +251,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "Devlogs/2025-08-27.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Outline of 2025-08-27"
             }
           }
         ],
@@ -282,8 +282,10 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "4688c3cbab7702aa",
+  "active": "9fae18dbf1d84e64",
   "lastOpenFiles": [
+    "Devlogs/2025-08-28.md",
+    "Devlogs/2025-08-27.md",
     "zProject Files/Godot/Scripts/Pla71A5.tmp",
     "zProject Files/Godot/Scripts/Pla7191.tmp",
     "DevNotes/ToDoList.md",
@@ -297,8 +299,6 @@
     "zProject Files/Godot/Scenes/PlaED6E.tmp",
     "zProject Files/Godot/Scenes/PlaAD0E.tmp",
     "zProject Files/Godot/Scenes/PlaDA0D.tmp",
-    "zProject Files/Godot/Scenes/PlaD9FB.tmp",
-    "Devlogs/2025-08-27.md",
     "Devlogs/2025-08-26.md",
     "DevNotes/Player/Movement/Rotation.md",
     "DevNotes/Player/Movement/Crash & Wall Bounce.md",
