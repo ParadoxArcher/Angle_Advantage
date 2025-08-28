@@ -1,5 +1,9 @@
 ### Final Work
-###### Move forward in relation to rotation, preserving momentum and deactivating slowly
+
+#### Needs
+1) Accelerate forward, relative to current rotation
+2) Decelerate due to friction
+3) Create amplify friction when using brakes
 #### Steps
 1)  Define Input
 	1) Project Settings --> Input Map --> "Boost" = W
