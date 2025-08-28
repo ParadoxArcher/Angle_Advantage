@@ -4,28 +4,30 @@
 Emulates movement style from [[Data Wing]] but in a combat-focused party game.
 
 #### Steps
-1) New scene "Player"
-	1) `CharacterBody2D` node
+1) Make Player Character
+	1) new scene "PlayerChar"
+	2) create `CharacterBody2D` named: "Player"
 		1) change `motion_mode` to `floating`
 			1) set `wall_min_slide_angle` to `0`
 			2) set `Collision.safe_margin` to `1`
-	2) attach `Sprite2D` and link any Sprite
-2) Create script `PlayerMovement` on the `RigidBody2D` to store all movement functions`
-	1) [[Boost]]
-		1) ![[Boost#Goals]]
-	2) [[Rotation]]
+	3) attach `Sprite2D` and link any Sprite
+2) Develop Movement
+	1) Attach script to `Player` named: `PlayerScript
+	2) [[Boost]]
+		1) Set Input `Boost`
+	3) [[Rotation]]
 		1) Set Input `RotateLeft` & `RotateRight`
-	3) [[Movement Visualizer]]
+	4) [[Movement Visualizer]]
 		1) Under`PlayerChar`, add `Node` with 3 `Sprite2D` under it
-	4) [[Brakes]]
+	5) [[Brakes]]
 		1) Set Input `Brake`
-	5) [[Dodge]]
+	6) [[Dodge]]
 		1) Set Input `Dodge` & `Back`
-	6) [[Crash & Wall Bounce]]
-	7) [[Wall Boost]]
+	7) [[Crash & Wall Bounce]]
+	8) [[Wall Boost]]
 		1) Under`PlayerChar`, add `Node2D` with 5 `Raycast2D` under it which spread out well towards [[Boost VFX]]
 		2) Added script to the `Node2D` called `WallBoostDetection
-	8) [[Rotation Collision]] 
+	9) [[Rotation Collision]] 
 3) Visuals
 	1) Create `Node2D` called `VFX`
 	2) [[Boost VFX]]

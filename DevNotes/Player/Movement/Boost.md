@@ -1,11 +1,12 @@
 ### Final Work
 
 #### Goals
-1) Accelerate forward, relative to current rotation
+1) Accelerate forward during #Boost input, relative to current rotation
 2) Decelerate due to friction
 3) Create amplify friction when using brakes
+4) Apply a tapered release and acceleration
 #### Steps
-1)  Define Input
+1) Define Input
 	1) Project Settings --> Input Map --> "Boost" = W
 	2) Create `func _moveInput():`
 		1) have `_moveInput()` `return` the dedicated inputs
