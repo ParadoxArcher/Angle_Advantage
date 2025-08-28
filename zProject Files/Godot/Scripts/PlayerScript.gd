@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 #region Movement Variables
 ## Friction
-@export var Friction := [.002, .002]
+@export var Friction := .002
 @export var BrakeDecelMult := [4.0, 3.0]
 
 ## Boost
@@ -17,12 +17,14 @@ var BoostStorage := .0
  # {0: Fluctuating,  1: Base} ## Beware BrakeDecelMult
 @export var FrictRate := [.2, .04, .08] # {0: Actuation, 1: StepSize, 2: StepStrength}
 
-## Rotation Variables
+## Rotation
+var RotationSpeed := .0
 @export var MaxRota := PI/24
-@export var RotaAccel := [.02, .02, .1] # {0: Fluctuating, 1: BaseRotaAccel} ## Beware DodgeRotaAccel
-@export var RotaDecel := [.01, .01] # {0: Fluctuating, 1: BaseRotaDecel, 2: DecayLerp} ## Beware BrakeDecelMult
+@export var RotaAccelRate := .02
+@export var RotaFriction := .01
 @export var CounterSteerRate := .35
-var RotaSpeed := .0
+var RotaModif := 1.0
+@export var RotaModifDecay := .1
 #endregion
 
 #region Advanced Movement Variables
@@ -52,15 +54,17 @@ func _moveInput():
 		return Vector2(0, 0)
 
 func _friction(VelLength):
-	Friction[0] = Friction[1] # reset values
-	RotaDecel[0] = RotaDecel[1]
 	
+	var TotalRotaFriction: float = 0.
+	var TotalFriction: float = 0.
 	if VelLength <= FrictRate[0] * MaxSpeed: # Baseline Friction
-		Friction[0] *= (((VelLength / MaxSpeed ) + FrictRate[1] ) / FrictRate[1] ) * FrictRate[2]
+		TotalFriction *= (((VelLength / MaxSpeed ) + FrictRate[1] ) / FrictRate[1] ) * FrictRate[2]
 	
 	if Input.is_action_pressed("Brake") and not Crashed:
-		Friction[0] *= BrakeDecelMult[0]
-		RotaDecel[0] *= BrakeDecelMult[1]
+		TotalFriction *= BrakeDecelMult[0]
+		TotalRotaFriction = RotaFriction * BrakeDecelMult[1]
+	
+	return [TotalFriction, TotalRotaFriction]
 
 func _boost(YInput: float):
 	YInput *= -1
@@ -86,15 +90,18 @@ func _boostDecay(YInput: float):
 		BoostStorage -= clampf(DecayRate, 0, BoostStorage)
 		return DecayReleaseScaler
 
-func _rotationSpeed(XInput):
-	if RotaAccel[0] != RotaAccel[1]:
-		RotaAccel[0] -= clampf((RotaAccel[0] - RotaAccel[1] ) * RotaAccel[2], 0, RotaAccel[0] - RotaAccel[1])
-	
+func _rotationSpeed(XInput, TotalRotaFriction):
+	var RotaAcceleration
 	if XInput != 0: 
-		var CounterSteer = absf((RotaSpeed / MaxRota ) - XInput) * CounterSteerRate
-		return (RotaDecel[0] * CounterSteer ) + RotaAccel[0]
+		var CounterSteer = absf((RotationSpeed / MaxRota ) - XInput) * CounterSteerRate
+		RotaAcceleration = (TotalRotaFriction * CounterSteer ) + RotaAccelRate
 	else:
-		return RotaDecel[0]
+		RotaAcceleration = TotalRotaFriction
+		
+	if RotaModif != RotaAccelRate:
+		RotaModif -= clampf((RotaModif - RotaAccelRate ) * RotaModifDecay, 0, RotaModif - RotaAccelRate)
+		
+	return lerpf(RotationSpeed, XInput * MaxRota, clampf(RotaAcceleration, 0, 1))
 
 func crash(CrashTimeScaler):
 	if CrashImmunity[0]:
@@ -113,8 +120,7 @@ func dodge(DodgeDir):
 		DodgeDir = Vector2(0,-1)
 	
 	BoostStorage = 0
-	
-	RotaAccel[0] += RotaAccel[1] * DodgeRotaAccel
+	RotaModif += RotaAccelRate * DodgeRotaAccel
 	
 	velocity = (velocity / 2 ) + MaxSpeed * DodgeSpeed * DodgeDir.rotated(rotation + PI/2)
 
@@ -127,19 +133,18 @@ func _physics_process(_delta):
 	var PlayerRot = rotation
 	
 	var MoveInput: Vector2 = _moveInput()
-	_friction(VelLength)
+	var FrictionArray: Array = _friction(VelLength)
 	var Acceleration: float = _boost(MoveInput.y)
-	var RotaRate: float = _rotationSpeed(MoveInput.x)
+	RotationSpeed = _rotationSpeed(MoveInput.x, FrictionArray[1])
 	#endregion
 	
 	if Input.is_action_just_pressed("Dodge") and not Crashed:
 		dodge(Vector2(MoveInput.x, MoveInput.y).normalized())
 	
 	#region Transform
-	RotaSpeed = lerpf(RotaSpeed, MoveInput.x * MaxRota, clampf(RotaRate, 0, 1)) # Rotation Acceleration
-	rotate(RotaSpeed)
+	rotate(RotationSpeed)
 	
-	velocity -= clampf(Friction[0] * MaxSpeed, 0, VelLength) * velocity.normalized() # Momentum & Friction
+	velocity -= clampf(Friction * MaxSpeed, 0, VelLength) * velocity.normalized() # Momentum & Friction
 	velocity = lerp(velocity, MaxSpeed * Vector2.from_angle(PlayerRot), Acceleration) # Acceleration
 	
 	var RedFilter = 1 - clampf((BoostStorage / 1.5 ), 0, 1) # VFX
@@ -197,7 +202,7 @@ func _process(_delta):
 		Displays["boost_dir"].position = position + ((150 * Displays["boost_dir"].scale.x ) + DisplaySize["CenterGap"] ) * Vector2.from_angle(rotation)
 		Displays["boost_dir"].rotation = rotation
 		
-		Displays["rota_speed"].scale.x = RotaSpeed / MaxRota * DisplaySize["rota_speedLength"]
+		Displays["rota_speed"].scale.x = RotationSpeed / MaxRota * DisplaySize["rota_speedLength"]
 		Displays["rota_speed"].position = Displays["boost_dir"].position + ((150 * Displays["rota_speed"].scale.x ) * Vector2.from_angle(Displays["boost_dir"].rotation + PI/2) )
 		Displays["rota_speed"].rotation = Displays["boost_dir"].rotation + PI/2
 	
