@@ -56,30 +56,6 @@
             }
           },
           {
-            "id": "4f9548dd413e788d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "DevNotes/Player/Movement/Rotation.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "Rotation"
-            }
-          },
-          {
             "id": "cc2f34ef128c66f6",
             "type": "leaf",
             "state": {
@@ -143,7 +119,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -300,13 +276,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DevNotes/Player/Movement/Rotation.md",
+                "file": "DevNotes/Player/Player.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Rotation"
+              "title": "Outline of Player"
             }
           }
         ],
@@ -331,10 +307,10 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "4f9548dd413e788d",
+  "active": "b18ab1c5ffc31710",
   "lastOpenFiles": [
-    "DevNotes/Player/Player.md",
     "DevNotes/Player/Movement/Boost.md",
+    "DevNotes/Player/Player.md",
     "DevNotes/Player/Movement/Rotation.md",
     "DevNotes/Player/Movement/Dodge.md",
     "DevNotes/Player/Movement/Crash & Wall Bounce.md",

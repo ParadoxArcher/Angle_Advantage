@@ -4,7 +4,7 @@
 1) Accelerate forward during #Boost input, relative to current rotation
 2) Decelerate due to friction
 3) Create amplify friction when using brakes
-4) Apply a tapered release and acceleration
+4) Apply a taper to release and acceleration
 #### Steps
 1) Define Input
 	1) Project Settings --> Input Map --> "Boost" = W
