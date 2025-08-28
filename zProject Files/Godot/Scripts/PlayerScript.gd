@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-#region Movement Variables
+#region Variables
 ## Boost
 @export var MaxSpeed := 2000
 @export var AccelRate := .01
@@ -24,14 +24,12 @@ var RotationSpeed := .0
 @export var CounterSteerRate := .35
 var RotaAccelModif := 1.0
 @export var RotaModifDecay := .1
-#endregion
 
-#region Advanced Movement Variables
-##Dodge Variables
+##Dodge
 @export var DodgeSpeed := .75
 @export var DodgeRotaAccel := 4.
 
-##Crash && WallBounce Variables
+##Crash && WallBounce
 @onready var wallbounce_angle = $CollisionPolygon2D/WallbounceMarker.position.angle()
 @export var BounceStrength := .3
 @export var CrashSpeed := .2
@@ -39,7 +37,6 @@ var RotaAccelModif := 1.0
 @export var CrashImmunity := [false, .6] # {0: isActive, 1: CrashTimerMult}
 var Crashed := false
 #endregion
-
 
 func _moveInput():
 	if not Crashed:
@@ -142,39 +139,4 @@ func _physics_process(_delta):
 			Bounciness *= (1 / BounceStrength)
 			
 		velocity = velocity.bounce(WallNormal) * Vector2(lerpf(1, Bounciness, abs(WallNormal.x)), lerpf(1, Bounciness, abs(WallNormal.y)))
-	#endregion
-
-#region Graphics Variables
-##Markers Variables
-@export var DisplaySize = {"CenterGap": 30, "velLength": .5, "boost_dirLength": .35, "rota_speedLength": .5}
-@export var DisplaysActive = [false, false]
-@onready var Displays = {"velocity": $Sprites/VelDisplay, "boost_dir": $Sprites/BoostDirDisplay, "rota_speed": $Sprites/RotaSpeedDisplay}
-#endregion
-
-func _process(_delta): 
-	#region Markers
-	if DisplaysActive[0]:
-		if not DisplaysActive[1]:
-			Displays["velocity"].visible = true
-			Displays["boost_dir"].visible = true
-			Displays["rota_speed"].visible = true
-			DisplaysActive[1] = true
-		
-		Displays["velocity"].scale.x = velocity.length() * DisplaySize["velLength"] / MaxSpeed
-		Displays["velocity"].position = position + (((150 * Displays["velocity"].scale.x ) + DisplaySize["CenterGap"] ) * velocity.normalized() ) # 150 is the size of vel_display's sprite's X.length/2
-		Displays["velocity"].rotation = velocity.angle()
-		
-		Displays["boost_dir"].scale.x = BoostStorage * DisplaySize["boost_dirLength"]
-		Displays["boost_dir"].position = position + ((150 * Displays["boost_dir"].scale.x ) + DisplaySize["CenterGap"] ) * Vector2.from_angle(rotation)
-		Displays["boost_dir"].rotation = rotation
-		
-		Displays["rota_speed"].scale.x = RotationSpeed / MaxRota * DisplaySize["rota_speedLength"]
-		Displays["rota_speed"].position = Displays["boost_dir"].position + ((150 * Displays["rota_speed"].scale.x ) * Vector2.from_angle(Displays["boost_dir"].rotation + PI/2) )
-		Displays["rota_speed"].rotation = Displays["boost_dir"].rotation + PI/2
-	
-	elif DisplaysActive [1]:
-		Displays["velocity"].visible = false
-		Displays["boost_dir"].visible = false
-		Displays["rota_speed"].visible = false
-		DisplaysActive[1] = false
 	#endregion
