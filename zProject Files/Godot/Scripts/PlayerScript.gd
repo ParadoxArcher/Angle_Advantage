@@ -54,17 +54,15 @@ func _moveInput():
 		return Vector2(0, 0)
 
 func _friction(VelLength):
+	var TotalFriction := Friction
 	
-	var TotalRotaFriction: float = 0.
-	var TotalFriction: float = 0.
 	if VelLength <= FrictRate[0] * MaxSpeed: # Baseline Friction
 		TotalFriction *= (((VelLength / MaxSpeed ) + FrictRate[1] ) / FrictRate[1] ) * FrictRate[2]
 	
 	if Input.is_action_pressed("Brake") and not Crashed:
 		TotalFriction *= BrakeDecelMult[0]
-		TotalRotaFriction = RotaFriction * BrakeDecelMult[1]
 	
-	return [TotalFriction, TotalRotaFriction]
+	return TotalFriction
 
 func _boost(YInput: float):
 	YInput *= -1
@@ -90,16 +88,18 @@ func _boostDecay(YInput: float):
 		BoostStorage -= clampf(DecayRate, 0, BoostStorage)
 		return DecayReleaseScaler
 
-func _rotationSpeed(XInput, TotalRotaFriction):
-	var RotaAcceleration
+func _rotationSpeed(XInput):
+	var RotaAcceleration := RotaFriction # RotaAcceleration is being used as RotaFriction
+	
+	if Input.is_action_pressed("Brake") and not Crashed:
+		RotaAcceleration *= BrakeDecelMult[1]
+	
 	if XInput != 0: 
 		var CounterSteer = absf((RotationSpeed / MaxRota ) - XInput) * CounterSteerRate
-		RotaAcceleration = (TotalRotaFriction * CounterSteer ) + RotaAccelRate
-	else:
-		RotaAcceleration = TotalRotaFriction
+		RotaAcceleration = (RotaAcceleration * CounterSteer ) + (RotaAccelRate * RotaModif )
 		
-	if RotaModif != RotaAccelRate:
-		RotaModif -= clampf((RotaModif - RotaAccelRate ) * RotaModifDecay, 0, RotaModif - RotaAccelRate)
+	if RotaModif != 1:
+		RotaModif -= clampf((RotaModif - 1 ) * RotaModifDecay, 0, RotaModif - 1)
 		
 	return lerpf(RotationSpeed, XInput * MaxRota, clampf(RotaAcceleration, 0, 1))
 
@@ -133,9 +133,9 @@ func _physics_process(_delta):
 	var PlayerRot = rotation
 	
 	var MoveInput: Vector2 = _moveInput()
-	var FrictionArray: Array = _friction(VelLength)
+	var TotalFriction = _friction(VelLength)
 	var Acceleration: float = _boost(MoveInput.y)
-	RotationSpeed = _rotationSpeed(MoveInput.x, FrictionArray[1])
+	RotationSpeed = _rotationSpeed(MoveInput.x)
 	#endregion
 	
 	if Input.is_action_just_pressed("Dodge") and not Crashed:
