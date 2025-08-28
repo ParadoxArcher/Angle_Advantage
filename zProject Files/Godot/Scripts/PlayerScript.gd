@@ -40,11 +40,6 @@ var RotaAccelModif := 1.0
 var Crashed := false
 #endregion
 
-#region VFX
-@onready var boost_sprite = $Boost/Sprite
-@onready var boost_VFX_particle = $Boost/Sprite/Particle2D
-@export var BounceVFX := [0, .05] # {0: fluctuating, 1: DecayRate}
-#endregion
 
 func _moveInput():
 	if not Crashed:
@@ -113,8 +108,6 @@ func dodge(DodgeDir):
 	
 	velocity = (velocity / 2 ) + MaxSpeed * DodgeSpeed * DodgeDir.rotated(rotation + PI/2)
 
-
-
 func _physics_process(_delta):
 	#region Setup
 	var VelLength = velocity.length()
@@ -150,8 +143,6 @@ func _physics_process(_delta):
 			
 		velocity = velocity.bounce(WallNormal) * Vector2(lerpf(1, Bounciness, abs(WallNormal.x)), lerpf(1, Bounciness, abs(WallNormal.y)))
 	#endregion
-	
-	#_boostVFX(-MoveInput.y, VelLength)
 
 
 #region Graphics Variables
