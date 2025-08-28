@@ -284,6 +284,10 @@
   },
   "active": "9fae18dbf1d84e64",
   "lastOpenFiles": [
+    "zProject Files/Godot/Scenes/Pla6E6B.tmp",
+    "zProject Files/Godot/Shaders/Test/Col6D23.tmp",
+    "zProject Files/Godot/Scripts/Pla6CFF.tmp",
+    "zProject Files/Godot/Scenes/Gam6CEC.tmp",
     "Devlogs/2025-08-28.md",
     "Devlogs/2025-08-27.md",
     "zProject Files/Godot/Scripts/Pla71A5.tmp",
@@ -296,9 +300,6 @@
     "zProject Files/Godot/Shaders/Test/Showerhead.gdshader",
     "zProject Files/Godot/pro32DC.tmp",
     "zProject Files/Godot/Scripts/PlayerVFX.gd",
-    "zProject Files/Godot/Scenes/PlaED6E.tmp",
-    "zProject Files/Godot/Scenes/PlaAD0E.tmp",
-    "zProject Files/Godot/Scenes/PlaDA0D.tmp",
     "Devlogs/2025-08-26.md",
     "DevNotes/Player/Movement/Rotation.md",
     "DevNotes/Player/Movement/Crash & Wall Bounce.md",
@@ -328,7 +329,6 @@
     "Untitled Kanban.md",
     "DevNotes/ColorAnimator.md",
     "zReferences/Excalidraw/Ability Concepts.excalidraw.md",
-    "DevNotes/Idea splurges/Ability ideas.md",
-    "DevNotes/Player/Movement/Brakes.md"
+    "DevNotes/Idea splurges/Ability ideas.md"
   ]
 }

@@ -30,10 +30,11 @@ var RotaAccelModif := 1.0
 @export var DodgeRotaAccel := 4.
 
 ##Crash && WallBounce
-@onready var wallbounce_angle = $CollisionPolygon2D/WallbounceMarker.position.angle()
+@onready var wallbounce_angle = $%WallbounceMarker.position.angle()
 @export var BounceStrength := .3
 @export var CrashSpeed := .2
-@export var CrashTime := [.8, 1.6] # {0: Minimum, 1: Maximum}
+## [0: Minimum, 1: Maximum]
+@export var CrashTime := [.8, 1.6]
 @export var CrashImmunity := [false, .6] # {0: isActive, 1: CrashTimerMult}
 var Crashed := false
 #endregion
@@ -48,7 +49,7 @@ func _moveInput():
 func _friction(VelLength):
 	var TotalFriction := Friction
 	
-	if VelLength <= FrictReductionPoint * MaxSpeed: # Baseline Friction
+	if VelLength <= FrictReductionPoint * MaxSpeed:
 		TotalFriction *= (((VelLength / MaxSpeed ) + FrictReductionStep[0] ) / FrictReductionStep[0] ) * FrictReductionStep[1]
 	
 	if Input.is_action_pressed("Brake") and not Crashed:
