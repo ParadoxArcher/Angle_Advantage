@@ -64,9 +64,10 @@ func _friction(VelLength):
 
 func _boost(YInput: float):
 	YInput *= -1
-	var ReleasedDecay: float = _boostDecay(YInput)
 	if YInput > 0 or BoostStorage > 0:
 		boost_VFX_particle.emitting = true
+		
+		var ReleasedDecay: float = _boostDecay(YInput)
 		return AccelRate * BoostStorage * ReleasedDecay
 		
 		 #VFX
@@ -75,6 +76,7 @@ func _boost(YInput: float):
 		#	boost_particle.amount = Particles
 	else:
 		boost_VFX_particle.emitting = false
+		return 0
 
 func _boostDecay(YInput: float):
 	if YInput / DecayReleaseScaler >= BoostStorage:
@@ -83,9 +85,11 @@ func _boostDecay(YInput: float):
 	else:
 		BoostStorage -= clampf(DecayRate, 0, BoostStorage)
 		return DecayReleaseScaler
-		
 
 func _rotationSpeed(XInput):
+	if RotaAccel[0] != RotaAccel[1]:
+		RotaAccel[0] -= clampf((RotaAccel[0] - RotaAccel[1] ) * RotaAccel[2], 0, RotaAccel[0] - RotaAccel[1])
+	
 	if XInput != 0: 
 		var CounterSteer = absf((RotaSpeed / MaxRota ) - XInput) * CounterSteerRate
 		return (RotaDecel[0] * CounterSteer ) + RotaAccel[0]
@@ -138,15 +142,12 @@ func _physics_process(_delta):
 	velocity -= clampf(Friction[0] * MaxSpeed, 0, VelLength) * velocity.normalized() # Momentum & Friction
 	velocity = lerp(velocity, MaxSpeed * Vector2.from_angle(PlayerRot), Acceleration) # Acceleration
 	
-	var RedFilter = 1 - clampf((Acceleration / 1.5 ), 0, 1) # VFX
+	var RedFilter = 1 - clampf((BoostStorage / 1.5 ), 0, 1) # VFX
 	boost_sprite.material.set_shader_parameter("RedFilter", RedFilter)
 	var GreenFilterLeft = (VelLength / MaxSpeed ) * ((1 + velocity.normalized().dot(Vector2.from_angle(PlayerRot - PI/6)) ) / 2 )
 	var GreenFilterRight = (VelLength / MaxSpeed ) * ((1 + velocity.normalized().dot(Vector2.from_angle(PlayerRot - PI/6)) ) / 2 )
 	boost_sprite.material.set_shader_parameter("GreenFilterLeft", GreenFilterLeft)
 	boost_sprite.material.set_shader_parameter("GreenFilterRight", GreenFilterRight)
-	
-	if RotaAccel[0] != RotaAccel[1]:
-		RotaAccel[0] -= clampf((RotaAccel[0] - RotaAccel[1] ) * RotaAccel[2], 0, RotaAccel[0] - RotaAccel[1])
 	#endregion
 	
 	
