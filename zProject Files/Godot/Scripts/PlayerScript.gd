@@ -6,21 +6,21 @@ extends CharacterBody2D
 @export var AccelRate := .01
 @export var Friction := .002
 @export var BrakeFrictionMult := 5.0
+@export var FrictReductionPoint := .2
+## [Step Size, Step Strength]
+@export var FrictReductionStep := [.04, .08] 
 
 ## BoostDecay
 var BoostStorage := .0
 @export var DecayRate := .015
 @export var DecayReleaseScaler = .8
 
- # {0: Fluctuating,  1: Base} ## Beware BrakeDecelMult
-@export var FrictRate := [.2, .04, .08] # {0: Actuation, 1: StepSize, 2: StepStrength}
-
 ## Rotation
 var RotationSpeed := .0
 @export var MaxRota := PI/24
 @export var RotaAccelRate := .02
 @export var RotaFriction := .01
-@export var BrakeRotaFrictionMult := 3.0
+@export var BrakeRotaFrictionMult := 4.0
 @export var CounterSteerRate := .35
 var RotaAccelModif := 1.0
 @export var RotaModifDecay := .1
@@ -55,8 +55,8 @@ func _moveInput():
 func _friction(VelLength):
 	var TotalFriction := Friction
 	
-	if VelLength <= FrictRate[0] * MaxSpeed: # Baseline Friction
-		TotalFriction *= (((VelLength / MaxSpeed ) + FrictRate[1] ) / FrictRate[1] ) * FrictRate[2]
+	if VelLength <= FrictReductionPoint * MaxSpeed: # Baseline Friction
+		TotalFriction *= (((VelLength / MaxSpeed ) + FrictReductionStep[0] ) / FrictReductionStep[0] ) * FrictReductionStep[1]
 	
 	if Input.is_action_pressed("Brake") and not Crashed:
 		TotalFriction *= BrakeFrictionMult
@@ -155,6 +155,7 @@ func _physics_process(_delta):
 	if is_on_wall():
 		var WallNormal = get_wall_normal()
 		var BounceParam = PhysicsServer2D.body_get_param(get_rid(), PhysicsServer2D.BODY_PARAM_BOUNCE)
+		print(BounceParam)
 		var CollisionAngle = abs(pingpong(WallNormal.angle() - rotation, TAU) - PI)
 		var Impact = velocity.length() / MaxSpeed * (1 - (CollisionAngle / (PI - wallbounce_angle ) ) )
 		
