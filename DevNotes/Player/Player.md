@@ -12,7 +12,7 @@ Emulates movement style from [[Data Wing]] but in a combat-focused party game.
 	2) attach `Sprite2D` and link any Sprite
 2) Create script `PlayerMovement` on the `RigidBody2D` to store all movement functions`
 	1) [[Boost]]
-		1) 
+		1) ![[Boost#Goals]]
 	2) [[Rotation]]
 		1) Set Input `RotateLeft` & `RotateRight`
 	3) [[Movement Visualizer]]

@@ -1,6 +1,6 @@
 ### Final Work
 
-#### Needs
+#### Goals
 1) Accelerate forward, relative to current rotation
 2) Decelerate due to friction
 3) Create amplify friction when using brakes

@@ -119,7 +119,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -276,13 +276,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DevNotes/Player/Movement/Boost.md",
+                "file": "DevNotes/Player/Player.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Boost"
+              "title": "Outline of Player"
             }
           }
         ],
@@ -307,10 +307,10 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "4fa862909ca9c523",
+  "active": "b18ab1c5ffc31710",
   "lastOpenFiles": [
-    "DevNotes/Player/Player.md",
     "DevNotes/Player/Movement/Boost.md",
+    "DevNotes/Player/Player.md",
     "zProject Files/Godot/Scenes/PlaCAE2.tmp",
     "zProject Files/Godot/proC44.tmp",
     "zProject Files/Godot/Scripts/PlayerMovement.gd",
