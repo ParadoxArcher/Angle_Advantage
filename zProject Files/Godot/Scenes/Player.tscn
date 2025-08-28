@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://u7p1uxpg5mr5"]
 
-[ext_resource type="Script" path="res://Scripts/PlayerVFX.gd" id="1_2jkui"]
 [ext_resource type="Script" path="res://Scripts/PlayerScript.gd" id="1_g1qce"]
+[ext_resource type="Script" path="res://Scripts/PlayerVFX.gd" id="2_dxcba"]
 [ext_resource type="Texture2D" uid="uid://tcdrx104tlv1" path="res://Assets/Player/Avatar.png" id="2_u7ctg"]
 [ext_resource type="Texture2D" uid="uid://myu1tknx58ow" path="res://Assets/Player/DisplayArrows/Green Arrow.png" id="3_atdof"]
 [ext_resource type="Texture2D" uid="uid://dls4xvmjd2n3y" path="res://Assets/Player/DisplayArrows/Red Arrow.png" id="4_chf0j"]
@@ -63,7 +63,7 @@ unique_name_in_owner = true
 position = Vector2(-50, 40)
 
 [node name="VFX" type="Node2D" parent="."]
-script = ExtResource("1_2jkui")
+script = ExtResource("2_dxcba")
 
 [node name="PlayerAvatar" type="Sprite2D" parent="VFX"]
 scale = Vector2(0.15, 0.15)

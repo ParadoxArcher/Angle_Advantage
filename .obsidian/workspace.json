@@ -252,13 +252,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DevNotes/ToDoList.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of ToDoList"
+              "title": "Outline"
             }
           }
         ],
@@ -283,8 +282,11 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "2b906768df75cac8",
+  "active": "4688c3cbab7702aa",
   "lastOpenFiles": [
+    "DevNotes/ToDoList.md",
+    "zProject Files/Godot/Scenes/PlaE006.tmp",
+    "zProject Files/Godot/Scripts/PlaDED9.tmp",
     "zReferences/Excalidraw/Thought splurge.md",
     "DevNotes/Player/Movement/Boost.md",
     "zProject Files/Godot/Shaders/Test/Showerhead.gdshader",
@@ -295,14 +297,11 @@
     "zProject Files/Godot/Scenes/PlaDA0D.tmp",
     "zProject Files/Godot/Scenes/PlaD9FB.tmp",
     "zProject Files/Godot/Scenes/PlaE15C.tmp",
-    "zProject Files/Godot/Scripts/PlaE138.tmp",
-    "zProject Files/Godot/Scenes/PlaE125.tmp",
     "Devlogs/2025-08-27.md",
     "Devlogs/2025-08-26.md",
     "DevNotes/Player/Movement/Rotation.md",
     "DevNotes/Player/Movement/Crash & Wall Bounce.md",
     "DevNotes/Player/Movement/Dodge.md",
-    "DevNotes/ToDoList.md",
     "DevNotes/Player/Movement/Boost VFX.md",
     "DevNotes/Player/Movement/Movement Visualizer.md",
     "zProject Files/Godot/Assets/Player/DisplayArrows/Yellow Arrow.png",

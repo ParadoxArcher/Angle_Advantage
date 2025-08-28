@@ -123,10 +123,10 @@ func _physics_process(_delta):
 	
 	velocity -= clampf(TotalFriction * MaxSpeed, 0, VelLength) * velocity.normalized() # Momentum & Friction
 	velocity = lerp(velocity, MaxSpeed * Vector2.from_angle(rotation), Acceleration) # Acceleration
+	move_and_slide()
 	#endregion
 	
 	#region Collision --- Crash && WallBounce
-	move_and_slide()
 	if is_on_wall():
 		var WallNormal = get_wall_normal()
 		var Bounciness = BounceStrength
