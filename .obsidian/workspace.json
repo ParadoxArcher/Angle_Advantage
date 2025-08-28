@@ -285,6 +285,13 @@
   },
   "active": "b18ab1c5ffc31710",
   "lastOpenFiles": [
+    "zProject Files/Godot/Scripts/Pla6E3A.tmp",
+    "zProject Files/Godot/Scenes/Gam6E18.tmp",
+    "zProject Files/Godot/Scripts/Pla4A85.tmp",
+    "zProject Files/Godot/Scenes/Gam4A63.tmp",
+    "zProject Files/Godot/Scenes/Pla12C0.tmp",
+    "zProject Files/Godot/Scripts/Pla1173.tmp",
+    "zProject Files/Godot/Scenes/Gam1170.tmp",
     "Devlogs/2025-08-27.md",
     "DevNotes/Player/Movement/Boost.md",
     "zReferences/Excalidraw/Thought splurge.md",
@@ -293,12 +300,6 @@
     "zProject Files/Godot/Scripts/PlaB7C3.tmp",
     "zProject Files/Godot/Scripts/PlaB8A5.tmp",
     "zProject Files/Godot/Scenes/GamB893.tmp",
-    "zProject Files/Godot/Scenes/Pla6265.tmp",
-    "zProject Files/Godot/Scripts/Pla6128.tmp",
-    "zProject Files/Godot/Scenes/Gam6125.tmp",
-    "zProject Files/Godot/Scripts/Pla6E12.tmp",
-    "zProject Files/Godot/Scenes/Gam5708.tmp",
-    "zProject Files/Godot/Scenes/PlaFADA.tmp",
     "DevNotes/Player/Movement/Rotation.md",
     "DevNotes/Player/Movement/Crash & Wall Bounce.md",
     "DevNotes/Player/Movement/Dodge.md",
@@ -329,7 +330,6 @@
     "DevNotes/ColorAnimator.md",
     "zReferences/Excalidraw/Ability Concepts.excalidraw.md",
     "DevNotes/Idea splurges/Ability ideas.md",
-    "DevNotes/Player/Movement/Brakes.md",
-    "2025-W04.md"
+    "DevNotes/Player/Movement/Brakes.md"
   ]
 }

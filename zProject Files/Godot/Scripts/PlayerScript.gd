@@ -1,23 +1,28 @@
 extends CharacterBody2D
 
 #region Movement Variables
-## Brake Variables
-@export var BrakeDecelMult := [4.0, 3.0] # {0: SpeedDecelMult, 1: RotaDecelMult}
+## Friction
+@export var Friction := [.002, .002]
+@export var BrakeDecelMult := [4.0, 3.0]
 
-## Boost Variables
+## Boost
 @export var MaxSpeed := 2000
-@export var BoostDecay := [0, .015, .8] # {0: Final,  1:DecayRate, 2:ReleaseAccelScaler(cannot be 0)}
-@export var SpeedAccel := [1.0, 0, .01] # {0: Global Mod, 1: BoostResult, 2: BaseSpeedAccel} ## Beware WallBoostScale
-@export var Friction := [.002, .002] # {0: Fluctuating,  1: Base} ## Beware BrakeDecelMult
+@export var AccelRate := .01
+
+## BoostDecay
+var BoostStorage := .0
+@export var DecayRate := .015
+@export var DecayReleaseScaler = .8
+
+ # {0: Fluctuating,  1: Base} ## Beware BrakeDecelMult
 @export var FrictRate := [.2, .04, .08] # {0: Actuation, 1: StepSize, 2: StepStrength}
-var AccelRate := 0.0
 
 ## Rotation Variables
 @export var MaxRota := PI/24
 @export var RotaAccel := [.02, .02, .1] # {0: Fluctuating, 1: BaseRotaAccel} ## Beware DodgeRotaAccel
 @export var RotaDecel := [.01, .01] # {0: Fluctuating, 1: BaseRotaDecel, 2: DecayLerp} ## Beware BrakeDecelMult
 @export var CounterSteerRate := .35
-var RotaSpeed := 0.0
+var RotaSpeed := .0
 #endregion
 
 #region Advanced Movement Variables
@@ -36,7 +41,7 @@ var Crashed := false
 
 #region VFX
 @onready var boost_sprite = $Boost/Sprite
-@onready var boost_particle = $Boost/Sprite/Particle2D
+@onready var boost_VFX_particle = $Boost/Sprite/Particle2D
 @export var BounceVFX := [0, .05] # {0: fluctuating, 1: DecayRate}
 #endregion
 
@@ -59,22 +64,26 @@ func _friction(VelLength):
 
 func _boost(YInput: float):
 	YInput *= -1
-	if YInput > 0 or BoostDecay[0] > 0:
-		if YInput / BoostDecay[2] >= BoostDecay[0]:
-			BoostDecay[0] += clampf(2.5 * BoostDecay[1] * YInput, 0, YInput - BoostDecay[0])
-			SpeedAccel[1] = SpeedAccel[2] * BoostDecay[0]
-			
-		else:
-			BoostDecay[0] -= clampf(BoostDecay[1], 0, BoostDecay[0])
-			SpeedAccel[1] = SpeedAccel[2] * BoostDecay[0] * BoostDecay[2]
+	var ReleasedDecay: float = _boostDecay(YInput)
+	if YInput > 0 or BoostStorage > 0:
+		boost_VFX_particle.emitting = true
+		return AccelRate * BoostStorage * ReleasedDecay
 		
-		
-		boost_particle.emitting = true #VFX
+		 #VFX
 		#var Particles = clampi(round(BoostDecay[0] * 5), 1, 5)
 		#if Particles != boost_particle.amount:
 		#	boost_particle.amount = Particles
 	else:
-		boost_particle.emitting = false
+		boost_VFX_particle.emitting = false
+
+func _boostDecay(YInput: float):
+	if YInput / DecayReleaseScaler >= BoostStorage:
+		BoostStorage += clampf(2.5 * DecayRate * YInput, 0, YInput - BoostStorage)
+		return 1
+	else:
+		BoostStorage -= clampf(DecayRate, 0, BoostStorage)
+		return DecayReleaseScaler
+		
 
 func _rotationSpeed(XInput):
 	if XInput != 0: 
@@ -99,8 +108,7 @@ func dodge(DodgeDir):
 	if DodgeDir.normalized().is_zero_approx():
 		DodgeDir = Vector2(0,-1)
 	
-	BoostDecay[0] = 0
-	SpeedAccel[1] = 0
+	BoostStorage = 0
 	
 	RotaAccel[0] += RotaAccel[1] * DodgeRotaAccel
 	
@@ -114,10 +122,10 @@ func _physics_process(_delta):
 	var VelLength = velocity.length()
 	var PlayerRot = rotation
 	
-	var MoveInput = _moveInput()
+	var MoveInput: Vector2 = _moveInput()
 	_friction(VelLength)
-	_boost(MoveInput.y)
-	var RotaRate = _rotationSpeed(MoveInput.x)
+	var Acceleration: float = _boost(MoveInput.y)
+	var RotaRate: float = _rotationSpeed(MoveInput.x)
 	#endregion
 	
 	if Input.is_action_just_pressed("Dodge") and not Crashed:
@@ -128,9 +136,9 @@ func _physics_process(_delta):
 	rotate(RotaSpeed)
 	
 	velocity -= clampf(Friction[0] * MaxSpeed, 0, VelLength) * velocity.normalized() # Momentum & Friction
-	velocity = lerp(velocity, MaxSpeed * Vector2.from_angle(PlayerRot), SpeedAccel[1] * SpeedAccel[0]) # Acceleration
+	velocity = lerp(velocity, MaxSpeed * Vector2.from_angle(PlayerRot), Acceleration) # Acceleration
 	
-	var RedFilter = 1 - clampf((SpeedAccel[1] * SpeedAccel[0] / (SpeedAccel[2] * 1.5 )), 0, 1) # VFX
+	var RedFilter = 1 - clampf((Acceleration / 1.5 ), 0, 1) # VFX
 	boost_sprite.material.set_shader_parameter("RedFilter", RedFilter)
 	var GreenFilterLeft = (VelLength / MaxSpeed ) * ((1 + velocity.normalized().dot(Vector2.from_angle(PlayerRot - PI/6)) ) / 2 )
 	var GreenFilterRight = (VelLength / MaxSpeed ) * ((1 + velocity.normalized().dot(Vector2.from_angle(PlayerRot - PI/6)) ) / 2 )
@@ -139,7 +147,6 @@ func _physics_process(_delta):
 	
 	if RotaAccel[0] != RotaAccel[1]:
 		RotaAccel[0] -= clampf((RotaAccel[0] - RotaAccel[1] ) * RotaAccel[2], 0, RotaAccel[0] - RotaAccel[1])
-	SpeedAccel[0] = 1.0
 	#endregion
 	
 	
@@ -185,7 +192,7 @@ func _process(_delta):
 		Displays["velocity"].position = position + (((150 * Displays["velocity"].scale.x ) + DisplaySize["CenterGap"] ) * velocity.normalized() ) # 150 is the size of vel_display's sprite's X.length/2
 		Displays["velocity"].rotation = velocity.angle()
 		
-		Displays["boost_dir"].scale.x = BoostDecay[0] * DisplaySize["boost_dirLength"]
+		Displays["boost_dir"].scale.x = BoostStorage * DisplaySize["boost_dirLength"]
 		Displays["boost_dir"].position = position + ((150 * Displays["boost_dir"].scale.x ) + DisplaySize["CenterGap"] ) * Vector2.from_angle(rotation)
 		Displays["boost_dir"].rotation = rotation
 		
