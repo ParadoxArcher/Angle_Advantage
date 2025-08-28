@@ -144,7 +144,6 @@ func _physics_process(_delta):
 		velocity = velocity.bounce(WallNormal) * Vector2(lerpf(1, Bounciness, abs(WallNormal.x)), lerpf(1, Bounciness, abs(WallNormal.y)))
 	#endregion
 
-
 #region Graphics Variables
 ##Markers Variables
 @export var DisplaySize = {"CenterGap": 30, "velLength": .5, "boost_dirLength": .35, "rota_speedLength": .5}

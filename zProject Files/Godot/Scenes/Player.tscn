@@ -79,7 +79,8 @@ position = Vector2(-94, -4.17233e-06)
 rotation = 1.5708
 texture = ExtResource("7_cnoma")
 
-[node name="Particle2D" type="CPUParticles2D" parent="VFX/Boost/BoostSprite"]
+[node name="BoostParticle2D" type="CPUParticles2D" parent="VFX/Boost/BoostSprite"]
+unique_name_in_owner = true
 show_behind_parent = true
 position = Vector2(-0.000336111, -94)
 rotation = 1.5708
