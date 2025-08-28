@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Devlogs/2025-08-27.md",
+                "file": "Devlogs/2025-08-28.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,7 +28,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "2025-08-27"
+              "title": "2025-08-28"
             }
           },
           {
@@ -94,7 +94,8 @@
               "title": "ToDoList"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -251,13 +252,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Devlogs/2025-08-27.md",
+                "file": "DevNotes/Player/Movement/Boost.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 2025-08-27"
+              "title": "Outline of Boost"
             }
           }
         ],
@@ -282,14 +283,17 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "9fae18dbf1d84e64",
+  "active": "b18ab1c5ffc31710",
   "lastOpenFiles": [
+    "zProject Files/Godot/Scenes/PlaCAE2.tmp",
+    "zProject Files/Godot/proC44.tmp",
+    "zProject Files/Godot/Scripts/PlayerMovement.gd",
+    "Devlogs/2025-08-28.md",
+    "Devlogs/2025-08-27.md",
     "zProject Files/Godot/Scenes/Pla6E6B.tmp",
     "zProject Files/Godot/Shaders/Test/Col6D23.tmp",
     "zProject Files/Godot/Scripts/Pla6CFF.tmp",
     "zProject Files/Godot/Scenes/Gam6CEC.tmp",
-    "Devlogs/2025-08-28.md",
-    "Devlogs/2025-08-27.md",
     "zProject Files/Godot/Scripts/Pla71A5.tmp",
     "zProject Files/Godot/Scripts/Pla7191.tmp",
     "DevNotes/ToDoList.md",
@@ -297,9 +301,6 @@
     "zProject Files/Godot/Scripts/PlaDED9.tmp",
     "zReferences/Excalidraw/Thought splurge.md",
     "DevNotes/Player/Movement/Boost.md",
-    "zProject Files/Godot/Shaders/Test/Showerhead.gdshader",
-    "zProject Files/Godot/pro32DC.tmp",
-    "zProject Files/Godot/Scripts/PlayerVFX.gd",
     "Devlogs/2025-08-26.md",
     "DevNotes/Player/Movement/Rotation.md",
     "DevNotes/Player/Movement/Crash & Wall Bounce.md",
