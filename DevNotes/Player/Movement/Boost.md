@@ -3,15 +3,22 @@
 #### Steps
 1)  Define Input
 	1) Project Settings --> Input Map --> "Boost" = W
-	2) Inside `func _physics_process(_delta):`
-		1) `var MoveInput = Input.get_axis("Boost", 0)`
+	2) Create `func _moveInput():`
+		1) have `_moveInput()` `return` the dedicated inputs
+			1) `return Input.get_axis("Boost", 0)`
+	3) Inside `func _physics_process(_delta):`
+		1) `var MoveInput = _moveInput()`
 2) Movement
 	1) Define #Speed  as `global variable`
 		1) `@export var Speed = 1500`
-	3) After `MoveInput`
-		1) Apply Speed to #velocity when Input is Pressed 
-			2) `if -MoveInput > 0:
+	2) Create `func _boost(YInput):`
+		1) invert `YInput` so `-1` `=` `1`
+		2) Apply #Speed to #velocity when Input is Pressed 
+			2) `if YInput > 0:
 				1) `velocity.y = Speed
+	3) Inside `func _physics_process(_delta):`
+		1) Call `_boost()` and insert #MoveInput 
+			1) `_boost(MoveInput)`
 		2) Activate #CharacterBody2D #velocity & physics
 			1)  `move_and_slide()`
 3) Acceleration
@@ -92,4 +99,6 @@
 - [[2025-08-26]]
 	- Use of `Vector2.from_angle(x)` over `Vector2(cos(x), sin(x))`
 	- Use of `Input.get_axis(x, y)` over `Input.get_action_strength, ...`
-	- seperated #friction and Boost to be isolated functions
+	- separated #friction and Boost to be isolated functions
+- [[2025-08-27]]
+	- 
