@@ -1,4 +1,6 @@
 extends Node2D
+
+#region Variables
 @onready var Player = get_parent()
 
 @onready var boost_sprite = $%BoostSprite
@@ -7,22 +9,25 @@ extends Node2D
 @export var DisplaysActive = [false, false]
 @export var DisplaySize = {"CenterGap": 30, "velLength": .5, "boost_dirLength": .35, "rota_speedLength": .5}
 @onready var Displays = {"velocity": $%VelDisplay, "boost_dir": $%BoostDirDisplay, "rota_speed": $%RotaSpeedDisplay}
+#endregion
 
-func _physics_process(_delta):
-	if Player.BoostStorage > .5:
+#region Functions
+func _boostVFX():
+	if Input.get_action_strength("Boost") > 0 or Player.BoostStorage > .4:
 		boost_VFX_particle.emitting = true
 	else:
 		boost_VFX_particle.emitting = false
 	
-	var RedFilter = 1 - clampf((Player.BoostStorage / 1.5 ), 0, 1) # VFX
+	var RedFilter = 1 - clampf((Player.BoostStorage / 1.5 ), 0, 1)
 	boost_sprite.material.set_shader_parameter("RedFilter", RedFilter)
-	
+
+func _velocityVFX():
 	var GreenFilterLeft = (Player.velocity.length() / Player.MaxSpeed ) * ((1 + Player.velocity.normalized().dot(Vector2.from_angle(Player.rotation - PI/6)) ) / 2 )
 	#var GreenFilterRight = (Velocity.length() / Player.MaxSpeed ) * ((1 + Velocity.normalized().dot(Vector2.from_angle(Rotation - PI/6)) ) / 2 )
 	boost_sprite.material.set_shader_parameter("GreenFilterLeft", GreenFilterLeft)
 	boost_sprite.material.set_shader_parameter("GreenFilterRight", GreenFilterLeft)
-	
-func _process(_delta):
+
+func _movementVisualizerDisplay():
 	if DisplaysActive[0]:
 		if not DisplaysActive[1]:
 			Displays["velocity"].visible = true
@@ -47,3 +52,13 @@ func _process(_delta):
 		Displays["boost_dir"].visible = false
 		Displays["rota_speed"].visible = false
 		DisplaysActive[1] = false
+#endregion
+
+#region Processes
+func _physics_process(_delta):
+	_boostVFX()
+	_velocityVFX()
+
+func _process(_delta):
+	_movementVisualizerDisplay()
+#endregion

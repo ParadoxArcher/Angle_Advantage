@@ -38,6 +38,7 @@ var RotaAccelModif := 1.0
 var Crashed := false
 #endregion
 
+#region Functions
 func _moveInput():
 	if not Crashed:
 		return Vector2(Input.get_axis("RotateLeft", "RotateRight"), Input.get_axis("Boost", "Back"))
@@ -104,6 +105,7 @@ func dodge(DodgeDir):
 	RotaAccelModif += RotaAccelRate * DodgeRotaAccel
 	
 	velocity = (velocity / 2 ) + MaxSpeed * DodgeSpeed * DodgeDir.rotated(rotation + PI/2)
+#endregion
 
 func _physics_process(_delta):
 	#region Setup
