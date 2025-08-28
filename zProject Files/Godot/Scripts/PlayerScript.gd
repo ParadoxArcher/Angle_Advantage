@@ -113,22 +113,7 @@ func dodge(DodgeDir):
 	
 	velocity = (velocity / 2 ) + MaxSpeed * DodgeSpeed * DodgeDir.rotated(rotation + PI/2)
 
-func _boostVFX(YInput, VelLength):
-	if YInput > 0 or BoostStorage > .5:
-		boost_VFX_particle.emitting = true
-	else:
-		boost_VFX_particle.emitting = false
-	
-	var RedFilter = 1 - clampf((BoostStorage / 1.5 ), 0, 1) # VFX
-	boost_sprite.material.set_shader_parameter("RedFilter", RedFilter)
-	
-	var GreenFilterLeft = (VelLength / MaxSpeed ) * ((1 + velocity.normalized().dot(Vector2.from_angle(rotation - PI/6)) ) / 2 )
-	var GreenFilterRight = (VelLength / MaxSpeed ) * ((1 + velocity.normalized().dot(Vector2.from_angle(rotation - PI/6)) ) / 2 )
-	boost_sprite.material.set_shader_parameter("GreenFilterLeft", GreenFilterLeft)
-	boost_sprite.material.set_shader_parameter("GreenFilterRight", GreenFilterRight)
 
-func _ready():
-	PhysicsServer2D.body_set_param(get_rid(), PhysicsServer2D.BODY_PARAM_BOUNCE, BounceStrength)
 
 func _physics_process(_delta):
 	#region Setup
@@ -154,20 +139,19 @@ func _physics_process(_delta):
 	move_and_slide()
 	if is_on_wall():
 		var WallNormal = get_wall_normal()
-		var BounceParam = PhysicsServer2D.body_get_param(get_rid(), PhysicsServer2D.BODY_PARAM_BOUNCE)
-		print(BounceParam)
+		var Bounciness = BounceStrength
 		var CollisionAngle = abs(pingpong(WallNormal.angle() - rotation, TAU) - PI)
 		var Impact = velocity.length() / MaxSpeed * (1 - (CollisionAngle / (PI - wallbounce_angle ) ) )
 		
 		if CollisionAngle <= wallbounce_angle and Impact >= CrashSpeed:
 			crash((Impact - CrashSpeed ) * (1 / (1 - CrashSpeed ) ))
 		elif CollisionAngle >= wallbounce_angle:
-			BounceParam *= (1 / BounceStrength)
+			Bounciness *= (1 / BounceStrength)
 			
-		velocity = velocity.bounce(WallNormal) * Vector2(lerpf(1, BounceParam, abs(WallNormal.x)), lerpf(1, BounceParam, abs(WallNormal.y)))
+		velocity = velocity.bounce(WallNormal) * Vector2(lerpf(1, Bounciness, abs(WallNormal.x)), lerpf(1, Bounciness, abs(WallNormal.y)))
 	#endregion
 	
-	_boostVFX(-MoveInput.y, VelLength)
+	#_boostVFX(-MoveInput.y, VelLength)
 
 
 #region Graphics Variables
