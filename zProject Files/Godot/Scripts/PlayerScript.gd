@@ -23,7 +23,7 @@ var RotationSpeed := .0
 @export var RotaAccelRate := .02
 @export var RotaFriction := .01
 @export var CounterSteerRate := .35
-var RotaModif := 1.0
+var RotaAccelModif := 1.0
 @export var RotaModifDecay := .1
 #endregion
 
@@ -89,19 +89,19 @@ func _boostDecay(YInput: float):
 		return DecayReleaseScaler
 
 func _rotationSpeed(XInput):
-	var RotaAcceleration := RotaFriction # RotaAcceleration is being used as RotaFriction
+	var RotaAcceleration := RotaFriction # RotaAcceleration is being used as RotaFriction as RotaFriction is the default result anyways
 	
 	if Input.is_action_pressed("Brake") and not Crashed:
 		RotaAcceleration *= BrakeDecelMult[1]
 	
 	if XInput != 0: 
 		var CounterSteer = absf((RotationSpeed / MaxRota ) - XInput) * CounterSteerRate
-		RotaAcceleration = (RotaAcceleration * CounterSteer ) + (RotaAccelRate * RotaModif )
+		RotaAcceleration = (RotaAcceleration * CounterSteer ) + (RotaAccelRate * RotaAccelModif )
 		
-	if RotaModif != 1:
-		RotaModif -= clampf((RotaModif - 1 ) * RotaModifDecay, 0, RotaModif - 1)
+	RotationSpeed = lerpf(RotationSpeed, XInput * MaxRota, clampf(RotaAcceleration, 0, 1))
 		
-	return lerpf(RotationSpeed, XInput * MaxRota, clampf(RotaAcceleration, 0, 1))
+	if RotaAccelModif != 1:
+		RotaAccelModif -= clampf((RotaAccelModif - 1 ) * RotaModifDecay, 0, RotaAccelModif - 1)
 
 func crash(CrashTimeScaler):
 	if CrashImmunity[0]:
@@ -120,9 +120,18 @@ func dodge(DodgeDir):
 		DodgeDir = Vector2(0,-1)
 	
 	BoostStorage = 0
-	RotaModif += RotaAccelRate * DodgeRotaAccel
+	RotaAccelModif += RotaAccelRate * DodgeRotaAccel
 	
 	velocity = (velocity / 2 ) + MaxSpeed * DodgeSpeed * DodgeDir.rotated(rotation + PI/2)
+
+func _boostVFX(VelLength):
+	var RedFilter = 1 - clampf((BoostStorage / 1.5 ), 0, 1) # VFX
+	boost_sprite.material.set_shader_parameter("RedFilter", RedFilter)
+	
+	var GreenFilterLeft = (VelLength / MaxSpeed ) * ((1 + velocity.normalized().dot(Vector2.from_angle(rotation - PI/6)) ) / 2 )
+	var GreenFilterRight = (VelLength / MaxSpeed ) * ((1 + velocity.normalized().dot(Vector2.from_angle(rotation - PI/6)) ) / 2 )
+	boost_sprite.material.set_shader_parameter("GreenFilterLeft", GreenFilterLeft)
+	boost_sprite.material.set_shader_parameter("GreenFilterRight", GreenFilterRight)
 
 func _ready():
 	PhysicsServer2D.body_set_param(get_rid(), PhysicsServer2D.BODY_PARAM_BOUNCE, BounceStrength)
@@ -130,12 +139,11 @@ func _ready():
 func _physics_process(_delta):
 	#region Setup
 	var VelLength = velocity.length()
-	var PlayerRot = rotation
 	
 	var MoveInput: Vector2 = _moveInput()
 	var TotalFriction = _friction(VelLength)
 	var Acceleration: float = _boost(MoveInput.y)
-	RotationSpeed = _rotationSpeed(MoveInput.x)
+	_rotationSpeed(MoveInput.x)
 	#endregion
 	
 	if Input.is_action_just_pressed("Dodge") and not Crashed:
@@ -144,17 +152,9 @@ func _physics_process(_delta):
 	#region Transform
 	rotate(RotationSpeed)
 	
-	velocity -= clampf(Friction * MaxSpeed, 0, VelLength) * velocity.normalized() # Momentum & Friction
-	velocity = lerp(velocity, MaxSpeed * Vector2.from_angle(PlayerRot), Acceleration) # Acceleration
-	
-	var RedFilter = 1 - clampf((BoostStorage / 1.5 ), 0, 1) # VFX
-	boost_sprite.material.set_shader_parameter("RedFilter", RedFilter)
-	var GreenFilterLeft = (VelLength / MaxSpeed ) * ((1 + velocity.normalized().dot(Vector2.from_angle(PlayerRot - PI/6)) ) / 2 )
-	var GreenFilterRight = (VelLength / MaxSpeed ) * ((1 + velocity.normalized().dot(Vector2.from_angle(PlayerRot - PI/6)) ) / 2 )
-	boost_sprite.material.set_shader_parameter("GreenFilterLeft", GreenFilterLeft)
-	boost_sprite.material.set_shader_parameter("GreenFilterRight", GreenFilterRight)
+	velocity -= clampf(TotalFriction * MaxSpeed, 0, VelLength) * velocity.normalized() # Momentum & Friction
+	velocity = lerp(velocity, MaxSpeed * Vector2.from_angle(rotation), Acceleration) # Acceleration
 	#endregion
-	
 	
 	#region Collision --- Crash && WallBounce
 	move_and_slide()
@@ -170,7 +170,9 @@ func _physics_process(_delta):
 			BounceParam *= (1 / BounceStrength)
 			
 		velocity = velocity.bounce(WallNormal) * Vector2(lerpf(1, BounceParam, abs(WallNormal.x)), lerpf(1, BounceParam, abs(WallNormal.y)))
-
+	#endregion
+	
+	_boostVFX(VelLength)
 	
 	#if BounceVFX[0] > 0: # VFX Bounce effect
 		#BounceVFX[0] += clampf(BounceVFX[1], 0, 1 - BounceVFX[0])
