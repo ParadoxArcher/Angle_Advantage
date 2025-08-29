@@ -276,13 +276,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DevNotes/Player/Player.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Player"
+              "title": "Outline"
             }
           }
         ],
@@ -307,10 +306,10 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "b18ab1c5ffc31710",
+  "active": "4688c3cbab7702aa",
   "lastOpenFiles": [
-    "DevNotes/Player/Movement/Boost.md",
     "DevNotes/Player/Player.md",
+    "DevNotes/Player/Movement/Boost.md",
     "DevNotes/Player/Movement/Rotation.md",
     "DevNotes/Player/Movement/Dodge.md",
     "DevNotes/Player/Movement/Crash & Wall Bounce.md",
