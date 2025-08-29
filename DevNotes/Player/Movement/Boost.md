@@ -6,13 +6,12 @@
 3) Create amplify friction when using brakes
 4) Apply a taper to release and acceleration
 #### Steps
-1) Define Input
-	1) Project Settings --> Input Map --> "Boost" = W
-	2) Create `func _moveInput():`
-		1) have `_moveInput()` `return` the dedicated inputs
-			1) `return Input.get_axis("Boost", 0)`
-	3) Inside `func _physics_process(_delta):`
-		1) `var MoveInput = _moveInput()`
+1) 
+2) 
+3) Define Input
+	1) Using Project Settings Input map, create action "Boost"
+	2) `return` `Input.get_axis("Boost", 0)` inside of `func _moveInput():`
+	3) Create a variable using `_moveInput()` within `func _physics_process(_delta):`
 2) Movement
 	1) Define #Speed  as `global variable`
 		1) `@export var Speed = 1500`

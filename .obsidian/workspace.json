@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DevNotes/Player/Movement/Boost.md",
+                "file": "DevNotes/Player/Player.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -52,7 +52,31 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "Boost"
+              "title": "Player"
+            }
+          },
+          {
+            "id": "8c28eff34b6cd346",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "DevNotes/Player/PlayerMovementScript.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "PlayerMovementScript"
             }
           },
           {
@@ -94,7 +118,8 @@
               "title": "ToDoList"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -251,13 +276,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Devlogs/2025-08-29.md",
+                "file": "DevNotes/Player/PlayerMovementScript.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 2025-08-29"
+              "title": "Outline of PlayerMovementScript"
             }
           }
         ],
@@ -282,13 +307,14 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "b18ab1c5ffc31710",
+  "active": "8c28eff34b6cd346",
   "lastOpenFiles": [
-    "Devlogs/2025-08-28.md",
-    "Devlogs/2025-08-29.md",
-    "Devlogs/2025-08-27.md",
     "DevNotes/Player/Player.md",
+    "DevNotes/Player/PlayerMovementScript.md",
     "DevNotes/Player/Movement/Boost.md",
+    "Devlogs/2025-08-29.md",
+    "Devlogs/2025-08-28.md",
+    "Devlogs/2025-08-27.md",
     "DevNotes/Player/Movement/Rotation.md",
     "DevNotes/Player/Movement/Dodge.md",
     "DevNotes/Player/Movement/Crash & Wall Bounce.md",
@@ -328,7 +354,6 @@
     "zReferences/Excalidraw/Drawing 2025-03-12 11.44.59.excalidraw.md",
     "Untitled Kanban.md",
     "DevNotes/ColorAnimator.md",
-    "zReferences/Excalidraw/Ability Concepts.excalidraw.md",
-    "DevNotes/Idea splurges/Ability ideas.md"
+    "zReferences/Excalidraw/Ability Concepts.excalidraw.md"
   ]
 }
