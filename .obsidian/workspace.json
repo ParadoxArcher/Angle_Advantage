@@ -143,7 +143,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -216,8 +216,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -301,13 +300,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DevNotes/Player/PlayerMovementScript.md",
+                "file": "zReferences/Excalidraw/Thought splurge.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of PlayerMovementScript"
+              "title": "Outline of Thought splurge"
             }
           }
         ],
@@ -332,10 +331,12 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "8c28eff34b6cd346",
+  "active": "435608f7729f4aef",
   "lastOpenFiles": [
     "DevNotes/Player/_boost.md",
     "DevNotes/Player/PlayerMovementScript.md",
+    "zReferences/Excalidraw/Thought splurge.md",
+    "DevNotes/ToDoList.md",
     "DevNotes/Player/_moveInput.md",
     "DevNotes/Player/Player.md",
     "DevNotes/Player/Movement/Boost.md",
@@ -356,9 +357,7 @@
     "zProject Files/Godot/Scenes/Gam6CEC.tmp",
     "zProject Files/Godot/Scripts/Pla71A5.tmp",
     "zProject Files/Godot/Scripts/Pla7191.tmp",
-    "DevNotes/ToDoList.md",
     "zProject Files/Godot/Scenes/PlaE006.tmp",
-    "zReferences/Excalidraw/Thought splurge.md",
     "Devlogs/2025-08-26.md",
     "zProject Files/Godot/Assets/Player/DisplayArrows/Yellow Arrow.png",
     "zProject Files/Godot/Assets/Player/DisplayArrows/Red Arrow.png",
