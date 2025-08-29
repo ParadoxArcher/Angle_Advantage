@@ -171,7 +171,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#SpeedDecel0",
+                "query": "tag:#Crashed",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -192,7 +192,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -311,6 +312,7 @@
   "lastOpenFiles": [
     "DevNotes/Player/Player.md",
     "DevNotes/Player/PlayerMovementScript.md",
+    "DevNotes/Player/_moveInput.md",
     "DevNotes/Player/Movement/Boost.md",
     "Devlogs/2025-08-29.md",
     "Devlogs/2025-08-28.md",
@@ -353,7 +355,6 @@
     "zProject Files/Godot/Assets/Noises/PixelNoise.jpg",
     "zReferences/Excalidraw/Drawing 2025-03-12 11.44.59.excalidraw.md",
     "Untitled Kanban.md",
-    "DevNotes/ColorAnimator.md",
-    "zReferences/Excalidraw/Ability Concepts.excalidraw.md"
+    "DevNotes/ColorAnimator.md"
   ]
 }
