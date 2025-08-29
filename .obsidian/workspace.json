@@ -8,36 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "9fae18dbf1d84e64",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Devlogs/2025-08-28.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "2025-08-28"
-            }
-          },
-          {
             "id": "b18ab1c5ffc31710",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DevNotes/Player/Player.md",
+                "file": "Devlogs/2025-08-29.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -52,7 +28,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "Player"
+              "title": "2025-08-29"
             }
           },
           {
@@ -118,8 +94,7 @@
               "title": "ToDoList"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -276,12 +251,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "Devlogs/2025-08-29.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Outline of 2025-08-29"
             }
           }
         ],
@@ -306,8 +282,11 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "4688c3cbab7702aa",
+  "active": "b18ab1c5ffc31710",
   "lastOpenFiles": [
+    "Devlogs/2025-08-28.md",
+    "Devlogs/2025-08-29.md",
+    "Devlogs/2025-08-27.md",
     "DevNotes/Player/Player.md",
     "DevNotes/Player/Movement/Boost.md",
     "DevNotes/Player/Movement/Rotation.md",
@@ -318,8 +297,6 @@
     "zProject Files/Godot/Scenes/PlaCAE2.tmp",
     "zProject Files/Godot/proC44.tmp",
     "zProject Files/Godot/Scripts/PlayerMovement.gd",
-    "Devlogs/2025-08-28.md",
-    "Devlogs/2025-08-27.md",
     "zProject Files/Godot/Scenes/Pla6E6B.tmp",
     "zProject Files/Godot/Shaders/Test/Col6D23.tmp",
     "zProject Files/Godot/Scripts/Pla6CFF.tmp",
