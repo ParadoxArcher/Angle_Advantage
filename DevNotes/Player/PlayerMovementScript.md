@@ -7,4 +7,4 @@
 ### `_boostStorage()`
 ![[_boostStorage#A prerequisite of _boost that tapers the release value of MoveInputY]]
 ### `_friction()`
-![[_friction]]
+![[_friction#Decelerate velocity in any direction we aren't actively accelerating towards]]
