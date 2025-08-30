@@ -109,7 +109,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DevNotes/Player/_boostDecay.md",
+                "file": "DevNotes/Player/_boostStorage.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -124,7 +124,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "_boostDecay"
+              "title": "_boostStorage"
             }
           },
           {
@@ -357,9 +357,9 @@
   },
   "active": "738886a2eab057c4",
   "lastOpenFiles": [
-    "DevNotes/Player/PlayerMovementScript.md",
+    "DevNotes/Player/_boostStorage.md",
     "DevNotes/Player/_boost.md",
-    "DevNotes/Player/_boostDecay.md",
+    "DevNotes/Player/PlayerMovementScript.md",
     "Devlogs/2025-08-29.md",
     "DevNotes/Player/Player.md",
     "zReferences/Excalidraw/Thought splurge.md",
