@@ -104,6 +104,30 @@
             }
           },
           {
+            "id": "7ca4ac2952535d48",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "DevNotes/Player/_boostDecay.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "_boostDecay"
+            }
+          },
+          {
             "id": "435608f7729f4aef",
             "type": "leaf",
             "state": {
@@ -143,7 +167,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -300,13 +324,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DevNotes/Player/_boost.md",
+                "file": "DevNotes/Player/PlayerMovementScript.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of _boost"
+              "title": "Outline of PlayerMovementScript"
             }
           }
         ],
@@ -331,10 +355,11 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "738886a2eab057c4",
+  "active": "8c28eff34b6cd346",
   "lastOpenFiles": [
-    "DevNotes/Player/PlayerMovementScript.md",
+    "DevNotes/Player/_boostDecay.md",
     "DevNotes/Player/_boost.md",
+    "DevNotes/Player/PlayerMovementScript.md",
     "Devlogs/2025-08-29.md",
     "DevNotes/Player/Player.md",
     "zReferences/Excalidraw/Thought splurge.md",
@@ -377,7 +402,6 @@
     "DevNotes/Color Animation Shader.md",
     "Devlogs/2025-03-12.md",
     "zProject Files/Godot/Assets/Noises/PixelNoise.jpg",
-    "zReferences/Excalidraw/Drawing 2025-03-12 11.44.59.excalidraw.md",
-    "Untitled Kanban.md"
+    "zReferences/Excalidraw/Drawing 2025-03-12 11.44.59.excalidraw.md"
   ]
 }
