@@ -7,3 +7,4 @@
 - The `func` also checks #Crashed, as determined by  `func _crash()`
 	- `if` `false`: the inputs are returned
 	- `if` `true`: a `Vector2` set to `(0, 0)` is returned
+- Create a variable equal to `_moveInput()` inside 

@@ -80,31 +80,7 @@
             }
           },
           {
-            "id": "0516a6c71233b1a0",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "DevNotes/Player/PlayerMovementScript.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "PlayerMovementScript"
-            }
-          },
-          {
-            "id": "7ca4ac2952535d48",
+            "id": "de1f40d6cf10ccbc",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -125,6 +101,78 @@
               },
               "icon": "lucide-file",
               "title": "_boostStorage"
+            }
+          },
+          {
+            "id": "8768bd9a1d79526e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "DevNotes/Player/_boost.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "_boost"
+            }
+          },
+          {
+            "id": "56548dc80f0b3f6c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "DevNotes/Player/_moveInput.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "_moveInput"
+            }
+          },
+          {
+            "id": "19a63c6a3244d1fd",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "DevNotes/Player/_friction.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "_friction"
             }
           },
           {
@@ -167,7 +215,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 5
       }
     ],
     "direction": "vertical"
@@ -219,7 +267,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#Crashed",
+                "query": "tag:#StorageReleaseScaler",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -324,13 +372,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DevNotes/Player/_boostStorage.md",
+                "file": "DevNotes/Player/_moveInput.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of _boostStorage"
+              "title": "Outline of _moveInput"
             }
           }
         ],
@@ -355,20 +403,21 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "7ca4ac2952535d48",
+  "active": "56548dc80f0b3f6c",
   "lastOpenFiles": [
+    "DevNotes/Player/_boostStorage.md",
     "DevNotes/Player/PlayerMovementScript.md",
-    "DevNotes/Player/Player.md",
     "DevNotes/Player/_boost.md",
+    "DevNotes/Player/_moveInput.md",
+    "DevNotes/Player/_friction.md",
+    "DevNotes/Player/Player.md",
     "zProject Files/Godot/Scripts/Pla3E52.tmp",
     "zProject Files/Godot/Scenes/Gam4ADD.tmp",
-    "DevNotes/Player/_boostStorage.md",
     "zProject Files/Godot/Scripts/PlaEEA.tmp",
     "zProject Files/Godot/Scripts/PlaF44D.tmp",
     "zProject Files/Godot/Scenes/Pla98D3.tmp",
     "zProject Files/Godot/Shaders/Boo96F2.tmp",
     "zProject Files/Godot/Scenes/Gam96CF.tmp",
-    "DevNotes/Player/_moveInput.md",
     "Devlogs/2025-08-29.md",
     "zReferences/Excalidraw/Thought splurge.md",
     "DevNotes/ToDoList.md",
