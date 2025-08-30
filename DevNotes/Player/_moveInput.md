@@ -5,5 +5,5 @@
 	- #Boost & #Back 
 		- for `func _boost()`
 - The `func` also checks #Crashed, as determined by  `func _crash()`
-	- `if` `false`, the inputs are returned
-	- `if` `true`, a `Vector2` set to `(0, 0)` is returned
+	- `if` `false`: the inputs are returned
+	- `if` `true`: a `Vector2` set to `(0, 0)` is returned

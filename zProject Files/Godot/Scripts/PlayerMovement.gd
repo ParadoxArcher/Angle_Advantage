@@ -10,13 +10,14 @@ extends CharacterBody2D
 ## [Step Size, Step Strength]
 @export var FrictReductionStep := [.04, .08] 
 
-## BoostDecay
-var BoostStorage := .0
-@export var DecayRate := .015
-@export var DecayReleaseScaler = .8
+## BoostStorage
+var _BoostStorage := .0
+@export var StorageGrowth := .04
+@export var StorageDecay := .02
+@export var StorageReleaseScaler = .8
 
 ## Rotation
-var RotationSpeed := .0
+var _RotationSpeed := .0
 @export var MaxRota := PI/24
 @export var RotaAccelRate := .02
 @export var RotaFriction := .01
@@ -36,15 +37,31 @@ var RotaAccelModif := 1.0
 ## [0: Minimum, 1: Maximum]
 @export var CrashTime := [.8, 1.6]
 @export var CrashImmunity := [false, .6] # {0: isActive, 1: CrashTimerMult}
-var Crashed := false
+var _Crashed := false
 #endregion
 
 #region Functions
 func _moveInput():
-	if not Crashed:
+	if not _Crashed: 
 		return Vector2(Input.get_axis("RotateLeft", "RotateRight"), Input.get_axis("Boost", "Back"))
 	else:
 		return Vector2(0, 0)
+
+func _boost(YInput: float):
+	YInput *= -1
+	if YInput > 0 or _BoostStorage > 0:
+		var StorageRelease: float = _boostStorage(YInput)
+		return AccelRate * _BoostStorage * StorageRelease
+	else:
+		return 0
+
+func _boostStorage(YInput: float):
+	if YInput / StorageReleaseScaler >= _BoostStorage:
+		_BoostStorage += clampf(StorageGrowth * YInput, 0, YInput - _BoostStorage)
+		return 1
+	else:
+		_BoostStorage -= clampf(StorageDecay, 0, _BoostStorage)
+		return StorageReleaseScaler
 
 func _friction(VelLength):
 	var TotalFriction := Friction
@@ -52,36 +69,20 @@ func _friction(VelLength):
 	if VelLength <= FrictReductionPoint * MaxSpeed:
 		TotalFriction *= (((VelLength / MaxSpeed ) + FrictReductionStep[0] ) / FrictReductionStep[0] ) * FrictReductionStep[1]
 	
-	if Input.is_action_pressed("Brake") and not Crashed:
+	if Input.is_action_pressed("Brake") and not _Crashed:
 		TotalFriction *= BrakeFrictionMult
 	
 	return TotalFriction
 
-func _boost(YInput: float):
-	YInput *= -1
-	if YInput > 0 or BoostStorage > 0:		
-		var ReleasedDecay: float = _boostDecay(YInput)
-		return AccelRate * BoostStorage * ReleasedDecay
-	else:
-		return 0
-
-func _boostDecay(YInput: float):
-	if YInput / DecayReleaseScaler >= BoostStorage:
-		BoostStorage += clampf(2.5 * DecayRate * YInput, 0, YInput - BoostStorage)
-		return 1
-	else:
-		BoostStorage -= clampf(DecayRate, 0, BoostStorage)
-		return DecayReleaseScaler
-
 func _rotationSpeed(XInput):
 	var RotaAcceleration := RotaFriction # RotaAcceleration is being used as RotaFriction as RotaFriction is the default result anyways
-	if Input.is_action_pressed("Brake") and not Crashed:
+	if Input.is_action_pressed("Brake") and not _Crashed:
 		RotaAcceleration *= BrakeRotaFrictionMult
 	if XInput != 0: 
-		var CounterSteer = absf((RotationSpeed / MaxRota ) - XInput) * CounterSteerRate
+		var CounterSteer = absf((_RotationSpeed / MaxRota ) - XInput) * CounterSteerRate
 		RotaAcceleration = (RotaAcceleration * CounterSteer ) + (RotaAccelRate * RotaAccelModif )
 		
-	RotationSpeed = lerpf(RotationSpeed, XInput * MaxRota, clampf(RotaAcceleration, 0, 1))
+	_RotationSpeed = lerpf(_RotationSpeed, XInput * MaxRota, clampf(RotaAcceleration, 0, 1))
 		
 	if RotaAccelModif != 1:
 		RotaAccelModif -= clampf((RotaAccelModif - 1 ) * RotaModifDecay, 0, RotaAccelModif - 1)
@@ -91,10 +92,10 @@ func crash(CrashTimeScaler):
 		return
 	
 	CrashImmunity[0] = true
-	Crashed = true
+	_Crashed = true
 	var CrashTimer = lerpf(CrashTime[0], CrashTime[1], CrashTimeScaler)
 	await get_tree().create_timer(CrashTimer, true, true).timeout
-	Crashed = false
+	_Crashed = false
 	await get_tree().create_timer(CrashImmunity[1] * CrashTimer, true, true).timeout
 	CrashImmunity[0] = false
 
@@ -102,11 +103,12 @@ func dodge(DodgeDir):
 	if DodgeDir.normalized().is_zero_approx():
 		DodgeDir = Vector2(0,-1)
 	
-	BoostStorage = 0
+	_BoostStorage = 0
 	RotaAccelModif += RotaAccelRate * DodgeRotaAccel
 	
 	velocity = (velocity / 2 ) + MaxSpeed * DodgeSpeed * DodgeDir.rotated(rotation + PI/2)
 #endregion
+
 
 func _physics_process(_delta):
 	#region Setup
@@ -115,11 +117,11 @@ func _physics_process(_delta):
 	#endregion
 	
 	#region Transform
-	if Input.is_action_just_pressed("Dodge") and not Crashed:
+	if Input.is_action_just_pressed("Dodge") and not _Crashed:
 		dodge(Vector2(MoveInput.x, MoveInput.y).normalized())
 	
 	_rotationSpeed(MoveInput.x)
-	rotate(RotationSpeed)
+	rotate(_RotationSpeed)
 	
 	var TotalFriction = _friction(VelLength)
 	var Acceleration: float = _boost(MoveInput.y)

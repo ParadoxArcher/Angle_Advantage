@@ -13,12 +13,12 @@ extends Node2D
 
 #region Functions
 func _boostVFX():
-	if Input.get_action_strength("Boost") > 0 or Player.BoostStorage > .4:
+	if Input.get_action_strength("Boost") > 0 or Player._BoostStorage > .4:
 		boost_VFX_particle.emitting = true
 	else:
 		boost_VFX_particle.emitting = false
 	
-	var RedFilter = 1 - clampf((Player.BoostStorage / 1.5 ), 0, 1)
+	var RedFilter = 1 - clampf((Player._BoostStorage / 1.5 ), 0, 1)
 	boost_sprite.material.set_shader_parameter("RedFilter", RedFilter)
 
 func _velocityVFX():
