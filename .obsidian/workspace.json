@@ -61,7 +61,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Devlogs/2025-08-28.md",
+                "file": "DevNotes/Player/PlayerMovementScript.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -76,7 +76,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "2025-08-28"
+              "title": "PlayerMovementScript"
             }
           },
           {
@@ -143,7 +143,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -301,13 +301,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Devlogs/2025-08-28.md",
+                "file": "DevNotes/Player/_friction.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 2025-08-28"
+              "title": "Outline of _friction"
             }
           }
         ],
@@ -332,13 +332,14 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "8c28eff34b6cd346",
+  "active": "19a63c6a3244d1fd",
   "lastOpenFiles": [
+    "DevNotes/Player/PlayerMovementScript.md",
+    "Devlogs/2025-08-26.md",
+    "Devlogs/2025-08-28.md",
+    "DevNotes/Player/_friction.md",
     "zProject Files/Godot/Scripts/PlaC843.tmp",
     "zProject Files/Godot/Scenes/GamC831.tmp",
-    "Devlogs/2025-08-26.md",
-    "DevNotes/Player/PlayerMovementScript.md",
-    "DevNotes/Player/_friction.md",
     "DevNotes/Player/_moveInput.md",
     "DevNotes/Player/_boost.md",
     "zProject Files/Godot/Scripts/PlaA2EB.tmp",
@@ -351,12 +352,10 @@
     "zProject Files/Godot/Scripts/PlaF44D.tmp",
     "zProject Files/Godot/Scenes/Pla98D3.tmp",
     "zProject Files/Godot/Shaders/Boo96F2.tmp",
-    "zProject Files/Godot/Scenes/Gam96CF.tmp",
     "Devlogs/2025-08-29.md",
     "zReferences/Excalidraw/Thought splurge.md",
     "DevNotes/ToDoList.md",
     "DevNotes/Player/Movement/Boost.md",
-    "Devlogs/2025-08-28.md",
     "Devlogs/2025-08-27.md",
     "DevNotes/Player/Movement/Rotation.md",
     "DevNotes/Player/Movement/Dodge.md",
