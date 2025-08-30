@@ -80,6 +80,30 @@
             }
           },
           {
+            "id": "d00c26454921236c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "DevNotes/Player/_moveInput.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "_moveInput"
+            }
+          },
+          {
             "id": "19a63c6a3244d1fd",
             "type": "leaf",
             "state": {
@@ -143,7 +167,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -334,13 +358,14 @@
   },
   "active": "19a63c6a3244d1fd",
   "lastOpenFiles": [
+    "DevNotes/Player/_moveInput.md",
     "DevNotes/Player/PlayerMovementScript.md",
     "DevNotes/Player/_friction.md",
+    "Devlogs/2025-08-29.md",
     "Devlogs/2025-08-26.md",
     "Devlogs/2025-08-28.md",
     "zProject Files/Godot/Scripts/PlaC843.tmp",
     "zProject Files/Godot/Scenes/GamC831.tmp",
-    "DevNotes/Player/_moveInput.md",
     "DevNotes/Player/_boost.md",
     "zProject Files/Godot/Scripts/PlaA2EB.tmp",
     "DevNotes/Player/_boostStorage.md",
@@ -352,7 +377,6 @@
     "zProject Files/Godot/Scripts/PlaF44D.tmp",
     "zProject Files/Godot/Scenes/Pla98D3.tmp",
     "zProject Files/Godot/Shaders/Boo96F2.tmp",
-    "Devlogs/2025-08-29.md",
     "zReferences/Excalidraw/Thought splurge.md",
     "DevNotes/ToDoList.md",
     "DevNotes/Player/Movement/Boost.md",

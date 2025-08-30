@@ -2,7 +2,8 @@
 - Creating a variable #TotalFriction, set it to a default equal to a predetermined #Friction, then;
 	- `if` #velocity`.length()` is `<=` #MaxSpeed times a #FrictionReductionPoint
 		- multiply #TotalFriction by 
-	- `if` Input
+	- `if` Input "Brake" is `true` `and` #Crashed is `false`, as determined by [[_crash]]
+		- multiply #TotalFriction by #BrakeFrictionMult
 - Inside `_physics_process()`
 	- `if` #velocity `!=` `0`
 		- Create a #TotalFriction variable equal to `_friction()` 
