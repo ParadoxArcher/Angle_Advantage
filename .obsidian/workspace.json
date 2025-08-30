@@ -85,7 +85,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DevNotes/Player/_boost.md",
+                "file": "DevNotes/Player/PlayerMovementScript.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -100,7 +100,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "_boost"
+              "title": "PlayerMovementScript"
             }
           },
           {
@@ -167,7 +167,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -324,13 +324,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DevNotes/Player/_boost.md",
+                "file": "DevNotes/Player/_boostStorage.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of _boost"
+              "title": "Outline of _boostStorage"
             }
           }
         ],
@@ -355,8 +355,11 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "0516a6c71233b1a0",
+  "active": "7ca4ac2952535d48",
   "lastOpenFiles": [
+    "DevNotes/Player/PlayerMovementScript.md",
+    "DevNotes/Player/Player.md",
+    "DevNotes/Player/_boost.md",
     "zProject Files/Godot/Scripts/Pla3E52.tmp",
     "zProject Files/Godot/Scenes/Gam4ADD.tmp",
     "DevNotes/Player/_boostStorage.md",
@@ -365,9 +368,6 @@
     "zProject Files/Godot/Scenes/Pla98D3.tmp",
     "zProject Files/Godot/Shaders/Boo96F2.tmp",
     "zProject Files/Godot/Scenes/Gam96CF.tmp",
-    "DevNotes/Player/PlayerMovementScript.md",
-    "DevNotes/Player/_boost.md",
-    "DevNotes/Player/Player.md",
     "DevNotes/Player/_moveInput.md",
     "Devlogs/2025-08-29.md",
     "zReferences/Excalidraw/Thought splurge.md",
@@ -383,7 +383,6 @@
     "zProject Files/Godot/Scenes/PlaCAE2.tmp",
     "zProject Files/Godot/proC44.tmp",
     "zProject Files/Godot/Scripts/PlayerMovement.gd",
-    "zProject Files/Godot/Scenes/Pla6E6B.tmp",
     "Devlogs/2025-08-26.md",
     "zProject Files/Godot/Assets/Player/DisplayArrows/Yellow Arrow.png",
     "zProject Files/Godot/Assets/Player/DisplayArrows/Red Arrow.png",
