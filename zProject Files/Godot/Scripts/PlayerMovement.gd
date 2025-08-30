@@ -13,7 +13,7 @@ extends CharacterBody2D
 ## BoostStorage
 var _BoostStorage := .0
 @export var StorageGrowth := .04
-@export var StorageDecay := .02
+@export var StorageDecay := .015
 @export var StorageReleaseScaler = .8
 
 ## Rotation
