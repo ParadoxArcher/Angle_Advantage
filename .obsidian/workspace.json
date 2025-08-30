@@ -167,7 +167,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -324,13 +324,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DevNotes/Player/PlayerMovementScript.md",
+                "file": "DevNotes/Player/_boost.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of PlayerMovementScript"
+              "title": "Outline of _boost"
             }
           }
         ],
@@ -355,11 +355,11 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "8c28eff34b6cd346",
+  "active": "738886a2eab057c4",
   "lastOpenFiles": [
-    "DevNotes/Player/_boostDecay.md",
-    "DevNotes/Player/_boost.md",
     "DevNotes/Player/PlayerMovementScript.md",
+    "DevNotes/Player/_boost.md",
+    "DevNotes/Player/_boostDecay.md",
     "Devlogs/2025-08-29.md",
     "DevNotes/Player/Player.md",
     "zReferences/Excalidraw/Thought splurge.md",
