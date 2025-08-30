@@ -143,7 +143,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -300,13 +300,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zReferences/Excalidraw/Thought splurge.md",
+                "file": "DevNotes/Player/_boost.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Thought splurge"
+              "title": "Outline of _boost"
             }
           }
         ],
@@ -331,16 +331,16 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "435608f7729f4aef",
+  "active": "738886a2eab057c4",
   "lastOpenFiles": [
-    "DevNotes/Player/_boost.md",
     "DevNotes/Player/PlayerMovementScript.md",
+    "DevNotes/Player/_boost.md",
+    "Devlogs/2025-08-29.md",
+    "DevNotes/Player/Player.md",
     "zReferences/Excalidraw/Thought splurge.md",
     "DevNotes/ToDoList.md",
     "DevNotes/Player/_moveInput.md",
-    "DevNotes/Player/Player.md",
     "DevNotes/Player/Movement/Boost.md",
-    "Devlogs/2025-08-29.md",
     "Devlogs/2025-08-28.md",
     "Devlogs/2025-08-27.md",
     "DevNotes/Player/Movement/Rotation.md",
