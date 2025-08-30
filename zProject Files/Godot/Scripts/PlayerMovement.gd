@@ -1,22 +1,22 @@
 extends CharacterBody2D
 
 #region Variables
-## Boost
+# Boost
 @export var MaxSpeed := 2000
 @export var AccelRate := .01
-@export var Friction := .002
-@export var BrakeFrictionMult := 5.0
-@export var FrictReductionPoint := .2
-## [Step Size, Step Strength]
-@export var FrictReductionStep := [.04, .08] 
-
-## BoostStorage
 var _BoostStorage := .0
 @export var StorageGrowth := .04
 @export var StorageDecay := .015
 @export var StorageReleaseScaler = .8
 
-## Rotation
+# Friction
+@export var Friction := .002
+@export var BrakeFrictionMult := 5.0
+@export var FrictReductionPoint := .2
+## [Step Size, Step Strength]
+@export var FrictReductionStep := [.04, .08]  
+
+# Rotation
 var _RotationSpeed := .0
 @export var MaxRota := PI/24
 @export var RotaAccelRate := .02
@@ -26,11 +26,11 @@ var _RotationSpeed := .0
 var RotaAccelModif := 1.0
 @export var RotaModifDecay := .1
 
-##Dodge
+# Dodge
 @export var DodgeSpeed := .75
 @export var DodgeRotaAccel := 4.
 
-##Crash && WallBounce
+# Crash && WallBounce
 @onready var wallbounce_angle = $%WallbounceMarker.position.angle()
 @export var BounceStrength := .3
 @export var CrashSpeed := .2
@@ -123,8 +123,8 @@ func _physics_process(_delta):
 	_rotationSpeed(MoveInput.x)
 	rotate(_RotationSpeed)
 	
-	var TotalFriction = _friction(VelLength)
 	var Acceleration: float = _boost(MoveInput.y)
+	var TotalFriction = _friction(VelLength)
 	
 	velocity -= clampf(TotalFriction * MaxSpeed, 0, VelLength) * velocity.normalized() # Momentum & Friction
 	velocity = lerp(velocity, MaxSpeed * Vector2.from_angle(rotation), Acceleration) # Acceleration

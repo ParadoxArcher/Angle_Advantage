@@ -6,4 +6,3 @@
 		- then, `return` `1` to do change nothing
 	- `else`: reduce #BoostStorage by a predetermined #StorageDecay. `clampf` to make prevent #BoostStorage from going below 0
 		- then, `return`  a predetermined #StorageReleaseScaler to cut acceleration when no input is being received
-- Call `_BoostStorage(MoveInput.y)`
