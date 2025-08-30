@@ -143,7 +143,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -195,7 +195,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#StorageReleaseScaler",
+                "query": "tag:#MaxSpeed",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -216,7 +216,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -300,13 +301,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DevNotes/Player/_friction.md",
+                "file": "DevNotes/Player/PlayerMovementScript.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of _friction"
+              "title": "Outline of PlayerMovementScript"
             }
           }
         ],
@@ -331,14 +332,15 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "19a63c6a3244d1fd",
+  "active": "8c28eff34b6cd346",
   "lastOpenFiles": [
-    "DevNotes/Player/PlayerMovementScript.md",
     "DevNotes/Player/_friction.md",
+    "DevNotes/Player/PlayerMovementScript.md",
+    "DevNotes/Player/_moveInput.md",
     "DevNotes/Player/_boost.md",
+    "zProject Files/Godot/Scripts/PlaA2EB.tmp",
     "DevNotes/Player/_boostStorage.md",
     "zProject Files/Godot/Scripts/Pla503C.tmp",
-    "DevNotes/Player/_moveInput.md",
     "DevNotes/Player/Player.md",
     "zProject Files/Godot/Scripts/Pla3E52.tmp",
     "zProject Files/Godot/Scenes/Gam4ADD.tmp",
@@ -359,7 +361,6 @@
     "DevNotes/Player/Movement/Movement Visualizer.md",
     "DevNotes/Player/Movement/Boost VFX.md",
     "zProject Files/Godot/Scenes/PlaCAE2.tmp",
-    "zProject Files/Godot/proC44.tmp",
     "Devlogs/2025-08-26.md",
     "zProject Files/Godot/Assets/Player/DisplayArrows/Yellow Arrow.png",
     "zProject Files/Godot/Assets/Player/DisplayArrows/Red Arrow.png",

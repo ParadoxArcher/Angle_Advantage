@@ -64,6 +64,7 @@ func _boostStorage(YInput: float):
 		return StorageReleaseScaler
 
 func _friction(VelLength):
+	
 	var TotalFriction := Friction
 	
 	if VelLength <= FrictReductionPoint * MaxSpeed:
@@ -123,11 +124,12 @@ func _physics_process(_delta):
 	_rotationSpeed(MoveInput.x)
 	rotate(_RotationSpeed)
 	
+	if VelLength != 0:
+		var TotalFriction = _friction(VelLength)
+		velocity -= velocity.normalized() * clampf(TotalFriction * MaxSpeed, 0, VelLength)
 	var Acceleration: float = _boost(MoveInput.y)
-	var TotalFriction = _friction(VelLength)
-	
-	velocity -= clampf(TotalFriction * MaxSpeed, 0, VelLength) * velocity.normalized() # Momentum & Friction
-	velocity = lerp(velocity, MaxSpeed * Vector2.from_angle(rotation), Acceleration) # Acceleration
+	if Acceleration != 0:
+		velocity = lerp(velocity, MaxSpeed * Vector2.from_angle(rotation), Acceleration)
 	move_and_slide()
 	#endregion
 	

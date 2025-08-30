@@ -4,7 +4,7 @@
 - Check if either #MoveInputY or #BoostStorage, as determined by [[_boostStorage]], are active
 	- `if` `True`: use a predefined #AccelRate, our #BoostStorage, and the #StorageRelease we receive from [[_boostStorage]]  to `return` our acceleration
 	- `else:` `return` `0`
-- Inside `_physics_proccess()`
+- Inside `_physics_process()`
 	- Create an #Acceleration variable equal to `_boost(MoveInput.y)` 
-	- Set #velocity to a `lerp` of itself towards the angle determined by our #rotation multiplied by a predetermined #MaxSpeed, the step size will be determined by #Acceleration
+	- `if` #Acceleration `!=` `0`, then set #velocity to a `lerp` of itself towards the angle determined by our #rotation multiplied by a predetermined #MaxSpeed, the step size will be determined by #Acceleration
 
