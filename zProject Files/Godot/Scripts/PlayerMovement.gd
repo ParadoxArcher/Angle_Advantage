@@ -29,7 +29,6 @@ var RotaAccelModif := 1.0
 # Dodge
 @export var DodgeSpeed := .75
 @export var DodgeRotaAccel := 4.
-
 # Crash && WallBounce
 @onready var wallbounce_angle = $%WallbounceMarker.position.angle()
 @export var BounceStrength := .3
@@ -110,6 +109,17 @@ func dodge(DodgeDir):
 	velocity = (velocity / 2 ) + MaxSpeed * DodgeSpeed * DodgeDir.rotated(rotation + PI/2)
 #endregion
 
+func _collided(WallNormal):
+	var Bounciness = BounceStrength
+	var CollisionAngle = abs(pingpong(WallNormal.angle() - rotation, TAU) - PI)
+	var Impact = velocity.length() / MaxSpeed * (1 - (CollisionAngle / (PI - wallbounce_angle ) ) )
+	
+	if CollisionAngle <= wallbounce_angle and Impact >= CrashSpeed:
+		crash((Impact - CrashSpeed ) * (1 / (1 - CrashSpeed ) ))
+	elif CollisionAngle >= wallbounce_angle:
+		Bounciness *= (1 / BounceStrength)
+		
+	velocity = velocity.bounce(WallNormal) * Vector2(lerpf(1, Bounciness, abs(WallNormal.x)), lerpf(1, Bounciness, abs(WallNormal.y)))
 
 func _physics_process(_delta):
 	#region Setup
@@ -130,20 +140,8 @@ func _physics_process(_delta):
 	var Acceleration: float = _boost(MoveInput.y)
 	if Acceleration != 0:
 		velocity = lerp(velocity, MaxSpeed * Vector2.from_angle(rotation), Acceleration)
-	move_and_slide()
-	#endregion
 	
-	#region Collision --- Crash && WallBounce
+	move_and_slide()
 	if is_on_wall():
-		var WallNormal = get_wall_normal()
-		var Bounciness = BounceStrength
-		var CollisionAngle = abs(pingpong(WallNormal.angle() - rotation, TAU) - PI)
-		var Impact = velocity.length() / MaxSpeed * (1 - (CollisionAngle / (PI - wallbounce_angle ) ) )
-		
-		if CollisionAngle <= wallbounce_angle and Impact >= CrashSpeed:
-			crash((Impact - CrashSpeed ) * (1 / (1 - CrashSpeed ) ))
-		elif CollisionAngle >= wallbounce_angle:
-			Bounciness *= (1 / BounceStrength)
-			
-		velocity = velocity.bounce(WallNormal) * Vector2(lerpf(1, Bounciness, abs(WallNormal.x)), lerpf(1, Bounciness, abs(WallNormal.y)))
+		_collided(get_wall_normal())
 	#endregion

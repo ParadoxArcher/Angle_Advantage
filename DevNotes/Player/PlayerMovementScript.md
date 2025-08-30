@@ -10,4 +10,6 @@
 ![[_friction#Decelerate velocity in any direction we aren't actively accelerating towards]]
 
 
-### `_physics
+### `_physics_process()`
+- Uses #VelLength as a reference for #velocity`.length()
+	- Passed into [[_friction]] as well

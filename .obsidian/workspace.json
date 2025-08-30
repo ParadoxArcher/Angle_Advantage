@@ -61,7 +61,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DevNotes/Player/PlayerMovementScript.md",
+                "file": "Devlogs/2025-08-28.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -76,7 +76,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "PlayerMovementScript"
+              "title": "2025-08-28"
             }
           },
           {
@@ -301,13 +301,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DevNotes/Player/PlayerMovementScript.md",
+                "file": "Devlogs/2025-08-28.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of PlayerMovementScript"
+              "title": "Outline of 2025-08-28"
             }
           }
         ],
@@ -334,8 +334,11 @@
   },
   "active": "8c28eff34b6cd346",
   "lastOpenFiles": [
-    "DevNotes/Player/_friction.md",
+    "zProject Files/Godot/Scripts/PlaC843.tmp",
+    "zProject Files/Godot/Scenes/GamC831.tmp",
+    "Devlogs/2025-08-26.md",
     "DevNotes/Player/PlayerMovementScript.md",
+    "DevNotes/Player/_friction.md",
     "DevNotes/Player/_moveInput.md",
     "DevNotes/Player/_boost.md",
     "zProject Files/Godot/Scripts/PlaA2EB.tmp",
@@ -360,8 +363,6 @@
     "DevNotes/Player/Movement/Crash & Wall Bounce.md",
     "DevNotes/Player/Movement/Movement Visualizer.md",
     "DevNotes/Player/Movement/Boost VFX.md",
-    "zProject Files/Godot/Scenes/PlaCAE2.tmp",
-    "Devlogs/2025-08-26.md",
     "zProject Files/Godot/Assets/Player/DisplayArrows/Yellow Arrow.png",
     "zProject Files/Godot/Assets/Player/DisplayArrows/Red Arrow.png",
     "zProject Files/Godot/Assets/Player/DisplayArrows/Green Arrow.png",
