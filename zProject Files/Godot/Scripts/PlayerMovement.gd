@@ -140,5 +140,7 @@ func _physics_process(_delta):
 	
 	move_and_slide()
 	if is_on_wall():
+		print(get_wall_normal())
+		print(get_last_slide_collision().get_normal())
 		_collided(get_wall_normal())
 	#endregion
