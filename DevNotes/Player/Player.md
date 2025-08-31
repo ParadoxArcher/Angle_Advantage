@@ -20,9 +20,17 @@
 			- inability to react in any reasonable timeline
 - Visuals
 	- Player Sprite
+		- Some combination of either:
+			- Spaceship design
+			- Simple geometric shape
+	- Velocity VFX
+		- shock wave effect
+		- delayed 
 	- Boost VFX
 		- Sprite that becomes progressively larger and more active as accelerated acceleration becomes larger
-		- Particle system to resemble soot particles in a flame6
+		- Particle system to resemble soot particles in a flame
+	- Action VFX
+		- particles to symbolize
 
 ### Adjustment Log
 1) [[2025-01-23]]
