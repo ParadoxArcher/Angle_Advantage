@@ -61,7 +61,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DevNotes/Player/_rotationSpeed.md",
+                "file": "Devlogs/2025-08-29.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -76,7 +76,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "_rotationSpeed"
+              "title": "2025-08-29"
             }
           },
           {
@@ -118,8 +118,7 @@
               "title": "ToDoList"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -276,13 +275,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DevNotes/Player/_rotationSpeed.md",
+                "file": "Devlogs/2025-08-29.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of _rotationSpeed"
+              "title": "Outline of 2025-08-29"
             }
           }
         ],
@@ -307,11 +306,11 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "8c28eff34b6cd346",
+  "active": "b18ab1c5ffc31710",
   "lastOpenFiles": [
-    "DevNotes/Player/PlayerMovementScript.md",
     "DevNotes/Player/_rotationSpeed.md",
     "zReferences/Excalidraw/Thought splurge.md",
+    "DevNotes/Player/PlayerMovementScript.md",
     "DevNotes/Player/Player.md",
     "DevNotes/Player/_friction.md",
     "Devlogs/2025-08-29.md",
