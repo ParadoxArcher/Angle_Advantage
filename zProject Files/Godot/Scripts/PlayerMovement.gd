@@ -140,12 +140,11 @@ func _physics_process(_delta):
 	
 	move_and_slide()
 	
-	for _each in get_slide_collision_count():
-		var _CollisionLocal = to_local(get_slide_collision(_each).get_position())
-		print(_CollisionLocal.normalized(), _CollisionLocal.length(), _RotationVelocity)
-		var _InertiaAngle = get_wall_normal() # * abs(_CollisionLocal.normalized())  #.rotated(sign(_CollisionLocal.y) * _RotationVelocity)
-		velocity += _InertiaAngle * _CollisionLocal.length() * abs(_RotationVelocity) * 100
-	
 	if is_on_wall():
 		_collided(get_wall_normal())
+		
+		for _each in get_slide_collision_count():
+			var _CollisionLocal = to_local(get_slide_collision(_each).get_position())
+			var _InertiaAngle = get_wall_normal().rotated(sign(_RotationVelocity) * PI/4 * abs(_RotationVelocity / MaxRota ))
+			velocity += _InertiaAngle * _CollisionLocal.length() * abs(_RotationVelocity) * 10
 	#endregion
