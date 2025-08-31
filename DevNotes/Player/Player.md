@@ -1,12 +1,20 @@
 ### The character the user plays as Emulating [[Data Wing]] movement
 
 #### Components
-- Movement
-	- Acceleration, relative to rotation
-		- should 
-	- Floaty Deceleration
-		- Emulates the feel of a spaceship in space, making movement more difficult as 
-	- 
+- Core Movement
+	- Difficult & floaty, top-down Movement, reminiscent of a spaceship in space
+		- low-friction momentum
+			- obfuscates timing of when a player needs to turn behind comprehension
+		- acceleration locked to player rotation
+			- requires the player to track their rotation to move
+		- Accelerated rotation
+			- obfuscates the player's current and future rotation behind comprehension
+		- 
+- Movement options
+	- Brakes
+		- an option to enable tighter movements by removing momentum
+	- Dodge
+		- a burst of speed to overcome the slow acceleration, may choose to expand this to c
 - Visuals
 	1) PlayerSprite
 

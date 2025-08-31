@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Devlogs/2025-08-29.md",
+                "file": "DevNotes/Player/Player.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -52,7 +52,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "2025-08-29"
+              "title": "Player"
             }
           },
           {
@@ -95,7 +95,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -252,13 +252,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DevNotes/ToDoList.md",
+                "file": "DevNotes/Player/Player.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of ToDoList"
+              "title": "Outline of Player"
             }
           }
         ],
@@ -283,8 +283,11 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "2b906768df75cac8",
+  "active": "8c28eff34b6cd346",
   "lastOpenFiles": [
+    "Devlogs/2025-08-29.md",
+    "zReferences/Excalidraw/Thought splurge.md",
+    "DevNotes/ToDoList.md",
     "DevNotes/Player/Player.md",
     "DevNotes/Player/Movement/Movement Visualizer.md",
     "DevNotes/Player/Movement/Crash & Wall Bounce.md",
@@ -298,9 +301,7 @@
     "DevNotes/Player/_friction.md",
     "DevNotes/Player/_moveInput.md",
     "DevNotes/Player/PlayerMovementScript.md",
-    "Devlogs/2025-08-29.md",
     "DevNotes/Player/_rotationSpeed.md",
-    "zReferences/Excalidraw/Thought splurge.md",
     "Devlogs/2025-08-26.md",
     "Devlogs/2025-08-28.md",
     "zProject Files/Godot/Scripts/PlaC843.tmp",
@@ -313,7 +314,6 @@
     "zProject Files/Godot/Scripts/PlaF44D.tmp",
     "zProject Files/Godot/Scenes/Pla98D3.tmp",
     "zProject Files/Godot/Shaders/Boo96F2.tmp",
-    "DevNotes/ToDoList.md",
     "Devlogs/2025-08-27.md",
     "zProject Files/Godot/Assets/Player/DisplayArrows/Yellow Arrow.png",
     "zProject Files/Godot/Assets/Player/DisplayArrows/Red Arrow.png",
