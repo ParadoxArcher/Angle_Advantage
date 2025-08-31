@@ -11,7 +11,6 @@
 			- further obfuscates a player's movement behind comprehension
 		- Accelerated rotation
 			- obfuscates the player's current and future rotation behind comprehension
-	- 
 - Movement options
 	- Brakes
 		- an option to enable tighter movements by removing momentum
@@ -19,6 +18,9 @@
 		- lightens the penalties afflicted by drastically slow acceleration, such as:
 			- snail paced 0 to 60 problem
 			- inability to react in any reasonable timeline
+	- Bounces on the back end of player
+		- offers another option for retaining momentum 
+		- angle limitation provides difficulty and restriction to 
 - Visuals
 	- Player Sprite
 		- Some combination of either:
@@ -37,7 +39,7 @@
 		- particles to represent bounce strength
 		- sprite trail during dodges
 			- grants greater feedback for all players when a dodge has been used
-		- cooldown indicator behind 
+		- cooldown indicator for player dodges
 
 ### Adjustment Log
 1) [[2025-01-23]]
