@@ -7,16 +7,22 @@
 			- obfuscates timing of when a player needs to turn behind comprehension
 		- acceleration locked to player rotation
 			- requires the player to track their rotation to move
+		- accelerated acceleration
+			- further obfuscates a player's movement behind comprehension
 		- Accelerated rotation
 			- obfuscates the player's current and future rotation behind comprehension
-		- 
 - Movement options
 	- Brakes
 		- an option to enable tighter movements by removing momentum
 	- Dodge
-		- a burst of speed to overcome the slow acceleration, may choose to expand this to c
+		- lightens the penalties afflicted by drastically slow acceleration, such as:
+			- snail paced 0 to 60 problem
+			- inability to react in any reasonable timeline
 - Visuals
-	1) PlayerSprite
+	- Player Sprite
+	- Boost VFX
+		- Sprite that becomes progressively larger and more active as accelerated acceleration becomes larger
+		- Particle system to resemble soot particles in a flame6
 
 ### Adjustment Log
 1) [[2025-01-23]]

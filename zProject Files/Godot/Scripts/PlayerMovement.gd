@@ -63,14 +63,11 @@ func _boostStorage(YInput: float):
 		return StorageReleaseScaler
 
 func _friction(VelLength):
-	
 	var TotalFriction := Friction
-	
-	if VelLength <= FrictReductionPoint * MaxSpeed:
-		TotalFriction *= (((VelLength / MaxSpeed ) + FrictReductionStep[0] ) / FrictReductionStep[0] ) * FrictReductionStep[1]
-	
 	if Input.is_action_pressed("Brake") and not _Crashed:
 		TotalFriction *= BrakeFrictionMult
+	if VelLength <= FrictReductionPoint * MaxSpeed:
+		TotalFriction *= (((VelLength / MaxSpeed ) + FrictReductionStep[0] ) / FrictReductionStep[0] ) * FrictReductionStep[1] 
 	
 	return TotalFriction
 
@@ -107,7 +104,6 @@ func dodge(DodgeDir):
 	RotaAccelModif += RotaAccelRate * DodgeRotaAccel
 	
 	velocity = (velocity / 2 ) + MaxSpeed * DodgeSpeed * DodgeDir.rotated(rotation + PI/2)
-#endregion
 
 func _collided(WallNormal):
 	var Bounciness = BounceStrength
@@ -120,6 +116,7 @@ func _collided(WallNormal):
 		Bounciness *= (1 / BounceStrength)
 		
 	velocity = velocity.bounce(WallNormal) * Vector2(lerpf(1, Bounciness, abs(WallNormal.x)), lerpf(1, Bounciness, abs(WallNormal.y)))
+#endregion
 
 func _physics_process(_delta):
 	#region Setup
