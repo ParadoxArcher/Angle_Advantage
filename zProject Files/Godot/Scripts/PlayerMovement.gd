@@ -17,7 +17,7 @@ var _BoostStorage := .0
 @export var FrictReductionStep := [.04, .08]  
 
 # Rotation
-var _RotationSpeed := .0
+var _RotationVelocity := .0
 @export var MaxRota := PI/24
 @export var RotaAccelRate := .02
 @export var RotaFriction := .01
@@ -71,15 +71,15 @@ func _friction(VelLength):
 	
 	return TotalFriction
 
-func _rotationSpeed(XInput):
+func _rotationVelocity(XInput):
 	var RotaAcceleration := RotaFriction # RotaAcceleration is being used as RotaFriction as RotaFriction is the default result anyways
 	if Input.is_action_pressed("Brake") and not _Crashed:
 		RotaAcceleration *= BrakeRotaFrictionMult
 	if XInput != 0: 
-		var CounterSteer = absf((_RotationSpeed / MaxRota ) - XInput) * CounterSteerRate
+		var CounterSteer = absf((_RotationVelocity / MaxRota ) - XInput) * CounterSteerRate
 		RotaAcceleration = (RotaAcceleration * CounterSteer ) + (RotaAccelRate * RotaAccelModif )
 		
-	_RotationSpeed = lerpf(_RotationSpeed, XInput * MaxRota, clampf(RotaAcceleration, 0, 1))
+	_RotationVelocity = lerpf(_RotationVelocity, XInput * MaxRota, clampf(RotaAcceleration, 0, 1))
 		
 	if RotaAccelModif != 1:
 		RotaAccelModif -= clampf((RotaAccelModif - 1 ) * RotaModifDecay, 0, RotaAccelModif - 1)
@@ -105,42 +105,45 @@ func dodge(DodgeDir):
 	
 	velocity = (velocity / 2 ) + MaxSpeed * DodgeSpeed * DodgeDir.rotated(rotation + PI/2)
 
-func _collided(WallNormal):
-	var Bounciness = BounceStrength
-	var CollisionAngle = abs(pingpong(WallNormal.angle() - rotation, TAU) - PI)
-	var Impact = velocity.length() / MaxSpeed * (1 - (CollisionAngle / (PI - wallbounce_angle ) ) )
+func _collided(_WallNormal):
+	var _Bounciness = BounceStrength
+	var _CollisionAngle = abs(pingpong(_WallNormal.angle() - rotation, TAU) - PI)
+	var _Impact = velocity.length() / MaxSpeed * (1 - (_CollisionAngle / (PI - wallbounce_angle ) ) )
 	
-	if CollisionAngle <= wallbounce_angle and Impact >= CrashSpeed:
-		crash((Impact - CrashSpeed ) * (1 / (1 - CrashSpeed ) ))
-	elif CollisionAngle >= wallbounce_angle:
-		Bounciness *= (1 / BounceStrength)
+	if _CollisionAngle <= wallbounce_angle and _Impact >= CrashSpeed:
+		crash((_Impact - CrashSpeed ) * (1 / (1 - CrashSpeed ) ))
+	elif _CollisionAngle >= wallbounce_angle:
+		_Bounciness *= (1 / BounceStrength)
 		
-	velocity = velocity.bounce(WallNormal) * Vector2(lerpf(1, Bounciness, abs(WallNormal.x)), lerpf(1, Bounciness, abs(WallNormal.y)))
+	velocity = velocity.bounce(_WallNormal) * Vector2(lerpf(1, _Bounciness, abs(_WallNormal.x)), lerpf(1, _Bounciness, abs(_WallNormal.y)))
 #endregion
 
 func _physics_process(_delta):
 	#region Setup
-	var VelLength = velocity.length()
-	var MoveInput: Vector2 = _moveInput()
+	var _VelLength = velocity.length()
+	var _MoveInput: Vector2 = _moveInput()
 	#endregion
 	
 	#region Transform
 	if Input.is_action_just_pressed("Dodge") and not _Crashed:
-		dodge(Vector2(MoveInput.x, MoveInput.y).normalized())
+		dodge(Vector2(_MoveInput.x, _MoveInput.y).normalized())
 	
-	_rotationSpeed(MoveInput.x)
-	rotate(_RotationSpeed)
+	_rotationVelocity(_MoveInput.x)
+	rotate(_RotationVelocity)
 	
-	if VelLength != 0:
-		var TotalFriction = _friction(VelLength)
-		velocity -= velocity.normalized() * clampf(TotalFriction * MaxSpeed, 0, VelLength)
-	var Acceleration: float = _boost(MoveInput.y)
-	if Acceleration != 0:
-		velocity = lerp(velocity, MaxSpeed * Vector2.from_angle(rotation), Acceleration)
+	if _VelLength != 0:
+		var _TotalFriction = _friction(_VelLength)
+		velocity -= velocity.normalized() * clampf(_TotalFriction * MaxSpeed, 0, _VelLength)
+	var _Acceleration: float = _boost(_MoveInput.y)
+	if _Acceleration != 0:
+		velocity = lerp(velocity, MaxSpeed * Vector2.from_angle(rotation), _Acceleration)
 	
 	move_and_slide()
+	
+	for _each in get_slide_collision_count():
+		var _CollisionLocal = to_local(get_slide_collision(_each).get_position())
+		print(_CollisionLocal.normalized(), _CollisionLocal.length())
+	
 	if is_on_wall():
-		print(get_wall_normal())
-		print(get_last_slide_collision().get_normal())
 		_collided(get_wall_normal())
 	#endregion
