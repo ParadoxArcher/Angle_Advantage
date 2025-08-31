@@ -9,7 +9,7 @@
 ### `_friction()`
 ![[_friction#Decelerate velocity in any direction we aren't actively accelerating towards]]
 ### `_rotationSpeed()`
-![[_rotationSpeed]]
+![[_rotationSpeed#Handles rotation acceleration and deceleration]]
 
 ### `_physics_process()`
 - Uses #VelLength as a reference for #velocity`.length()

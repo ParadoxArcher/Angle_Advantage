@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DevNotes/Player/Player.md",
+                "file": "DevNotes/Player/PlayerMovementScript.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -52,7 +52,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "Player"
+              "title": "PlayerMovementScript"
             }
           },
           {
@@ -192,8 +192,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -310,8 +309,10 @@
   },
   "active": "8c28eff34b6cd346",
   "lastOpenFiles": [
-    "DevNotes/Player/PlayerMovementScript.md",
+    "zReferences/Excalidraw/Thought splurge.md",
     "DevNotes/Player/_rotationSpeed.md",
+    "DevNotes/Player/PlayerMovementScript.md",
+    "DevNotes/Player/Player.md",
     "DevNotes/Player/_friction.md",
     "Devlogs/2025-08-29.md",
     "DevNotes/Player/_moveInput.md",
@@ -323,14 +324,12 @@
     "zProject Files/Godot/Scripts/PlaA2EB.tmp",
     "DevNotes/Player/_boostStorage.md",
     "zProject Files/Godot/Scripts/Pla503C.tmp",
-    "DevNotes/Player/Player.md",
     "zProject Files/Godot/Scripts/Pla3E52.tmp",
     "zProject Files/Godot/Scenes/Gam4ADD.tmp",
     "zProject Files/Godot/Scripts/PlaEEA.tmp",
     "zProject Files/Godot/Scripts/PlaF44D.tmp",
     "zProject Files/Godot/Scenes/Pla98D3.tmp",
     "zProject Files/Godot/Shaders/Boo96F2.tmp",
-    "zReferences/Excalidraw/Thought splurge.md",
     "DevNotes/ToDoList.md",
     "DevNotes/Player/Movement/Boost.md",
     "Devlogs/2025-08-27.md",
