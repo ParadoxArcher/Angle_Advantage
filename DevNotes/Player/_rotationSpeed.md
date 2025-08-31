@@ -1,0 +1,1 @@
+###### Handles #rotation acceleration and deceleration

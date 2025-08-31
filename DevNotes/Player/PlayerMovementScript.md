@@ -8,7 +8,8 @@
 ![[_boostStorage#A prerequisite of _boost that tapers the release value of MoveInputY]]
 ### `_friction()`
 ![[_friction#Decelerate velocity in any direction we aren't actively accelerating towards]]
-
+### `_rotationSpeed()`
+![[_rotationSpeed]]
 
 ### `_physics_process()`
 - Uses #VelLength as a reference for #velocity`.length()
