@@ -11,6 +11,7 @@
 			- further obfuscates a player's movement behind comprehension
 		- Accelerated rotation
 			- obfuscates the player's current and future rotation behind comprehension
+	- 
 - Movement options
 	- Brakes
 		- an option to enable tighter movements by removing momentum
@@ -25,12 +26,18 @@
 			- Simple geometric shape
 	- Velocity VFX
 		- shock wave effect
-		- delayed 
+			- improves feedback on velocity
+		- Position Trail
 	- Boost VFX
 		- Sprite that becomes progressively larger and more active as accelerated acceleration becomes larger
+			- improves feedback on current acceleration
 		- Particle system to resemble soot particles in a flame
+			- variety in art
 	- Action VFX
-		- particles to symbolize
+		- particles to represent bounce strength
+		- sprite trail during dodges
+			- grants greater feedback for all players when a dodge has been used
+		- cooldown indicator behind 
 
 ### Adjustment Log
 1) [[2025-01-23]]
