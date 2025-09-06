@@ -56,7 +56,7 @@ safe_margin = 1.0
 script = ExtResource("1_2yqma")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(50, 0, -50, 40, -50, -40, -26, 12)
+polygon = PackedVector2Array(50, 0, -50, 40, -50, -40)
 
 [node name="WallbounceMarker" type="Marker2D" parent="CollisionPolygon2D"]
 unique_name_in_owner = true

@@ -3,7 +3,8 @@ extends CharacterBody2D
 #region Variables
 # Physics
 @export var Mass := 10.0
-@onready var BodyShape = $CollisionPolygon2D.polygon
+@onready var FirstShape = $CollisionPolygon2D.polygon
+var _BodyArea : float
 
 # Boost
 @export var MaxSpeed := 2000
@@ -46,6 +47,16 @@ var _Crashed := false
 #endregion
 
 #region Functions
+func set_Shape(BodyShape: PackedVector2Array):
+	if BodyShape.size() < 3:
+		print_debug("PlayerMovement.set_Shape().BodyShape.size() !>= 3")
+		return
+	
+	for each in range(BodyShape.size()):
+		_BodyArea += BodyShape[each].cross(BodyShape [(each + 1) % BodyShape.size()])
+	_BodyArea /= 2
+	print(_BodyArea)
+
 func _moveInput():
 	if not _Crashed: 
 		return Vector2(Input.get_axis("RotateLeft", "RotateRight"), Input.get_axis("Boost", "Back"))
@@ -93,6 +104,18 @@ func _rotationAccel(XInput):
 	
 	#return _RotationAccel
 
+func _collided(_WallNormal, _CollisionVelocity):
+	var _Bounciness = BounceStrength
+	var _CollisionAngle = abs(pingpong(_WallNormal.angle() - rotation, TAU) - PI)
+	var _Impact = _CollisionVelocity.length() / MaxSpeed * (1 - (_CollisionAngle / (PI - wallbounce_angle ) ) )
+	
+	if _CollisionAngle <= wallbounce_angle and _Impact >= CrashSpeed:
+		crash((_Impact - CrashSpeed ) * (1 / (1 - CrashSpeed ) ))
+	elif _CollisionAngle >= wallbounce_angle:
+		_Bounciness *= (1 / BounceStrength)
+		
+	velocity = _CollisionVelocity.bounce(_WallNormal) * Vector2(lerpf(1, _Bounciness, abs(_WallNormal.x)), lerpf(1, _Bounciness, abs(_WallNormal.y)))
+
 func crash(CrashTimeScaler):
 	if CrashImmunity[0]:
 		return
@@ -114,23 +137,10 @@ func dodge(DodgeDir):
 	
 	velocity = (velocity / 2 ) + MaxSpeed * DodgeSpeed * DodgeDir.rotated(rotation + PI/2)
 
-func _collided(_WallNormal, _CollisionVelocity):
-	var _Bounciness = BounceStrength
-	var _CollisionAngle = abs(pingpong(_WallNormal.angle() - rotation, TAU) - PI)
-	var _Impact = _CollisionVelocity.length() / MaxSpeed * (1 - (_CollisionAngle / (PI - wallbounce_angle ) ) )
-	
-	if _CollisionAngle <= wallbounce_angle and _Impact >= CrashSpeed:
-		crash((_Impact - CrashSpeed ) * (1 / (1 - CrashSpeed ) ))
-	elif _CollisionAngle >= wallbounce_angle:
-		_Bounciness *= (1 / BounceStrength)
-		
-	velocity = _CollisionVelocity.bounce(_WallNormal) * Vector2(lerpf(1, _Bounciness, abs(_WallNormal.x)), lerpf(1, _Bounciness, abs(_WallNormal.y)))
 #endregion
 
 func _ready():
-	for each in BodyShape:
-		print(BodyShape)
-		pass
+	set_Shape(FirstShape)
 
 func _physics_process(_delta):
 	#region Setup
