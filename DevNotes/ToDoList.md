@@ -6,6 +6,7 @@ kanban-plugin: board
 
 ## Current
 
+- [ ] [[Rotation Collision]]
 - [ ] Level Editor
 - [ ] Bezier curves for Level objects
 
@@ -17,8 +18,6 @@ kanban-plugin: board
 
 ## Soon
 
-- [ ] [[Player]] Flowchart
-- [ ] [[Rotation Collision]] add_constant_torque?
 - [ ] Learn and create particle shader
 - [ ] Braking VFX via [[Action VFX]]
 - [ ] WallBounce VFX via [[Action VFX]]
