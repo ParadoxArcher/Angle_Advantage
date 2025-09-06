@@ -17,7 +17,8 @@ var _BoostStorage := .0
 @export var FrictReductionStep := [.04, .08]  
 
 # Rotation
-var _RotationVelocity := .0
+var _Torque := .0
+@export var Inertia := .9
 @export var MaxRota := PI/24
 @export var RotaAccelRate := .02
 @export var RotaFriction := .01
@@ -71,15 +72,15 @@ func _friction(VelLength):
 	
 	return TotalFriction
 
-func _rotationVelocity(XInput):
+func _torque(XInput):
 	var RotaAcceleration := RotaFriction # RotaAcceleration is being used as RotaFriction as RotaFriction is the default result anyways
 	if Input.is_action_pressed("Brake") and not _Crashed:
 		RotaAcceleration *= BrakeRotaFrictionMult
 	if XInput != 0: 
-		var CounterSteer = absf((_RotationVelocity / MaxRota ) - XInput) * CounterSteerRate
+		var CounterSteer = absf((_Torque / MaxRota ) - XInput) * CounterSteerRate
 		RotaAcceleration = (RotaAcceleration * CounterSteer ) + (RotaAccelRate * RotaAccelModif )
 		
-	_RotationVelocity = lerpf(_RotationVelocity, XInput * MaxRota, clampf(RotaAcceleration, 0, 1))
+	_Torque = lerpf(_Torque, XInput * MaxRota, clampf(RotaAcceleration, 0, 1))
 		
 	if RotaAccelModif != 1:
 		RotaAccelModif -= clampf((RotaAccelModif - 1 ) * RotaModifDecay, 0, RotaAccelModif - 1)
@@ -128,8 +129,8 @@ func _physics_process(_delta):
 	if Input.is_action_just_pressed("Dodge") and not _Crashed:
 		dodge(Vector2(_MoveInput.x, _MoveInput.y).normalized())
 	
-	_rotationVelocity(_MoveInput.x)
-	rotate(_RotationVelocity)
+	_torque(_MoveInput.x)
+	rotate(_Torque)
 	
 	if _VelLength != 0:
 		var _TotalFriction = _friction(_VelLength)
@@ -147,9 +148,11 @@ func _physics_process(_delta):
 		for _each in get_slide_collision_count():
 			var _CollisionLocal = to_local(get_slide_collision(_each).get_position())
 			
-			#print(pingpong((-_CollisionLocal ).normalized().angle_to(_CollisionVelocity.normalized() - _CollisionLocal.normalized()) + PI/2, PI) - PI/2)
-			print(pingpong(_CollisionLocal.rotated(rotation).angle_to(_CollisionVelocity) + PI/2, PI) - PI/2)
-			#print(_CollisionLocal.rotated(rotation).angle_to(_CollisionVelocity))
-			var _InertiaAngle = get_wall_normal().rotated(sign(_RotationVelocity) * PI/4 * abs(_RotationVelocity / MaxRota ))
-			velocity += _InertiaAngle * _CollisionLocal.length() * abs(_RotationVelocity) * 10
+			var _VelocityToTorqueAngle = (pingpong(_CollisionLocal.rotated(rotation).angle_to(_CollisionVelocity) + PI/2, PI) - PI/2 ) / (PI/2 )
+			var _VelocityToTorque = _CollisionVelocity.length() * _CollisionLocal.length() * _VelocityToTorqueAngle
+			print(_VelocityToTorque)
+			#_Torque = (_Torque * Inertia ) + (_VelocityToTorque * (1 - Inertia ) )
+			
+			var _TorqueToVelocityAngle = get_wall_normal().rotated(sign(_Torque) * PI/4 * abs(_Torque / MaxRota ))
+			velocity += _TorqueToVelocityAngle * _CollisionLocal.length() * abs(_Torque) * 10#Inertia
 	#endregion
