@@ -105,17 +105,17 @@ func dodge(DodgeDir):
 	
 	velocity = (velocity / 2 ) + MaxSpeed * DodgeSpeed * DodgeDir.rotated(rotation + PI/2)
 
-func _collided(_WallNormal):
+func _collided(_WallNormal, _CollisionVelocity):
 	var _Bounciness = BounceStrength
 	var _CollisionAngle = abs(pingpong(_WallNormal.angle() - rotation, TAU) - PI)
-	var _Impact = velocity.length() / MaxSpeed * (1 - (_CollisionAngle / (PI - wallbounce_angle ) ) )
+	var _Impact = _CollisionVelocity.length() / MaxSpeed * (1 - (_CollisionAngle / (PI - wallbounce_angle ) ) )
 	
 	if _CollisionAngle <= wallbounce_angle and _Impact >= CrashSpeed:
 		crash((_Impact - CrashSpeed ) * (1 / (1 - CrashSpeed ) ))
 	elif _CollisionAngle >= wallbounce_angle:
 		_Bounciness *= (1 / BounceStrength)
 		
-	velocity = velocity.bounce(_WallNormal) * Vector2(lerpf(1, _Bounciness, abs(_WallNormal.x)), lerpf(1, _Bounciness, abs(_WallNormal.y)))
+	velocity = _CollisionVelocity.bounce(_WallNormal) * Vector2(lerpf(1, _Bounciness, abs(_WallNormal.x)), lerpf(1, _Bounciness, abs(_WallNormal.y)))
 #endregion
 
 func _physics_process(_delta):
@@ -141,13 +141,14 @@ func _physics_process(_delta):
 	move_and_slide()
 	
 	if is_on_wall():
-		_collided(get_wall_normal())
+		var _CollisionVelocity := velocity
+		_collided(get_wall_normal(), _CollisionVelocity)
 		
 		for _each in get_slide_collision_count():
 			var _CollisionLocal = to_local(get_slide_collision(_each).get_position())
 			
-			print(pingpong((-_CollisionLocal ).normalized().angle_to(velocity.normalized() - _CollisionLocal.normalized()) + PI/2, PI) - PI/2)
-			print((-_CollisionLocal ).normalized().angle_to(velocity.normalized() - _CollisionLocal.normalized()))
+			#print(pingpong((-_CollisionLocal ).normalized().angle_to(_CollisionVelocity.normalized() - _CollisionLocal.normalized()) + PI/2, PI) - PI/2)
+			print(_CollisionLocal.angle_to(_CollisionVelocity))
 			var _InertiaAngle = get_wall_normal().rotated(sign(_RotationVelocity) * PI/4 * abs(_RotationVelocity / MaxRota ))
 			velocity += _InertiaAngle * _CollisionLocal.length() * abs(_RotationVelocity) * 10
 	#endregion
