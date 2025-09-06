@@ -6,6 +6,9 @@ kanban-plugin: board
 
 ## Current
 
+- [ ] determine size to determine inertia
+- [ ] fully implement angular rotation
+- [ ] implement mass into velocity
 - [ ] Implement proper physics physics
 - [ ] Level Editor
 - [ ] Bezier curves for Level objects
