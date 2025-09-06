@@ -2,9 +2,15 @@ extends CharacterBody2D
 
 #region Variables
 # Physics
-@export var Mass := 10.0
+@export var Mass := 5.0
+@onready var CollisionShape = $CollisionPolygon2D
 @onready var FirstShape = $CollisionPolygon2D.polygon
 var _BodyArea : float
+
+@export var Inertia := 3.0
+var _RotaMomentum := .0
+@export var RotaFriction := .01
+@export var BrakeRotaFrictionMult := 4.0
 
 # Boost
 @export var MaxSpeed := 2000
@@ -22,12 +28,8 @@ var _BoostStorage := .0
 @export var FrictReductionStep := [.04, .08]  
 
 # Rotation
-var _RotationAccel := .0
-@export var Inertia := .98
 @export var MaxRotationSpeed := PI/24
 @export var AddTorqueRate := .02
-@export var TorqueFriction := .01
-@export var BrakeTorqueFrictionMult := 4.0
 @export var CounterSteerRate := .35
 var _AddTorqueModif := 1.0
 @export var AddTorqueModifDecay := .1
@@ -55,7 +57,9 @@ func set_Shape(BodyShape: PackedVector2Array):
 	for each in range(BodyShape.size()):
 		_BodyArea += BodyShape[each].cross(BodyShape [(each + 1) % BodyShape.size()])
 	_BodyArea /= 2
-	print(_BodyArea)
+	
+	if BodyShape != CollisionShape.polygon:
+		CollisionShape.polygon = BodyShape
 
 func _moveInput():
 	if not _Crashed: 
@@ -89,20 +93,20 @@ func _friction(VelLength):
 	return TotalFriction
 
 func _rotationAccel(XInput):
-	var RotaAcceleration := TorqueFriction # RotaAcceleration is being used as TorqueFriction as TorqueFriction is the default result anyways
+	var RotaAcceleration := RotaFriction # RotaAcceleration is being used as RotaFriction as RotaFriction is the default result anyways
 	if Input.is_action_pressed("Brake") and not _Crashed:
-		RotaAcceleration *= BrakeTorqueFrictionMult
+		RotaAcceleration *= BrakeRotaFrictionMult
 	if XInput != 0: 
-		var CounterSteer = absf((_RotationAccel / MaxRotationSpeed ) - XInput) * CounterSteerRate
+		var CounterSteer = absf((_RotaMomentum / MaxRotationSpeed ) - XInput) * CounterSteerRate
 		RotaAcceleration = (RotaAcceleration * CounterSteer ) + (AddTorqueRate * _AddTorqueModif )
 		
-	_RotationAccel = lerpf(_RotationAccel, XInput * MaxRotationSpeed, clampf(RotaAcceleration, 0, 1))
-	#var _RotationAccel = _RotationAccel / Inertia
+	_RotaMomentum = lerpf(_RotaMomentum, XInput * MaxRotationSpeed, clampf(RotaAcceleration, 0, 1))
 	
 	if _AddTorqueModif != 1:
 		_AddTorqueModif -= clampf((_AddTorqueModif - 1 ) * AddTorqueModifDecay, 0, _AddTorqueModif - 1)
 	
-	#return _RotationAccel
+	#return _RotaMomentum / Inertia
+	
 
 func _collided(_WallNormal, _CollisionVelocity):
 	var _Bounciness = BounceStrength
@@ -153,7 +157,8 @@ func _physics_process(_delta):
 		dodge(Vector2(_MoveInput.x, _MoveInput.y).normalized())
 	
 	_rotationAccel(_MoveInput.x)
-	rotate(_RotationAccel)
+	rotate(_RotaMomentum)
+	#rotate(_rotationSpeed())
 	
 	if _VelLength != 0:
 		var _TotalFriction = _friction(_VelLength)
@@ -174,8 +179,8 @@ func _physics_process(_delta):
 			var _VelocityToTorqueAngle = sin(_CollisionLocal.rotated(rotation).angle_to(_CollisionVelocity))
 			var _VelocityToTorque = _CollisionVelocity.length() * _CollisionLocal.length() * _VelocityToTorqueAngle
 			print(_VelocityToTorque * (1 - Inertia))
-			#_RotationAccel += _VelocityToTorque / Inertia
+			#_RotaMomentum += _VelocityToTorque / Inertia
 			
-			#var _RotationAccelToVelocityAngle = get_wall_normal().rotated(sign(_RotationAccel) * PI/4 * abs(_RotationAccel / MaxRotationSpeed ))
-			#velocity += _RotationAccelToVelocityAngle * _CollisionLocal.length() * abs(_RotationAccel) * 10#Inertia
+			#var _RotationAccelToVelocityAngle = get_wall_normal().rotated(sign(_RotaMomentum) * PI/4 * abs(_RotaMomentum / MaxRotationSpeed ))
+			#velocity += _RotationAccelToVelocityAngle * _CollisionLocal.length() * abs(_RotaMomentum) * 10#Inertia
 	#endregion
