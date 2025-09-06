@@ -18,7 +18,7 @@ var _BoostStorage := .0
 
 # Rotation
 var _Torque := .0
-@export var Inertia := .9
+@export var Inertia := .98
 @export var MaxRota := PI/24
 @export var RotaAccelRate := .02
 @export var RotaFriction := .01
@@ -148,11 +148,12 @@ func _physics_process(_delta):
 		for _each in get_slide_collision_count():
 			var _CollisionLocal = to_local(get_slide_collision(_each).get_position())
 			
-			var _VelocityToTorqueAngle = (pingpong(_CollisionLocal.rotated(rotation).angle_to(_CollisionVelocity) + PI/2, PI) - PI/2 ) / (PI/2 )
+			var _VelocityToTorqueAngle = sin(_CollisionLocal.rotated(rotation).angle_to(_CollisionVelocity))
+			print(_VelocityToTorqueAngle)
 			var _VelocityToTorque = _CollisionVelocity.length() * _CollisionLocal.length() * _VelocityToTorqueAngle
-			print(_VelocityToTorque)
+			print(_VelocityToTorque * (1 - Inertia))
 			#_Torque = (_Torque * Inertia ) + (_VelocityToTorque * (1 - Inertia ) )
 			
-			var _TorqueToVelocityAngle = get_wall_normal().rotated(sign(_Torque) * PI/4 * abs(_Torque / MaxRota ))
-			velocity += _TorqueToVelocityAngle * _CollisionLocal.length() * abs(_Torque) * 10#Inertia
+			#var _TorqueToVelocityAngle = get_wall_normal().rotated(sign(_Torque) * PI/4 * abs(_Torque / MaxRota ))
+			#velocity += _TorqueToVelocityAngle * _CollisionLocal.length() * abs(_Torque) * 10#Inertia
 	#endregion
