@@ -1,6 +1,10 @@
 extends CharacterBody2D
 
 #region Variables
+# Physics
+@export var Mass := 10.0
+@onready var BodyShape = $CollisionPolygon2D.polygon
+
 # Boost
 @export var MaxSpeed := 2000
 @export var AccelRate := .01
@@ -17,7 +21,7 @@ var _BoostStorage := .0
 @export var FrictReductionStep := [.04, .08]  
 
 # Rotation
-var _Torque := .0
+var _RotationAccel := .0
 @export var Inertia := .98
 @export var MaxRotationSpeed := PI/24
 @export var AddTorqueRate := .02
@@ -78,11 +82,11 @@ func _rotationAccel(XInput):
 	if Input.is_action_pressed("Brake") and not _Crashed:
 		RotaAcceleration *= BrakeTorqueFrictionMult
 	if XInput != 0: 
-		var CounterSteer = absf((_Torque / MaxRotationSpeed ) - XInput) * CounterSteerRate
+		var CounterSteer = absf((_RotationAccel / MaxRotationSpeed ) - XInput) * CounterSteerRate
 		RotaAcceleration = (RotaAcceleration * CounterSteer ) + (AddTorqueRate * _AddTorqueModif )
 		
-	_Torque = lerpf(_Torque, XInput * MaxRotationSpeed, clampf(RotaAcceleration, 0, 1))
-	#var _RotationAccel = _Torque / Inertia
+	_RotationAccel = lerpf(_RotationAccel, XInput * MaxRotationSpeed, clampf(RotaAcceleration, 0, 1))
+	#var _RotationAccel = _RotationAccel / Inertia
 	
 	if _AddTorqueModif != 1:
 		_AddTorqueModif -= clampf((_AddTorqueModif - 1 ) * AddTorqueModifDecay, 0, _AddTorqueModif - 1)
@@ -123,6 +127,11 @@ func _collided(_WallNormal, _CollisionVelocity):
 	velocity = _CollisionVelocity.bounce(_WallNormal) * Vector2(lerpf(1, _Bounciness, abs(_WallNormal.x)), lerpf(1, _Bounciness, abs(_WallNormal.y)))
 #endregion
 
+func _ready():
+	for each in BodyShape:
+		print(BodyShape)
+		pass
+
 func _physics_process(_delta):
 	#region Setup
 	var _VelLength = velocity.length()
@@ -134,7 +143,7 @@ func _physics_process(_delta):
 		dodge(Vector2(_MoveInput.x, _MoveInput.y).normalized())
 	
 	_rotationAccel(_MoveInput.x)
-	rotate(_Torque)
+	rotate(_RotationAccel)
 	
 	if _VelLength != 0:
 		var _TotalFriction = _friction(_VelLength)
@@ -155,8 +164,8 @@ func _physics_process(_delta):
 			var _VelocityToTorqueAngle = sin(_CollisionLocal.rotated(rotation).angle_to(_CollisionVelocity))
 			var _VelocityToTorque = _CollisionVelocity.length() * _CollisionLocal.length() * _VelocityToTorqueAngle
 			print(_VelocityToTorque * (1 - Inertia))
-			#_Torque = (_Torque * Inertia ) + (_VelocityToTorque * (1 - Inertia ) )
+			#_RotationAccel += _VelocityToTorque / Inertia
 			
-			#var _TorqueToVelocityAngle = get_wall_normal().rotated(sign(_Torque) * PI/4 * abs(_Torque / MaxRotationSpeed ))
-			#velocity += _TorqueToVelocityAngle * _CollisionLocal.length() * abs(_Torque) * 10#Inertia
+			#var _RotationAccelToVelocityAngle = get_wall_normal().rotated(sign(_RotationAccel) * PI/4 * abs(_RotationAccel / MaxRotationSpeed ))
+			#velocity += _RotationAccelToVelocityAngle * _CollisionLocal.length() * abs(_RotationAccel) * 10#Inertia
 	#endregion
