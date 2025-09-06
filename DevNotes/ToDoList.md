@@ -6,9 +6,7 @@ kanban-plugin: board
 
 ## Current
 
-- [ ] [[Rotation Collision]]
-- [ ] rotationvelocity to velocity adjustment for improved angle and lowered velocity gain
-- [ ] outside velocity & intertia to player interaction
+- [ ] Implement proper physics physics
 - [ ] Level Editor
 - [ ] Bezier curves for Level objects
 

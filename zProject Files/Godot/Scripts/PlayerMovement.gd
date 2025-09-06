@@ -19,17 +19,18 @@ var _BoostStorage := .0
 # Rotation
 var _Torque := .0
 @export var Inertia := .98
-@export var MaxRota := PI/24
-@export var RotaAccelRate := .02
-@export var RotaFriction := .01
-@export var BrakeRotaFrictionMult := 4.0
+@export var MaxRotationSpeed := PI/24
+@export var AddTorqueRate := .02
+@export var TorqueFriction := .01
+@export var BrakeTorqueFrictionMult := 4.0
 @export var CounterSteerRate := .35
-var RotaAccelModif := 1.0
-@export var RotaModifDecay := .1
+var _AddTorqueModif := 1.0
+@export var AddTorqueModifDecay := .1
 
 # Dodge
 @export var DodgeSpeed := .75
 @export var DodgeRotaAccel := 4.
+
 # Crash && WallBounce
 @onready var wallbounce_angle = $%WallbounceMarker.position.angle()
 @export var BounceStrength := .3
@@ -72,18 +73,21 @@ func _friction(VelLength):
 	
 	return TotalFriction
 
-func _torque(XInput):
-	var RotaAcceleration := RotaFriction # RotaAcceleration is being used as RotaFriction as RotaFriction is the default result anyways
+func _rotationAccel(XInput):
+	var RotaAcceleration := TorqueFriction # RotaAcceleration is being used as TorqueFriction as TorqueFriction is the default result anyways
 	if Input.is_action_pressed("Brake") and not _Crashed:
-		RotaAcceleration *= BrakeRotaFrictionMult
+		RotaAcceleration *= BrakeTorqueFrictionMult
 	if XInput != 0: 
-		var CounterSteer = absf((_Torque / MaxRota ) - XInput) * CounterSteerRate
-		RotaAcceleration = (RotaAcceleration * CounterSteer ) + (RotaAccelRate * RotaAccelModif )
+		var CounterSteer = absf((_Torque / MaxRotationSpeed ) - XInput) * CounterSteerRate
+		RotaAcceleration = (RotaAcceleration * CounterSteer ) + (AddTorqueRate * _AddTorqueModif )
 		
-	_Torque = lerpf(_Torque, XInput * MaxRota, clampf(RotaAcceleration, 0, 1))
-		
-	if RotaAccelModif != 1:
-		RotaAccelModif -= clampf((RotaAccelModif - 1 ) * RotaModifDecay, 0, RotaAccelModif - 1)
+	_Torque = lerpf(_Torque, XInput * MaxRotationSpeed, clampf(RotaAcceleration, 0, 1))
+	#var _RotationAccel = _Torque / Inertia
+	
+	if _AddTorqueModif != 1:
+		_AddTorqueModif -= clampf((_AddTorqueModif - 1 ) * AddTorqueModifDecay, 0, _AddTorqueModif - 1)
+	
+	#return _RotationAccel
 
 func crash(CrashTimeScaler):
 	if CrashImmunity[0]:
@@ -102,7 +106,7 @@ func dodge(DodgeDir):
 		DodgeDir = Vector2(0,-1)
 	
 	_BoostStorage = 0
-	RotaAccelModif += RotaAccelRate * DodgeRotaAccel
+	_AddTorqueModif += AddTorqueRate * DodgeRotaAccel
 	
 	velocity = (velocity / 2 ) + MaxSpeed * DodgeSpeed * DodgeDir.rotated(rotation + PI/2)
 
@@ -129,7 +133,7 @@ func _physics_process(_delta):
 	if Input.is_action_just_pressed("Dodge") and not _Crashed:
 		dodge(Vector2(_MoveInput.x, _MoveInput.y).normalized())
 	
-	_torque(_MoveInput.x)
+	_rotationAccel(_MoveInput.x)
 	rotate(_Torque)
 	
 	if _VelLength != 0:
@@ -149,11 +153,10 @@ func _physics_process(_delta):
 			var _CollisionLocal = to_local(get_slide_collision(_each).get_position())
 			
 			var _VelocityToTorqueAngle = sin(_CollisionLocal.rotated(rotation).angle_to(_CollisionVelocity))
-			print(_VelocityToTorqueAngle)
 			var _VelocityToTorque = _CollisionVelocity.length() * _CollisionLocal.length() * _VelocityToTorqueAngle
 			print(_VelocityToTorque * (1 - Inertia))
 			#_Torque = (_Torque * Inertia ) + (_VelocityToTorque * (1 - Inertia ) )
 			
-			#var _TorqueToVelocityAngle = get_wall_normal().rotated(sign(_Torque) * PI/4 * abs(_Torque / MaxRota ))
+			#var _TorqueToVelocityAngle = get_wall_normal().rotated(sign(_Torque) * PI/4 * abs(_Torque / MaxRotationSpeed ))
 			#velocity += _TorqueToVelocityAngle * _CollisionLocal.length() * abs(_Torque) * 10#Inertia
 	#endregion
