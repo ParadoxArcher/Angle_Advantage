@@ -33,18 +33,6 @@
             }
           },
           {
-            "id": "d1f55a3cb5cd77d9",
-            "type": "leaf",
-            "state": {
-              "type": "release-notes",
-              "state": {
-                "currentVersion": "1.9.12"
-              },
-              "icon": "lucide-book-up",
-              "title": "Release Notes 1.9.12"
-            }
-          },
-          {
             "id": "8c28eff34b6cd346",
             "type": "leaf",
             "state": {
@@ -107,8 +95,7 @@
               "title": "ToDoList"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -296,7 +283,7 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "d1f55a3cb5cd77d9",
+  "active": "b18ab1c5ffc31710",
   "lastOpenFiles": [
     "zProject Files/Godot/Scripts/Pla2CF1.tmp",
     "zProject Files/Godot/Scripts/PlaAB6C.tmp",
