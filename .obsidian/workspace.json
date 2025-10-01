@@ -95,7 +95,8 @@
               "title": "ToDoList"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -252,13 +253,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DevNotes/ToDoList.md",
+                "file": "zReferences/Excalidraw/Thought splurge.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of ToDoList"
+              "title": "Outline of Thought splurge"
             }
           }
         ],
@@ -283,8 +284,9 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "b18ab1c5ffc31710",
+  "active": "435608f7729f4aef",
   "lastOpenFiles": [
+    "DevNotes/ToDoList.md",
     "zProject Files/Godot/Scripts/Pla2CF1.tmp",
     "zProject Files/Godot/Scripts/PlaAB6C.tmp",
     "zProject Files/Godot/Scripts/Pla3273.tmp",
@@ -295,11 +297,9 @@
     "zProject Files/Godot/Scenes/GamA623.tmp",
     "zProject Files/Godot/Shaders/Test/Col3C4.tmp",
     "zProject Files/Godot/Scripts/Pla3A0.tmp",
-    "zProject Files/Godot/Scripts/PlaB5B1.tmp",
     "DevNotes/Player/Player.md",
     "Devlogs/2025-08-29.md",
     "zReferences/Excalidraw/Thought splurge.md",
-    "DevNotes/ToDoList.md",
     "DevNotes/Player/Movement/Movement Visualizer.md",
     "DevNotes/Player/Movement/Crash & Wall Bounce.md",
     "DevNotes/Player/Movement/Boost.md",
