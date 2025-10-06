@@ -178,7 +178,7 @@ func _physics_process(_delta):
 			
 			var _VelocityToTorqueAngle = sin(_CollisionLocal.rotated(rotation).angle_to(_CollisionVelocity))
 			var _VelocityToTorque = _CollisionVelocity.length() * _CollisionLocal.length() * _VelocityToTorqueAngle
-			_RotaMomentum += _VelocityToTorque / Inertia
+			#_RotaMomentum += _VelocityToTorque / Inertia
 			
 			#var _RotationAccelToVelocityAngle = get_wall_normal().rotated(sign(_RotaMomentum) * PI/4 * abs(_RotaMomentum / MaxRotationSpeed ))
 			#velocity += _RotationAccelToVelocityAngle * _CollisionLocal.length() * abs(_RotaMomentum) * 10#Inertia
