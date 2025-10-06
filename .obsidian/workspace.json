@@ -173,7 +173,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "bda899cf6f4015e6",
@@ -267,7 +268,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -284,8 +286,12 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "1c0c9be7258ae551",
+  "active": "435608f7729f4aef",
   "lastOpenFiles": [
+    "zReferences/Excalidraw/Thought splurge.md",
+    "Reference Images/Pasted Image 20251006150949_878.png",
+    "Reference Images",
+    "DevNotes/Player/Player.md",
     "DevNotes/ToDoList.md",
     "zProject Files/Godot/Scripts/Pla2CF1.tmp",
     "zProject Files/Godot/Scripts/PlaAB6C.tmp",
@@ -296,10 +302,7 @@
     "zProject Files/Godot/Scripts/PlaA646.tmp",
     "zProject Files/Godot/Scenes/GamA623.tmp",
     "zProject Files/Godot/Shaders/Test/Col3C4.tmp",
-    "zProject Files/Godot/Scripts/Pla3A0.tmp",
-    "DevNotes/Player/Player.md",
     "Devlogs/2025-08-29.md",
-    "zReferences/Excalidraw/Thought splurge.md",
     "DevNotes/Player/Movement/Movement Visualizer.md",
     "DevNotes/Player/Movement/Crash & Wall Bounce.md",
     "DevNotes/Player/Movement/Boost.md",
@@ -329,7 +332,6 @@
     "Devlogs/2025-03-21.md",
     "zProject Files/Godot/Assets/Player/Boost VFX 1.png",
     "zProject Files/Godot/Assets/Player/Avatar.png",
-    "zProject Files/Godot/Assets/Player/Boost VFX.png",
-    "zProject Files/Godot/Assets/Noises/PixelNoise.jpg"
+    "zProject Files/Godot/Assets/Player/Boost VFX.png"
   ]
 }
