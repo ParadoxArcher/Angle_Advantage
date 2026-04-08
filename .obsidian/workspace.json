@@ -173,8 +173,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "bda899cf6f4015e6",
@@ -289,6 +288,7 @@
   "active": "435608f7729f4aef",
   "lastOpenFiles": [
     "zReferences/Excalidraw/Thought splurge.md",
+    "zProject Files/Godot/Shaders/Test/ColDD86.tmp",
     "Reference Images/Pasted Image 20251006150949_878.png",
     "Reference Images",
     "DevNotes/Player/Player.md",
@@ -301,7 +301,6 @@
     "zProject Files/Godot/Shaders/Test/ColA66A.tmp",
     "zProject Files/Godot/Scripts/PlaA646.tmp",
     "zProject Files/Godot/Scenes/GamA623.tmp",
-    "zProject Files/Godot/Shaders/Test/Col3C4.tmp",
     "Devlogs/2025-08-29.md",
     "DevNotes/Player/Movement/Movement Visualizer.md",
     "DevNotes/Player/Movement/Crash & Wall Bounce.md",
